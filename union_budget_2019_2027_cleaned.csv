@@ -1,0 +1,117 @@
+gov_level,fiscal_year,sector,amount_crore,description
+union,2019-20,revenue,1919009,Gross Tax Revenue
+union,2019-20,other,528952,Interest Payments
+union,2019-20,security,276572,Defence
+union,2019-20,social_welfare,145745,Pension
+union,2019-20,agriculture_rural,134973,Rural Development
+union,2019-20,infrastructure,110399,Transport
+union,2019-20,other,107501,Transfer to States
+union,2019-20,social_welfare,100282,Food
+union,2019-20,other,92244,Finance Commission Grants
+union,2019-20,security,87547,Home Affairs
+union,2019-20,other,104749,Other Expenditure
+union,2019-20,total,2141973,Total Expenditure
+union,2020-21,revenue,582648,Interest Payments
+union,2020-21,security,290802,Defence
+union,2020-21,other,119144,Transfer to States
+union,2020-21,social_welfare,160211,Pension
+union,2020-21,agriculture_rural,132803,Rural Development
+union,2020-21,social_welfare,101327,Food Subsidy
+union,2020-21,security,98116,Home Affairs
+union,2020-21,education,80345,Education
+union,2020-21,infrastructure,54913,Railways
+union,2020-21,healthcare,54477,Health
+union,2020-21,other,601327,Other Expenditure
+union,2020-21,total,2315113,Total Expenditure
+union,2021-22,other,612070,Interest Payments
+union,2021-22,revenue,570244,Establishment Expenditure
+union,2021-22,infrastructure,561388,Railways
+union,2021-22,security,318665,Defence
+union,2021-22,social_welfare,183955,Pension
+union,2021-22,other,148907,Transfer to States
+union,2021-22,agriculture_rural,142384,Rural Development
+union,2021-22,agriculture_rural,112452,Agriculture and Allied Activities
+union,2021-22,social_welfare,108688,Food Subsidy
+union,2021-22,education,89437,Education
+union,2021-22,social_welfare,81124,Fertiliser Subsidy
+union,2021-22,social_welfare,44649,Social Welfare
+union,2021-22,energy,43542,Energy
+union,2021-22,infrastructure,42054,Urban Development
+union,2021-22,social_welfare,38529,Petroleum Subsidy
+union,2021-22,other,100000,Other Expenditure
+union,2021-22,total,2686330,Total Expenditure
+union,2022-23,revenue,2027104,Gross Tax Revenue
+union,2022-23,other,679869,Interest Payments
+union,2022-23,other,594997,Devolution to States
+union,2022-23,revenue,548778,GST
+union,2022-23,social_welfare,541330,Food Subsidy
+union,2022-23,revenue,487144,Taxes on Income
+union,2022-23,revenue,457719,Corporation Tax
+union,2022-23,revenue,391749,Union Excise Duties
+union,2022-23,social_welfare,383976,Centrally Sponsored Schemes
+union,2022-23,security,340094,Defence
+union,2022-23,infrastructure,216795,Transport
+union,2022-23,agriculture_rural,214246,Rural Development
+union,2022-23,other,211475,Transfer to States
+union,2022-23,social_welfare,208473,Pension
+union,2022-23,other,184063,Finance Commission Grants
+union,2022-23,revenue,134750,Customs
+union,2022-23,agriculture_rural,134420,Agriculture and Allied Activities
+union,2022-23,social_welfare,127922,Fertiliser Subsidy
+union,2022-23,agriculture_rural,111170,Employment Guarantee Program
+union,2022-23,revenue,106317,GST Compensation Fund
+union,2022-23,security,96652,Home Affairs
+union,2022-23,education,84219,Education
+union,2022-23,healthcare,80026,Health
+union,2022-23,other,100000,Other Expenditure
+union,2022-23,total,3509836,Total Expenditure
+union,2023-24,revenue,2709315,Gross Tax Revenue
+union,2023-24,other,805499,Interest Payments
+union,2023-24,security,366546,Defence
+union,2023-24,social_welfare,288969,Food Subsidy
+union,2023-24,agriculture_rural,228760,Rural Development
+union,2023-24,social_welfare,198946,Pension
+union,2023-24,revenue,199728,Customs
+union,2023-24,revenue,394644,Union Excise Duties
+union,2023-24,revenue,698114,GST
+union,2023-24,revenue,712037,Corporation Tax
+union,2023-24,other,198539,Other Expenditure
+union,2023-24,total,4503097,Total Expenditure
+union,2024-25,revenue,3840000,Gross Tax Revenue
+union,2024-25,other,928517,Interest Payments
+union,2024-25,security,399123,Defence
+union,2024-25,infrastructure,390508,Transport
+union,2024-25,social_welfare,272802,Food Subsidy
+union,2024-25,social_welfare,251339,Fertilizer Subsidy
+union,2024-25,social_welfare,241599,Pension
+union,2024-25,agriculture_rural,238396,Rural Development
+union,2024-25,revenue,213372,Customs
+union,2024-25,other,172760,Finance Commission Grants
+union,2024-25,revenue,163506,GST Compensation Fund
+union,2024-25,other,104275,Other Expenditure
+union,2024-25,total,4503097,Total Expenditure
+union,2025-26,revenue,4270233,Gross Tax Revenue
+union,2025-26,other,1276338,Interest Payments
+union,2025-26,security,491732,Defence
+union,2025-26,social_welfare,276618,Pension
+union,2025-26,social_welfare,203420,Food Subsidy
+union,2025-26,security,233211,Home Affairs
+union,2025-26,social_welfare,167887,Fertiliser Subsidy
+union,2025-26,education,128650,Education
+union,2025-26,healthcare,98311,Health
+union,2025-26,infrastructure,96777,Urban Development
+union,2025-26,infrastructure,548649,Transport
+union,2025-26,other,0,Other Expenditure
+union,2025-26,total,5065345,Total Expenditure
+union,2026-27,revenue,3796382,Gross Tax Revenue
+union,2026-27,other,1115575,Interest Payments
+union,2026-27,security,450733,Defence
+union,2026-27,infrastructure,560162,Transport
+union,2026-27,education,110736,Education
+union,2026-27,healthcare,88353,Health
+union,2026-27,social_welfare,170683,Fertiliser Subsidy
+union,2026-27,other,120858,Finance Commission Grants
+union,2026-27,infrastructure,53255,Urban Development
+union,2026-27,social_welfare,45804,Social Welfare
+union,2026-27,other,109801,Other Expenditure
+union,2026-27,total,4964842,Total Expenditure

@@ -1,0 +1,263 @@
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@300;400;600&display=swap');
+*{box-sizing:border-box;margin:0;padding:0}
+body,html{font-family:'IBM Plex Sans',sans-serif}
+.db{background:#ffffff;color:#161616;padding:0 0 48px}
+.utility-bar{background:#f4f4f4;border-bottom:1px solid #e0e0e0;padding:0 32px;height:32px;display:flex;align-items:center;gap:24px;font-size:12px;color:#525252;letter-spacing:.32px}
+.top-nav{background:#fff;border-bottom:1px solid #e0e0e0;height:48px;display:flex;align-items:center;padding:0 32px;gap:16px}
+.logo{font-size:20px;font-weight:300;color:#161616;letter-spacing:-.4px;margin-right:auto}
+.logo span{color:#0f62fe;font-weight:400}
+.nav-pill{font-size:14px;color:#525252;padding:0 12px;height:48px;display:flex;align-items:center;border-bottom:2px solid transparent;cursor:pointer;letter-spacing:.16px}
+.nav-pill.active{color:#161616;border-bottom-color:#0f62fe;font-weight:600}
+.hero{background:#161616;color:#fff;padding:32px 32px 24px;border-bottom:1px solid #262626}
+.hero-eyebrow{font-size:14px;color:#c6c6c6;letter-spacing:.16px;margin-bottom:8px}
+.hero-title{font-size:42px;font-weight:300;line-height:1.2;color:#fff;letter-spacing:0;margin-bottom:8px}
+.hero-title span{color:#0f62fe}
+.hero-sub{font-size:16px;color:#8c8c8c;letter-spacing:.16px}
+.kpi-row{display:grid;grid-template-columns:repeat(4,1fr);border-bottom:1px solid #e0e0e0}
+.kpi{padding:24px 32px;border-right:1px solid #e0e0e0}
+.kpi:last-child{border-right:none}
+.kpi-label{font-size:12px;color:#525252;letter-spacing:.32px;margin-bottom:8px;text-transform:uppercase}
+.kpi-val{font-size:32px;font-weight:300;line-height:1.25;color:#161616}
+.kpi-delta{font-size:14px;letter-spacing:.16px;margin-top:4px}
+.pos{color:#24a148}.neg{color:#da1e28}.neu{color:#525252}
+.section-band{background:#f4f4f4;border-bottom:1px solid #e0e0e0;border-top:1px solid #e0e0e0;padding:8px 32px;display:flex;align-items:center;justify-content:space-between}
+.section-label{font-size:14px;color:#525252;letter-spacing:.16px}
+.charts-grid{display:grid;grid-template-columns:1fr 1fr;border-bottom:1px solid #e0e0e0}
+.chart-tile{padding:24px 28px;border-right:1px solid #e0e0e0;border-bottom:1px solid #e0e0e0}
+.chart-tile.full{grid-column:1/-1;border-right:none}
+.chart-tile:nth-child(even){border-right:none}
+.chart-tile:last-child,.chart-tile:nth-last-child(2):nth-child(odd){border-bottom:none}
+.chart-header{display:flex;align-items:flex-start;justify-content:space-between;margin-bottom:4px}
+.chart-title{font-size:16px;font-weight:400;color:#161616;letter-spacing:.16px}
+.chart-desc{font-size:12px;color:#8c8c8c;letter-spacing:.32px;margin-bottom:16px}
+.chart-wrap{position:relative}
+.legend{display:flex;flex-wrap:wrap;gap:12px;margin-bottom:10px;font-size:12px;color:#525252;letter-spacing:.32px}
+.legend-dot{width:10px;height:10px;display:inline-block;margin-right:4px}
+.badge{font-size:11px;padding:2px 8px;border:1px solid #e0e0e0;color:#525252;letter-spacing:.16px}
+</style>
+
+<div class="db">
+<div class="utility-bar">
+  <span>India Public Finance Portal</span>
+  <span>|</span>
+  <span>FY 2015–2024</span>
+  <span>|</span>
+  <span>Source: Union Budget Documents, CAG Reports</span>
+</div>
+<div class="top-nav">
+  <div class="logo">Govt<span>Spend</span></div>
+  <div class="nav-pill active">Overview</div>
+  <div class="nav-pill">Union Budget</div>
+  <div class="nav-pill">State Finance</div>
+  <div class="nav-pill">Corporations</div>
+  <div class="nav-pill">Sectors</div>
+</div>
+
+<div class="hero">
+  <div class="hero-eyebrow">India Government Expenditure Analytics · Research Dashboard</div>
+  <div class="hero-title">Public Spending <span>Intelligence</span></div>
+  <div class="hero-sub">Growth trajectories · Sector priorities · YoY anomalies · Allocation shifts — FY 2015 to 2024</div>
+</div>
+
+<div class="kpi-row">
+  <div class="kpi">
+    <div class="kpi-label">Total Union Expenditure FY24</div>
+    <div class="kpi-val">₹44.9L Cr</div>
+    <div class="kpi-delta pos">↑ 6.2% YoY</div>
+  </div>
+  <div class="kpi">
+    <div class="kpi-label">State Consolidated FY24</div>
+    <div class="kpi-val">₹52.3L Cr</div>
+    <div class="kpi-delta pos">↑ 8.7% YoY</div>
+  </div>
+  <div class="kpi">
+    <div class="kpi-label">Capital Expenditure Share</div>
+    <div class="kpi-val">22.4%</div>
+    <div class="kpi-delta pos">↑ 4.1pp vs FY19</div>
+  </div>
+  <div class="kpi">
+    <div class="kpi-label">Defence % of Total Union</div>
+    <div class="kpi-val">13.2%</div>
+    <div class="kpi-delta neg">↓ 0.8pp YoY</div>
+  </div>
+</div>
+
+<div class="section-band">
+  <span class="section-label">Chart 1 — Log-scale spending comparison: Union · State · Central PSUs (₹ Crore)</span>
+  <span class="badge">Log scale</span>
+</div>
+<div style="padding:24px 28px;border-bottom:1px solid #e0e0e0">
+<div class="legend">
+  <span><span class="legend-dot" style="background:#0f62fe"></span>Union Govt</span>
+  <span><span class="legend-dot" style="background:#24a148"></span>State Govts</span>
+  <span><span class="legend-dot" style="background:#f1c21b"></span>Central PSUs</span>
+</div>
+<div class="chart-wrap" style="height:260px"><canvas id="c1" role="img" aria-label="Log scale comparison of Union, State and PSU spending 2015 to 2024">Union spending rose from 17.9L Cr in FY15 to 44.9L Cr in FY24; States rose from 22L Cr to 52.3L Cr; PSUs from 18L Cr to 38L Cr.</canvas></div>
+</div>
+
+<div class="charts-grid">
+  <div class="chart-tile">
+    <div class="chart-header"><span class="chart-title">Chart 2 — Union Budget Trend</span><span class="badge">FY15–24</span></div>
+    <div class="chart-desc">Revenue vs capital expenditure trajectory</div>
+    <div class="legend">
+      <span><span class="legend-dot" style="background:#0f62fe"></span>Revenue Exp</span>
+      <span><span class="legend-dot" style="background:#0043ce;border:2px dashed #0043ce;background:transparent"></span>Capital Exp</span>
+    </div>
+    <div class="chart-wrap" style="height:220px"><canvas id="c2" role="img" aria-label="Union budget revenue vs capital expenditure FY15 to FY24">Revenue expenditure dominated; capital accelerated post FY21.</canvas></div>
+  </div>
+  <div class="chart-tile">
+    <div class="chart-header"><span class="chart-title">Chart 3 — State Spending Trend</span><span class="badge">Selected States</span></div>
+    <div class="chart-desc">Maharashtra, UP, Tamil Nadu, Karnataka</div>
+    <div class="legend">
+      <span><span class="legend-dot" style="background:#0f62fe"></span>Maharashtra</span>
+      <span><span class="legend-dot" style="background:#24a148"></span>Uttar Pradesh</span>
+      <span><span class="legend-dot" style="background:#da1e28"></span>Tamil Nadu</span>
+      <span><span class="legend-dot" style="background:#f1c21b"></span>Karnataka</span>
+    </div>
+    <div class="chart-wrap" style="height:220px"><canvas id="c3" role="img" aria-label="State budget trends for Maharashtra UP Tamil Nadu Karnataka FY15 to FY24">Maharashtra leads, followed by UP which accelerated post FY20.</canvas></div>
+  </div>
+  <div class="chart-tile">
+    <div class="chart-header"><span class="chart-title">Chart 4 — Central PSU Capex</span><span class="badge">Top 5 PSUs</span></div>
+    <div class="chart-desc">Capital expenditure by major corporations</div>
+    <div class="legend">
+      <span><span class="legend-dot" style="background:#0f62fe"></span>Railways</span>
+      <span><span class="legend-dot" style="background:#24a148"></span>ONGC</span>
+      <span><span class="legend-dot" style="background:#da1e28"></span>NTPC</span>
+      <span><span class="legend-dot" style="background:#f1c21b"></span>NHAI</span>
+      <span><span class="legend-dot" style="background:#8c8c8c"></span>Coal India</span>
+    </div>
+    <div class="chart-wrap" style="height:220px"><canvas id="c4" role="img" aria-label="PSU capital expenditure by top 5 corporations FY15 to FY24">Railways and NHAI saw the sharpest capex rise post FY19.</canvas></div>
+  </div>
+  <div class="chart-tile">
+    <div class="chart-header"><span class="chart-title">Chart 5 — YoY Growth Rate</span><span class="badge">% change</span></div>
+    <div class="chart-desc">Year-on-year growth: Union vs States vs PSUs</div>
+    <div class="legend">
+      <span><span class="legend-dot" style="background:#0f62fe"></span>Union</span>
+      <span><span class="legend-dot" style="background:#24a148"></span>States</span>
+      <span><span class="legend-dot" style="background:#f1c21b"></span>PSUs</span>
+    </div>
+    <div class="chart-wrap" style="height:220px"><canvas id="c5" role="img" aria-label="Year on year spending growth rates for Union States PSUs FY16 to FY24">FY21 saw anomalous drops due to COVID-19; strong recovery in FY22–23.</canvas></div>
+  </div>
+  <div class="chart-tile full">
+    <div class="chart-header"><span class="chart-title">Chart 6 — Sector-wise Stacked Allocation (Union Budget)</span><span class="badge">% share</span></div>
+    <div class="chart-desc">Proportional sector spending shifts across years — education, health, defence, infrastructure, rural development, interest payments</div>
+    <div class="legend">
+      <span><span class="legend-dot" style="background:#0f62fe"></span>Interest Payments</span>
+      <span><span class="legend-dot" style="background:#24a148"></span>Infrastructure</span>
+      <span><span class="legend-dot" style="background:#da1e28"></span>Defence</span>
+      <span><span class="legend-dot" style="background:#f1c21b"></span>Rural Dev</span>
+      <span><span class="legend-dot" style="background:#525252"></span>Education</span>
+      <span><span class="legend-dot" style="background:#8c8c8c"></span>Health</span>
+    </div>
+    <div class="chart-wrap" style="height:260px"><canvas id="c6" role="img" aria-label="Stacked sector allocation of Union Budget FY15 to FY24 as percentage share">Interest payments remain the largest slice; infrastructure share grew steadily after FY19.</canvas></div>
+  </div>
+</div>
+
+<div style="background:#161616;padding:24px 32px;display:flex;align-items:center;justify-content:space-between">
+  <span style="font-size:12px;color:#c6c6c6;letter-spacing:.32px">Data sourced from Union Budget Documents, CAG Annual Reports, RBI State Finances Report · Figures are indicative for research illustration</span>
+  <span style="font-size:12px;color:#525252;letter-spacing:.32px">GovtSpend Analytics · Built with IBM Carbon Design System</span>
+</div>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.js"></script>
+<script>
+const years=['FY15','FY16','FY17','FY18','FY19','FY20','FY21','FY22','FY23','FY24'];
+const gridColor='rgba(22,22,22,0.08)';
+const tickColor='#525252';
+const base={responsive:true,maintainAspectRatio:false,plugins:{legend:{display:false}},scales:{x:{grid:{color:gridColor},ticks:{color:tickColor,font:{family:"'IBM Plex Sans',sans-serif",size:11}}},y:{grid:{color:gridColor},ticks:{color:tickColor,font:{family:"'IBM Plex Sans',sans-serif",size:11}}}}};
+
+// Chart 1 — Log scale overall comparison
+new Chart(document.getElementById('c1'),{
+  type:'line',
+  data:{
+    labels:years,
+    datasets:[
+      {label:'Union',data:[1790000,1978000,2146000,2442000,2686000,2638000,3474000,3793000,4231000,4490000],borderColor:'#0f62fe',backgroundColor:'rgba(15,98,254,0.06)',borderWidth:2,pointRadius:3,fill:true,tension:.3},
+      {label:'States',data:[2200000,2510000,2820000,3100000,3380000,3550000,3890000,4200000,4810000,5230000],borderColor:'#24a148',backgroundColor:'rgba(36,161,72,0.06)',borderWidth:2,pointRadius:3,fill:true,tension:.3},
+      {label:'PSUs',data:[1800000,1950000,2100000,2400000,2700000,2600000,2800000,3100000,3500000,3800000],borderColor:'#f1c21b',backgroundColor:'rgba(241,194,27,0.06)',borderWidth:2,pointRadius:3,fill:true,tension:.3}
+    ]
+  },
+  options:{...base,scales:{...base.scales,y:{...base.scales.y,type:'logarithmic',ticks:{...base.scales.y.ticks,callback:v=>'₹'+Math.round(v/100000)+'L Cr'}}}}
+});
+
+// Chart 2 — Union Revenue vs Capital
+new Chart(document.getElementById('c2'),{
+  type:'bar',
+  data:{
+    labels:years,
+    datasets:[
+      {label:'Revenue Exp',data:[1490000,1636000,1792000,2008000,2210000,2337000,3017000,3082000,3478000,3515000],backgroundColor:'#0f62fe'},
+      {label:'Capital Exp',data:[300000,342000,354000,434000,476000,301000,457000,711000,753000,975000],backgroundColor:'#e0e0e0'}
+    ]
+  },
+  options:{...base,scales:{...base.scales,x:{...base.scales.x,stacked:true},y:{...base.scales.y,stacked:true,ticks:{...base.scales.y.ticks,callback:v=>'₹'+Math.round(v/100000)+'L'}}}}
+});
+
+// Chart 3 — State trends
+new Chart(document.getElementById('c3'),{
+  type:'line',
+  data:{
+    labels:years,
+    datasets:[
+      {label:'Maharashtra',data:[340000,380000,420000,460000,500000,510000,560000,610000,680000,740000],borderColor:'#0f62fe',borderWidth:2,pointRadius:2,tension:.3,fill:false},
+      {label:'Uttar Pradesh',data:[250000,280000,310000,360000,400000,430000,490000,560000,640000,710000],borderColor:'#24a148',borderWidth:2,pointRadius:2,tension:.3,fill:false},
+      {label:'Tamil Nadu',data:[190000,210000,235000,260000,285000,295000,330000,365000,410000,450000],borderColor:'#da1e28',borderWidth:2,pointRadius:2,tension:.3,fill:false},
+      {label:'Karnataka',data:[160000,180000,200000,225000,250000,260000,290000,325000,370000,410000],borderColor:'#f1c21b',borderWidth:2,pointRadius:2,tension:.3,fill:false}
+    ]
+  },
+  options:{...base,scales:{...base.scales,y:{...base.scales.y,ticks:{...base.scales.y.ticks,callback:v=>'₹'+Math.round(v/100000)+'L'}}}}
+});
+
+// Chart 4 — PSU Capex
+new Chart(document.getElementById('c4'),{
+  type:'bar',
+  data:{
+    labels:years,
+    datasets:[
+      {label:'Railways',data:[100000,130000,121000,131000,134000,162000,215000,215000,240000,255000],backgroundColor:'#0f62fe'},
+      {label:'ONGC',data:[32000,28000,25000,22000,28000,26000,22000,29000,34000,31000],backgroundColor:'#24a148'},
+      {label:'NTPC',data:[18000,20000,23000,25000,27000,28000,30000,32000,35000,38000],backgroundColor:'#da1e28'},
+      {label:'NHAI',data:[25000,34000,52000,65000,78000,83000,113000,146000,162000,174000],backgroundColor:'#f1c21b'},
+      {label:'Coal India',data:[7000,8000,9000,10000,11000,12000,11000,12000,14000,15000],backgroundColor:'#8c8c8c'}
+    ]
+  },
+  options:{...base,scales:{...base.scales,x:{...base.scales.x,stacked:true},y:{...base.scales.y,stacked:true,ticks:{...base.scales.y.ticks,callback:v=>'₹'+Math.round(v/1000)+'K Cr'}}}}
+});
+
+// Chart 5 — YoY Growth rates
+const unionRaw=[1790000,1978000,2146000,2442000,2686000,2638000,3474000,3793000,4231000,4490000];
+const statesRaw=[2200000,2510000,2820000,3100000,3380000,3550000,3890000,4200000,4810000,5230000];
+const psusRaw=[1800000,1950000,2100000,2400000,2700000,2600000,2800000,3100000,3500000,3800000];
+const yoy=arr=>arr.slice(1).map((v,i)=>Math.round((v-arr[i])/arr[i]*100));
+new Chart(document.getElementById('c5'),{
+  type:'line',
+  data:{
+    labels:years.slice(1),
+    datasets:[
+      {label:'Union',data:yoy(unionRaw),borderColor:'#0f62fe',borderWidth:2,pointRadius:3,tension:.3,fill:false},
+      {label:'States',data:yoy(statesRaw),borderColor:'#24a148',borderWidth:2,pointRadius:3,tension:.3,fill:false},
+      {label:'PSUs',data:yoy(psusRaw),borderColor:'#f1c21b',borderWidth:2,pointRadius:3,tension:.3,fill:false}
+    ]
+  },
+  options:{...base,scales:{...base.scales,y:{...base.scales.y,ticks:{...base.scales.y.ticks,callback:v=>v+'%'}}},plugins:{...base.plugins,annotation:{annotations:{zero:{type:'line',yMin:0,yMax:0,borderColor:'#e0e0e0',borderWidth:1}}}}}
+});
+
+// Chart 6 — Sector stacked 100%
+new Chart(document.getElementById('c6'),{
+  type:'bar',
+  data:{
+    labels:years,
+    datasets:[
+      {label:'Interest Pmts',data:[20,21,22,21,21,22,22,21,20,20],backgroundColor:'#0f62fe'},
+      {label:'Infrastructure',data:[12,12,12,13,13,12,13,15,17,20],backgroundColor:'#24a148'},
+      {label:'Defence',data:[15,15,14,14,14,15,14,14,14,13],backgroundColor:'#da1e28'},
+      {label:'Rural Dev',data:[10,10,10,10,10,11,12,11,10,10],backgroundColor:'#f1c21b'},
+      {label:'Education',data:[4,4,4,3,3,3,3,3,3,3],backgroundColor:'#525252'},
+      {label:'Health',data:[2,2,2,2,2,2,3,3,3,3],backgroundColor:'#8c8c8c'}
+    ]
+  },
+  options:{...base,scales:{...base.scales,x:{...base.scales.x,stacked:true},y:{...base.scales.y,stacked:true,max:70,ticks:{...base.scales.y.ticks,callback:v=>v+'%'}}}}
+});
+</script>

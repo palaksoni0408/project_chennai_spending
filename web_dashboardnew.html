@@ -1,0 +1,717 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Chennai Government Spending — Analytics</title>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@300;400;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <script src="https://cdn.plot.ly/plotly-2.35.2.min.js"></script>
+  <style>
+    :root {
+      --blue:       #0f62fe;
+      --blue-60:    #0043ce;
+      --blue-80:    #002d9c;
+      --ink:        #161616;
+      --ink-muted:  #525252;
+      --ink-subtle: #8c8c8c;
+      --canvas:     #ffffff;
+      --surface-1:  #f4f4f4;
+      --surface-2:  #e0e0e0;
+      --hairline:   #e0e0e0;
+      --hairline-s: #161616;
+      --inv-canvas: #161616;
+      --inv-surf:   #262626;
+      --inv-ink:    #ffffff;
+      --inv-muted:  #c6c6c6;
+      --green:      #24a148;
+      --yellow:     #f1c21b;
+      --red:        #da1e28;
+      --sans:       'IBM Plex Sans', sans-serif;
+      --mono:       'IBM Plex Mono', monospace;
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: var(--sans);
+      background: var(--canvas);
+      color: var(--ink);
+      font-size: 14px; font-weight: 400;
+      letter-spacing: 0.16px; line-height: 1.29;
+    }
+
+    /* ── Utility bar ── */
+    .util-bar {
+      background: var(--surface-1);
+      border-bottom: 1px solid var(--hairline);
+      height: 32px; display: flex; align-items: center; padding: 0 32px;
+    }
+    .util-bar span { font-size: 12px; color: var(--ink-muted); letter-spacing: 0.32px; display: flex; align-items: center; gap: 8px; }
+    .live-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--green); display: inline-block; }
+
+    /* ── Top nav ── */
+    .top-nav {
+      background: var(--canvas);
+      border-bottom: 1px solid var(--hairline);
+      height: 48px; display: flex; align-items: center;
+      padding: 0 32px; position: sticky; top: 0; z-index: 100;
+    }
+    .nav-brand {
+      font-size: 14px; font-weight: 600; color: var(--ink);
+      display: flex; align-items: center; gap: 10px; margin-right: 24px;
+    }
+    .nav-rule { width: 1px; height: 18px; background: var(--hairline); }
+    .nav-sub { font-weight: 300; color: var(--ink-muted); font-size: 13px; }
+    .nav-tabs { display: flex; height: 100%; }
+    .nav-tab {
+      padding: 0 20px; font-size: 14px; font-weight: 400;
+      color: var(--ink-muted); border: none; background: none; cursor: pointer;
+      height: 48px; display: flex; align-items: center;
+      border-bottom: 2px solid transparent;
+      transition: color .12s, border-color .12s; white-space: nowrap;
+    }
+    .nav-tab:hover { color: var(--ink); }
+    .nav-tab.active { color: var(--ink); font-weight: 600; border-bottom-color: var(--blue); }
+    .nav-right { margin-left: auto; }
+
+    /* ── Shell ── */
+    .shell { max-width: 1480px; margin: 0 auto; padding: 0 32px; }
+
+    /* ── Hero ── */
+    .hero { padding: 40px 32px 32px; border-bottom: 1px solid var(--hairline); }
+    .hero-eyebrow { font-size: 14px; color: var(--blue); margin-bottom: 8px; }
+    .hero-title { font-size: 42px; font-weight: 300; line-height: 1.20; color: var(--ink); margin-bottom: 8px; }
+    .hero-sub { font-size: 16px; color: var(--ink-muted); line-height: 1.50; }
+
+    /* ── Filter band ── */
+    .filter-band {
+      background: var(--surface-1);
+      border-bottom: 1px solid var(--hairline);
+      padding: 20px 32px; display: flex; gap: 16px; align-items: flex-end; flex-wrap: wrap;
+    }
+    .fg { display: flex; flex-direction: column; gap: 4px; }
+    .fg label { font-size: 12px; color: var(--ink-muted); letter-spacing: 0.32px; }
+    select, input[type=text] {
+      font-family: var(--sans); font-size: 14px; letter-spacing: 0.16px;
+      color: var(--ink); background: var(--canvas);
+      border: none; border-bottom: 1px solid var(--ink-subtle);
+      padding: 11px 16px; outline: none;
+      -webkit-appearance: none; appearance: none; min-width: 130px;
+      transition: border-color .12s;
+    }
+    select[multiple] { height: 88px; border: 1px solid var(--hairline); }
+    select:focus, input:focus { border-bottom: 2px solid var(--blue); }
+    .btn {
+      background: var(--blue); color: var(--canvas);
+      border: none; padding: 12px 20px;
+      font-family: var(--sans); font-size: 14px; cursor: pointer;
+      transition: background .12s; white-space: nowrap; align-self: flex-end;
+    }
+    .btn:hover  { background: var(--blue-60); }
+    .btn:active { background: var(--blue-80); }
+
+    /* ── KPI strip ── */
+    .kpi-strip { display: grid; grid-template-columns: repeat(4,1fr); border-bottom: 1px solid var(--hairline); }
+    .kpi-cell {
+      padding: 28px 24px 24px; border-right: 1px solid var(--hairline);
+      background: var(--canvas); transition: background .12s;
+    }
+    .kpi-cell:last-child { border-right: none; }
+    .kpi-cell:hover { background: var(--surface-1); }
+    .kpi-eyebrow { font-size: 12px; color: var(--ink-subtle); letter-spacing: 0.32px; margin-bottom: 10px; }
+    .kpi-value { font-size: 32px; font-weight: 300; font-family: var(--mono); color: var(--ink); }
+    .kpi-delta { font-size: 12px; color: var(--ink-muted); margin-top: 6px; letter-spacing: 0.32px; }
+
+    /* ── Tab content ── */
+    .tab-content { display: none; }
+    .tab-content.active { display: block; }
+
+    /* ── Chart layout primitives ── */
+    .grid-2  { display: grid; grid-template-columns: 1fr 1fr; border-bottom: 1px solid var(--hairline); }
+    .grid-3  { display: grid; grid-template-columns: 1fr 1fr 1fr; border-bottom: 1px solid var(--hairline); }
+    .grid-32 { display: grid; grid-template-columns: 3fr 2fr; border-bottom: 1px solid var(--hairline); }
+    .full    { border-bottom: 1px solid var(--hairline); }
+
+    .tile {
+      padding: 28px 24px 20px; border-right: 1px solid var(--hairline); background: var(--canvas);
+    }
+    .tile:last-child { border-right: none; }
+    .tile.alt { background: var(--surface-1); }
+
+    .tile-hd { display: flex; align-items: flex-start; justify-content: space-between; margin-bottom: 4px; }
+    .tile-title { font-size: 16px; font-weight: 400; color: var(--ink); }
+    .tile-sub { font-size: 12px; color: var(--ink-subtle); letter-spacing: 0.32px; margin-bottom: 18px; }
+    .badge { font-family: var(--mono); font-size: 11px; color: var(--blue); border: 1px solid var(--blue); padding: 2px 8px; white-space: nowrap; }
+
+    /* ── Data table ── */
+    .tbl-wrap { overflow-x: auto; }
+    .dtbl { width: 100%; border-collapse: collapse; }
+    .dtbl thead tr { background: var(--surface-1); border-bottom: 2px solid var(--hairline-s); }
+    .dtbl th { font-family: var(--mono); font-size: 11px; text-transform: uppercase; letter-spacing: 0.8px; color: var(--ink-muted); padding: 10px 16px; text-align: left; white-space: nowrap; }
+    .dtbl td { font-size: 13px; padding: 11px 16px; border-bottom: 1px solid var(--hairline); color: var(--ink-muted); }
+    .dtbl tbody tr:hover td { background: var(--surface-1); color: var(--ink); }
+    .dtbl .amt { font-family: var(--mono); text-align: right; color: var(--ink); }
+
+    .tag { display: inline-block; padding: 2px 8px; font-size: 11px; font-family: var(--mono); text-transform: uppercase; letter-spacing: 0.5px; border: 1px solid currentColor; }
+    .tag-union        { color: var(--blue);       border-color: var(--blue); }
+    .tag-state        { color: var(--green);      border-color: var(--green); }
+    .tag-corporation  { color: var(--ink-muted);  border-color: var(--ink-muted); }
+
+    .chip { display: inline-block; padding: 2px 8px; font-size: 11px; background: var(--surface-2); color: var(--ink-muted); }
+
+    .z-pos { color: var(--red); font-family: var(--mono); font-weight: 500; }
+    .z-neg { color: var(--green); font-family: var(--mono); font-weight: 500; }
+
+    /* ── Footer ── */
+    footer {
+      background: var(--inv-canvas); border-top: 1px solid var(--inv-surf);
+      padding: 40px 32px 32px;
+    }
+    .footer-inner { max-width: 1480px; margin: 0 auto; display: flex; justify-content: space-between; align-items: flex-end; }
+    .footer-brand { font-size: 20px; font-weight: 600; color: var(--inv-ink); }
+    .footer-meta  { font-size: 12px; color: var(--inv-muted); letter-spacing: 0.32px; text-align: right; line-height: 2; }
+
+    @media (max-width: 1056px) {
+      .grid-2,.grid-3,.grid-32 { grid-template-columns: 1fr; }
+      .tile { border-right: none; border-bottom: 1px solid var(--hairline); }
+      .kpi-strip { grid-template-columns: repeat(2,1fr); }
+    }
+    @media (max-width: 672px) {
+      .kpi-strip { grid-template-columns: 1fr; }
+      .filter-band { flex-direction: column; }
+      .hero-title { font-size: 28px; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- Utility bar -->
+<div class="util-bar">
+  <span><span class="live-dot"></span> Chennai Government Spending Intelligence &nbsp;·&nbsp; Union · Tamil Nadu State · Corporation &nbsp;·&nbsp; <span id="lastUpdated">—</span></span>
+</div>
+
+<!-- Top nav -->
+<nav class="top-nav">
+  <div class="nav-brand">
+    Chennai Analytics
+    <span class="nav-rule"></span>
+    <span class="nav-sub">Spending Intelligence</span>
+  </div>
+  <div class="nav-tabs">
+    <button class="nav-tab active" data-tab="overview">Overview</button>
+    <button class="nav-tab" data-tab="levels">By Level</button>
+    <button class="nav-tab" data-tab="sectors">Sectors</button>
+    <button class="nav-tab" data-tab="records">Records</button>
+    <button class="nav-tab" data-tab="anomalies">Anomalies</button>
+  </div>
+  <div class="nav-right">
+    <button class="btn" id="applyTop">↻ Refresh</button>
+  </div>
+</nav>
+
+<!-- Hero -->
+<div class="hero">
+  <div class="hero-eyebrow">Government Spending Analytics · Amounts in ₹ Crore</div>
+  <div class="hero-title">Chennai Spending<br>Intelligence Dashboard</div>
+  <div class="hero-sub">Research-grade analysis of Union, Tamil Nadu State, and Chennai Corporation budgets across fiscal years — growth rates, sector shifts, anomaly detection.</div>
+</div>
+
+<!-- Filter band -->
+<div class="filter-band">
+  <div class="fg"><label>Government level</label><select id="levels" multiple></select></div>
+  <div class="fg"><label>Fiscal year</label><select id="years" multiple></select></div>
+  <div class="fg"><label>Sector</label><select id="sectors" multiple></select></div>
+  <div class="fg"><label>Search description</label><input id="q" type="text" placeholder="keyword…" style="min-width:200px" /></div>
+  <div class="fg"><label>Top N sectors</label>
+    <select id="topn">
+      <option value="8">Top 8</option>
+      <option value="12" selected>Top 12</option>
+      <option value="20">Top 20</option>
+    </select>
+  </div>
+  <div class="fg"><label>"Other" sector</label>
+    <select id="showOther">
+      <option value="exclude" selected>Exclude</option>
+      <option value="include">Include</option>
+    </select>
+  </div>
+  <div class="fg"><label>Y-axis scale</label>
+    <select id="scale">
+      <option value="linear" selected>Linear</option>
+      <option value="log">Logarithmic</option>
+    </select>
+  </div>
+  <button class="btn" id="apply">↻ Apply filters</button>
+</div>
+
+<!-- KPI strip -->
+<div class="kpi-strip" id="kpiStrip">
+  <div class="kpi-cell"><div class="kpi-eyebrow">Loading…</div></div>
+  <div class="kpi-cell"><div class="kpi-eyebrow">Loading…</div></div>
+  <div class="kpi-cell"><div class="kpi-eyebrow">Loading…</div></div>
+  <div class="kpi-cell"><div class="kpi-eyebrow">Loading…</div></div>
+</div>
+
+<!-- ══ Tab panels ══ -->
+
+<!-- OVERVIEW -->
+<div class="tab-content active" id="tab-overview">
+
+  <!-- Chart 1: Log-scale overall -->
+  <div class="full">
+    <div class="tile">
+      <div class="tile-hd"><div><div class="tile-title">Chart 1 — Overall spending comparison</div><div class="tile-sub">All three government levels on one canvas. Y-axis scaled by the global Linear / Logarithmic toggle above.</div></div><span class="badge" id="c1badge">LINEAR</span></div>
+      <div id="c1" style="height:380px"></div>
+    </div>
+  </div>
+
+  <!-- Charts 2 + 3 -->
+  <div class="grid-2">
+    <div class="tile">
+      <div class="tile-hd"><div><div class="tile-title">Chart 2 — Union yearly trend</div><div class="tile-sub">Central government allocations, year on year.</div></div><span class="badge">UNION</span></div>
+      <div id="c2" style="height:300px"></div>
+    </div>
+    <div class="tile alt">
+      <div class="tile-hd"><div><div class="tile-title">Chart 3 — State yearly trend</div><div class="tile-sub">Tamil Nadu state budget allocations, year on year.</div></div><span class="badge">STATE</span></div>
+      <div id="c3" style="height:300px"></div>
+    </div>
+  </div>
+
+  <!-- Charts 4 + 5 -->
+  <div class="grid-2">
+    <div class="tile alt">
+      <div class="tile-hd"><div><div class="tile-title">Chart 4 — Corporation yearly trend</div><div class="tile-sub">Chennai Corporation (GCC) budget allocations, year on year.</div></div><span class="badge">CORP</span></div>
+      <div id="c4" style="height:300px"></div>
+    </div>
+    <div class="tile">
+      <div class="tile-hd"><div><div class="tile-title">Chart 5 — Year-on-year growth rate (%)</div><div class="tile-sub">Comparative growth velocity across all three government levels.</div></div><span class="badge">YoY %</span></div>
+      <div id="c5" style="height:300px"></div>
+    </div>
+  </div>
+
+  <!-- Chart 6: Stacked sector -->
+  <div class="full">
+    <div class="tile">
+      <div class="tile-hd"><div><div class="tile-title">Chart 6 — Sector-wise stacked spending</div><div class="tile-sub">Cumulative ₹ crore across top sectors, stacked by government level. Reveals cross-level priority alignment and sector dominance.</div></div><span class="badge">STACKED</span></div>
+      <div id="c6" style="height:420px"></div>
+    </div>
+  </div>
+
+</div>
+
+<!-- BY LEVEL -->
+<div class="tab-content" id="tab-levels">
+  <div class="full">
+    <div class="tile">
+      <div class="tile-hd"><div><div class="tile-title">Spending share by government level</div><div class="tile-sub">Proportional distribution of total ₹ crore across Union, State, and Corporation.</div></div></div>
+      <div id="lDonut" style="height:360px"></div>
+    </div>
+  </div>
+  <div class="grid-2">
+    <div class="tile">
+      <div class="tile-hd"><div><div class="tile-title">Sector × Level heatmap (log intensity)</div><div class="tile-sub">Darker = higher spend. Reveals which sectors each level prioritises.</div></div><span class="badge">HEATMAP</span></div>
+      <div id="lHeat" style="height:440px"></div>
+    </div>
+    <div class="tile alt">
+      <div class="tile-hd"><div><div class="tile-title">Spending composition treemap</div><div class="tile-sub">Area proportional to ₹ crore. Full sector × level decomposition at a glance.</div></div><span class="badge">TREEMAP</span></div>
+      <div id="lTree" style="height:440px"></div>
+    </div>
+  </div>
+</div>
+
+<!-- SECTORS -->
+<div class="tab-content" id="tab-sectors">
+  <div class="full">
+    <div class="tile">
+      <div class="tile-hd"><div><div class="tile-title">Top sectors by total spend</div><div class="tile-sub">Ranked by ₹ crore. p95 display cap applied — hover for actual values.</div></div><span class="badge" id="secBadge">—</span></div>
+      <div id="sBar" style="height:360px"></div>
+    </div>
+  </div>
+  <div class="grid-2">
+    <div class="tile alt">
+      <div class="tile-hd"><div><div class="tile-title">Sector % share by level (100% stacked)</div><div class="tile-sub">Normalised view — what fraction of each level's total goes to each sector.</div></div></div>
+      <div id="sStack100" style="height:360px"></div>
+    </div>
+    <div class="tile">
+      <div class="tile-hd"><div><div class="tile-title">Sector spending distribution</div><div class="tile-sub">Box plot of sector amounts per level — reveals spread, median, and outliers.</div></div></div>
+      <div id="sBox" style="height:360px"></div>
+    </div>
+  </div>
+</div>
+
+<!-- RECORDS -->
+<div class="tab-content" id="tab-records">
+  <div style="padding:28px 32px 0; border-bottom:1px solid var(--hairline)">
+    <div class="tile-title" style="margin-bottom:4px">Top spending records</div>
+    <div class="tile-sub" style="margin-bottom:20px">Sorted by amount descending. OCR-outlier rows excluded by the API.</div>
+    <div class="tbl-wrap">
+      <table class="dtbl" id="recTbl">
+        <thead><tr><th>Level</th><th>Year</th><th>Sector</th><th style="text-align:right">Amount (₹ Cr)</th><th>Description</th></tr></thead>
+        <tbody></tbody>
+      </table>
+    </div>
+    <div style="height:32px"></div>
+  </div>
+</div>
+
+<!-- ANOMALIES -->
+<div class="tab-content" id="tab-anomalies">
+  <div style="padding:28px 32px 0; border-bottom:1px solid var(--hairline)">
+    <div class="tile-hd" style="margin-bottom:4px">
+      <div>
+        <div class="tile-title">Statistical anomaly candidates</div>
+        <div class="tile-sub" style="margin-bottom:0">Rows flagged by |z-score| ≥ 1.5 relative to each government level's mean across years.</div>
+      </div>
+      <span class="badge" id="anomBadge">—</span>
+    </div>
+    <div style="height:24px"></div>
+    <div class="tbl-wrap">
+      <table class="dtbl" id="anomTbl">
+        <thead><tr><th>Level</th><th>Year</th><th style="text-align:right">Amount (₹ Cr)</th><th style="text-align:right">Z-score</th><th>Signal</th></tr></thead>
+        <tbody></tbody>
+      </table>
+    </div>
+    <div style="height:32px"></div>
+  </div>
+</div>
+
+<!-- Footer -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-brand">Chennai Analytics</div>
+    <div class="footer-meta">
+      FastAPI backend &nbsp;·&nbsp; Plotly.js charts &nbsp;·&nbsp; Research Dashboard<br>
+      Data: Union Budget · TN State Budget · GCC Corporation Budget
+    </div>
+  </div>
+</footer>
+
+<script>
+  const API = window.location.hostname === "127.0.0.1" || window.location.hostname === "localhost"
+    ? (window.location.port === "8000" ? "" : "http://127.0.0.1:8000")
+    : (window.location.origin || "");
+
+  const LEVEL_COLORS = { union:"#0f62fe", state:"#24a148", corporation:"#525252" };
+  const SECTOR_PALETTE = [
+    "#0f62fe","#0043ce","#002d9c","#24a148","#f1c21b","#da1e28",
+    "#6929c4","#9f1853","#1192e8","#005d5d","#009d9a","#a56eff",
+    "#08bdba","#bae6ff","#d2a106","#08bdba",
+  ];
+
+  const PLT = {
+    paper_bgcolor:"rgba(0,0,0,0)", plot_bgcolor:"rgba(0,0,0,0)",
+    font:{ family:"'IBM Plex Sans',sans-serif", color:"#525252", size:11 },
+    margin:{ t:8, r:16, b:52, l:64 },
+    xaxis:{ gridcolor:"#e0e0e0", zeroline:false, linecolor:"#e0e0e0", tickfont:{size:10} },
+    yaxis:{ gridcolor:"#e0e0e0", zeroline:false, linecolor:"#e0e0e0", tickfont:{size:10} },
+    legend:{ bgcolor:"rgba(0,0,0,0)", bordercolor:"rgba(0,0,0,0)", font:{size:11} },
+  };
+  const CFG = { displayModeBar:false, responsive:true };
+
+  const $   = id => document.getElementById(id);
+  const sel = id => Array.from($(id).selectedOptions).map(x=>x.value);
+  const YSCALE = () => $("scale").value || "linear";
+  const fmt = (n,d=2) => Number(n).toLocaleString("en-IN",{maximumFractionDigits:d});
+  const get = url => fetch(url).then(r=>r.json());
+  const lc  = l => l.toLowerCase();
+  const lCol= l => LEVEL_COLORS[lc(l)]||"#8c8c8c";
+
+  function buildParams(){
+    const p=new URLSearchParams();
+    sel("levels").forEach(v=>p.append("gov_levels",v));
+    sel("years").forEach(v=>p.append("fiscal_years",v));
+    sel("sectors").forEach(v=>p.append("sectors",v));
+    const q=$("q").value.trim(); if(q) p.set("q",q);
+    return p.toString();
+  }
+
+  function noOther(sm){ return $("showOther").value==="exclude"?sm.filter(r=>lc(r.sector)!=="other"):sm; }
+
+  /* ── Filters ── */
+  async function initFilters(){
+    const f=await get(`${API}/filters`);
+    [["levels",f.gov_levels],["years",f.fiscal_years],["sectors",f.sectors]].forEach(([id,arr])=>{
+      const el=$(id); el.innerHTML="";
+      arr.forEach(v=>{ const o=document.createElement("option"); o.value=v; o.textContent=v; o.selected=true; el.appendChild(o); });
+    });
+  }
+
+  /* ── KPIs ── */
+  function renderKPIs(k){
+    $("kpiStrip").innerHTML=[
+      {label:"Total spend (₹ crore)", val:fmt(k.total_amount_crore), d:`${fmt(k.rows,0)} rows`},
+      {label:"Viz-clean spend (₹ crore)", val:fmt(k.viz_total_amount_crore||0), d:`${fmt(k.viz_rows,0)} clean rows`},
+      {label:"Distinct sectors", val:fmt(k.distinct_sectors,0), d:"unique categories"},
+      {label:"Government levels", val:k.distinct_levels, d:"union · state · corporation"},
+    ].map(c=>`<div class="kpi-cell"><div class="kpi-eyebrow">${c.label}</div><div class="kpi-value">${c.val}</div><div class="kpi-delta">${c.d}</div></div>`).join("");
+  }
+
+  /* ── Chart 1: Log overall ── */
+  function renderC1(ts){
+    const lvls=[...new Set(ts.map(r=>r.gov_level))];
+    Plotly.newPlot("c1",lvls.map(l=>({
+      type:"scatter", mode:"lines+markers", name:l,
+      x:ts.filter(r=>r.gov_level===l).map(r=>r.fiscal_year),
+      y:ts.filter(r=>r.gov_level===l).map(r=>Number(r.amount_crore)),
+      line:{width:2.5, color:lCol(l)}, marker:{size:7, color:lCol(l)},
+      hovertemplate:"<b>%{x}</b><br>₹%{y:,.2f} Cr<extra>"+l+"</extra>",
+    })),{
+      ...PLT,
+      yaxis:{...PLT.yaxis, type:"linear", title:"₹ Crore"},
+      xaxis:{...PLT.xaxis, title:"Fiscal Year"},
+      legend:{...PLT.legend, orientation:"h", y:-0.2},
+    },CFG);
+  }
+
+  /* ── Charts 2-4: Per level ── */
+  function renderLevelTrend(div, ts, level){
+    const rows=ts.filter(r=>lc(r.gov_level)===lc(level)).sort((a,b)=>a.fiscal_year.localeCompare(b.fiscal_year));
+    const col=lCol(level);
+    // hex to rgba fill
+    const hex=col.replace("#","");
+    const r=parseInt(hex.slice(0,2),16), g=parseInt(hex.slice(2,4),16), b2=parseInt(hex.slice(4,6),16);
+    Plotly.newPlot(div,[{
+      type:"scatter", mode:"lines+markers", name:level,
+      x:rows.map(r=>r.fiscal_year), y:rows.map(r=>Number(r.amount_crore)),
+      line:{width:2.5,color:col}, marker:{size:7,color:col},
+      fill:"tozeroy", fillcolor:`rgba(${r},${g},${b2},0.07)`,
+      hovertemplate:"<b>%{x}</b><br>₹%{y:,.2f} Cr<extra></extra>",
+    }],{
+      ...PLT, showlegend:false,
+      xaxis:{...PLT.xaxis, title:"Fiscal Year"},
+      yaxis:{...PLT.yaxis, type:YSCALE(), title:`₹ Crore ${YSCALE()==="log"?"(log)":""}`.trim()},
+    },CFG);
+  }
+
+  /* ── Chart 5: YoY growth (bars, always linear — negative values incompatible with log) ── */
+  function renderC5(ts){
+    const lvls=[...new Set(ts.map(r=>r.gov_level))];
+    Plotly.newPlot("c5",lvls.map(l=>{
+      const rows=ts.filter(r=>r.gov_level===l).sort((a,b)=>a.fiscal_year.localeCompare(b.fiscal_year));
+      const yoy=rows.map((r,i)=>i===0?null:((r.amount_crore-rows[i-1].amount_crore)/(rows[i-1].amount_crore||1))*100);
+      return { type:"bar", name:l, x:rows.map(r=>r.fiscal_year), y:yoy,
+        marker:{color:lCol(l), opacity:0.85},
+        text:yoy.map(v=>v===null?"":`${v>0?"+":""}${v.toFixed(1)}%`),
+        textposition:"outside", textfont:{size:9.5,color:"#161616"},
+        hovertemplate:"<b>%{x}</b><br>%{y:.1f}%<extra>"+l+"</extra>" };
+    }),{
+      ...PLT, barmode:"group",
+      xaxis:{...PLT.xaxis, title:"Fiscal Year"},
+      yaxis:{...PLT.yaxis, title:"Growth (%)", zeroline:true, zerolinecolor:"#e0e0e0", zerolinewidth:1},
+      legend:{...PLT.legend, orientation:"h", y:-0.22},
+    },CFG);
+  }
+
+  /* ── Chart 6: Stacked sector ── */
+  function renderC6(sm){
+    const topn=Number($("topn").value||12);
+    const data=noOther(sm);
+    const agg={}; data.forEach(r=>{ agg[r.sector]=(agg[r.sector]||0)+Number(r.amount_crore||0); });
+    const topSec=Object.entries(agg).sort((a,b)=>b[1]-a[1]).slice(0,topn).map(x=>x[0]);
+    const lvls=[...new Set(data.map(r=>r.gov_level))];
+    Plotly.newPlot("c6",lvls.map(l=>({
+      type:"bar", name:l, x:topSec,
+      y:topSec.map(s=>{ const row=data.find(r=>r.sector===s&&r.gov_level===l); return row?Number(row.amount_crore):0; }),
+      marker:{color:lCol(l), opacity:0.87},
+      hovertemplate:"<b>%{x}</b><br>₹%{y:,.2f} Cr<extra>"+l+"</extra>",
+    })),{
+      ...PLT, barmode:"stack",
+      xaxis:{...PLT.xaxis, title:"Sector", tickangle:-30},
+      yaxis:{...PLT.yaxis, type:YSCALE(), title:`₹ Crore ${YSCALE()==="log"?"(log)":""}`.trim()},
+      legend:{...PLT.legend, orientation:"h", y:-0.22},
+    },CFG);
+  }
+
+  /* ── Donut ── */
+  function renderDonut(ts){
+    const agg={}; ts.forEach(r=>{ agg[r.gov_level]=(agg[r.gov_level]||0)+Number(r.amount_crore); });
+    Plotly.newPlot("lDonut",[{
+      type:"pie", hole:0.52,
+      labels:Object.keys(agg), values:Object.values(agg),
+      marker:{colors:Object.keys(agg).map(l=>lCol(l))},
+      textposition:"outside",
+      hovertemplate:"<b>%{label}</b><br>₹%{value:,.2f} Cr<br>%{percent}<extra></extra>",
+    }],{
+      ...PLT,
+      legend:{...PLT.legend, orientation:"h", y:-0.1},
+      margin:{t:10,r:10,b:60,l:10},
+    },CFG);
+  }
+
+  /* ── Heatmap ── */
+  function renderHeatmap(sm){
+    const data=noOther(sm);
+    const lvls=[...new Set(data.map(r=>r.gov_level))];
+    const secs=[...new Set(data.map(r=>r.sector))].slice(0,16);
+    const z=secs.map(s=>lvls.map(l=>{ const r=data.find(x=>x.sector===s&&x.gov_level===l); return r?Math.log1p(Number(r.amount_crore)):0; }));
+    Plotly.newPlot("lHeat",[{
+      type:"heatmap", z, x:lvls, y:secs,
+      colorscale:[[0,"#f4f4f4"],[0.35,"#a8c8ff"],[0.7,"#0f62fe"],[1,"#001d6c"]],
+      hovertemplate:"<b>%{y}</b><br>Level: %{x}<br>log₁(₹+1): %{z:.2f}<extra></extra>",
+      showscale:true,
+    }],{
+      ...PLT, margin:{t:10,r:10,b:80,l:110},
+      xaxis:{...PLT.xaxis}, yaxis:{...PLT.yaxis, tickfont:{size:10}},
+    },CFG);
+  }
+
+  /* ── Treemap ── */
+  function renderTreemap(sm){
+    const data=noOther(sm).filter(r=>Number(r.amount_crore)>0);
+    Plotly.newPlot("lTree",[{
+      type:"treemap",
+      labels:data.map(r=>`${r.sector} (${r.gov_level})`),
+      parents:data.map(_=>""),
+      values:data.map(r=>Number(r.amount_crore||0)),
+      textinfo:"label+percent entry",
+      marker:{colorscale:[[0,"#f4f4f4"],[0.5,"#a8c8ff"],[1,"#0f62fe"]], showscale:false, line:{color:"#ffffff",width:2}},
+      hovertemplate:"<b>%{label}</b><br>₹%{value:,.2f} Cr · %{percentEntry:.1%}<extra></extra>",
+    }],{...PLT, margin:{t:10,r:10,b:10,l:10}},CFG);
+  }
+
+  /* ── Sector bar ── */
+  function renderSectorBar(sm){
+    const topn=Number($("topn").value||12);
+    const data=noOther(sm);
+    const agg={}; data.forEach(r=>{ agg[r.sector]=(agg[r.sector]||0)+Number(r.amount_crore||0); });
+    const top=Object.entries(agg).sort((a,b)=>b[1]-a[1]).slice(0,topn);
+    const vals=[...top.map(x=>x[1])].sort((a,b)=>a-b);
+    const p95=vals[Math.max(0,Math.floor(vals.length*.95)-1)]||vals[vals.length-1]||0;
+    $("secBadge").textContent=`Top ${topn}`;
+    Plotly.newPlot("sBar",[{
+      type:"bar",
+      x:top.map(x=>x[0]),
+      y:top.map(x=>Math.min(x[1],p95||x[1])),
+      customdata:top.map(x=>x[1]),
+      hovertemplate:"<b>%{x}</b><br>Displayed: ₹%{y:,.2f} Cr<br>Actual: ₹%{customdata:,.2f} Cr<extra></extra>",
+      marker:{ color:top.map((_,i)=>SECTOR_PALETTE[i%SECTOR_PALETTE.length]), opacity:0.88, line:{color:"rgba(0,0,0,0.08)",width:1} },
+    }],{
+      ...PLT,
+      xaxis:{...PLT.xaxis, tickangle:-32},
+      yaxis:{...PLT.yaxis, type:YSCALE(), title:`₹ Crore ${YSCALE()==="log"?"(log)":""}`.trim()},
+      annotations:[{xref:"paper",yref:"paper",x:1,y:1.04,showarrow:false,text:`p95 cap${YSCALE()==="log"?" · log scale":""} · hover for actuals`,font:{size:9,color:"#8c8c8c"}}],
+    },CFG);
+  }
+
+  /* ── 100% stacked ── */
+  function renderStack100(sm){
+    const topn=Number($("topn").value||12);
+    const data=noOther(sm);
+    const agg={}; data.forEach(r=>{ agg[r.sector]=(agg[r.sector]||0)+Number(r.amount_crore||0); });
+    const topSec=Object.entries(agg).sort((a,b)=>b[1]-a[1]).slice(0,topn).map(x=>x[0]);
+    const lvls=[...new Set(data.map(r=>r.gov_level))];
+    Plotly.newPlot("sStack100",topSec.map((s,si)=>({
+      type:"bar", name:s, x:lvls,
+      y:lvls.map(l=>{
+        const tot=data.filter(r=>r.gov_level===l).reduce((a,r)=>a+Number(r.amount_crore||0),0);
+        const sv=data.filter(r=>r.gov_level===l&&r.sector===s).reduce((a,r)=>a+Number(r.amount_crore||0),0);
+        return tot?sv/tot*100:0;
+      }),
+      marker:{color:SECTOR_PALETTE[si%SECTOR_PALETTE.length]},
+      hovertemplate:"<b>%{x}</b><br>"+s+": %{y:.1f}%<extra></extra>",
+    })),{
+      ...PLT, barmode:"stack",
+      xaxis:{...PLT.xaxis, title:"Government level"},
+      yaxis:{...PLT.yaxis, title:"% share", range:[0,100]},
+      legend:{...PLT.legend, orientation:"h", y:-0.28, font:{size:9}},
+    },CFG);
+  }
+
+  /* ── Box plot ── */
+  function renderBoxplot(sm){
+    const topn=Number($("topn").value||12);
+    const data=noOther(sm);
+    const agg={}; data.forEach(r=>{ agg[r.sector]=(agg[r.sector]||0)+Number(r.amount_crore||0); });
+    const topSec=Object.entries(agg).sort((a,b)=>b[1]-a[1]).slice(0,topn).map(x=>x[0]);
+    const lvls=[...new Set(data.map(r=>r.gov_level))];
+    Plotly.newPlot("sBox",lvls.map(l=>({
+      type:"box", name:l, boxpoints:"outliers",
+      x:data.filter(r=>r.gov_level===l&&topSec.includes(r.sector)).map(r=>r.sector),
+      y:data.filter(r=>r.gov_level===l&&topSec.includes(r.sector)).map(r=>Number(r.amount_crore||0)),
+      marker:{color:lCol(l), size:3},
+      hovertemplate:"<b>%{x}</b><br>₹%{y:,.2f} Cr<extra>"+l+"</extra>",
+    })),{
+      ...PLT, boxmode:"group",
+      xaxis:{...PLT.xaxis, tickangle:-30},
+      yaxis:{...PLT.yaxis, type:YSCALE(), title:`₹ Crore ${YSCALE()==="log"?"(log)":""}`.trim()},
+      legend:{...PLT.legend, orientation:"h", y:-0.25},
+    },CFG);
+  }
+
+  /* ── Records ── */
+  function renderRecords(recs){
+    document.querySelector("#recTbl tbody").innerHTML=recs.map(r=>`<tr>
+      <td><span class="tag tag-${lc(r.gov_level)}">${r.gov_level}</span></td>
+      <td style="font-family:var(--mono)">${r.fiscal_year}</td>
+      <td><span class="chip">${r.sector}</span></td>
+      <td class="amt">₹${fmt(r.amount_crore,2)}</td>
+      <td>${r.display_description||r.clean_description||"—"}</td>
+    </tr>`).join("");
+  }
+
+  /* ── Anomalies ── */
+  function renderAnomalies(ts){
+    const byLvl={};
+    ts.forEach(r=>{ if(!byLvl[r.gov_level]) byLvl[r.gov_level]=[]; byLvl[r.gov_level].push(r); });
+    const flags=[];
+    Object.entries(byLvl).forEach(([lvl,rows])=>{
+      const vals=rows.map(r=>Number(r.amount_crore));
+      const mean=vals.reduce((a,b)=>a+b,0)/vals.length;
+      const std=Math.sqrt(vals.reduce((a,b)=>a+(b-mean)**2,0)/vals.length)||1;
+      rows.forEach(r=>{ const z=(Number(r.amount_crore)-mean)/std; if(Math.abs(z)>=1.5) flags.push({...r,z}); });
+    });
+    flags.sort((a,b)=>Math.abs(b.z)-Math.abs(a.z));
+    $("anomBadge").textContent=`${flags.length} flagged`;
+    document.querySelector("#anomTbl tbody").innerHTML=flags.slice(0,80).map(r=>`<tr>
+      <td><span class="tag tag-${lc(r.gov_level)}">${r.gov_level}</span></td>
+      <td style="font-family:var(--mono)">${r.fiscal_year}</td>
+      <td class="amt">₹${fmt(r.amount_crore,2)}</td>
+      <td style="text-align:right"><span class="${r.z>0?"z-pos":"z-neg"}">${r.z>0?"+":""}${r.z.toFixed(2)}</span></td>
+      <td style="font-size:11px;color:var(--ink-subtle)">${r.z>0?"▲ Spike above trend":"▼ Dip below trend"}</td>
+    </tr>`).join("");
+  }
+
+  /* ── Master refresh ── */
+  async function refresh(){
+    const q=buildParams();
+    const [kpis,ts,sm,recs]=await Promise.all([
+      get(`${API}/kpis?${q}`),
+      get(`${API}/timeseries?${q}`),
+      get(`${API}/sector-mix?${q}`),
+      get(`${API}/records?limit=200&${q}`),
+    ]);
+    renderKPIs(kpis);
+    renderC1(ts);
+    renderLevelTrend("c2",ts,"union");
+    renderLevelTrend("c3",ts,"state");
+    renderLevelTrend("c4",ts,"corporation");
+    renderC5(ts);
+    renderC6(sm);
+    renderDonut(ts);
+    renderHeatmap(sm);
+    renderTreemap(sm);
+    renderSectorBar(sm);
+    renderStack100(sm);
+    renderBoxplot(sm);
+    renderRecords(recs);
+    renderAnomalies(ts);
+    $("lastUpdated").textContent="Updated "+new Date().toLocaleTimeString();
+  }
+
+  /* ── Tabs ── */
+  document.querySelectorAll(".nav-tab").forEach(btn=>{
+    btn.addEventListener("click",()=>{
+      document.querySelectorAll(".nav-tab").forEach(b=>b.classList.remove("active"));
+      document.querySelectorAll(".tab-content").forEach(p=>p.classList.remove("active"));
+      btn.classList.add("active");
+      $("tab-"+btn.dataset.tab).classList.add("active");
+      setTimeout(()=>window.dispatchEvent(new Event("resize")),60);
+    });
+  });
+
+  $("q").addEventListener("keydown",e=>{ if(e.key==="Enter") refresh(); });
+  $("apply").addEventListener("click",refresh);
+  $("applyTop").addEventListener("click",refresh);
+
+  initFilters().then(refresh);
+</script>
+</body>
+</html>

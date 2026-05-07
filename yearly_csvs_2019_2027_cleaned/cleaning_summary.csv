@@ -1,0 +1,9 @@
+file,rows_before,rows_after_noise_filter,rows_after_numeric_filter,final_rows
+union_budget_2019-20.csv,22077,20939,13562,13562
+union_budget_2020-21.csv,84699,68352,51806,51806
+union_budget_2021-22.csv,86595,68840,52043,52043
+union_budget_2022-23.csv,79880,61124,48692,48692
+union_budget_2023-24.csv,80118,59898,48204,48204
+union_budget_2024-25.csv,88405,70951,53871,53871
+union_budget_2025-26.csv,88583,74142,51131,51131
+union_budget_2026-27.csv,89462,73986,55360,55360

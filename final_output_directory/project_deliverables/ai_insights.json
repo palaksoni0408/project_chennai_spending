@@ -1,0 +1,166 @@
+{
+  "rows": 74165,
+  "gov_levels": [
+    "corporation",
+    "state",
+    "union"
+  ],
+  "yearly_totals_sample": [
+    {
+      "gov_level": "corporation",
+      "fiscal_year": "2020-21",
+      "amount_crore": 397822829205.49
+    },
+    {
+      "gov_level": "corporation",
+      "fiscal_year": "2021-22",
+      "amount_crore": 5317714655609286.0
+    },
+    {
+      "gov_level": "corporation",
+      "fiscal_year": "2022-23",
+      "amount_crore": 794263276071087.5
+    },
+    {
+      "gov_level": "corporation",
+      "fiscal_year": "2023-24",
+      "amount_crore": 1331476141806672.0
+    },
+    {
+      "gov_level": "corporation",
+      "fiscal_year": "2024-25",
+      "amount_crore": 361461599.03
+    },
+    {
+      "gov_level": "corporation",
+      "fiscal_year": "2025-26",
+      "amount_crore": 45095599.0
+    },
+    {
+      "gov_level": "corporation",
+      "fiscal_year": "2026-27",
+      "amount_crore": 60909296.0
+    },
+    {
+      "gov_level": "state",
+      "fiscal_year": "2020-21",
+      "amount_crore": 454058768408.9373
+    },
+    {
+      "gov_level": "state",
+      "fiscal_year": "2021-22",
+      "amount_crore": 517817449336.81726
+    },
+    {
+      "gov_level": "state",
+      "fiscal_year": "2022-23",
+      "amount_crore": 768385359791.1937
+    },
+    {
+      "gov_level": "state",
+      "fiscal_year": "2023-24",
+      "amount_crore": 908503969462.088
+    },
+    {
+      "gov_level": "state",
+      "fiscal_year": "2024-25",
+      "amount_crore": 610376130.57
+    },
+    {
+      "gov_level": "union",
+      "fiscal_year": "2016-17",
+      "amount_crore": 37119037.31
+    },
+    {
+      "gov_level": "union",
+      "fiscal_year": "2017-18",
+      "amount_crore": 83933058.35
+    },
+    {
+      "gov_level": "union",
+      "fiscal_year": "2018-19",
+      "amount_crore": 47705648.87
+    }
+  ],
+  "sector_latest": [
+    {
+      "gov_level": "corporation",
+      "latest_year": "2026-27",
+      "top_sectors": [
+        {
+          "sector": "other",
+          "amount_crore": 60901557.0
+        },
+        {
+          "sector": "healthcare",
+          "amount_crore": 5469.0
+        },
+        {
+          "sector": "revenue_admin",
+          "amount_crore": 941.0
+        },
+        {
+          "sector": "education",
+          "amount_crore": 760.0
+        },
+        {
+          "sector": "infrastructure",
+          "amount_crore": 344.0
+        }
+      ]
+    },
+    {
+      "gov_level": "state",
+      "latest_year": "2024-25",
+      "top_sectors": [
+        {
+          "sector": "other",
+          "amount_crore": 492617827.97
+        },
+        {
+          "sector": "revenue_admin",
+          "amount_crore": 97350603.31
+        },
+        {
+          "sector": "education",
+          "amount_crore": 13463588.47
+        },
+        {
+          "sector": "water_sanitation",
+          "amount_crore": 6745183.5600000005
+        },
+        {
+          "sector": "healthcare",
+          "amount_crore": 179986.95
+        }
+      ]
+    },
+    {
+      "gov_level": "union",
+      "latest_year": "2018-19",
+      "top_sectors": [
+        {
+          "sector": "other",
+          "amount_crore": 42391173.76
+        },
+        {
+          "sector": "education",
+          "amount_crore": 1733381.84
+        },
+        {
+          "sector": "security",
+          "amount_crore": 1296036.52
+        },
+        {
+          "sector": "agriculture_rural",
+          "amount_crore": 1117482.89
+        },
+        {
+          "sector": "infrastructure",
+          "amount_crore": 389807.78
+        }
+      ]
+    }
+  ],
+  "anomaly_count": 5
+}

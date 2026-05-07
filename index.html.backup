@@ -1,0 +1,637 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Chennai Spending Intelligence — Research Dashboard</title>
+  <script src="https://cdn.plot.ly/plotly-2.35.2.min.js"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #090c14;
+      --card: #0f1424;
+      --border: #1a2240;
+      --text: #e2e8f0;
+      --muted: #64748b;
+      --accent: #3b82f6;
+      --accent2: #06b6d4;
+      --accent3: #8b5cf6;
+      --accent4: #10b981;
+      --warn: #f59e0b;
+      --danger: #ef4444;
+    }
+    * { box-sizing: border-box; }
+    body {
+      font-family: 'Inter', system-ui, -apple-system, sans-serif;
+      margin: 0; background: var(--bg); color: var(--text);
+      line-height: 1.45; font-size: 13.5px;
+    }
+    .wrap { padding: 22px 26px; max-width: 1480px; margin: 0 auto; }
+
+    .site-header {
+      display: flex; align-items: center; justify-content: space-between;
+      margin-bottom: 18px; padding-bottom: 14px;
+      border-bottom: 1px solid var(--border);
+    }
+    .brand { display: flex; align-items: center; gap: 12px; }
+    .brand-icon {
+      width: 38px; height: 38px; border-radius: 10px;
+      background: linear-gradient(135deg, var(--accent), var(--accent2));
+      display: grid; place-items: center; font-weight: 700; font-size: 15px; color: #fff;
+    }
+    .brand h1 { margin: 0; font-size: 20px; font-weight: 700; letter-spacing: -0.3px; }
+    .brand p { margin: 2px 0 0; color: var(--muted); font-size: 12px; }
+    .header-actions { display: flex; gap: 8px; align-items: center; }
+
+    .filters-bar {
+      display: grid; gap: 10px;
+      grid-template-columns: 1.4fr 1.4fr 1.4fr 1.2fr .8fr .8fr .8fr;
+      margin-bottom: 10px; align-items: end;
+    }
+    @media (max-width: 1100px) { .filters-bar { grid-template-columns: repeat(3, 1fr); } }
+    @media (max-width: 640px) { .filters-bar { grid-template-columns: 1fr; } }
+    .filter-group { display: flex; flex-direction: column; gap: 5px; }
+    .filter-label { font-size: 10.5px; font-weight: 600; color: var(--muted); text-transform: uppercase; letter-spacing: .45px; }
+    .filter-actions { display: flex; gap: 5px; }
+    .filter-actions button {
+      font-size: 9.5px; padding: 2px 7px; border-radius: 5px;
+      border: 1px solid var(--border); background: transparent; color: var(--muted); cursor: pointer;
+    }
+    select[multiple], input[type="text"], select {
+      width: 100%; padding: 8px 9px; border-radius: 9px; border: 1px solid var(--border);
+      background: #0c1220; color: var(--text); font-size: 12.5px; outline: none;
+    }
+    select[multiple] { height: 72px; }
+    select:focus, input:focus { border-color: var(--accent); }
+    .btn {
+      background: linear-gradient(135deg, var(--accent), #2563eb); color: #fff;
+      border: none; border-radius: 9px; padding: 9px 14px; cursor: pointer;
+      font-weight: 600; font-size: 12.5px;
+    }
+    .btn:hover { filter: brightness(1.08); }
+    .btn.ghost { background: transparent; border: 1px solid var(--border); color: var(--muted); }
+    .btn.ghost:hover { color: var(--text); border-color: var(--accent); }
+    .toolbar { display: flex; gap: 10px; align-items: center; margin-bottom: 16px; flex-wrap: wrap; }
+    .toggle { display: inline-flex; align-items: center; gap: 7px; font-size: 11.5px; color: var(--muted); cursor: pointer; }
+    .toggle input { width: auto; }
+
+    .kpi-grid {
+      display: grid; gap: 12px; grid-template-columns: repeat(4, 1fr); margin-bottom: 16px;
+    }
+    @media (max-width: 900px) { .kpi-grid { grid-template-columns: repeat(2, 1fr); } }
+    @media (max-width: 540px) { .kpi-grid { grid-template-columns: 1fr; } }
+    .kpi {
+      background: var(--card); border: 1px solid var(--border); border-radius: 12px;
+      padding: 15px 14px; position: relative; overflow: hidden;
+    }
+    .kpi::before {
+      content: ""; position: absolute; left: 0; top: 0; bottom: 0; width: 3px;
+      border-radius: 12px 0 0 12px;
+    }
+    .kpi.c1::before { background: var(--accent); }
+    .kpi.c2::before { background: var(--accent2); }
+    .kpi.c3::before { background: var(--accent3); }
+    .kpi.c4::before { background: var(--accent4); }
+    .kpi .label { color: var(--muted); font-size: 10.5px; font-weight: 600; text-transform: uppercase; letter-spacing: .4px; margin-bottom: 6px; }
+    .kpi .value { font-size: 23px; font-weight: 700; letter-spacing: -0.5px; }
+
+    .chart-grid-3 {
+      display: grid; gap: 16px; grid-template-columns: repeat(3, 1fr); margin-bottom: 16px;
+    }
+    .chart-grid-2 {
+      display: grid; gap: 16px; grid-template-columns: 1.2fr .8fr; margin-bottom: 16px;
+    }
+    @media (max-width: 1100px) { .chart-grid-3, .chart-grid-2 { grid-template-columns: 1fr; } }
+
+    .panel {
+      background: var(--card); border: 1px solid var(--border); border-radius: 14px;
+      padding: 14px; margin-bottom: 0;
+    }
+    .panel-header { display: flex; align-items: center; justify-content: space-between; margin-bottom: 8px; }
+    .panel-title { font-size: 14px; font-weight: 600; margin: 0; }
+    .panel-sub { color: var(--muted); font-size: 11px; margin: 2px 0 0; }
+    .panel-note { color: var(--muted); font-size: 10.5px; }
+
+    .chart-toggle { display: inline-flex; gap: 4px; }
+    .chart-toggle button {
+      padding: 4px 9px; font-size: 10.5px; border-radius: 6px;
+      border: 1px solid var(--border); background: transparent; color: var(--muted); cursor: pointer;
+    }
+    .chart-toggle button.active { background: rgba(59,130,246,.12); color: #93c5fd; border-color: rgba(59,130,246,.3); }
+
+    .loading-overlay {
+      position: fixed; inset: 0; background: rgba(9,12,20,.78);
+      display: none; place-items: center; z-index: 9999; backdrop-filter: blur(3px);
+    }
+    .loading-overlay.active { display: grid; }
+    .spinner {
+      width: 34px; height: 34px; border: 3px solid rgba(59,130,246,.18);
+      border-top-color: var(--accent); border-radius: 50%;
+      animation: spin 1s linear infinite;
+    }
+    @keyframes spin { to { transform: rotate(360deg); } }
+
+    .toast-container { position: fixed; top: 14px; right: 14px; z-index: 10000; display: flex; flex-direction: column; gap: 8px; }
+    .toast {
+      background: var(--card); border: 1px solid var(--border); border-radius: 10px;
+      padding: 11px 15px; font-size: 12.5px; color: var(--text);
+      box-shadow: 0 10px 40px rgba(0,0,0,.4); max-width: 300px;
+      animation: slideIn .22s ease;
+    }
+    @keyframes slideIn { from { transform: translateX(120%); opacity: 0; } to { transform: translateX(0); opacity: 1; } }
+
+    .table-wrap { overflow-x: auto; }
+    table { width: 100%; border-collapse: collapse; font-size: 12px; }
+    th {
+      text-align: left; padding: 9px 7px; border-bottom: 1px solid var(--border);
+      color: var(--muted); font-weight: 600; font-size: 10.5px; text-transform: uppercase; letter-spacing: .3px;
+      cursor: pointer; user-select: none; white-space: nowrap;
+    }
+    th:hover { color: var(--text); }
+    th.sort-asc::after { content: " \u25B2"; }
+    th.sort-desc::after { content: " \u25BC"; }
+    td { padding: 9px 7px; border-bottom: 1px solid #131b30; color: #cbd5e1; }
+    tr:hover td { background: rgba(59,130,246,.04); }
+    .td-num { font-variant-numeric: tabular-nums; text-align: right; }
+    .badge {
+      display: inline-block; padding: 1.5px 7px; border-radius: 5px; font-size: 10.5px; font-weight: 600;
+      background: rgba(59,130,246,.12); color: #93c5fd;
+    }
+    .badge.state { background: rgba(6,182,212,.12); color: #67e8f9; }
+    .badge.union { background: rgba(139,92,246,.12); color: #c4b5fd; }
+    .badge.corp { background: rgba(16,185,129,.12); color: #6ee7b7; }
+    .pagination { display: flex; align-items: center; gap: 10px; margin-top: 10px; justify-content: flex-end; }
+    .pagination button {
+      padding: 5px 9px; border-radius: 7px; border: 1px solid var(--border);
+      background: transparent; color: var(--muted); cursor: pointer; font-size: 11.5px;
+    }
+    .pagination button:hover:not(:disabled) { color: var(--text); border-color: var(--accent); }
+    .pagination button:disabled { opacity: .35; cursor: not-allowed; }
+    .empty { color: var(--muted); padding: 26px; text-align: center; }
+    .small { font-size: 10.5px; color: var(--muted); }
+    .text-right { text-align: right; }
+  </style>
+</head>
+<body>
+  <div class="loading-overlay" id="loader"><div class="spinner"></div></div>
+  <div class="toast-container" id="toasts"></div>
+
+  <div class="wrap">
+    <header class="site-header">
+      <div class="brand">
+        <div class="brand-icon">CS</div>
+        <div>
+          <h1>Chennai Spending Intelligence</h1>
+          <p>Research-grade analytics on Union, State &amp; Corporation spending priorities, growth &amp; sector shifts</p>
+        </div>
+      </div>
+      <div class="header-actions">
+        <label class="toggle">
+          <input type="checkbox" id="autoRefresh" checked />
+          <span>Auto-refresh</span>
+        </label>
+        <button class="btn ghost" id="resetFilters">Reset</button>
+        <button class="btn" id="apply">Apply</button>
+      </div>
+    </header>
+
+    <div class="filters-bar">
+      <div class="filter-group">
+        <div class="filter-label">Government Level</div>
+        <div class="filter-actions"><button onclick="selectAll('levels')">All</button><button onclick="selectNone('levels')">None</button></div>
+        <select id="levels" multiple></select>
+      </div>
+      <div class="filter-group">
+        <div class="filter-label">Fiscal Year</div>
+        <div class="filter-actions"><button onclick="selectAll('years')">All</button><button onclick="selectNone('years')">None</button></div>
+        <select id="years" multiple></select>
+      </div>
+      <div class="filter-group">
+        <div class="filter-label">Sector</div>
+        <div class="filter-actions"><button onclick="selectAll('sectors')">All</button><button onclick="selectNone('sectors')">None</button></div>
+        <select id="sectors" multiple></select>
+      </div>
+      <div class="filter-group">
+        <div class="filter-label">Search</div>
+        <input id="q" type="text" placeholder="Search descriptions..." />
+      </div>
+      <div class="filter-group">
+        <div class="filter-label">Top Sectors</div>
+        <select id="topn"><option value="10" selected>Top 10</option><option value="15">Top 15</option><option value="20">Top 20</option><option value="50">Top 50</option></select>
+      </div>
+      <div class="filter-group">
+        <div class="filter-label">Scale</div>
+        <select id="scaleMode"><option value="linear" selected>Linear</option><option value="log">Log</option></select>
+      </div>
+      <div class="filter-group">
+        <div class="filter-label">Other Sector</div>
+        <select id="showOther"><option value="exclude" selected>Exclude</option><option value="include">Include</option></select>
+      </div>
+    </div>
+
+    <div class="kpi-grid">
+      <div class="kpi c1"><div class="label">Total Spend</div><div class="value" id="kpi1">-</div></div>
+      <div class="kpi c2"><div class="label">Records</div><div class="value" id="kpi2">-</div></div>
+      <div class="kpi c3"><div class="label">Sectors</div><div class="value" id="kpi3">-</div></div>
+      <div class="kpi c4"><div class="label">Gov Levels</div><div class="value" id="kpi4">-</div></div>
+    </div>
+
+    <!-- Chart 1: Overall comparison (log scale) -->
+    <div class="panel">
+      <div class="panel-header">
+        <div><div class="panel-title">Chart 1 — Overall Spending Comparison</div><div class="panel-sub">Total spend by government level (log scale recommended for wide-range comparison)</div></div>
+        <div class="panel-note" id="c1note"></div>
+      </div>
+      <div id="chart1" style="height:320px;"></div>
+    </div>
+
+    <!-- Charts 2-4: Individual level trends -->
+    <div class="chart-grid-3">
+      <div class="panel">
+        <div class="panel-header">
+          <div><div class="panel-title">Chart 2 — Union Trend</div><div class="panel-sub">Yearly spending trajectory</div></div>
+        </div>
+        <div id="chart2" style="height:260px;"></div>
+      </div>
+      <div class="panel">
+        <div class="panel-header">
+          <div><div class="panel-title">Chart 3 — State Trend</div><div class="panel-sub">Yearly spending trajectory</div></div>
+        </div>
+        <div id="chart3" style="height:260px;"></div>
+      </div>
+      <div class="panel">
+        <div class="panel-header">
+          <div><div class="panel-title">Chart 4 — Corporation Trend</div><div class="panel-sub">Yearly spending trajectory</div></div>
+        </div>
+        <div id="chart4" style="height:260px;"></div>
+      </div>
+    </div>
+
+    <!-- Chart 5: Growth rate comparison -->
+    <div class="panel">
+      <div class="panel-header">
+        <div><div class="panel-title">Chart 5 — Year-over-Year Growth Rate</div><div class="panel-sub">Percentage change in total spend vs prior year (computed from filtered data)</div></div>
+      </div>
+      <div id="chart5" style="height:340px;"></div>
+    </div>
+
+    <!-- Chart 6: Sector-wise stacked spending -->
+    <div class="panel">
+      <div class="panel-header">
+        <div><div class="panel-title">Chart 6 — Sector-wise Stacked Spending</div><div class="panel-sub">Top sector allocation across years (stacked by fiscal year)</div></div>
+        <div class="panel-note" id="c6note"></div>
+      </div>
+      <div id="chart6" style="height:380px;"></div>
+    </div>
+
+    <!-- Data table -->
+    <div class="panel">
+      <div class="panel-header">
+        <div>
+          <div class="panel-title">Detailed Records</div>
+          <div class="panel-sub">Top records matching current filters</div>
+        </div>
+        <div class="header-actions">
+          <input type="text" id="tableSearch" placeholder="Filter table..." style="width:200px;" />
+          <button class="btn ghost" id="exportCsv">Export CSV</button>
+        </div>
+      </div>
+      <div class="table-wrap">
+        <table id="tbl">
+          <thead>
+            <tr>
+              <th data-key="gov_level">Level</th>
+              <th data-key="fiscal_year">Year</th>
+              <th data-key="sector">Sector</th>
+              <th data-key="amount_crore" class="text-right">Amount (crore)</th>
+              <th data-key="display_description">Description</th>
+            </tr>
+          </thead>
+          <tbody></tbody>
+        </table>
+      </div>
+      <div class="pagination">
+        <span class="small" id="pageInfo"></span>
+        <button id="prevPage" onclick="changePage(-1)">Previous</button>
+        <button id="nextPage" onclick="changePage(1)">Next</button>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const API = window.location.hostname === "127.0.0.1" || window.location.hostname === "localhost"
+      ? (window.location.port === "8000" ? "" : "http://127.0.0.1:8000")
+      : (window.location.origin || "");
+
+    const LEVEL_COLORS = {
+      "union": "#8b5cf6", "state": "#06b6d4", "corporation": "#10b981",
+      "chennai corporation": "#10b981"
+    };
+    const LEVEL_META = {
+      "union": { color: "#8b5cf6", label: "Union" },
+      "state": { color: "#06b6d4", label: "State" },
+      "corporation": { color: "#10b981", label: "Corporation" }
+    };
+    const DEFAULT_LEVEL_COLOR = "#3b82f6";
+
+    let allRecords = [], tableFiltered = [], tablePage = 1, tablePageSize = 25;
+    let tableSortKey = null, tableSortDir = -1, _debounceTimer = null;
+
+    function selectedValues(id) {
+      return Array.from(document.getElementById(id).selectedOptions).map(x => x.value);
+    }
+    function params() {
+      const p = new URLSearchParams();
+      selectedValues("levels").forEach(v => p.append("gov_levels", v));
+      selectedValues("years").forEach(v => p.append("fiscal_years", v));
+      selectedValues("sectors").forEach(v => p.append("sectors", v));
+      const q = document.getElementById("q").value.trim();
+      if (q) p.set("q", q);
+      return p.toString();
+    }
+    async function j(url) {
+      const r = await fetch(url);
+      if (!r.ok) throw new Error(`HTTP ${r.status}`);
+      return r.json();
+    }
+    function loader(on) { document.getElementById("loader").classList.toggle("active", on); }
+    function toast(msg) {
+      const el = document.createElement("div");
+      el.className = "toast"; el.textContent = msg;
+      document.getElementById("toasts").appendChild(el);
+      setTimeout(() => el.remove(), 3000);
+    }
+    function selectAll(id) {
+      const opts = document.getElementById(id).options;
+      for (let o of opts) o.selected = true;
+      triggerRefresh();
+    }
+    function selectNone(id) {
+      const opts = document.getElementById(id).options;
+      for (let o of opts) o.selected = false;
+      triggerRefresh();
+    }
+    function triggerRefresh() {
+      if (!document.getElementById("autoRefresh").checked) return;
+      clearTimeout(_debounceTimer);
+      _debounceTimer = setTimeout(refresh, 350);
+    }
+    function levelColor(l) {
+      return LEVEL_COLORS[String(l).toLowerCase()] || DEFAULT_LEVEL_COLOR;
+    }
+    function levelMeta(l) {
+      return LEVEL_META[String(l).toLowerCase()] || { color: DEFAULT_LEVEL_COLOR, label: l };
+    }
+
+    const CHART_LAYOUT = {
+      margin: { t: 8, r: 10, b: 36, l: 50 },
+      paper_bgcolor: "transparent", plot_bgcolor: "transparent",
+      font: { family: "Inter, sans-serif", color: "#94a3b8", size: 11 },
+      xaxis: { showgrid: false, gridcolor: "#1a2240", zeroline: false, tickfont: { size: 10.5 } },
+      yaxis: { showgrid: true, gridcolor: "#1a2240", zeroline: false, tickfont: { size: 10.5 } },
+      legend: { orientation: "h", y: 1.1, x: 0.5, xanchor: "center", font: { size: 10 } },
+      hovermode: "x unified",
+    };
+    const HOVER = { bgcolor: "#0f1424", bordercolor: "#1e2a4a", font: { color: "#e2e8f0", family: "Inter, sans-serif", size: 12 } };
+
+    async function initFilters() {
+      const f = await j(`${API}/filters`);
+      [["levels", f.gov_levels], ["years", f.fiscal_years], ["sectors", f.sectors]].forEach(([id, arr]) => {
+        const el = document.getElementById(id);
+        el.innerHTML = "";
+        arr.forEach(v => { const o = document.createElement("option"); o.value = v; o.textContent = v; o.selected = true; el.appendChild(o); });
+      });
+    }
+
+    async function refresh() {
+      loader(true);
+      try {
+        const q = params();
+        const [kpis, ts, sm, sts, recs] = await Promise.all([
+          j(`${API}/kpis?${q}`),
+          j(`${API}/timeseries?${q}`),
+          j(`${API}/sector-mix?${q}`),
+          j(`${API}/sector-timeseries?${q}`),
+          j(`${API}/records?limit=300&${q}`),
+        ]);
+        allRecords = recs;
+        tablePage = 1;
+        updateTable();
+
+        document.getElementById("kpi1").textContent = Number(kpis.viz_total_amount_crore || 0).toLocaleString(undefined, {maximumFractionDigits: 1});
+        document.getElementById("kpi2").textContent = Number(kpis.rows).toLocaleString();
+        document.getElementById("kpi3").textContent = Number(kpis.distinct_sectors).toLocaleString();
+        document.getElementById("kpi4").textContent = Number(kpis.distinct_levels).toLocaleString();
+
+        const scaleMode = document.getElementById("scaleMode").value || "linear";
+        const showOther = document.getElementById("showOther").value || "exclude";
+        const allLevels = [...new Set(ts.map(x => x.gov_level))];
+        const years = [...new Set(ts.map(x => x.fiscal_year))].sort();
+
+        // ===== CHART 1: Overall comparison (log scale) =====
+        const overall = {};
+        ts.forEach(r => { overall[r.gov_level] = (overall[r.gov_level] || 0) + r.amount_crore; });
+        const c1keys = Object.keys(overall);
+        const c1vals = c1keys.map(k => overall[k]);
+        Plotly.newPlot("chart1", [{
+          type: "bar", x: c1keys, y: c1vals,
+          marker: { color: c1keys.map(k => levelColor(k)), line: { width: 1, color: "#090c14" } },
+          text: c1vals.map(v => Number(v).toLocaleString(undefined, {maximumFractionDigits: 1})),
+          textposition: "outside", textfont: { size: 10, color: "#cbd5e1" },
+          hovertemplate: "<b>%{x}</b><br>%{y:,.2f} crore<extra></extra>",
+          hoverlabel: HOVER,
+        }], {
+          ...CHART_LAYOUT,
+          yaxis: { ...CHART_LAYOUT.yaxis, title: { text: "Amount (crore)", font: { size: 11 } }, type: scaleMode },
+          xaxis: { ...CHART_LAYOUT.xaxis, title: { text: "", font: { size: 11 } } },
+          annotations: scaleMode === "log" ? [{
+            xref: "paper", yref: "paper", x: 1, y: 1.06, showarrow: false,
+            font: { size: 10, color: "#64748b" }, text: "Log scale"
+          }] : []
+        }, { responsive: true });
+        document.getElementById("c1note").textContent = scaleMode === "log" ? "Log scale active" : "";
+
+        // ===== CHARTS 2-4: Individual level trends =====
+        const levelNames = ["union", "state", "corporation"];
+        [2, 3, 4].forEach((chartNum, idx) => {
+          const lvl = levelNames[idx];
+          const rows = ts.filter(r => String(r.gov_level).toLowerCase() === lvl).sort((a,b) => String(a.fiscal_year).localeCompare(String(b.fiscal_year)));
+          const meta = levelMeta(lvl);
+          if (!rows.length) {
+            Plotly.newPlot(`chart${chartNum}`, [], {
+              ...CHART_LAYOUT, annotations: [{ xref:"paper",yref:"paper",x:.5,y:.5,text:"No data for this level",showarrow:false,font:{size:12,color:"#64748b"} }]
+            }, { responsive: true });
+          } else {
+            Plotly.newPlot(`chart${chartNum}`, [{
+              x: rows.map(r => r.fiscal_year), y: rows.map(r => r.amount_crore),
+              type: "scatter", mode: "lines+markers",
+              line: { width: 2.5, color: meta.color, shape: "spline", smoothing: 1.1 },
+              marker: { size: 7, color: meta.color, line: { width: 1.5, color: "#0f1424" } },
+              fill: "tozeroy", fillcolor: meta.color + "18",
+              hovertemplate: "%{x}<br>%{y:,.2f} crore<extra></extra>",
+              hoverlabel: HOVER,
+              name: meta.label,
+            }], {
+              ...CHART_LAYOUT,
+              yaxis: { ...CHART_LAYOUT.yaxis, title: { text: "Amount (crore)", font: { size: 10.5 } } },
+              xaxis: { ...CHART_LAYOUT.xaxis, title: { text: "Fiscal Year", font: { size: 10.5 } } },
+              showlegend: false,
+            }, { responsive: true });
+          }
+        });
+
+        // ===== CHART 5: YoY Growth rate comparison =====
+        const yoy = [];
+        allLevels.forEach(l => {
+          const rows = ts.filter(r => r.gov_level === l).sort((a,b) => String(a.fiscal_year).localeCompare(String(b.fiscal_year)));
+          for (let i = 1; i < rows.length; i++) {
+            const prev = rows[i-1].amount_crore || 0;
+            const cur = rows[i].amount_crore || 0;
+            if (prev > 0) yoy.push({ gov_level: l, fiscal_year: rows[i].fiscal_year, yoy_pct: ((cur - prev) / prev) * 100 });
+          }
+        });
+        const yoyTraces = allLevels.map(l => {
+          const rows = yoy.filter(r => r.gov_level === l);
+          return {
+            x: rows.map(r => r.fiscal_year), y: rows.map(r => r.yoy_pct),
+            type: "bar", name: l, marker: { color: levelColor(l), opacity: 0.85 },
+            text: rows.map(r => `${r.yoy_pct > 0 ? "+" : ""}${r.yoy_pct.toFixed(1)}%`),
+            textposition: "outside", textfont: { size: 9.5 },
+            hovertemplate: "%{x}<br>%{y:.2f}%<extra></extra>",
+            hoverlabel: HOVER,
+          };
+        });
+        Plotly.newPlot("chart5", yoyTraces, {
+          ...CHART_LAYOUT,
+          barmode: "group",
+          yaxis: { ...CHART_LAYOUT.yaxis, title: { text: "YoY Growth (%)", font: { size: 11 } }, zeroline: true, zerolinecolor: "#475569", zerolinewidth: 1 },
+          xaxis: { ...CHART_LAYOUT.xaxis, title: { text: "Fiscal Year", font: { size: 11 } } },
+        }, { responsive: true });
+
+        // ===== CHART 6: Sector-wise stacked spending =====
+        // Aggregate sector-timeseries by fiscal_year and sector (sum across gov_levels)
+        const secAgg = {};
+        sts.forEach(r => {
+          if (showOther === "exclude" && String(r.sector).toLowerCase() === "other") return;
+          const key = `${r.fiscal_year}||${r.sector}`;
+          secAgg[key] = (secAgg[key] || 0) + Number(r.amount_crore || 0);
+        });
+        const secYears = [...new Set(sts.map(r => r.fiscal_year))].sort();
+        const secList = [...new Set(Object.keys(secAgg).map(k => k.split("||")[1]))];
+        // Sort sectors by total descending
+        const secTotals = {};
+        secList.forEach(s => { secTotals[s] = secYears.reduce((sum, y) => sum + (secAgg[`${y}||${s}`] || 0), 0); });
+        const topSectors = Object.entries(secTotals).sort((a,b) => b[1] - a[1]).slice(0, Number(document.getElementById("topn").value || 10)).map(x => x[0]);
+        // "Other" bucket for remaining sectors
+        const hues = ["#3b82f6","#06b6d4","#8b5cf6","#10b981","#f59e0b","#ef4444","#ec4899","#6366f1","#14b8a6","#f97316"];
+        const traces = topSectors.map((s, i) => ({
+          x: secYears, y: secYears.map(y => secAgg[`${y}||${s}`] || 0),
+          name: s, type: "bar", stackgroup: "one",
+          marker: { color: hues[i % hues.length] },
+          hovertemplate: `<b>${s}</b><br>%{x}<br>%{y:,.2f} crore<extra></extra>`,
+          hoverlabel: HOVER,
+        }));
+        Plotly.newPlot("chart6", traces, {
+          ...CHART_LAYOUT, barmode: "stack",
+          yaxis: { ...CHART_LAYOUT.yaxis, title: { text: "Amount (crore)", font: { size: 11 } } },
+          xaxis: { ...CHART_LAYOUT.xaxis, title: { text: "Fiscal Year", font: { size: 11 } } },
+        }, { responsive: true });
+        document.getElementById("c6note").textContent = topSectors.length < secList.length
+          ? `Showing top ${topSectors.length} of ${secList.length} sectors` : `All ${secList.length} sectors shown`;
+
+      } catch (err) {
+        console.error(err);
+        toast("Failed to load data. Is the API running?");
+      } finally {
+        loader(false);
+      }
+    }
+
+    // ===== Table =====
+    function updateTable() {
+      const q = document.getElementById("tableSearch").value.trim().toLowerCase();
+      let data = [...allRecords];
+      if (q) {
+        data = data.filter(r =>
+          String(r.gov_level).toLowerCase().includes(q) ||
+          String(r.fiscal_year).toLowerCase().includes(q) ||
+          String(r.sector).toLowerCase().includes(q) ||
+          String(r.display_description || r.clean_description || "").toLowerCase().includes(q)
+        );
+      }
+      if (tableSortKey) {
+        data.sort((a, b) => {
+          const av = a[tableSortKey] ?? ""; const bv = b[tableSortKey] ?? "";
+          const cmp = typeof av === "number" && typeof bv === "number" ? av - bv : String(av).localeCompare(String(bv), undefined, { numeric: true });
+          return cmp * tableSortDir;
+        });
+      } else {
+        data.sort((a, b) => (Number(b.amount_crore) || 0) - (Number(a.amount_crore) || 0));
+      }
+      tableFiltered = data;
+      renderTablePage();
+    }
+    function renderTablePage() {
+      const tbody = document.querySelector("#tbl tbody");
+      tbody.innerHTML = "";
+      const start = (tablePage - 1) * tablePageSize;
+      const page = tableFiltered.slice(start, start + tablePageSize);
+      if (!page.length) { tbody.innerHTML = `<tr><td colspan="5" class="empty">No records found</td></tr>`; }
+      else {
+        page.forEach(r => {
+          const tr = document.createElement("tr");
+          const bc = String(r.gov_level).toLowerCase().includes("union") ? "badge union" : String(r.gov_level).toLowerCase().includes("corporation") ? "badge corp" : "badge state";
+          const desc = r.display_description || r.clean_description || "";
+          tr.innerHTML = `<td><span class="badge ${bc}">${r.gov_level}</span></td><td>${r.fiscal_year}</td><td>${r.sector}</td><td class="td-num">${Number(r.amount_crore).toLocaleString(undefined, {maximumFractionDigits:2})}</td><td title="${desc.replace(/"/g, '&quot;')}">${desc}</td>`;
+          tbody.appendChild(tr);
+        });
+      }
+      const totalPages = Math.max(1, Math.ceil(tableFiltered.length / tablePageSize));
+      document.getElementById("pageInfo").textContent = `Page ${tablePage} of ${totalPages} (${tableFiltered.length} records)`;
+      document.getElementById("prevPage").disabled = tablePage <= 1;
+      document.getElementById("nextPage").disabled = tablePage >= totalPages;
+    }
+    function changePage(delta) { tablePage += delta; renderTablePage(); }
+
+    document.querySelectorAll("#tbl thead th").forEach(th => {
+      th.addEventListener("click", () => {
+        const key = th.dataset.key; if (!key) return;
+        if (tableSortKey === key) tableSortDir *= -1; else { tableSortKey = key; tableSortDir = -1; }
+        document.querySelectorAll("#tbl thead th").forEach(h => h.classList.remove("sort-asc", "sort-desc"));
+        th.classList.add(tableSortDir === 1 ? "sort-asc" : "sort-desc");
+        tablePage = 1; updateTable();
+      });
+    });
+    document.getElementById("tableSearch").addEventListener("input", () => { tablePage = 1; updateTable(); });
+
+    document.getElementById("exportCsv").addEventListener("click", () => {
+      if (!tableFiltered.length) { toast("No data to export"); return; }
+      const rows = tableFiltered.map(r => ({ gov_level: r.gov_level, fiscal_year: r.fiscal_year, sector: r.sector, amount_crore: r.amount_crore, description: r.display_description || r.clean_description || "" }));
+      const headers = ["gov_level", "fiscal_year", "sector", "amount_crore", "description"];
+      const csv = [headers.join(","), ...rows.map(r => headers.map(h => { const v = String(r[h] ?? "").replace(/"/g, '""'); return v.includes(",") || v.includes('"') || v.includes("\n") ? `"${v}"` : v; }).join(","))].join("\n");
+      const blob = new Blob([csv], { type: "text/csv;charset=utf-8;" });
+      const a = document.createElement("a");
+      a.href = URL.createObjectURL(blob);
+      a.download = `chennai_spending_${new Date().toISOString().slice(0,10)}.csv`;
+      a.click(); toast("CSV exported");
+    });
+
+    document.getElementById("resetFilters").addEventListener("click", async () => {
+      document.getElementById("q").value = "";
+      document.getElementById("topn").value = "10";
+      document.getElementById("scaleMode").value = "linear";
+      document.getElementById("showOther").value = "exclude";
+      document.getElementById("tableSearch").value = "";
+      await initFilters(); refresh(); toast("Filters reset");
+    });
+    document.getElementById("apply").addEventListener("click", refresh);
+    ["levels", "years", "sectors", "topn", "scaleMode", "showOther"].forEach(id => {
+      document.getElementById(id).addEventListener("change", triggerRefresh);
+    });
+    document.getElementById("q").addEventListener("input", triggerRefresh);
+
+    initFilters().then(refresh);
+  </script>
+</body>
+</html>
