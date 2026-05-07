@@ -385,9 +385,10 @@
 </footer>
 
 <script>
-  const API = window.location.hostname === "127.0.0.1" || window.location.hostname === "localhost"
+  const isLocal = window.location.hostname === "127.0.0.1" || window.location.hostname === "localhost";
+  const API = isLocal
     ? (window.location.port === "8000" ? "" : "http://127.0.0.1:8000")
-    : (window.location.origin || "");
+    : (window.__API_BASE__ || "https://chennai-spending.onrender.com");
 
   const LEVEL_COLORS = { union:"#0f62fe", state:"#24a148", corporation:"#525252" };
   const SECTOR_PALETTE = [
@@ -410,7 +411,18 @@
   const sel = id => Array.from($(id).selectedOptions).map(x=>x.value);
   const YSCALE = () => $("scale").value || "linear";
   const fmt = (n,d=2) => Number(n).toLocaleString("en-IN",{maximumFractionDigits:d});
-  const get = url => fetch(url).then(r=>r.json());
+  async function get(url){
+    const r = await fetch(url);
+    const body = await r.text();
+    if(!r.ok){
+      throw new Error(`API request failed (${r.status}) for ${url}: ${body.slice(0,160)}`);
+    }
+    try{
+      return JSON.parse(body);
+    }catch(_e){
+      throw new Error(`Invalid JSON from ${url}: ${body.slice(0,160)}`);
+    }
+  }
   const lc  = l => l.toLowerCase();
   const lCol= l => LEVEL_COLORS[lc(l)]||"#8c8c8c";
 
@@ -711,7 +723,15 @@
   $("apply").addEventListener("click",refresh);
   $("applyTop").addEventListener("click",refresh);
 
-  initFilters().then(refresh);
+  (async () => {
+    try{
+      await initFilters();
+      await refresh();
+    }catch(err){
+      console.error(err);
+      alert("Unable to load API data. Please ensure the backend is running and reachable.");
+    }
+  })();
 </script>
 </body>
 </html>
