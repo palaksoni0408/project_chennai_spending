@@ -17,10 +17,18 @@ MASTER = BASE / "chennai_spending_master.csv"
 SEMANTIC_CACHE = BASE / "semantic_descriptions.json"
 
 app = FastAPI(title="Chennai Spending API", version="1.0.0")
+ALLOWED_ORIGINS = [
+    "http://localhost:5500",
+    "http://127.0.0.1:5500",
+    "http://localhost:8000",
+    "http://127.0.0.1:8000",
+    "https://project-chennai-spending.onrender.com",
+    "https://chennai-spending.onrender.com",
+]
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["*"],
-    allow_credentials=True,
+    allow_origins=ALLOWED_ORIGINS,
+    allow_credentials=False,
     allow_methods=["*"],
     allow_headers=["*"],
 )
