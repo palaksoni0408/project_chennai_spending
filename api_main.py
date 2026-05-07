@@ -151,6 +151,35 @@ def apply_filters(
     return out
 
 
+def aggregate_timeseries(df: pd.DataFrame) -> pd.DataFrame:
+    """
+    Build yearly timeseries with a robust aggregation for corporation rows.
+
+    Corporation extracts contain many OCR/account-code artifacts that can flatten
+    or distort trends. We remove rows with long numeric account identifiers and
+    trim the top 1% within each year before summing.
+    """
+    rows: list[dict] = []
+    for (fiscal_year, gov_level), grp in df.groupby(["fiscal_year", "gov_level"], sort=False):
+        g = grp.copy()
+        if str(gov_level).lower() == "corporation":
+            g = g[~g["row_text"].str.contains(r"\d{9,}", regex=True, na=False)]
+            if not g.empty:
+                cap = float(g["amount_crore_viz"].quantile(0.99))
+                g = g[g["amount_crore_viz"] <= cap]
+        rows.append(
+            {
+                "fiscal_year": fiscal_year,
+                "gov_level": gov_level,
+                "amount_crore": float(g["amount_crore_viz"].sum()) if not g.empty else 0.0,
+            }
+        )
+    out = pd.DataFrame(rows)
+    if out.empty:
+        return out
+    return out.sort_values(["fiscal_year", "gov_level"])
+
+
 @app.get("/health")
 def health() -> dict:
     return {"ok": True}
@@ -194,12 +223,7 @@ def timeseries(
 ) -> list[dict]:
     df = apply_filters(load_df(), gov_levels, fiscal_years, sectors, q)
     df = df.dropna(subset=["amount_crore_viz"])
-    g = (
-        df.groupby(["fiscal_year", "gov_level"], as_index=False)["amount_crore_viz"]
-        .sum()
-        .sort_values(["fiscal_year", "gov_level"])
-        .rename(columns={"amount_crore_viz": "amount_crore"})
-    )
+    g = aggregate_timeseries(df)
     return g.to_dict(orient="records")
 
 
@@ -247,11 +271,7 @@ def timeseries_percapita(
 ) -> list[dict]:
     df = apply_filters(load_df(), gov_levels, fiscal_years, sectors, q)
     df = df.dropna(subset=["amount_crore_viz"])
-    g = (
-        df.groupby(["gov_level", "fiscal_year"], as_index=False)["amount_crore_viz"]
-        .sum()
-        .rename(columns={"amount_crore_viz": "amount_crore"})
-    )
+    g = aggregate_timeseries(df)
     g = per_capita_transform(g)
     return g.to_dict(orient="records")
 
