@@ -1,0 +1,665 @@
+year_key,document_slug,page_number,cleaned_text
+2020_21,chennai_budget_2020_21_balance_sheet,1,"*   Task: Extract table data and text from the provided image.
+*   Input: A scanned budget page titled ""Balance Sheet Statement for the year 2020-21"".
+*   Constraint 1: ONLY table data and text.
+*   Constraint 2: No explanations, summaries, markdown, or commentary.
+*   Constraint 3: Preserve rows, columns, and exact numbers.
+*   Constraint 4: Return clean structured text.
+
+*   Header 1: Balance Sheet Statement for the year 2020-21
+*   Header 2: Report Run Date: 01/09/2021
+*   Header 3: Amount in Rupees
+*   Table Columns:
+1. Account Code
+2. Head of Account
+3. Schedule No
+4. 01-Municipal Fund (Rs)
+5. 02-Capital Fund (Rs)
+6. 03-Elementary Education Fund (Rs)
+7. 04-Earmarked Funds (Rs)
+8. 31-Mar-2021(Rs)
+9. 31-Mar-2020(Rs)
+
+*   Row 1 (LIABILITIES):
+*   Row 2 (Reserves and Surplus):
+*   Row 3: 310 | Fund Balance | B-01 | -22947901640.27 | 0.00 | 14366007963.77 | 0.00 | -8581893676.50 | -7010119429.36
+*   Row 4: 311 | EARMARKED FUNDS | B-02 | 42537537959.03 | -22932505644.02 | -13481882840.20 | 10515496257.95 | 16638645732.76 | 15207656182.71
+*   Row 5: 312 | RESERVE | B-03 | | 46553377022.00 | 330148948.00 | | 46883525970.00 | 41953828509.00
+*   Row 6: | Total | | 19589636318.76 | 23620871377.98 | 1214274071.57 | 10515496257.95 | 54940278026.26 | 50151365262.35
+*   Row 7 (Grants Contributions for Specific Purposes):
+*   Row 8: 320 | GRANTS, CONTRIBUTION FOR SPECIFIC PURPOSES | B-04 | 13431874.00 | 22933603249.50 | 0.00 | 15730076.00 | 22962765199.50 | 12759645574.00
+*   Row 9: | Total | | 13431874.00 | 22933603249.50 | 0.00 | 15730076.00 | 22962765199.50 | 12759645574.00
+*   Row 10 (Loans):
+*   Row 11: 330 | SECURED LOANS | B-05 | 4821145278.07 | 22632079539.00 | | | 27453224817.07 | 26406531081.14
+*   Row 12: 331 | UNSECURED LOANS | B-06 | 0.00 | | | | 0.00 | 0.00
+*   Row 13: | Total | | 4821145278.07 | 22632079539.00 | | | 27453224817.07 | 26406531081.14
+*   Row 14 (Current Liabilities and Provisions):
+*   Row 15: 340 | DEPOSITS RECEIVED | B-07 | 1853680413.93 | 2527288415.51 | 0.00 | 0.00 | 4380968829.44 | 4055902675.44
+*   Row 16: 341 | DEPOSIT WORKS | B-08 | 361755600.00 | 10570820826.13 | 0.00 | | 10932576426.13 | 9987701619.13
+*   Row 17: 350 | OTHER LIABILITIES | B-09 | 4998936955.66 | 265394514.78 | 5405409.00 | 236734487.00 | 5506471366.44 | 6902624204.03
+*   Row 18: 360 | PROVISIONS | B-10 | 0.00 | 0.00 | | | 0.00 | 0.00
+*   Row 19: | Total | | 7214372969.59 | 13363503756.42 | 5405409.00 | 236734487.00 | 20820016622.01 | 20946228498.60
+*   Row 20: | Total LIABILITIES | | | | | | 126176284664.84 | 110263770416.09
+*   Row 21 (ASSETS):
+*   Row 22 (Fixed Assets):
+*   Row 23: 410 | FIXED ASSETS | B-11 | 0.00 | 145866724017.72 | 1919141521.26 | 0.00 | 147785865538.98 | 142295822637.98
+
+*   The user wants ""clean structured text"" and explicitly forbids ""markdown"". Usually, in LLM prompts, ""no markdown"" means no `|---|---|` style tables or bolding/italics. However, ""preserve rows and columns"" implies a tabular format. I will use tab-separated or space-separated text to maintain alignment.
+*   Actually, usually ""no markdown"" means ""don't use Markdown table syntax"". I will use a plain text table format.
+
+*Check numbers again*:
+- Fund Balance: -22947901640.27, 0.00, 14366007963.77, 0.00, -8581893676.50, -7010119429.36
+- Earmarked Funds: 42537537959.03, -22932505644.02, -13481882840.20, 10515496257.95, 16638645732.76, 15207656182.71
+- Reserve: [empty], 46553377022.00, 330148948.00, [empty], 46883525970.00, 41953828509.00
+- Total: 19589636318.76, 23620871377.98, 1214274071.57, 10515496257.95, 54940278026.26, 50151365262.35
+- Grants... (320): 13431874.00, 22933603249.50, 0.00, 15730076.00, 22962765199.50, 12759645574.00
+- Grants Total: 13431874.00, 22933603249.50, 0.00, 15730076.00, 22962765199.50, 12759645574.00
+- Secured Loans (330): 4821145278.07, 22632079539.00, [empty], [empty], 27453224817.07, 26406531081.14
+- Unsecured Loans (331): 0.00, [empty], [empty], [empty], 0.00, 0.00
+- Loans Total: 4821145278.07, 22632079539.00, [empty], [empty], 27453224817.07, 26406531081.14
+- Deposits Received (340): 1853680413.93, 2527288415.51, 0.00, 0.00, 4380968829.44, 4055902675.44
+- Deposit Works (341): 361755600.00, 10570820826.13, 0.00, [empty], 10932576426.13, 9987701619.13
+- Other Liabilities (350): 4998936955.66, 265394514.78, 5405409.00, 236734487.00, 5506471366.44, 6902624204.03
+- Provisions (360): 0.00, 0.00, [empty], [empty], 0.00, 0.00
+- Provisions Total: 7214372969.59, 13363503756.42, 5405409.00, 236734487.00, 20820016622.01, 20946228498.60
+- Total Liabilities: [empty]... 126176284664.84, 110263770416.09
+- Fixed Assets (410): 0.00, 145866724017.72, 1919141521.26, 0.00, 147785865538.98, 142295822637.98
+
+I will represent this as fixed-width text for structural clarity.
+
+Header:
+Balance Sheet Statement for the year 2020-21
+Report Run Date:01/09/2021
+Amount in Rupees
+
+Columns:
+Account Code | Head of Account | Schedule No | 01-Municipal Fund (Rs) | 02-Capital Fund (Rs) | 03-Elementary Education Fund (Rs) | 04-Earmarked Funds (Rs) | 31-Mar-2021(Rs) | 31-Mar-2020(Rs)
+
+Rows... (Carefully mapped).
+
+*Self-Correction on ""No Markdown""*: Markdown tables use pipes (`|`) and dashes (`-`). If the user says ""No markdown"", they likely want plain text. I will use a tab-like spacing or basic spacing.
+
+Wait, ""preserve rows and columns"" usually suggests a table. If I can't use markdown, I'll use plain text spacing.
+
+Let's verify the ""No markdown"" constraint again. ""No markdown"" is very strict. I will avoid `|` if it looks like a markdown table. I'll use spaces.
+
+Balance Sheet Statement for the year 2020-21
+Report Run Date:01/09/2021
+Amount in Rupees
+
+Account Code    Head of Account    Schedule No    01-Municipal Fund (Rs)    02-Capital Fund (Rs)    03-Elementary Education Fund (Rs)    04-Earmarked Funds (Rs)    31-Mar-2021(Rs)    31-Mar-2020(Rs)
+LIABILITIES
+Reserves and Surplus
+310    Fund Balance    B-01    -22947901640.27    0.00    14366007963.77    0.00    -8581893676.50    -7010119429.36
+311    EARMARKED FUNDS    B-02    42537537959.03    -22932505644.02    -13481882840.20    10515496257.95    16638645732.76    15207656182.71
+312    RESERVE    B-03    [blank]    46553377022.00    330148948.00    [blank]    46883525970.00    41953828509.00
+Total    [blank]    [blank]    19589636318.76    23620871377.98    1214274071.57    10515496257.95    54940278026.26    50151365262.35
+Grants Contributions for Specific Purposes
+320    GRANTS, CONTRIBUTION FOR SPECIFIC PURPOSES    B-04    13431874.00    22933603249.50    0.00    15730076.00    22962765199.50    12759645574.00
+Total    [blank]    [blank]    13431874.00    22933603249.50    0.00    15730076.00    22962765199.50    12759645574.00
+Loans
+330    SECURED LOANS    B-05    4821145278.07    22632079539.00    [blank]    [blank]    27453224817.07    26406531081.14
+331    UNSECURED LOANS    B-06    0.00    [blank]    [blank]    [blank]    0.00    0.00
+Total    [blank]    [blank]    4821145278.07    22632079539.00    [blank]    [blank]    27453224817.07    26406531081.14
+Current Liabilities and Provisions
+340    DEPOSITS RECEIVED    B-07    1853680413.93    2527288415.51    0.00    0.00    4380968829.44    4055902675.44
+341    DEPOSIT WORKS    B-08    361755600.00    10570820826.13    0.00    [blank]    10932576426.13    9987701619.13
+350    OTHER LIABILITIES    B-09    4998936955.66    265394514.78    5405409.00    236734487.00    5506471366.44    6902624204.03
+360    PROVISIONS    B-10    0.00    0.00    [blank]    [blank]    0.00    0.00
+Total    [blank]    [blank]    7214372969.59    13363503756.42    5405409.00    236734487.00    20820016622.01    20946228498.60
+Total LIABILITIES    [blank]    [blank]    [blank]    [blank]    [blank]    [blank]    126176284664.84    110263770416.09
+ASSETS
+Fixed Assets
+410    FIXED ASSETS    B-11    0.00    145866724017.72    1919141521.26    0.00    147785865538.98    142295822637.98
+
+I'll use a tabbed or aligned text approach. I will avoid using brackets like `[blank]` and just leave the space empty to maintain the ""exact"" data feel.
+
+Wait, looking at the prompt ""Return clean structured text"", usually a plain-text table with spaces is the safest way to comply with ""No markdown"" while ""preserving rows and columns"".
+
+Let's refine the exact values.
+Account Code: 310 | Head: Fund Balance | Sch: B-01 | Mun: -22947901640.27 | Cap: 0.00 | Edu: 14366007963.77 | Ear: 0.00 | 2021: -8581893676.50 | 2020: -7010119429.36
+Account Code: 311 | Head: EARMARKED FUNDS | Sch: B-02 | Mun: 42537537959.03 | Cap: -22932505644.02 | Edu: -13481882840.20 | Ear: 10515496257.95 | 2021: 16638645732.76 | 2020: 15207656182.71
+Account Code: 312 | Head: RESERVE | Sch: B-03 | Mun: (empty) | Cap: 46553377022.00 | Edu: 330148948.00 | Ear: (empty) | 2021: 46883525970.00 | 2020: 41953828509.00
+Total: | Mun: 19589636318.76 | Cap: 23620871377.98 | Edu: 1214274071.57 | Ear: 10515496257.95 | 2021: 54940278026.26 | 2020: 50151365262.35
+Account Code: 320 | Head: GRANTS... | Sch: B-04 | Mun: 13431874.00 | Cap: 22933603249.50 | Edu: 0.00 | Ear: 15730076.00 | 2021: 22962765199.50 | 2020: 12759645574.00
+Total: | Mun: 13431874.00 | Cap: 22933603249.50 | Edu: 0.00 | Ear: 15730076.00 | 2021: 22962765199.50 | 2020: 12759645574.00
+Account Code: 330 | Head: SECURED LOANS | Sch: B-05 | Mun: 4821145278.07 | Cap: 22632079539.00 | Edu: (empty) | Ear: (empty) | 2021: 27453224817.07 | 2020: 26406531081.14
+Account Code: 331 | Head: UNSECURED LOANS | Sch: B-06 | Mun: 0.00 | Cap: (empty) | Edu: (empty) | Ear: (empty) | 2021: 0.00 | 2020: 0.00
+Total: | Mun: 4821145278.07 | Cap: 22632079539.00 | Edu: (empty) | Ear: (empty) | 2021: 27453224817.07 | 2020: 26406531081.14
+Account Code: 340 | Head: DEPOSITS RECEIVED | Sch: B-07 | Mun: 1853680413.93 | Cap: 2527288415.51 | Edu: 0.00 | Ear: 0.00 | 2021: 4380968829.44 | 2020: 4055902675.44
+Account Code: 341 | Head: DEPOSIT WORKS | Sch: B-08 | Mun: 361755600.00 | Cap: 10570820826.13 | Edu: 0.00 | Ear: (empty) | 2021: 10932576426.13 | 2020: 9987701619.13
+Account Code: 350 | Head: OTHER LIABILITIES | Sch: B-09 | Mun: 4998936955.66 | Cap: 265394514.78 | Edu: 5405409.00 | Ear: 236734487.00 | 2021: 5506471366.44 | 2020: 6902624204.03
+Account Code: 360 | Head: PROVISIONS | Sch: B-10 | Mun: 0.00 | Cap: 0.00 | Edu: (empty) | Ear: (empty) | 2021: 0.00 | 2020: 0.00
+Total: | Mun: 7214372969.59 | Cap: 13363503756.42 | Edu: 5405409.00 | Ear: 236734487.00 | 2021: 20820016622.01 | 2020: 20946228498.60
+Total LIABILITIES: | 2021: 126176284664.84 | 2020: 110263770416.09
+Account Code: 410 | Head: FIXED ASSETS | Sch: B-11 | Mun: 0.00 | Cap: 145866724017.72 | Edu: 1919141521.26 | Ear: 0.00 | 2021: 147785865538.98 | 2020: 142295822637.98
+
+*Refining the Header part*:
+Balance Sheet Statement for the year 2020-21
+Report Run Date:01/09/2021
+Amount in Rupees
+
+Columns:
+Account Code, Head of Account, Schedule No, 01-Municipal Fund (Rs), 02-Capital Fund (Rs), 03-Elementary Education Fund (Rs), 04-Earmarked Funds (Rs), 31-Mar-2021(Rs), 31-Mar-2020(Rs)
+
+Final layout decision: I will use a simple space-separated format to ensure it's ""structured text"" but not ""markdown"".
+
+Wait, looking at the image, there's a ""Total"" row for Reserves and Surplus, then a section for Grants, then a ""Total"" for that, then a ""Loans"" section, then a ""Total"" for that, then ""Current Liabilities and Provisions"", then a ""Total"" for that, and finally a ""Total LIABILITIES"".
+
+I'll make sure to include the section headers (LIABILITIES, Reserves and Surplus, etc.) as they are part of the text.
+
+Double checking values for Total LIABILITIES:
+31-Mar-2021(Rs): 126176284664.84
+31-Mar-2020(Rs): 110263770416.09
+
+Double checking Fixed Assets (410):
+Mun: 0.00
+Cap: 145866724017.72
+Edu: 1919141521.26
+Ear: 0.00
+2021: 147785865538.98
+2020: 142295822637.98
+
+The extraction looks solid.
+
+One final check on constraints:
+- ONLY table data and text: Yes.
+- No explanations: Yes.
+- No summaries: Yes.
+- No markdown: No `|`, `---`, `**`, `#`. I'll use plain whitespace.
+- No commentary: Yes.
+- Preserve rows/cols: Yes.
+- Preserve numbers exactly: Yes.
+- Clean structured text: Yes.
+Balance Sheet Statement for the year 2020-21
+Report Run Date:01/09/2021
+Amount in Rupees
+
+Account Code    Head of Account    Schedule No    01-Municipal Fund (Rs)    02-Capital Fund (Rs)    03-Elementary Education Fund (Rs)    04-Earmarked Funds (Rs)    31-Mar-2021(Rs)    31-Mar-2020(Rs)
+
+LIABILITIES
+Reserves and Surplus
+310    Fund Balance    B-01    -22947901640.27    0.00    14366007963.77    0.00    -8581893676.50    -7010119429.36
+311    EARMARKED FUNDS    B-02    42537537959.03    -22932505644.02    -13481882840.20    10515496257.95    16638645732.76    15207656182.71
+312    RESERVE    B-03    46553377022.00    330148948.00    46883525970.00    41953828509.00
+Total    19589636318.76    23620871377.98    1214274071.57    10515496257.95    54940278026.26    50151365262.35
+
+Grants Contributions for Specific Purposes
+320    GRANTS, CONTRIBUTION FOR SPECIFIC PURPOSES    B-04    13431874.00    22933603249.50    0.00    15730076.00    22962765199.50    12759645574.00
+Total    13431874.00    22933603249.50    0.00    15730076.00    22962765199.50    12759645574.00
+
+Loans
+330    SECURED LOANS    B-05    4821145278.07    22632079539.00    27453224817.07    26406531081.14
+331    UNSECURED LOANS    B-06    0.00    0.00    0.00
+Total    4821145278.07    22632079539.00    27453224817.07    26406531081.14
+
+Current Liabilities and Provisions
+340    DEPOSITS RECEIVED    B-07    1853680413.93    2527288415.51    0.00    0.00    4380968829.44    4055902675.44
+341    DEPOSIT WORKS    B-08    361755600.00    10570820826.13    0.00    10932576426.13    9987701619.13
+350    OTHER LIABILITIES    B-09    4998936955.66    265394514.78    5405409.00    236734487.00    5506471366.44    6902624204.03
+360    PROVISIONS    B-10    0.00    0.00    0.00    0.00
+Total    7214372969.59    13363503756.42    5405409.00    236734487.00    20820016622.01    20946228498.60
+
+Total LIABILITIES    126176284664.84    110263770416.09
+
+ASSETS
+Fixed Assets
+410    FIXED ASSETS    B-11    0.00    145866724017.72    1919141521.26    0.00    147785865538.98    142295822637.98"
+2020_21,chennai_budget_2020_21_balance_sheet,2,"*   Task: Extract table data and text from a scanned budget page.
+*   Strict Rules: No explanations, no summaries, no markdown, no commentary, preserve rows/columns, preserve numbers exactly, return clean structured text.
+
+*   Headers:
+*   Account Code
+*   Head of Account
+*   Schedule No
+*   01-Municipal Fund (Rs)
+*   02-Capital Fund (Rs)
+*   03-Elementary Education Fund (Rs)
+*   04-Earmarked Funds (Rs)
+*   31-Mar-2021(Rs)
+*   31-Mar-2020(Rs)
+
+*   Row 1: 411 | ACCUMULATED DEPRECIATION | B-12 | 0.00 | -93461446469.46 | -707714850.00 | [empty] | -94169161319.46 | -84626165985.46
+*   Row 2: 412 | CAPITAL WORK IN PROGRESS | B-13 | 0.00 | 19548513034.26 | 0.00 | 86681226.40 | 19635194260.66 | 13027832303.42
+*   Row 3: [empty] | Total | [empty] | 0.00 | 71953790582.52 | 1211426671.26 | 86681226.40 | 73251898480.18 | 70697488955.94
+*   Row 4: [empty] | Investments | [empty] | [empty] | [empty] | [empty] | [empty] | [empty] | [empty]
+*   Row 5: 420 | INVESTMENT GENERAL FUND | B-14 | 0.00 | 1039947031.00 | [empty] | 0.00 | 1039947031.00 | 1117513648.00
+*   Row 6: 421 | INVESTMENT OTHER FUNDS | B-15 | [empty] | [empty] | [empty] | 7547880700.00 | 7547880700.00 | 6874130693.00
+*   Row 7: [empty] | Total | [empty] | 0.00 | 1039947031.00 | [empty] | 7547880700.00 | 8587827731.00 | 7991644341.00
+*   Row 8: [empty] | Current Assets, Loans and Advances | [empty] | [empty] | [empty] | [empty] | [empty] | [empty] | [empty]
+*   Row 9: 430 | STOCK IN HAND | B-16 | 8557530.62 | 24527609.60 | [empty] | [empty] | 33085140.22 | 28860723.27
+*   Row 10: 431 | SUNDRY DEBTORS (RECEIVABLES) | B-17 | 26602334012.94 | 0.00 | 0.00 | [empty] | 26602334012.94 | 21474130864.58
+*   Row 11: 432 | ACCUMULATED PROVISIONS AGAINST DEBTORS | B-18 | 0.00 | [empty] | [empty] | [empty] | 0.00 | 0.00
+*   Row 12: 440 | PREPAID EXPENSES | B-19 | 0.00 | [empty] | [empty] | [empty] | 0.00 | 0.00
+*   Row 13: 450 | CASH AND BANK BALANCES | B-20 | 1193191402.80 | 7924617165.78 | 4975031.31 | 3133398894.55 | 12256182494.44 | 6992115159.83
+*   Row 14: 460 | LOANS, ADVANCES AND DEPOSITS | B-21 | 3834720712.89 | 1591295471.00 | 3277778.00 | 0.00 | 5429293961.89 | 3063650308.43
+*   Row 15: 461 | ACCUMULATED PROVISONS AGAINST LOANS, ADVANCES AND DEPOSITS | B-22 | 0.00 | [empty] | [empty] | [empty] | 0.00 | 0.00
+*   Row 16: [empty] | Total | [empty] | 31638803659.25 | 9540440426.38 | 8252809.31 | 3133398894.55 | 44320895609.49 | 31558757056.11
+*   Row 17: [empty] | Others | [empty] | [empty] | [empty] | [empty] | [empty] | [empty] | [empty]
+*   Row 18: 470 | OTHER ASSETS | B-23 | 0.00 | 15880063.00 | 0.00 | 0.00 | 15880063.00 | 15880063.00
+*   Row 19: 480 | MISCELLANEOUS EXPENDITURE TO BE WRITTEN OFF | B-24 | 0.00 | [empty] | [empty] | [empty] | 0.00 | 0.00
+*   Row 20: [empty] | Total | [empty] | 0.00 | 15880063.00 | 0.00 | 0.00 | 15880063.00 | 15880063.00
+*   Row 21: [empty] | Total ASSETS | [empty] | [empty] | [empty] | [empty] | [empty] | 126176501883.67 | 110263770416.05
+
+*   The user requested ""No markdown"". This usually means no `|` and `-` table formatting, just raw text. Tab-separated or space-aligned text is typically the ""clean structured text"" intended.
+
+Account Code Head of Account Schedule No 01-Municipal Fund (Rs) 02-Capital Fund (Rs) 03-Elementary Education Fund (Rs) 04-Earmarked Funds (Rs) 31-Mar-2021(Rs) 31-Mar-2020(Rs)
+411 ACCUMULATED DEPRECIATION B-12 0.00 -93461446469.46 -707714850.00 -94169161319.46 -84626165985.46
+412 CAPITAL WORK IN PROGRESS B-13 0.00 19548513034.26 0.00 86681226.40 19635194260.66 13027832303.42
+Total 0.00 71953790582.52 1211426671.26 86681226.40 73251898480.18 70697488955.94
+Investments
+420 INVESTMENT GENERAL FUND B-14 0.00 1039947031.00 0.00 1039947031.00 1117513648.00
+421 INVESTMENT OTHER FUNDS B-15 7547880700.00 7547880700.00 6874130693.00
+Total 0.00 1039947031.00 7547880700.00 8587827731.00 7991644341.00
+Current Assets, Loans and Advances
+430 STOCK IN HAND B-16 8557530.62 24527609.60 33085140.22 28860723.27
+431 SUNDRY DEBTORS (RECEIVABLES) B-17 26602334012.94 0.00 0.00 26602334012.94 21474130864.58
+432 ACCUMULATED PROVISIONS AGAINST DEBTORS B-18 0.00 0.00 0.00
+440 PREPAID EXPENSES B-19 0.00 0.00 0.00
+450 CASH AND BANK BALANCES B-20 1193191402.80 7924617165.78 4975031.31 3133398894.55 12256182494.44 6992115159.83
+460 LOANS, ADVANCES AND DEPOSITS B-21 3834720712.89 1591295471.00 3277778.00 0.00 5429293961.89 3063650308.43
+461 ACCUMULATED PROVISONS AGAINST LOANS, ADVANCES AND DEPOSITS B-22 0.00 0.00 0.00
+Total 31638803659.25 9540440426.38 8252809.31 3133398894.55 44320895609.49 31558757056.11
+Others
+470 OTHER ASSETS B-23 0.00 15880063.00 0.00 0.00 15880063.00 15880063.00
+480 MISCELLANEOUS EXPENDITURE TO BE WRITTEN OFF B-24 0.00 0.00 0.00
+Total 0.00 15880063.00 0.00 0.00 15880063.00 15880063.00
+Total ASSETS 126176501883.67 110263770416.05
+
+*   Check for numbers.
+*   Check for missing columns (some cells are empty).
+*   Check structure.
+
+*Wait*, looking closer at row 411:
+01-Municipal Fund: 0.00
+02-Capital Fund: -93461446469.46
+03-Elementary Education Fund: -707714850.00
+04-Earmarked: [empty]
+31-Mar-2021: -94169161319.46
+31-Mar-2020: -84626165985.46
+
+Row 412:
+01-Municipal Fund: 0.00
+02-Capital Fund: 19548513034.26
+03-Elementary Education Fund: 0.00
+04-Earmarked: 86681226.40
+31-Mar-2021: 19635194260.66
+31-Mar-2020: 13027832303.42
+
+Total (above Investments):
+01: 0.00
+02: 71953790582.52
+03: 1211426671.26
+04: 86681226.40
+31-Mar-2021: 73251898480.18
+31-Mar-2020: 70697488955.94
+
+Row 420:
+01: 0.00
+02: 1039947031.00
+03: [empty]
+04: 0.00
+31-Mar-2021: 1039947031.00
+31-Mar-2020: 1117513648.00
+
+Row 421:
+01: [empty]
+02: [empty]
+03: [empty]
+04: 7547880700.00
+31-Mar-2021: 7547880700.00
+31-Mar-2020: 6874130693.00
+
+Total (above Current Assets):
+01: 0.00
+02: 1039947031.00
+03: [empty]
+04: 7547880700.00
+31-Mar-2021: 8587827731.00
+31-Mar-2020: 7991644341.00
+
+Row 430:
+01: 8557530.62
+02: 24527609.60
+03: [empty]
+04: [empty]
+31-Mar-2021: 33085140.22
+31-Mar-2020: 28860723.27
+
+Row 431:
+01: 26602334012.94
+02: 0.00
+03: 0.00
+04: [empty]
+31-Mar-2021: 26602334012.94
+31-Mar-2020: 21474130864.58
+
+Row 432:
+01: 0.00
+02: [empty]
+03: [empty]
+04: [empty]
+31-Mar-2021: 0.00
+31-Mar-2020: 0.00
+
+Row 440:
+01: 0.00
+02: [empty]
+03: [empty]
+04: [empty]
+31-Mar-2021: 0.00
+31-Mar-2020: 0.00
+
+Row 450:
+01: 1193191402.80
+02: 7924617165.78
+03: 4975031.31
+04: 3133398894.55
+31-Mar-2021: 12256182494.44
+31-Mar-2020: 6992115159.83
+
+Row 460:
+01: 3834720712.89
+02: 1591295471.00
+03: 3277778.00
+04: 0.00
+31-Mar-2021: 5429293961.89
+31-Mar-2020: 3063650308.43
+
+Row 461:
+01: 0.00
+02: [empty]
+03: [empty]
+04: [empty]
+31-Mar-2021: 0.00
+31-Mar-2020: 0.00
+
+Total (above Others):
+01: 31638803659.25
+02: 9540440426.38
+03: 8252809.31
+04: 3133398894.55
+31-Mar-2021: 44320895609.49
+31-Mar-2020: 31558757056.11
+
+Row 470:
+01: 0.00
+02: 15880063.00
+03: 0.00
+04: 0.00
+31-Mar-2021: 15880063.00
+31-Mar-2020: 15880063.00
+
+Row 480:
+01: 0.00
+02: [empty]
+03: [empty]
+04: [empty]
+31-Mar-2021: 0.00
+31-Mar-2020: 0.00
+
+Total (above Total Assets):
+01: 0.00
+02: 15880063.00
+03: 0.00
+04: 0.00
+31-Mar-2021: 15880063.00
+31-Mar-2020: 15880063.00
+
+Total ASSETS:
+31-Mar-2021: 126176501883.67
+31-Mar-2020: 110263770416.05
+
+Final Formatting Decision:
+I will use a tab-like structure for columns to ensure it's clean and structured without using markdown tables.
+
+*Self-Correction on ""No Markdown"":* Standard plain text columns are acceptable. Avoid using `|` symbols.
+
+Account Code	Head of Account	Schedule No	01-Municipal Fund (Rs)	02-Capital Fund (Rs)	03-Elementary Education Fund (Rs)	04-Earmarked Funds (Rs)	31-Mar-2021(Rs)	31-Mar-2020(Rs)
+411	ACCUMULATED DEPRECIATION	B-12	0.00	-93461446469.46	-707714850.00		-94169161319.46	-84626165985.46
+412	CAPITAL WORK IN PROGRESS	B-13	0.00	19548513034.26	0.00	86681226.40	19635194260.66	13027832303.42
+Total		0.00	71953790582.52	1211426671.26	86681226.40	73251898480.18	70697488955.94
+Investments
+420	INVESTMENT GENERAL FUND	B-14	0.00	1039947031.00		0.00	1039947031.00	1117513648.00
+421	INVESTMENT OTHER FUNDS	B-15				7547880700.00	7547880700.00	6874130693.00
+Total		0.00	1039947031.00		7547880700.00	8587827731.00	7991644341.00
+Current Assets, Loans and Advances
+430	STOCK IN HAND	B-16	8557530.62	24527609.60			33085140.22	28860723.27
+431	SUNDRY DEBTORS (RECEIVABLES)	B-17	26602334012.94	0.00	0.00		26602334012.94	21474130864.58
+432	ACCUMULATED PROVISIONS AGAINST DEBTORS	B-18	0.00					0.00	0.00
+440	PREPAID EXPENSES	B-19	0.00					0.00	0.00
+450	CASH AND BANK BALANCES	B-20	1193191402.80	7924617165.78	4975031.31	3133398894.55	12256182494.44	6992115159.83
+460	LOANS, ADVANCES AND DEPOSITS	B-21	3834720712.89	1591295471.00	3277778.00	0.00	5429293961.89	3063650308.43
+461	ACCUMULATED PROVISONS AGAINST LOANS, ADVANCES AND DEPOSITS	B-22	0.00					0.00	0.00
+Total		31638803659.25	9540440426.38	8252809.31	3133398894.55	44320895609.49	31558757056.11
+Others
+470	OTHER ASSETS	B-23	0.00	15880063.00	0.00	0.00	15880063.00	15880063.00
+480	MISCELLANEOUS EXPENDITURE TO BE WRITTEN OFF	B-24	0.00					0.00	0.00
+Total		0.00	15880063.00	0.00	0.00	15880063.00	15880063.00
+Total ASSETS								126176501883.67	110263770416.05
+
+Wait, I noticed a slight discrepancy in row 412. Let's re-verify.
+Account 412:
+Municipal: 0.00
+Capital: 19548513034.26
+Elementary: 0.00
+Earmarked: 86681226.40
+Mar-21: 19635194260.66 (Sum of 19548513034.26 + 86681226.40 = 19635194260.66)
+Mar-20: 13027832303.42
+
+Correct.
+
+Double check row 421:
+Earmarked: 7547880700.00
+Mar-21: 7547880700.00
+Mar-20: 6874130693.00
+
+Double check Total ASSETS:
+Mar-21: 126176501883.67
+Mar-20: 110263770416.05
+
+Wait, looking at ""No markdown"". If I provide a tab-separated list, that's clean structured text.
+
+One final check of the values:
+411: 0.00 | -93461446469.46 | -707714850.00 | [empty] | -94169161319.46 | -84626165985.46
+412: 0.00 | 19548513034.26 | 0.00 | 86681226.40 | 19635194260.66 | 13027832303.42
+Total: 0.00 | 71953790582.52 | 1211426671.26 | 86681226.40 | 73251898480.18 | 70697488955.94
+Investments: [empty]
+420: 0.00 | 1039947031.00 | [empty] | 0.00 | 1039947031.00 | 1117513648.00
+421: [empty] | [empty] | [empty] | 7547880700.00 | 7547880700.00 | 6874130693.00
+Total: 0.00 | 1039947031.00 | [empty] | 7547880700.00 | 8587827731.00 | 7991644341.00
+Current Assets...: [empty]
+430: 8557530.62 | 24527609.60 | [empty] | [empty] | 33085140.22 | 28860723.27
+431: 26602334012.94 | 0.00 | 0.00 | [empty] | 26602334012.94 | 21474130864.58
+432: 0.00 | [empty] | [empty] | [empty] | 0.00 | 0.00
+440: 0.00 | [empty] | [empty] | [empty] | 0.00 | 0.00
+450: 1193191402.80 | 7924617165.78 | 4975031.31 | 3133398894.55 | 12256182494.44 | 6992115159.83
+460: 3834720712.89 | 1591295471.00 | 3277778.00 | 0.00 | 5429293961.89 | 3063650308.43
+461: 0.00 | [empty] | [empty] | [empty] | 0.00 | 0.00
+Total: 31638803659.25 | 9540440426.38 | 8252809.31 | 3133398894.55 | 44320895609.49 | 31558757056.11
+Others: [empty]
+470: 0.00 | 15880063.00 | 0.00 | 0.00 | 15880063.00 | 15880063.00
+480: 0.00 | [empty] | [empty] | [empty] | 0.00 | 0.00
+Total: 0.00 | 15880063.00 | 0.00 | 0.00 | 15880063.00 | 15880063.00
+Total ASSETS: [empty] | [empty] | [empty] | [empty] | 126176501883.67 | 110263770416.05
+Account Code	Head of Account	Schedule No	01-Municipal Fund (Rs)	02-Capital Fund (Rs)	03-Elementary Education Fund (Rs)	04-Earmarked Funds (Rs)	31-Mar-2021(Rs)	31-Mar-2020(Rs)
+411	ACCUMULATED DEPRECIATION	B-12	0.00	-93461446469.46	-707714850.00		-94169161319.46	-84626165985.46
+412	CAPITAL WORK IN PROGRESS	B-13	0.00	19548513034.26	0.00	86681226.40	19635194260.66	13027832303.42
+Total		0.00	71953790582.52	1211426671.26	86681226.40	73251898480.18	70697488955.94
+Investments
+420	INVESTMENT GENERAL FUND	B-14	0.00	1039947031.00		0.00	1039947031.00	1117513648.00
+421	INVESTMENT OTHER FUNDS	B-15				7547880700.00	7547880700.00	6874130693.00
+Total		0.00	1039947031.00		7547880700.00	8587827731.00	7991644341.00
+Current Assets, Loans and Advances
+430	STOCK IN HAND	B-16	8557530.62	24527609.60			33085140.22	28860723.27
+431	SUNDRY DEBTORS (RECEIVABLES)	B-17	26602334012.94	0.00	0.00		26602334012.94	21474130864.58
+432	ACCUMULATED PROVISIONS AGAINST DEBTORS	B-18	0.00					0.00	0.00
+440	PREPAID EXPENSES	B-19	0.00					0.00	0.00
+450	CASH AND BANK BALANCES	B-20	1193191402.80	7924617165.78	4975031.31	3133398894.55	12256182494.44	6992115159.83
+460	LOANS, ADVANCES AND DEPOSITS	B-21	3834720712.89	1591295471.00	3277778.00	0.00	5429293961.89	3063650308.43
+461	ACCUMULATED PROVISONS AGAINST LOANS, ADVANCES AND DEPOSITS	B-22	0.00					0.00	0.00
+Total		31638803659.25	9540440426.38	8252809.31	3133398894.55	44320895609.49	31558757056.11
+Others
+470	OTHER ASSETS	B-23	0.00	15880063.00	0.00	0.00	15880063.00	15880063.00
+480	MISCELLANEOUS EXPENDITURE TO BE WRITTEN OFF	B-24	0.00					0.00	0.00
+Total		0.00	15880063.00	0.00	0.00	15880063.00	15880063.00
+Total ASSETS								126176501883.67	110263770416.05"
+2020_21,chennai_budget_2020_21_balance_sheet,3,"*   Input: A scanned image of a budget page from the Greater Chennai Corporation.
+*   Goal: Extract ONLY table data and text.
+*   Constraints: No explanations, no summaries, no markdown, no commentary. Preserve rows, columns, and exact numbers. Return clean structured text.
+
+*   Title: Greater Chennai Corporation
+*   Subtitle: Income And Expenditure Statement for the Financial Year 2020-21
+*   Report Run Date: 01/09/2021
+*   Amount in Rupees (Header)
+*   Table Columns:
+1.  Account Code
+2.  Head of Account
+3.  Schedule No
+4.  Revised Estimate 2020-21
+5.  01-Municipal Fund Totals As On:31-Mar-2021(Rs)
+6.  01-Municipal Fund Totals As On:31-Mar-2020(Rs)
+7.  03-Elementary Education Fund Totals As On:31-Mar-2021(Rs)
+8.  03-Elementary Education Fund Totals As On:31-Mar-2020(Rs)
+
+*   Row 1: INCOME
+*   Row 2 (110): TAX REVENUE | I-01 | [blank] | 11804145126.56 | 12262733206.09 | 1064217918.00 | 2175751416.00
+*   Row 3 (120): ASSIGNED REVENUE AND COMPENSATIONS | I-02 | [blank] | 6525841613.00 | 6448114233.00 | [blank] | [blank]
+*   Row 4 (130): RENTAL INCOME FROM MUNICIPAL PROPERTIES | I-03 | [blank] | 764480405.82 | 1203990871.48 | [blank] | [blank]
+*   Row 5 (140): FEES AND USER CHARGES | I-04 | [blank] | 1160125796.15 | 1199358527.96 | 7995.00 | 8581.00
+*   Row 6 (150): SALE AND HIRE CHARGES | I-05 | [blank] | 480834416.00 | 293240964.00 | 1833.00 | 2803.00
+*   Row 7 (160): Revenue Grants, Contribution and Subsidies | I-06 | [blank] | 9712189390.00 | 2073491878.00 | [blank] | [blank]
+*   Row 8 (170): Income from Investment | I-07 | [blank] | 15259205.00 | 36638372.00 | [blank] | [blank]
+*   Row 9 (171): INTEREST EARNED | I-08 | [blank] | 111330294.00 | 112469838.00 | [blank] | [blank]
+*   Row 10 (180): OTHER INCOME | I-09 | [blank] | 1003514937.56 | 1076936758.51 | 741628.00 | 1068938.00
+*   Row 11 (A): Total INCOME | [blank] | [blank] | 31577721184.09 | 24706974649.04 | 1064969374.00 | 2176831738.00
+*   Row 12: EXPENDITURE
+*   Row 13 (210): Establishment Expenses | I-10 | 15079714000.00 | 13470240639.00 | 13928284733.52 | 123929240.00 | 130868805.00
+*   Row 14 (220): Administrative Expenses | I-11 | 11404900000.00 | 901874631.00 | 747202254.85 | 16843200.00 | 21620450.00
+*   Row 15 (230): OPERATION AND MAINTENANCE EXPENSES | I-12 | 14644059000.00 | 11244913568.38 | 6529175199.49 | 38126704.00 | 67868438.00
+*   Row 16 (240): INTEREST AND FINANCE CHARGES | I-13 | 1670000000.00 | 1520881226.93 | 1673586089.14 | [blank] | [blank]
+*   Row 17 (250): Programme Expenses | I-14 | 40431000.00 | 23350803.00 | 72260138.00 | [blank] | 654196.00
+*   Row 18 (271): MISCELLANEOUS EXPENSES | I-17 | 84106000.00 | 11937954.00 | 9832087.00 | 52704044.00 | 70482535.00
+*   Row 19 (272): Depreciation | I-18 | 12089355000.00 | 9498327588.00 | 9212457117.00 | 60407086.00 | 127436758.00
+*   Row 20 (B): Total EXPENDITURE | [blank] | 44748155000.00 | 36671526410.31 | 32172797619.00 | 292010274.00 | 418931182.00
+*   Row 21 (A-B): Income Over Expenditure | [blank] | [blank] | [blank] | [blank] | 772959100.00 | 1757900556.00
+*   Row 22 (B-A): Expenditure Over Income | [blank] | [blank] | 5093805226.22 | 7465822969.96 | [blank] | [blank]
+
+*   The user requested ""clean structured text"". Tabs or aligned columns are best for preservation of rows and columns without markdown tables (since ""No markdown"" was specified). Plain text spacing or a CSV-like format is usually what's expected when markdown is banned but structure is requested. However, usually ""no markdown"" in this context means ""don't use the `|---|` syntax"". I will use tab-separated or space-aligned text. Let's use simple spacing/columns.
+
+*   *Self-Correction on ""No markdown""*: If I provide a markdown table, I violate the ""No markdown"" rule. I will provide plain text aligned.
+
+Greater Chennai Corporation
+Income And Expenditure Statement for the Financial Year 2020-21
+Report Run Date-01/09/2021
+Amount in Rupees
+
+Account Code | Head of Account | Schedule No | Revised Estimate 2020-21 | 01-Municipal Fund Totals As On:31-Mar-2021(Rs) | 01-Municipal Fund Totals As On:31-Mar-2020(Rs) | 03-Elementary Education Fund Totals As On:31-Mar-2021(Rs) | 03-Elementary Education Fund Totals As On:31-Mar-2020(Rs)
+...
+
+Actually, the prompt says ""Preserve rows and columns"" and ""Return clean structured text"". I'll use a plain text table format.
+
+*   *Double check numbers*:
+*   110: 11804145126.56, 12262733206.09, 1064217918.00, 2175751416.00. Correct.
+*   120: 6525841613.00, 6448114233.00. Correct.
+*   130: 764480405.82, 1203990871.48. Correct.
+*   140: 1160125796.15, 1199358527.96, 7995.00, 8581.00. Correct.
+*   150: 480834416.00, 293240964.00, 1833.00, 2803.00. Correct.
+*   160: 9712189390.00, 2073491878.00. Correct.
+*   170: 15259205.00, 36638372.00. Correct.
+*   171: 111330294.00, 112469838.00. Correct.
+*   180: 1003514937.56, 1076936758.51, 741628.00, 1068938.00. Correct.
+*   A: 31577721184.09, 24706974649.04, 1064969374.00, 2176831738.00. Correct.
+*   210: 15079714000.00, 13470240639.00, 13928284733.52, 123929240.00, 130868805.00. Correct.
+*   220: 11404900000.00, 901874631.00, 747202254.85, 16843200.00, 21620450.00. Correct.
+*   230: 14644059000.00, 11244913568.38, 6529175199.49, 38126704.00, 67868438.00. Correct.
+*   240: 1670000000.00, 1520881226.93, 1673586089.14. Correct.
+*   250: 40431000.00, 23350803.00, 72260138.00, 654196.00. Correct.
+*   271: 84106000.00, 11937954.00, 9832087.00, 52704044.00, 70482535.00. Correct.
+*   272: 12089355000.00, 9498327588.00, 9212457117.00, 60407086.00, 127436758.00. Correct.
+*   B: 44748155000.00, 36671526410.31, 32172797619.00, 292010274.00, 418931182.00. Correct.
+*   A-B: 772959100.00, 1757900556.00. Correct.
+*   B-A: 5093805226.22, 7465822969.96. Correct.
+
+*   No explanations: Yes.
+*   No summaries: Yes.
+*   No markdown: Yes.
+*   No commentary: Yes.
+*   Preserve rows and columns: Yes.
+*   Preserve numbers exactly: Yes.
+*   Return clean structured text: Yes.
+
+I will use a pipe-separated layout for clarity, as it's a common way to represent ""structured text"" without using the ""markdown table"" format (which usually implies the bolded header row and the delimiter line `|---|`).
+
+Wait, the user specifically said ""No markdown"". Pipe separators are often associated with markdown. I will use tab-like spacing or just standard plain text columns.
+
+*Refinement on ""No markdown""*: Often, users mean they don't want the rendering of a table, just the data. I'll use a simple text-based representation.
+
+Greater Chennai Corporation
+Income And Expenditure Statement for the Financial Year 2020-21
+
+Report Run Date-01/09/2021
+Amount in Rupees
+
+Account Code  Head of Account  Schedule No  Revised Estimate 2020-21  01-Municipal Fund Totals As On:31-Mar-2021(Rs)  01-Municipal Fund Totals As On:31-Mar-2020(Rs)  03-Elementary Education Fund Totals As On:31-Mar-2021(Rs)  03-Elementary Education Fund Totals As On:31-Mar-2020(Rs)
+
+INCOME
+110  TAX REVENUE  I-01  -  11804145126.56  12262733206.09  1064217918.00  2175751416.00
+120  ASSIGNED REVENUE AND COMPENSATIONS  I-02  -  6525841613.00  6448114233.00  -  -
+...and so on.
+
+Let's double check the Revised Estimate column for Income. It is empty for all income lines. For Expenditure, it is populated.
+
+Row B (Total Expenditure):
+Revised Estimate 2020-21: 44748155000.00
+01-Municipal 2021: 36671526410.31
+01-Municipal 2020: 32172797619.00
+03-Elementary 2021: 292010274.00
+03-Elementary 2020: 418931182.00
+
+Row A-B (Income Over Expenditure):
+03-Elementary 2021: 772959100.00
+03-Elementary 2020: 1757900556.00
+
+Row B-A (Expenditure Over Income):
+01-Municipal 2021: 5093805226.22
+01-Municipal 2020: 7465822969.96
+
+Okay, I'm ready. I will use a comma-separated or tab-like layout. Given ""preserve rows and columns"", a fixed-width text layout or simple delimiters are safest. I'll go with a simple clear plain text list.
+
+Actually, ""structured text"" usually means CSV or Tabular. I'll use Tabular plain text.
+
+*One more check on ""No markdown""*: This means absolutely no `**`, `#`, `|---|`. Just text.
+
+Let's produce the output.
+Greater Chennai Corporation
+Income And Expenditure Statement for the Financial Year 2020-21
+
+Report Run Date-01/09/2021
+Amount in Rupees
+
+Account Code    Head of Account    Schedule No    Revised Estimate 2020-21    01-Municipal Fund Totals As On:31-Mar-2021(Rs)    01-Municipal Fund Totals As On:31-Mar-2020(Rs)    03-Elementary Education Fund Totals As On:31-Mar-2021(Rs)    03-Elementary Education Fund Totals As On:31-Mar-2020(Rs)
+
+INCOME
+110    TAX REVENUE    I-01    -    11804145126.56    12262733206.09    1064217918.00    2175751416.00
+120    ASSIGNED REVENUE AND COMPENSATIONS    I-02    -    6525841613.00    6448114233.00    -    -
+130    RENTAL INCOME FROM MUNICIPAL PROPERTIES    I-03    -    764480405.82    1203990871.48    -    -
+140    FEES AND USER CHARGES    I-04    -    1160125796.15    1199358527.96    7995.00    8581.00
+150    SALE AND HIRE CHARGES    I-05    -    480834416.00    293240964.00    1833.00    2803.00
+160    Revenue Grants, Contribution and Subsidies    I-06    -    9712189390.00    2073491878.00    -    -
+170    Income from Investment    I-07    -    15259205.00    36638372.00    -    -
+171    INTEREST EARNED    I-08    -    111330294.00    112469838.00    -    -
+180    OTHER INCOME    I-09    -    1003514937.56    1076936758.51    741628.00    1068938.00
+A    Total INCOME    -    -    31577721184.09    24706974649.04    1064969374.00    2176831738.00
+
+EXPENDITURE
+210    Establishment Expenses    I-10    15079714000.00    13470240639.00    13928284733.52    123929240.00    130868805.00
+220    Administrative Expenses    I-11    11404900000.00    901874631.00    747202254.85    16843200.00    21620450.00
+230    OPERATION AND MAINTENANCE EXPENSES    I-12    14644059000.00    11244913568.38    6529175199.49    38126704.00    67868438.00
+240    INTEREST AND FINANCE CHARGES    I-13    1670000000.00    1520881226.93    1673586089.14    -    -
+250    Programme Expenses    I-14    40431000.00    23350803.00    72260138.00    -    654196.00
+271    MISCELLANEOUS EXPENSES    I-17    84106000.00    11937954.00    9832087.00    52704044.00    70482535.00
+272    Depreciation    I-18    12089355000.00    9498327588.00    9212457117.00    60407086.00    127436758.00
+B    Total EXPENDITURE    -    44748155000.00    36671526410.31    32172797619.00    292010274.00    418931182.00
+A-B    Income Over Expenditure    -    -    -    -    772959100.00    1757900556.00
+B-A    Expenditure Over Income    -    -    5093805226.22    7465822969.96    -    -"

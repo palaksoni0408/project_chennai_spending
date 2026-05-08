@@ -1,0 +1,3877 @@
+year_key,document_slug,page_number,cleaned_text
+2026_27,gcc_budget_2026_27_budget_at_a_glance,1,"*   Task: Extract ONLY table data and text from the provided image.
+*   Constraints: No explanations, no summaries, no markdown, no commentary. Preserve rows/columns and numbers exactly. Return clean structured text.
+*   Input: An image of a cover page for a budget document.
+
+*   Top left: ""பெருநகர சென்னை மாநகராட்சி"" (Tamil for Greater Chennai Corporation).
+*   Top right: ""GREATER CHENNAI CORPORATION"".
+*   Center image: A building (Ripon Building).
+*   Middle text (Tamil): ""வரவு செலவுத் திட்டம் . கண்ணோட்டம்"" (Budget at a Glance).
+*   Middle text (English): ""BUDGET AT A GLANCE"".
+*   Bottom text (Boxed): ""2026-2027"".
+
+*   There are no tables in this image.
+*   Only text needs to be extracted.
+
+*   பெருநகர சென்னை மாநகராட்சி
+*   GREATER CHENNAI CORPORATION
+*   வரவு செலவுத் திட்டம் . கண்ணோட்டம்
+*   BUDGET AT A GLANCE
+*   2026-2027
+
+*   No markdown (so no bolding, no tables, no lists).
+*   Clean structured text.
+
+பெருநகர சென்னை மாநகராட்சி
+GREATER CHENNAI CORPORATION
+வரவு செலவுத் திட்டம் . கண்ணோட்டம்
+BUDGET AT A GLANCE
+2026-2027
+பெருநகர சென்னை மாநகராட்சி
+GREATER CHENNAI CORPORATION
+வரவு செலவுத் திட்டம் . கண்ணோட்டம்
+BUDGET AT A GLANCE
+2026-2027"
+2026_27,gcc_budget_2026_27_budget_at_a_glance,2,"*   Task: Extract table data and text from a scanned budget page.
+*   Constraints:
+*   ONLY table data and text.
+*   No explanations, summaries, markdown, or commentary.
+*   Preserve rows/columns.
+*   Preserve numbers exactly.
+*   Return clean structured text.
+
+*   Image content:
+*   Logo at the top.
+*   Tamil text: பெருநகர சென்னை மாநகராட்சி
+*   English text: GREATER CHENNAI CORPORATION
+*   Tamil text: வரவு செலவு திட்டம் - கண்ணோட்டம்
+*   English text: BUDGET AT A GLANCE
+*   Year: 2026 - 2027
+*   There is no table in this image. It is a cover page.
+
+*   Text elements to extract:
+1.  பெருநகர சென்னை மாநகராட்சி
+2.  GREATER CHENNAI CORPORATION
+3.  வரவு செலவு திட்டம் - கண்ணோட்டம்
+4.  BUDGET AT A GLANCE
+5.  2026 - 2027
+
+*   No markdown.
+*   No commentary.
+*   Clean structured text.
+
+பெருநகர சென்னை மாநகராட்சி
+GREATER CHENNAI CORPORATION
+வரவு செலவு திட்டம் - கண்ணோட்டம்
+BUDGET AT A GLANCE
+2026 - 2027
+பெருநகர சென்னை மாநகராட்சி
+GREATER CHENNAI CORPORATION
+வரவு செலவு திட்டம் - கண்ணோட்டம்
+BUDGET AT A GLANCE
+2026 - 2027"
+2026_27,gcc_budget_2026_27_budget_at_a_glance,3,"*   Task: Extract table data and text from a scanned budget page.
+*   Input: An image containing a table titled ""BUDGET AT A GLANCE"".
+*   Strict Rules:
+*   No explanations.
+*   No summaries.
+*   No markdown (meaning no `|` or `-` formatting typical of markdown tables, just clean structured text).
+*   No commentary.
+*   Preserve rows and columns.
+*   Preserve numbers exactly.
+*   Return clean structured text.
+
+*   Title: வரவு செலவுத் திட்டம் - கண்ணோட்டம் / BUDGET AT A GLANCE
+*   Columns:
+1.  வரிசை எண் / Sl.No.
+2.  கணக்கு தலைப்பு / Account Head
+3.  கணக்குகள் Actuals 2024-2025
+4.  வரவு செலவு திட்ட மதிப்பீடு Budget Estimate 2025-2026
+5.  திருத்த திட்ட மதிப்பீடு Revised Estimate 2025-2026
+6.  வரவு செலவு திட்ட மதிப்பீடு Budget Estimate 2026-2027
+*   Unit: (ரூபாய் கோடியில்) / (Rs. in Crore)
+
+*   Row 1 (Opening Balance):
+*   Account Head: முன் இருப்பு / OPENING BALANCE
+*   Actuals 2024-2025: 512.57
+*   BE 2025-2026: -363.55
+*   RE 2025-2026: -596.28
+*   BE 2026-2027: -1669.74
+
+*   Row 2 (Revenue Account - Receipts):
+*   Sl.No: 1
+*   Account Head: வருவாய் கணக்கு REVENUE ACCOUNT -> வரவுகள் Receipts
+*   Actuals 2024-2025: 4679.38
+*   BE 2025-2026: 5145.52
+*   RE 2025-2026: 5511.77
+*   BE 2026-2027: 6040.97
+
+*   Row 3 (Revenue Account - Expenditure):
+*   Account Head: செலவுகள் Expenditure
+*   Actuals 2024-2025: 5242.47
+*   BE 2025-2026: 5214.09
+*   RE 2025-2026: 6268.48
+*   BE 2026-2027: 6146.29
+
+*   Row 4 (Revenue Account - Deficit):
+*   Account Head: பற்றாக்குறை DEFICIT
+*   Actuals 2024-2025: -563.09
+*   BE 2025-2026: -68.57
+*   RE 2025-2026: -756.71
+*   BE 2026-2027: -105.32
+
+*   Row 5 (Capital Account - Receipts):
+*   Sl.No: 2
+*   Account Head: மூலதனக் கணக்கு CAPITAL ACCOUNT -> வரவுகள் Receipts
+*   Actuals 2024-2025: 1650.67
+*   BE 2025-2026: 3121.65
+*   RE 2025-2026: 3364.75
+*   BE 2026-2027: 2517.34
+
+*   Row 6 (Capital Account - Expenditure):
+*   Account Head: செலவுகள் Expenditure
+*   Actuals 2024-2025: 2201.24
+*   BE 2025-2026: 3190.61
+*   RE 2025-2026: 3915.34
+*   BE 2026-2027: 2754.05
+
+*   Row 7 (Capital Account - Deficit):
+*   Account Head: பற்றாக்குறை DEFICIT
+*   Actuals 2024-2025: -550.57
+*   BE 2025-2026: -68.96
+*   RE 2025-2026: -550.59
+*   BE 2026-2027: -236.71
+
+*   Row 8 (Net Deficit):
+*   Account Head: நிகர பற்றாக்குறை (வருவாய் மற்றும் மூலதனம்) NET DEFICIT (REVENUE AND CAPITAL)
+*   Actuals 2024-2025: -601.09
+*   BE 2025-2026: -501.08
+*   RE 2025-2026: -1903.58
+*   BE 2026-2027: -2011.77
+
+*   Row 9 (Revenue Advances - Recoveries):
+*   Sl.No: 3
+*   Account Head: வருவாய் முன்பணம் REVENUE ADVANCES -> பிடித்தங்கள் Recoveries
+*   Actuals 2024-2025: 295.89
+*   BE 2025-2026: 270.45
+*   RE 2025-2026: 280.33
+*   BE 2026-2027: 314.33
+
+*   Row 10 (Revenue Advances - Out-Goings):
+*   Account Head: செலவினங்கள் Out-Goings
+*   Actuals 2024-2025: 285.97
+*   BE 2025-2026: 233.24
+*   RE 2025-2026: 263.34
+*   BE 2026-2027: 270.34
+
+*   Row 11 (Revenue Advances - Surplus):
+*   Account Head: மிகை SURPLUS
+*   Actuals 2024-2025: 9.92
+*   BE 2025-2026: 37.21
+*   RE 2025-2026: 16.99
+*   BE 2026-2027: 43.99
+
+*   No markdown.
+*   No explanations.
+*   No commentary.
+*   Tab-separated or space-separated structured text. Let's use a clean alignment.
+
+*Wait*, the prompt says ""No markdown"". This usually means no `|` pipe symbols or `---` separators. I will use a plain text table format (spacing).
+
+*   Header:
+வரிசை எண் Sl.No.    கணக்கு தலைப்பு Account Head    கணக்குகள் Actuals 2024-2025    வரவு செலவு திட்ட மதிப்பீடு Budget Estimate 2025-2026    திருத்த திட்ட மதிப்பீடு Revised Estimate 2025-2026    வரவு செலவு திட்ட மதிப்பீடு Budget Estimate 2026-2027
+
+*   Unit: (ரூபாய் கோடியில்) (Rs. in Crore)
+
+*   Data:
+OPENING BALANCE    512.57    -363.55    -596.28    -1669.74
+1 REVENUE ACCOUNT
+Receipts    4679.38    5145.52    5511.77    6040.97
+Expenditure    5242.47    5214.09    6268.48    6146.29
+DEFICIT    -563.09    -68.57    -756.71    -105.32
+2 CAPITAL ACCOUNT
+Receipts    1650.67    3121.65    3364.75    2517.34
+Expenditure    2201.24    3190.61    3915.34    2754.05
+DEFICIT    -550.57    -68.96    -550.59    -236.71
+NET DEFICIT (REVENUE AND CAPITAL)    -601.09    -501.08    -1903.58    -2011.77
+3 REVENUE ADVANCES
+Recoveries    295.89    270.45    280.33    314.33
+Out-Goings    285.97    233.24    263.34    270.34
+SURPLUS    9.92    37.21    16.99    43.99
+
+*Check for Tamil characters* - I must include them as they are in the image.
+
+வரிசை எண் Sl.No. | கணக்கு தலைப்பு Account Head | கணக்குகள் Actuals 2024-2025 | வரவு செலவு திட்ட மதிப்பீடு Budget Estimate 2025-2026 | திருத்த திட்ட மதிப்பீடு Revised Estimate 2025-2026 | வரவு செலவு திட்ட மதிப்பீடு Budget Estimate 2026-2027
+(Wait, ""no markdown"" might mean no tables at all. Just structured text.)
+
+Let's use a simple text layout.
+
+வரிசை எண் Sl.No. கணக்கு தலைப்பு Account Head கணக்குகள் Actuals 2024-2025 வரவு செலவு திட்ட மதிப்பீடு Budget Estimate 2025-2026 திருத்த திட்ட மதிப்பீடு Revised Estimate 2025-2026 வரவு செலவு திட்ட மதிப்பீடு Budget Estimate 2026-2027
+(ரூபாய் கோடியில்) (Rs. in Crore)
+முன் இருப்பு OPENING BALANCE 512.57 -363.55 -596.28 -1669.74
+1 வருவாய் கணக்கு REVENUE ACCOUNT
+வரவுகள் Receipts 4679.38 5145.52 5511.77 6040.97
+செலவுகள் Expenditure 5242.47 5214.09 6268.48 6146.29
+பற்றாக்குறை DEFICIT -563.09 -68.57 -756.71 -105.32
+2 மூலதனக் கணக்கு CAPITAL ACCOUNT
+வரவுகள் Receipts 1650.67 3121.65 3364.75 2517.34
+செலவுகள் Expenditure 2201.24 3190.61 3915.34 2754.05
+பற்றாக்குறை DEFICIT -550.57 -68.96 -550.59 -236.71
+நிகர பற்றாக்குறை (வருவாய் மற்றும் மூலதனம்) NET DEFICIT (REVENUE AND CAPITAL) -601.09 -501.08 -1903.58 -2011.77
+3 வருவாய் முன்பணம் REVENUE ADVANCES
+பிடித்தங்கள் Recoveries 295.89 270.45 280.33 314.33
+செலவினங்கள் Out-Goings 285.97 233.24 263.34 270.34
+மிகை SURPLUS 9.92 37.21 16.99 43.99
+
+*Self-Correction on ""Preserve rows and columns""*: If I just list them, it might lose column structure. I'll use tabs or multiple spaces to ensure the column alignment is clear without using markdown syntax.
+
+Title: வரவு செலவுத் திட்டம் - கண்ணோட்டம் BUDGET AT A GLANCE
+
+Cols:
+Sl.No. | Account Head | Actuals 2024-2025 | Budget Estimate 2025-2026 | Revised Estimate 2025-2026 | Budget Estimate 2026-2027
+
+Wait, the rule ""No markdown"" is the key. I will output as a plain text block.
+
+Header:
+வரிசை எண் Sl.No.    கணக்கு தலைப்பு Account Head    கணக்குகள் Actuals 2024-2025    வரவு செலவு திட்ட மதிப்பீடு Budget Estimate 2025-2026    திருத்த திட்ட மதிப்பீடு Revised Estimate 2025-2026    வரவு செலவு திட்ட மதிப்பீடு Budget Estimate 2026-2027
+(ரூபாய் கோடியில்) (Rs. in Crore)
+
+Data:
+முன் இருப்பு OPENING BALANCE    512.57    -363.55    -596.28    -1669.74
+1 வருவாய் கணக்கு REVENUE ACCOUNT
+வரவுகள் Receipts    4679.38    5145.52    5511.77    6040.97
+செலவுகள் Expenditure    5242.47    5214.09    6268.48    6146.29
+பற்றாக்குறை DEFICIT    -563.09    -68.57    -756.71    -105.32
+2 மூலதனக் கணக்கு CAPITAL ACCOUNT
+வரவுகள் Receipts    1650.67    3121.65    3364.75    2517.34
+செலவுகள் Expenditure    2201.24    3190.61    3915.34    2754.05
+பற்றாக்குறை DEFICIT    -550.57    -68.96    -550.59    -236.71
+நிகர பற்றாக்குறை (வருவாய் மற்றும் மூலதனம்) NET DEFICIT (REVENUE AND CAPITAL)    -601.09    -501.08    -1903.58    -2011.77
+3 வருவாய் முன்பணம் REVENUE ADVANCES
+பிடித்தங்கள் Recoveries    295.89    270.45    280.33    314.33
+செலவினங்கள் Out-Goings    285.97    233.24    263.34    270.34
+மிகை SURPLUS    9.92    37.21    16.99    43.99
+
+- No explanations: Check.
+- No summaries: Check.
+- No markdown: Check (no bold, no pipes, no tables).
+- No commentary: Check.
+- Preserve rows and columns: Check (using space/tabs).
+- Preserve numbers exactly: Check.
+- Return clean structured text: Check.
+
+Double check numbers:
+Opening Bal: 512.57, -363.55, -596.28, -1669.74 (Correct)
+Rev Rec: 4679.38, 5145.52, 5511.77, 6040.97 (Correct)
+Rev Exp: 5242.47, 5214.09, 6268.48, 6146.29 (Correct)
+Rev Def: -563.09, -68.57, -756.71, -105.32 (Correct)
+Cap Rec: 1650.67, 3121.65, 3364.75, 2517.34 (Correct)
+Cap Exp: 2201.24, 3190.61, 3915.34, 2754.05 (Correct)
+Cap Def: -550.57, -68.96, -550.59, -236.71 (Correct)
+Net Def: -601.09, -501.08, -1903.58, -2011.77 (Correct)
+Recov: 295.89, 270.45, 280.33, 314.33 (Correct)
+Out-Goings: 285.97, 233.24, 263.34, 270.34 (Correct)
+Surplus: 9.92, 37.21, 16.99, 43.99 (Correct)
+
+All looks correct. Proceed.
+வரவு செலவுத் திட்டம் - கண்ணோட்டம்
+BUDGET AT A GLANCE
+
+வரிசை எண் Sl.No.    கணக்கு தலைப்பு Account Head    கணக்குகள் Actuals 2024-2025    வரவு செலவு திட்ட மதிப்பீடு Budget Estimate 2025-2026    திருத்த திட்ட மதிப்பீடு Revised Estimate 2025-2026    வரவு செலவு திட்ட மதிப்பீடு Budget Estimate 2026-2027
+(ரூபாய் கோடியில்) (Rs. in Crore)
+
+முன் இருப்பு OPENING BALANCE    512.57    -363.55    -596.28    -1669.74
+
+1 வருவாய் கணக்கு REVENUE ACCOUNT
+வரவுகள் Receipts    4679.38    5145.52    5511.77    6040.97
+செலவுகள் Expenditure    5242.47    5214.09    6268.48    6146.29
+பற்றாக்குறை DEFICIT    -563.09    -68.57    -756.71    -105.32
+
+2 மூலதனக் கணக்கு CAPITAL ACCOUNT
+வரவுகள் Receipts    1650.67    3121.65    3364.75    2517.34
+செலவுகள் Expenditure    2201.24    3190.61    3915.34    2754.05
+பற்றாக்குறை DEFICIT    -550.57    -68.96    -550.59    -236.71
+
+நிகர பற்றாக்குறை (வருவாய் மற்றும் மூலதனம்) NET DEFICIT (REVENUE AND CAPITAL)    -601.09    -501.08    -1903.58    -2011.77
+
+3 வருவாய் முன்பணம் REVENUE ADVANCES
+பிடித்தங்கள் Recoveries    295.89    270.45    280.33    314.33
+செலவினங்கள் Out-Goings    285.97    233.24    263.34    270.34
+மிகை SURPLUS    9.92    37.21    16.99    43.99"
+2026_27,gcc_budget_2026_27_budget_at_a_glance,4,"*   Task: Extract ONLY table data and text from the provided image.
+*   Constraints: No explanations, no summaries, no markdown, no commentary.
+*   Requirements: Preserve rows/columns, preserve numbers exactly, return clean structured text.
+
+*   Header:
+*   வரவு செலவுத் திட்டம் - கண்ணோட்டம் (BUDGET AT A GLANCE)
+*   Columns:
+1. வரிசை எண் (Sl.No.)
+2. கணக்கு தலைப்பு (Account Head)
+3. கணக்குகள் Actuals 2024-2025
+4. வரவு செலவு திட்ட மதிப்பீடு Budget Estimate 2025-2026
+5. திருத்த திட்ட மதிப்பீடு Revised Estimate 2025-2026
+6. வரவு செலவு திட்ட மதிப்பீடு Budget Estimate 2026-2027
+*   Note: (ரூபாய் கோடியில்) (Rs. in Crore)
+
+*   Row 4:
+*   Account Head: மூலதன முன்பணம் CAPITAL ADVANCES
+*   பிடிததங்கள் Recoveries: 47.24 | 125.00 | 13.00 | 14.50
+*   செலவினங்கள் Out-Goings: 18.89 | 16.00 | 6.00 | 8.00
+*   மிகை SURPLUS: 28.35 | 109.00 | 7.00 | 6.50
+
+*   Row 5:
+*   Account Head: மூலதன வைப்புத் தொகை CAPITAL DEPOSITS
+*   பிடிததங்கள் Recoveries: 411.97 | 220.00 | 450.00 | 500.00
+*   செலவினங்கள் Out-Goings: 108.80 | 30.00 | 25.00 | 30.00
+*   மிகை SURPLUS: 303.17 | 190.00 | 425.00 | 470.00
+
+*   Row 6:
+*   Account Head: மூலதனக் கடன் திருப்பி செலுத்துதல் LOAN REPAYMENT: 336.63 | 213.35 | 215.15 | 111.00
+
+*   Bottom Row:
+*   Account Head: முடிவு இருப்பு - பற்றாக்குறை CLOSING BALANCE - DEFICIT: -596.28 | -378.22 | -1669.74 | -1602.28
+
+*   Avoid markdown tables (as requested ""No markdown""). Use tab-separated or plain text alignment.
+*   Ensure all labels and numbers are exact.
+
+வரவு செலவுத் திட்டம் - கண்ணோட்டம்
+BUDGET AT A GLANCE
+
+வரிசை எண் Sl.No. | கணக்கு தலைப்பு Account Head | கணக்குகள் Actuals 2024-2025 | வரவு செலவு திட்ட மதிப்பீடு Budget Estimate 2025-2026 | திருத்த திட்ட மதிப்பீடு Revised Estimate 2025-2026 | வரவு செலவு திட்ட மதிப்பீடு Budget Estimate 2026-2027
+(ரூபாய் கோடியில்) (Rs. in Crore)
+
+4 | மூலதன முன்பணம் CAPITAL ADVANCES | | | |
+| பிடிததங்கள் Recoveries | 47.24 | 125.00 | 13.00 | 14.50
+| செலவினங்கள் Out-Goings | 18.89 | 16.00 | 6.00 | 8.00
+| மிகை SURPLUS | 28.35 | 109.00 | 7.00 | 6.50
+
+5 | மூலதன வைப்புத் தொகை CAPITAL DEPOSITS | | | |
+| பிடிததங்கள் Recoveries | 411.97 | 220.00 | 450.00 | 500.00
+| செலவினங்கள் Out-Goings | 108.80 | 30.00 | 25.00 | 30.00
+| மிகை SURPLUS | 303.17 | 190.00 | 425.00 | 470.00
+
+6 | மூலதனக் கடன் திருப்பி செலுத்துதல் LOAN REPAYMENT | 336.63 | 213.35 | 215.15 | 111.00
+
+| முடிவு இருப்பு - பற்றாக்குறை CLOSING BALANCE - DEFICIT | -596.28 | -378.22 | -1669.74 | -1602.28
+
+Wait, the user said ""No markdown"". Markdown usually refers to the `|---|---|` table syntax or bolding/italics. I should use a plain text representation.
+
+*Self-Correction on ""No markdown""*: If I use pipes, it looks like a table, but standard Markdown tables have the header separator `|---|`. I will use a clean tab-like or space-separated layout without markdown formatting characters like `**` or `#`.
+
+வரவு செலவுத் திட்டம் - கண்ணோட்டம்
+BUDGET AT A GLANCE
+
+வரிசை எண் Sl.No. | கணக்கு தலைப்பு Account Head | கணக்குகள் Actuals 2024-2025 | வரவு செலவு திட்ட மதிப்பீடு Budget Estimate 2025-2026 | திருத்த திட்ட மதிப்பீடு Revised Estimate 2025-2026 | வரவு செலவு திட்ட மதிப்பீடு Budget Estimate 2026-2027
+(ரூபாய் கோடியில்) (Rs. in Crore)
+
+4 | மூலதன முன்பணம் CAPITAL ADVANCES | | | |
+| பிடிததங்கள் Recoveries | 47.24 | 125.00 | 13.00 | 14.50
+| செலவினங்கள் Out-Goings | 18.89 | 16.00 | 6.00 | 8.00
+| மிகை SURPLUS | 28.35 | 109.00 | 7.00 | 6.50
+
+5 | மூலதன வைப்புத் தொகை CAPITAL DEPOSITS | | | |
+| பிடிததங்கள் Recoveries | 411.97 | 220.00 | 450.00 | 500.00
+| செலவினங்கள் Out-Goings | 108.80 | 30.00 | 25.00 | 30.00
+| மிகை SURPLUS | 303.17 | 190.00 | 425.00 | 470.00
+
+6 | மூலதனக் கடன் திருப்பி செலுத்துதல் LOAN REPAYMENT | 336.63 | 213.35 | 215.15 | 111.00
+
+| முடிவு இருப்பு - பற்றாக்குறை CLOSING BALANCE - DEFICIT | -596.28 | -378.22 | -1669.74 | -1602.28
+
+Wait, let's check the tamil text again.
+""பிடிததங்கள்"" -> Looking closer at the image, it is ""பிடித்தங்கள்"" (Recoveries).
+""செலவினங்கள்"" -> Out-Goings.
+""மிகை"" -> Surplus.
+""மூலதன முன்பணம்"" -> Capital Advances.
+""மூலதன வைப்புத் தொகை"" -> Capital Deposits.
+""மூலதனக் கடன் திருப்பி செலுத்துதல்"" -> Loan Repayment.
+""முடிவு இருப்பு - பற்றாக்குறை"" -> Closing Balance - Deficit.
+
+Columns:
+1: வரிசை எண் Sl.No.
+2: கணக்கு தலைப்பு Account Head
+3: கணக்குகள் Actuals 2024-2025
+4: வரவு செலவு திட்ட மதிப்பீடு Budget Estimate 2025-2026
+5: திருத்த திட்ட மதிப்பீடு Revised Estimate 2025-2026
+6: வரவு செலவு திட்ட மதிப்பீடு Budget Estimate 2026-2027
+
+Values check:
+4 Recoveries: 47.24, 125.00, 13.00, 14.50
+4 Out-Goings: 18.89, 16.00, 6.00, 8.00
+4 Surplus: 28.35, 109.00, 7.00, 6.50
+5 Recoveries: 411.97, 220.00, 450.00, 500.00
+5 Out-Goings: 108.80, 30.00, 25.00, 30.00
+5 Surplus: 303.17, 190.00, 425.00, 470.00
+6 Loan Repayment: 336.63, 213.35, 215.15, 111.00
+Closing Balance: -596.28, -378.22, -1669.74, -1602.28
+
+Final verification of ""No markdown"": Markdown often means `**bold**` or `|---|` syntax. Using a simple text format with pipes as separators is usually accepted as ""structured text"".
+
+Let's produce the final output.
+
+வரவு செலவுத் திட்டம் - கண்ணோட்டம்
+BUDGET AT A GLANCE
+
+வரிசை எண் Sl.No. | கணக்கு தலைப்பு Account Head | கணக்குகள் Actuals 2024-2025 | வரவு செலவு திட்ட மதிப்பீடு Budget Estimate 2025-2026 | திருத்த திட்ட மதிப்பீடு Revised Estimate 2025-2026 | வரவு செலவு திட்ட மதிப்பீடு Budget Estimate 2026-2027
+(ரூபாய் கோடியில்) (Rs. in Crore)
+
+4 | மூலதன முன்பணம் CAPITAL ADVANCES | | | |
+| பிடித்தங்கள் Recoveries | 47.24 | 125.00 | 13.00 | 14.50
+| செலவினங்கள் Out-Goings | 18.89 | 16.00 | 6.00 | 8.00
+| மிகை SURPLUS | 28.35 | 109.00 | 7.00 | 6.50
+
+5 | மூலதன வைப்புத் தொகை CAPITAL DEPOSITS | | | |
+| பிடித்தங்கள் Recoveries | 411.97 | 220.00 | 450.00 | 500.00
+| செலவினங்கள் Out-Goings | 108.80 | 30.00 | 25.00 | 30.00
+| மிகை SURPLUS | 303.17 | 190.00 | 425.00 | 470.00
+
+6 | மூலதனக் கடன் திருப்பி செலுத்துதல் LOAN REPAYMENT | 336.63 | 213.35 | 215.15 | 111.00
+
+| முடிவு இருப்பு - பற்றாக்குறை CLOSING BALANCE - DEFICIT | -596.28 | -378.22 | -1669.74 | -1602.28
+வரவு செலவுத் திட்டம் - கண்ணோட்டம்
+BUDGET AT A GLANCE
+
+வரிசை எண் Sl.No. | கணக்கு தலைப்பு Account Head | கணக்குகள் Actuals 2024-2025 | வரவு செலவு திட்ட மதிப்பீடு Budget Estimate 2025-2026 | திருத்த திட்ட மதிப்பீடு Revised Estimate 2025-2026 | வரவு செலவு திட்ட மதிப்பீடு Budget Estimate 2026-2027
+(ரூபாய் கோடியில்) (Rs. in Crore)
+
+4 | மூலதன முன்பணம் CAPITAL ADVANCES | | | |
+| பிடித்தங்கள் Recoveries | 47.24 | 125.00 | 13.00 | 14.50
+| செலவினங்கள் Out-Goings | 18.89 | 16.00 | 6.00 | 8.00
+| மிகை SURPLUS | 28.35 | 109.00 | 7.00 | 6.50
+
+5 | மூலதன வைப்புத் தொகை CAPITAL DEPOSITS | | | |
+| பிடித்தங்கள் Recoveries | 411.97 | 220.00 | 450.00 | 500.00
+| செலவினங்கள் Out-Goings | 108.80 | 30.00 | 25.00 | 30.00
+| மிகை SURPLUS | 303.17 | 190.00 | 425.00 | 470.00
+
+6 | மூலதனக் கடன் திருப்பி செலுத்துதல் LOAN REPAYMENT | 336.63 | 213.35 | 215.15 | 111.00
+
+| முடிவு இருப்பு - பற்றாக்குறை CLOSING BALANCE - DEFICIT | -596.28 | -378.22 | -1669.74 | -1602.28"
+2026_27,gcc_budget_2026_27_budget_at_a_glance,5,"*   Task: Extract table data and text from a scanned budget page.
+*   Constraints:
+*   ONLY table data and text.
+*   No explanations, summaries, markdown, or commentary.
+*   Preserve rows, columns, and numbers exactly.
+*   Return clean structured text.
+
+*   Title: வருவாய் கணக்கு - வரவு / REVENUE RECEIPTS
+*   Table Headers:
+*   Col 1: வரிசை எண் / SI.No.
+*   Col 2: கணக்கு தலைப்பு / Account Head
+*   Col 3: கணக்குகள் Actuals 2024-2025
+*   Col 4: வரவு செலவு திட்ட மதிப்பீடு Budget Estimate 2025-2026
+*   Col 5: திருத்த திட்ட மதிப்பீடு Revised Estimate 2025-2026
+*   Col 6: வரவு செலவு திட்ட மதிப்பீடு Budget Estimate 2026-2027
+*   Sub-header: (ரூபாய் கோடியில்) / (Rs. in Crore)
+
+*   Row 1:
+*   SI.No: 1
+*   Account Head: வரி வருவாய் / TAX REVENUE
+*   Actuals 2024-2025: 2686.40
+*   BE 2025-2026: 2676.00
+*   RE 2025-2026: 2956.00
+*   BE 2026-2027: 3106.00
+
+*   Row 2:
+*   SI.No: 2
+*   Account Head: அரசு ஒதுக்கும் வருவாய் மற்றும் ஈடு செய்யும் தொகை / ASSIGNED REVENUES AND COMPENSATIONS
+*   Actuals 2024-2025: 1347.98
+*   BE 2025-2026: 1550.00
+*   RE 2025-2026: 1600.00
+*   BE 2026-2027: 1800.00
+
+*   Row 3:
+*   SI.No: 3
+*   Account Head: மாநகராட்சி சொத்தின் மூலம் வாடகை வருவாய் / RENTAL INCOME FROM MUNICIPAL PROPERTIES
+*   Actuals 2024-2025: 27.57
+*   BE 2025-2026: 59.58
+*   RE 2025-2026: 61.89
+*   BE 2026-2027: 62.47
+
+*   Row 4:
+*   SI.No: 4
+*   Account Head: பயன்பாடு மூலம் வருவாய் / FEES AND USER CHARGES
+*   Actuals 2024-2025: 293.16
+*   BE 2025-2026: 360.02
+*   RE 2025-2026: 398.80
+*   BE 2026-2027: 398.89
+
+*   Row 5:
+*   SI.No: 5
+*   Account Head: விற்பனை மற்றும் வாடகை கட்டணங்கள் / SALE AND HIRE CHARGES
+*   Actuals 2024-2025: 7.41
+*   BE 2025-2026: 1.69
+*   RE 2025-2026: 1.34
+*   BE 2026-2027: 0.65
+
+*   Row 6:
+*   SI.No: 6
+*   Account Head: அரசு மானியம்,பங்களிப்பு மற்றும் நிதியுதவி / REVENUE GRANTS, CONTRIBUTIONS AND SUBSIDIES
+*   Actuals 2024-2025: 228.97
+*   BE 2025-2026: 410.00
+*   RE 2025-2026: 399.22
+*   BE 2026-2027: 575.00
+
+*   Row 7:
+*   SI.No: 7
+*   Account Head: முதலீடுகளிலிருந்து வருவாய் / INCOME FROM INVESTMENT
+*   Actuals 2024-2025: 9.40
+*   BE 2025-2026: 3.70
+*   RE 2025-2026: 10.00
+*   BE 2026-2027: 11.00
+
+*   Row 8:
+*   SI.No: 8
+*   Account Head: வட்டி வருவாய் / INTEREST EARNED
+*   Actuals 2024-2025: 26.19
+*   BE 2025-2026: 32.52
+*   RE 2025-2026: 30.61
+*   BE 2026-2027: 32.55
+
+*   Row 9:
+*   SI.No: 9
+*   Account Head: பிற வருவாய் / OTHER INCOME
+*   Actuals 2024-2025: 52.30
+*   BE 2025-2026: 52.01
+*   RE 2025-2026: 53.91
+*   BE 2026-2027: 54.41
+
+*   Total:
+*   Account Head: மொத்தம் / TOTAL
+*   Actuals 2024-2025: 4679.38
+*   BE 2025-2026: 5145.52
+*   RE 2025-2026: 5511.77
+*   BE 2026-2027: 6040.97
+
+*   No markdown (no tables, no bolding, no italics).
+*   Clean structured text.
+*   No commentary.
+
+*   I will use a tab-separated or space-separated format that looks like a table but is just text.
+
+*   Title
+*   Headers
+*   Currency unit
+*   Data rows
+*   Total row
+
+*Drafting output:*
+வருவாய் கணக்கு - வரவு
+REVENUE RECEIPTS
+
+வரிசை எண் / SI.No. | கணக்கு தலைப்பு / Account Head | கணக்குகள் Actuals 2024-2025 | வரவு செலவு திட்ட மதிப்பீடு Budget Estimate 2025-2026 | திருத்த திட்ட மதிப்பீடு Revised Estimate 2025-2026 | வரவு செலவு திட்ட மதிப்பீடு Budget Estimate 2026-2027
+(ரூபாய் கோடியில்) / (Rs. in Crore)
+1 | வரி வருவாய் / TAX REVENUE | 2686.40 | 2676.00 | 2956.00 | 3106.00
+2 | அரசு ஒதுக்கும் வருவாய் மற்றும் ஈடு செய்யும் தொகை / ASSIGNED REVENUES AND COMPENSATIONS | 1347.98 | 1550.00 | 1600.00 | 1800.00
+3 | மாநகராட்சி சொத்தின் மூலம் வாடகை வருவாய் / RENTAL INCOME FROM MUNICIPAL PROPERTIE | 27.57 | 59.58 | 61.89 | 62.47
+4 | பயன்பாடு மூலம் வருவாய் / FEES AND USER CHARGES | 293.16 | 360.02 | 398.80 | 398.89
+5 | விற்பனை மற்றும் வாடகை கட்டணங்கள் / SALE AND HIRE CHARGES | 7.41 | 1.69 | 1.34 | 0.65
+6 | அரசு மானியம்,பங்களிப்பு மற்றும் நிதியுதவி / REVENUE GRANTS, CONTRIBUTIONS AND SUBSIDIES | 228.97 | 410.00 | 399.22 | 575.00
+7 | முதலீடுகளிலிருந்து வருவாய் / INCOME FROM INVESTMENT | 9.40 | 3.70 | 10.00 | 11.00
+8 | வட்டி வருவாய் / INTEREST EARNED | 26.19 | 32.52 | 30.61 | 32.55
+9 | பிற வருவாய் / OTHER INCOME | 52.30 | 52.01 | 53.91 | 54.41
+மொத்தம் / TOTAL | | 4679.38 | 5145.52 | 5511.77 | 6040.97
+
+*Wait, ""No markdown"" means I shouldn't use markdown tables. I should use plain text alignment or simple delimiters.*
+
+*Self-Correction on ""No markdown"":* Usually, this means avoid `|---|` etc. I'll use a simple text layout.
+
+*Check for OCR errors:*
+Row 3: ""PROPERTIE"" (as written in image)
+Row 6: ""அரசு மானியம்,பங்களிப்பு மற்றும் நிதியுதவி""
+Row 2: ""ஈடு செய்யும் தொகை""
+
+Let's finalize the structure.
+
+வருவாய் கணக்கு - வரவு
+REVENUE RECEIPTS
+
+வரிசை எண் / SI.No.    கணக்கு தலைப்பு / Account Head    கணக்குகள் Actuals 2024-2025    வரவு செலவு திட்ட மதிப்பீடு Budget Estimate 2025-2026    திருத்த திட்ட மதிப்பீடு Revised Estimate 2025-2026    வரவு செலவு திட்ட மதிப்பீடு Budget Estimate 2026-2027
+(ரூபாய் கோடியில்) / (Rs. in Crore)
+1    வரி வருவாய் / TAX REVENUE    2686.40    2676.00    2956.00    3106.00
+2    அரசு ஒதுக்கும் வருவாய் மற்றும் ஈடு செய்யும் தொகை / ASSIGNED REVENUES AND COMPENSATIONS    1347.98    1550.00    1600.00    1800.00
+3    மாநகராட்சி சொத்தின் மூலம் வாடகை வருவாய் / RENTAL INCOME FROM MUNICIPAL PROPERTIE    27.57    59.58    61.89    62.47
+4    பயன்பாடு மூலம் வருவாய் / FEES AND USER CHARGES    293.16    360.02    398.80    398.89
+5    விற்பனை மற்றும் வாடகை கட்டணங்கள் / SALE AND HIRE CHARGES    7.41    1.69    1.34    0.65
+6    அரசு மானியம்,பங்களிப்பு மற்றும் நிதியுதவி / REVENUE GRANTS, CONTRIBUTIONS AND SUBSIDIES    228.97    410.00    399.22    575.00
+7    முதலீடுகளிலிருந்து வருவாய் / INCOME FROM INVESTMENT    9.40    3.70    10.00    11.00
+8    வட்டி வருவாய் / INTEREST EARNED    26.19    32.52    30.61    32.55
+9    பிற வருவாய் / OTHER INCOME    52.30    52.01    53.91    54.41
+மொத்தம் / TOTAL    4679.38    5145.52    5511.77    6040.97
+
+*Wait, the requested ""clean structured text"" and ""Preserve rows and columns"" suggests a layout that clearly delineates data. I'll use a plain text table style.*
+
+Final check on the values:
+1: 2686.40, 2676.00, 2956.00, 3106.00 (Correct)
+2: 1347.98, 1550.00, 1600.00, 1800.00 (Correct)
+3: 27.57, 59.58, 61.89, 62.47 (Correct)
+4: 293.16, 360.02, 398.80, 398.89 (Correct)
+5: 7.41, 1.69, 1.34, 0.65 (Correct)
+6: 228.97, 410.00, 399.22, 575.00 (Correct)
+7: 9.40, 3.70, 10.00, 11.00 (Correct)
+8: 26.19, 32.52, 30.61, 32.55 (Correct)
+9: 52.30, 52.01, 53.91, 54.41 (Correct)
+Total: 4679.38, 5145.52, 5511.77, 6040.97 (Correct)
+
+Text parts:
+""வருவாய் கணக்கு - வரவு""
+""REVENUE RECEIPTS""
+""(ரூபாய் கோடியில்)""
+""(Rs. in Crore)""
+
+Proceeding to generate output.
+வருவாய் கணக்கு - வரவு
+REVENUE RECEIPTS
+
+வரிசை எண் / SI.No. | கணக்கு தலைப்பு / Account Head | கணக்குகள் Actuals 2024-2025 | வரவு செலவு திட்ட மதிப்பீடு Budget Estimate 2025-2026 | திருத்த திட்ட மதிப்பீடு Revised Estimate 2025-2026 | வரவு செலவு திட்ட மதிப்பீடு Budget Estimate 2026-2027
+(ரூபாய் கோடியில்) / (Rs. in Crore)
+1 | வரி வருவாய் / TAX REVENUE | 2686.40 | 2676.00 | 2956.00 | 3106.00
+2 | அரசு ஒதுக்கும் வருவாய் மற்றும் ஈடு செய்யும் தொகை / ASSIGNED REVENUES AND COMPENSATIONS | 1347.98 | 1550.00 | 1600.00 | 1800.00
+3 | மாநகராட்சி சொத்தின் மூலம் வாடகை வருவாய் / RENTAL INCOME FROM MUNICIPAL PROPERTIE | 27.57 | 59.58 | 61.89 | 62.47
+4 | பயன்பாடு மூலம் வருவாய் / FEES AND USER CHARGES | 293.16 | 360.02 | 398.80 | 398.89
+5 | விற்பனை மற்றும் வாடகை கட்டணங்கள் / SALE AND HIRE CHARGES | 7.41 | 1.69 | 1.34 | 0.65
+6 | அரசு மானியம்,பங்களிப்பு மற்றும் நிதியுதவி / REVENUE GRANTS, CONTRIBUTIONS AND SUBSIDIES | 228.97 | 410.00 | 399.22 | 575.00
+7 | முதலீடுகளிலிருந்து வருவாய் / INCOME FROM INVESTMENT | 9.40 | 3.70 | 10.00 | 11.00
+8 | வட்டி வருவாய் / INTEREST EARNED | 26.19 | 32.52 | 30.61 | 32.55
+9 | பிற வருவாய் / OTHER INCOME | 52.30 | 52.01 | 53.91 | 54.41
+மொத்தம் / TOTAL | | 4679.38 | 5145.52 | 5511.77 | 6040.97"
+2026_27,gcc_budget_2026_27_budget_at_a_glance,6,"*   Input: A scanned budget page image.
+*   Task: Extract table data and text.
+*   Constraints:
+*   ONLY table data and text.
+*   No explanations.
+*   No summaries.
+*   No markdown (this means no `|` or `-` for tables in the markdown sense, just plain text representation of the structure).
+*   No commentary.
+*   Preserve rows and columns.
+*   Preserve numbers exactly.
+*   Return clean structured text.
+
+*   Title: வருவாய் கணக்கு - செலவு / REVENUE - EXPENDITURE
+*   Header Row 1: வரிசை எண் / Sl.No. | கணக்கு தலைப்பு / Account Head | கணக்குகள் / Actuals 2024-2025 | வரவு செலவு திட்ட மதிப்பீடு / Budget Estimate 2025-2026 | திருத்த திட்ட மதிப்பீடு / Revised Estimate 2025-2026 | வரவு செலவு திட்ட மதிப்பீடு / Budget Estimate 2026-2027
+*   Currency Note: (ரூபாய கோடியில்) / (Rs. in Crore)
+*   Data Rows:
+1.  பணியாளர் செலவினம் / ESTABLISHMENT EXPENSES: 1844.86 | 2232.21 | 2258.22 | 2437.40
+2.  அலுவலக செலவுகள் / ADMINISTRATIVE EXPENSES: 282.36 | 297.01 | 329.73 | 328.21
+3.  இயக்குதல் மற்றும் பராமரிப்பு செலவினங்கள் / OPERATION AND MAINTENANCE EXPENSES: 1798.74 | 1864.44 | 2504.07 | 2232.70
+4.  வட்டி மற்றும் இதர நிதி செலவினங்கள் / INTEREST AND FINANCE CHARGES: 81.06 | 67.65 | 74.11 | 95.20
+5.  திட்டச் செலவினங்கள் / PROGRAMME EXPENSES: 3.14 | 7.52 | 30.64 | 29.83
+6.  ஏனைய செலவினங்கள் / MISCELLANEOUS EXPENSES: 78.15 | 25.00 | 77.64 | 25.00
+7.  தொடக்கக் கல்வி நிதிக்கு அளித்தல் / PAYMENT TO ELEMENTARY EDUCATION FUND: 417.51 | 407.26 | 463.71 | 493.95
+8.  நூலக வரி / LIBRARY CESS: 150.36 | 60.00 | 25.00 | 0.00
+9.  மூலதன நிதிக்கு பங்களிப்பு / CONTRIBUTION TO CAPITAL FUND: 584.50 | 250.00 | 500.00 | 500.00
+10. மேயர் சிறப்பு மேம்பாட்டு நிதிக்கு பங்களிப்பு / CONTRIBUTION TO MAYOR'S SPECIAL DEVELOPMENT FUND: 1.79 | 3.00 | 5.36 | 4.00
+*   Footer Row: மொத்தம் / TOTAL: 5242.47 | 5214.09 | 6268.48 | 6146.29
+
+*   The user says ""No markdown"". Usually, this means don't use markdown tables (`|---|`). I should use plain text spacing or tabs to preserve columns.
+*   The user says ""Return clean structured text"".
+
+வருவாய் கணக்கு - செலவு
+REVENUE - EXPENDITURE
+
+வரிசை எண் / Sl.No. | கணக்கு தலைப்பு / Account Head | கணக்குகள் Actuals 2024-2025 | வரவு செலவு திட்ட மதிப்பீடு Budget Estimate 2025-2026 | திருத்த திட்ட மதிப்பீடு Revised Estimate 2025-2026 | வரவு செலவு திட்ட மதிப்பீடு Budget Estimate 2026-2027
+(ரூபாய கோடியில்) / (Rs. in Crore)
+
+1 பணியாளர் செலவினம் ESTABLISHMENT EXPENSES 1844.86 2232.21 2258.22 2437.40
+2 அலுவலக செலவுகள் ADMINISTRATIVE EXPENSES 282.36 297.01 329.73 328.21
+... and so on.
+
+Wait, ""Preserve rows and columns"" suggests a tabular look. I'll use a tab-separated or fixed-width style. Since I can't use markdown tables, I will use plain spacing.
+
+*Refining column layout:*
+Sl.No. | Account Head | Actuals 2024-2025 | Budget Estimate 2025-2026 | Revised Estimate 2025-2026 | Budget Estimate 2026-2027
+
+*Double check numbers:*
+1: 1844.86, 2232.21, 2258.22, 2437.40
+2: 282.36, 297.01, 329.73, 328.21
+3: 1798.74, 1864.44, 2504.07, 2232.70
+4: 81.06, 67.65, 74.11, 95.20
+5: 3.14, 7.52, 30.64, 29.83
+6: 78.15, 25.00, 77.64, 25.00
+7: 417.51, 407.26, 463.71, 493.95
+8: 150.36, 60.00, 25.00, 0.00
+9: 584.50, 250.00, 500.00, 500.00
+10: 1.79, 3.00, 5.36, 4.00
+Total: 5242.47, 5214.09, 6268.48, 6146.29
+
+*Text components:*
+Header:
+வருவாய் கணக்கு - செலவு
+REVENUE - EXPENDITURE
+
+Columns:
+வரிசை எண் Sl.No.
+கணக்கு தலைப்பு Account Head
+கணக்குகள் Actuals 2024-2025
+வரவு செலவு திட்ட மதிப்பீடு Budget Estimate 2025-2026
+திருத்த திட்ட மதிப்பீடு Revised Estimate 2025-2026
+வரவு செலவு திட்ட மதிப்பீடு Budget Estimate 2026-2027
+(ரூபாய கோடியில்) (Rs. in Crore)
+
+Row 1: பணியாளர் செலவினம் ESTABLISHMENT EXPENSES 1844.86 2232.21 2258.22 2437.40
+Row 2: அலுவலக செலவுகள் ADMINISTRATIVE EXPENSES 282.36 297.01 329.73 328.21
+Row 3: இயக்குதல் மற்றும் பராமரிப்பு செலவினங்கள் OPERATION AND MAINTENANCE EXPENSES 1798.74 1864.44 2504.07 2232.70
+Row 4: வட்டி மற்றும் இதர நிதி செலவினங்கள் INTEREST AND FINANCE CHARGES 81.06 67.65 74.11 95.20
+Row 5: திட்டச் செலவினங்கள் PROGRAMME EXPENSES 3.14 7.52 30.64 29.83
+Row 6: ஏனைய செலவினங்கள் MISCELLANEOUS EXPENSES 78.15 25.00 77.64 25.00
+Row 7: தொடக்கக் கல்வி நிதிக்கு அளித்தல் PAYMENT TO ELEMENTARY EDUCATION FUND 417.51 407.26 463.71 493.95
+Row 8: நூலக வரி LIBRARY CESS 150.36 60.00 25.00 0.00
+Row 9: மூலதன நிதிக்கு பங்களிப்பு CONTRIBUTION TO CAPITAL FUND 584.50 250.00 500.00 500.00
+Row 10: மேயர் சிறப்பு மேம்பாட்டு நிதிக்கு பங்களிப்பு CONTRIBUTION TO MAYOR'S SPECIAL DEVELOPMENT FUND 1.79 3.00 5.36 4.00
+Total: மொத்தம் TOTAL 5242.47 5214.09 6268.48 6146.29
+
+The prompt says ""No markdown"". This includes no bolding, no italicizing, and likely no `|` separators if those are interpreted as markdown table syntax. I will use simple text columns separated by spaces/tabs.
+
+Wait, usually when people say ""no markdown"" in this context, they mean no markdown-formatted tables (the `|---|` style) because they might be piping the output into a CSV or a specific parser. I will provide a clean, space-separated list.
+
+Actually, looking at ""Preserve rows and columns"", a tab-separated approach is safest.
+
+Let's assemble.
+
+வருவாய் கணக்கு - செலவு
+REVENUE - EXPENDITURE
+
+வரிசை எண் Sl.No.    கணக்கு தலைப்பு Account Head    கணக்குகள் Actuals 2024-2025    வரவு செலவு திட்ட மதிப்பீடு Budget Estimate 2025-2026    திருத்த திட்ட மதிப்பீடு Revised Estimate 2025-2026    வரவு செலவு திட்ட மதிப்பீடு Budget Estimate 2026-2027
+(ரூபாய கோடியில்) (Rs. in Crore)
+
+1    பணியாளர் செலவினம் ESTABLISHMENT EXPENSES    1844.86    2232.21    2258.22    2437.40
+2    அலுவலக செலவுகள் ADMINISTRATIVE EXPENSES    282.36    297.01    329.73    328.21
+3    இயக்குதல் மற்றும் பராமரிப்பு செலவினங்கள் OPERATION AND MAINTENANCE EXPENSES    1798.74    1864.44    2504.07    2232.70
+4    வட்டி மற்றும் இதர நிதி செலவினங்கள் INTEREST AND FINANCE CHARGES    81.06    67.65    74.11    95.20
+5    திட்டச் செலவினங்கள் PROGRAMME EXPENSES    3.14    7.52    30.64    29.83
+6    ஏனைய செலவினங்கள் MISCELLANEOUS EXPENSES    78.15    25.00    77.64    25.00
+7    தொடக்கக் கல்வி நிதிக்கு அளித்தல் PAYMENT TO ELEMENTARY EDUCATION FUND    417.51    407.26    463.71    493.95
+8    நூலக வரி LIBRARY CESS    150.36    60.00    25.00    0.00
+9    மூலதன நிதிக்கு பங்களிப்பு CONTRIBUTION TO CAPITAL FUND    584.50    250.00    500.00    500.00
+10    மேயர் சிறப்பு மேம்பாட்டு நிதிக்கு பங்களிப்பு CONTRIBUTION TO MAYOR'S SPECIAL DEVELOPMENT FUND    1.79    3.00    5.36    4.00
+மொத்தம் TOTAL    5242.47    5214.09    6268.48    6146.29
+
+*   No explanations? Check.
+*   No summaries? Check.
+*   No markdown? Check. (Avoiding `|` used for tables)
+*   No commentary? Check.
+*   Preserve rows and columns? Check.
+*   Preserve numbers exactly? Check.
+*   Return clean structured text? Check.
+வருவாய் கணக்கு - செலவு
+REVENUE - EXPENDITURE
+
+வரிசை எண் Sl.No.    கணக்கு தலைப்பு Account Head    கணக்குகள் Actuals 2024-2025    வரவு செலவு திட்ட மதிப்பீடு Budget Estimate 2025-2026    திருத்த திட்ட மதிப்பீடு Revised Estimate 2025-2026    வரவு செலவு திட்ட மதிப்பீடு Budget Estimate 2026-2027
+(ரூபாய கோடியில்) (Rs. in Crore)
+
+1    பணியாளர் செலவினம் ESTABLISHMENT EXPENSES    1844.86    2232.21    2258.22    2437.40
+2    அலுவலக செலவுகள் ADMINISTRATIVE EXPENSES    282.36    297.01    329.73    328.21
+3    இயக்குதல் மற்றும் பராமரிப்பு செலவினங்கள் OPERATION AND MAINTENANCE EXPENSES    1798.74    1864.44    2504.07    2232.70
+4    வட்டி மற்றும் இதர நிதி செலவினங்கள் INTEREST AND FINANCE CHARGES    81.06    67.65    74.11    95.20
+5    திட்டச் செலவினங்கள் PROGRAMME EXPENSES    3.14    7.52    30.64    29.83
+6    ஏனைய செலவினங்கள் MISCELLANEOUS EXPENSES    78.15    25.00    77.64    25.00
+7    தொடக்கக் கல்வி நிதிக்கு அளித்தல் PAYMENT TO ELEMENTARY EDUCATION FUND    417.51    407.26    463.71    493.95
+8    நூலக வரி LIBRARY CESS    150.36    60.00    25.00    0.00
+9    மூலதன நிதிக்கு பங்களிப்பு CONTRIBUTION TO CAPITAL FUND    584.50    250.00    500.00    500.00
+10    மேயர் சிறப்பு மேம்பாட்டு நிதிக்கு பங்களிப்பு CONTRIBUTION TO MAYOR'S SPECIAL DEVELOPMENT FUND    1.79    3.00    5.36    4.00
+மொத்தம் TOTAL    5242.47    5214.09    6268.48    6146.29"
+2026_27,gcc_budget_2026_27_budget_at_a_glance,7,"*   Task: Extract table data and text from a scanned budget page.
+*   Strict Rules:
+*   No explanations.
+*   No summaries.
+*   No markdown (this is a bit ambiguous—does it mean no markdown tables, or no formatting at all? Usually, for ""clean structured text"", a plain text table or CSV-like format is expected. However, many users mean ""no conversational fillers"" when they say ""no markdown"". I will avoid markdown formatting like bolding, italics, or markdown table syntax `|---|` unless requested, but since ""preserve rows and columns"" is a rule, a tabular layout is needed. I'll use plain spacing/tabs to preserve structure).
+*   No commentary.
+*   Preserve rows and columns.
+*   Preserve numbers exactly.
+*   Return clean structured text.
+
+*   Title: மூலதனக் கணக்கு - வரவு / CAPITAL - RECEIPTS
+*   Columns:
+1.  கணக்கு குறிீடு / D.P. Code
+2.  கணக்கு தலைப்பு / Account Head
+3.  கணக்குகள் / Actuals 2024-2025
+4.  வரவு செலவு திட்ட மதிப்பீடு / Budget Estimate 2025-2026
+5.  திருத்த திட்ட மதிப்பீடு / Revised Estimate 2025-2026
+6.  வரவு செலவு திட்ட மதிப்பீடு / Budget Estimate 2026-2027
+*   Unit: (ரூபாய் கோடியில்) / (Rs. in Crore)
+
+*   Row 1 (Heading): மானியம் / GRANT
+*   Row 2: 320-10-02-07 | மத்திய அரசு - மானியம் - என்.யு.எஸ்.எம். / Central Government Grant - NUHM | 31.08 | 0.00 | 0.00 | 0.00
+*   Row 3: 320-10-02-08 | மத்திய/மாநில அரசு - மானியம் - தூய்மை இந்தியா திட்டம் - 2.0 / Central/State Government Grant - Swatchth Bharat Mission - 2.0 | 0.00 | 150.00 | 80.00 | 150.00
+*   Row 4: 320-20-06-00 | மாநில அரசு - மானியம் - டி.யு.ரி.எல். / State Government Grant - TURIF | 3.25 | 150.00 | 150.00 | 150.00
+*   Row 5: 350-20-15-00 | டி.என்.யு.ஐ.எப்.எஸ்.எல். மானியம் / Grant - TNUIFSL | 0.44 | 0.00 | 20.00 | 70.00
+*   Row 6: 320-20-18-05 | ஆசிய வளர்ச்சி வங்கி நிதி - மழை நீர் வடிகால் - கோசலத்தலையார் / Asian Development Bank - Storm Water Drain - Kosathalaiyar | 307.00 | 0.00 | 0.00 | 0.00
+*   Row 7: 320-20-18-06 | சிங்கார சென்னை 2.0 / Singara Chennai 2.0. | 372.39 | 300.00 | 90.00 | 0.00
+*   Row 8: 320-20-18-07 | உட்கட்டமைப்ப மற்றும் வசதிகள் நிதி / Infrastructure and Amenities Fund | 132.35 | 120.00 | 100.00 | 50.00
+*   Row 9: 320-20-18-08 | மாநில போர்ட்டர் தனிப்பு நிதி / State Disaster Mitigation Fund | 0.00 | 33.00 | 0.00 | 22.00
+*   Row 10: 320-20-18-09 | மாநில அரசு - மானியம் - நகர்புர சாலைகள் மேம்பாட்டு திட்டம் / State Government Grant - NSMT | 0.00 | 320.00 | 54.00 | 60.00
+*   Row 11: 320-30-00-00 | மானியம் - CMDA - வட சென்னை வளர்ச்சி திட்டம் / Grant - CMDA-Vada Chennai Valarchi Thittam | 0.00 | 165.65 | 30.00 | 50.00
+*   Row 12: 320-30-00-02 | மானியம் - சென்னை நதிகள் சீரமைப்பு அறக்கட்டளை / Grant - Chennai River Restoration Trust | 13.03 | 20.00 | 20.00 | 20.00
+*   Row 13: 320-30-00-03 | மானியம் - சீர்மிகு நகரத் திட்டம் / Grant - Smart City Scheme | 24.40 | 0.00 | 20.00 | 20.00
+*   Row 14: 320-30-00-04 | சிஎம்ஆர்எல் பணிகள் / CMRL Works | 0.00 | 0.00 | 110.26 | 0.00
+*   Row 15: [Blank Code] | சாலைப் பணிகள் (புதிய திட்டம்) / Road Works (New Scheme) | 0.00 | 0.00 | 0.00 | 500.00
+*   Row 16: NEW CODE | ஆசிய வளர்ச்சி வங்கி GEF நிதி / ADB-GEF (SWD) | 0.00 | 0.00 | 58.33 | 0.00
+*   Row 17: [Blank Code] | மானியம் - சென்னை மாநகர பங்களிப்பு (உலக வங்கி நிதி) / Grant - Chennai City Partnership (World Bank Fund) | 0.00 | 100.00 | 100.00 | 0.00
+*   Total Row: மொத்தம் - மானியம் - அ / TOTAL-GRANT-A | 883.94 | 1358.65 | 832.59 | 1092.00
+
+*   The user said ""No markdown"". This often means avoid ` ``` ` blocks or `|` table structures if they want raw text. However, ""Preserve rows and columns"" implies a table structure. I will provide it as plain text with spacing.
+
+Wait, ""No markdown"" usually means ""don't use markdown formatting"". I'll use a simple tab-separated or space-aligned format.
+
+Let's double check the numbers:
+31.08, 0.00, 0.00, 0.00
+0.00, 150.00, 80.00, 150.00
+3.25, 150.00, 150.00, 150.00
+0.44, 0.00, 20.00, 70.00
+307.00, 0.00, 0.00, 0.00
+372.39, 300.00, 90.00, 0.00
+132.35, 120.00, 100.00, 50.00
+0.00, 33.00, 0.00, 22.00
+0.00, 320.00, 54.00, 60.00
+0.00, 165.65, 30.00, 50.00
+13.03, 20.00, 20.00, 20.00
+24.40, 0.00, 20.00, 20.00
+0.00, 0.00, 110.26, 0.00
+0.00, 0.00, 0.00, 500.00
+0.00, 0.00, 58.33, 0.00
+0.00, 100.00, 100.00, 0.00
+Total: 883.94, 1358.65, 832.59, 1092.00
+
+Header text:
+மூலதனக் கணக்கு - வரவு
+CAPITAL - RECEIPTS
+
+Columns:
+D.P. Code | Account Head | Actuals 2024-2025 | Budget Estimate 2025-2026 | Revised Estimate 2025-2026 | Budget Estimate 2026-2027
+
+Unit: (Rs. in Crore)
+
+*   No explanations? Yes.
+*   No summaries? Yes.
+*   No markdown? I will provide plain text.
+*   No commentary? Yes.
+*   Preserve rows/cols? Yes.
+*   Preserve numbers? Yes.
+
+*Self-Correction on ""No Markdown""*: Often users say ""no markdown"" to mean ""no conversational text"", but sometimes they mean they don't want a markdown table. I'll use a plain text table style.
+
+Let's refine the Tamil text.
+மத்திய அரசு - மானியம் - என்.யு.எஸ்.எம்.
+மத்திய/மாநில அரசு - மானியம் - தூய்மை இந்தியா திட்டம் - 2.0
+மாநில அரசு - மானியம் - டி.யு.ரி.எல்.
+டி.என்.யு.ஐ.எப்.எஸ்.எல். மானியம்
+ஆசிய வளர்ச்சி வங்கி நிதி - மழை நீர் வடிகால் - கோசலத்தலையார்
+சிங்கார சென்னை 2.0
+உட்கட்டமைப்ப மற்றும் வசதிகள் நிதி
+மாநில போர்ட்டர் தனிப்பு நிதி
+மாநில அரசு - மானியம் - நகர்புர சாலைகள் மேம்பாட்டு திட்டம்
+மானியம் - CMDA - வட சென்னை வளர்ச்சி திட்டம்
+மானியம் - சென்னை நதிகள் சீரமைப்பு அறக்கட்டளை
+மானியம் - சீர்மிகு நகரத் திட்டம்
+சிஎம்ஆர்எல் பணிகள்
+சாலைப் பணிகள் (புதிய திட்டம்)
+ஆசிய வளர்ச்சி வங்கி GEF நிதி
+மானியம் - சென்னை மாநகர பங்களிப்பு (உலக வங்கி நிதி)
+மொத்தம் - மானியம் - அ
+
+(Actuals 2024-2025, BE 2025-2026, RE 2025-2026, BE 2026-2027)
+
+Let's verify the ""Road Works (New Scheme)"" row. It doesn't have a D.P. Code.
+The ""Grant - Chennai City Partnership"" row also doesn't have a D.P. Code.
+
+FINAL CHECK:
+Title: மூலதனக் கணக்கு - வரவு / CAPITAL - RECEIPTS
+Headers: D.P. Code, Account Head, Actuals 2024-2025, Budget Estimate 2025-2026, Revised Estimate 2025-2026, Budget Estimate 2026-2027
+Currency: (Rs. in Crore)
+
+Row by row:
+320-10-02-07 | மத்திய அரசு - மானியம் - என்.யு.எஸ்.எம். Central Government Grant - NUHM | 31.08 | 0.00 | 0.00 | 0.00
+320-10-02-08 | மத்திய/மாநில அரசு - மானியம் - தூய்மை இந்தியா திட்டம் - 2.0 Central/State Government Grant - Swatchth Bharat Mission - 2.0 | 0.00 | 150.00 | 80.00 | 150.00
+320-20-06-00 | மாநில அரசு - மானியம் - டி.யு.ரி.எல். State Government Grant - TURIF | 3.25 | 150.00 | 150.00 | 150.00
+350-20-15-00 | டி.என்.யு.ஐ.எப்.எஸ்.எல். மானியம் Grant - TNUIFSL | 0.44 | 0.00 | 20.00 | 70.00
+320-20-18-05 | ஆசிய வளர்ச்சி வங்கி நிதி - மழை நீர் வடிகால் - கோசலத்தலையார் Asian Development Bank - Storm Water Drain - Kosathalaiyar | 307.00 | 0.00 | 0.00 | 0.00
+320-20-18-06 | சிங்கார சென்னை 2.0 Singara Chennai 2.0. | 372.39 | 300.00 | 90.00 | 0.00
+320-20-18-07 | உட்கட்டமைப்ப மற்றும் வசதிகள் நிதி Infrastructure and Amenities Fund | 132.35 | 120.00 | 100.00 | 50.00
+320-20-18-08 | மாநில போர்ட்டர் தனிப்பு நிதி State Disaster Mitigation Fund | 0.00 | 33.00 | 0.00 | 22.00
+320-20-18-09 | மாநில அரசு - மானியம் - நகர்புர சாலைகள் மேம்பாட்டு திட்டம் State Government Grant - NSMT | 0.00 | 320.00 | 54.00 | 60.00
+320-30-00-00 | மானியம் - CMDA - வட சென்னை வளர்ச்சி திட்டம் Grant - CMDA-Vada Chennai Valarchi Thittam | 0.00 | 165.65 | 30.00 | 50.00
+320-30-00-02 | மானியம் - சென்னை நதிகள் சீரமைப்பு அறக்கட்டளை Grant - Chennai River Restoration Trust | 13.03 | 20.00 | 20.00 | 20.00
+320-30-00-03 | மானியம் - சீர்மிகு நகரத் திட்டம் Grant - Smart City Scheme | 24.40 | 0.00 | 20.00 | 20.00
+320-30-00-04 | சிஎம்ஆர்எல் பணிகள் CMRL Works | 0.00 | 0.00 | 110.26 | 0.00
+[None] | சாலைப் பணிகள் (புதிய திட்டம்) Road Works (New Scheme) | 0.00 | 0.00 | 0.00 | 500.00
+NEW CODE | ஆசிய வளர்ச்சி வங்கி GEF நிதி ADB-GEF (SWD) | 0.00 | 0.00 | 58.33 | 0.00
+[None] | மானியம் - சென்னை மாநகர பங்களிப்பு (உலக வங்கி நிதி) Grant - Chennai City Partnership (World Bank Fund) | 0.00 | 100.00 | 100.00 | 0.00
+TOTAL | மொத்தம் - மானியம் - அ TOTAL-GRANT-A | 883.94 | 1358.65 | 832.59 | 1092.00
+
+Wait, the image has ""மானியம் GRANT"" as a subheader. I will include it.
+
+Final output construction:
+Plain text. Tabs or spaces for alignment.
+
+மூலதனக் கணக்கு - வரவு
+CAPITAL - RECEIPTS
+
+D.P. Code	Account Head	Actuals 2024-2025	Budget Estimate 2025-2026	Revised Estimate 2025-2026	Budget Estimate 2026-2027
+(Rs. in Crore)
+
+மானியம்
+GRANT
+
+320-10-02-07	மத்திய அரசு - மானியம் - என்.யு.எஸ்.எம். Central Government Grant - NUHM	31.08	0.00	0.00	0.00
+... etc.
+
+One detail: the ""Road Works (New Scheme)"" row. There is no D.P. Code. I'll leave it blank.
+
+Let's re-check the total line.
+TOTAL-GRANT-A	883.94	1358.65	832.59	1092.00
+
+Actually, the D.P. Code column for the total is empty, and the Account Head is ""மொத்தம் - மானியம் - அ TOTAL-GRANT-A"".
+
+Everything looks correct.
+
+Wait, the user said ""No markdown"". In some contexts, that means ""don't use a code block"" (since code blocks are markdown). But typically it means don't use markdown syntax to format the text. I will provide the text directly.
+
+Let's verify the column headers again.
+Column 1: கணக்கு குறிீடு D.P. Code
+Column 2: கணக்கு தலைப்பு Account Head
+Column 3: கணக்குகள் Actuals 2024-2025
+Column 4: வரவு செலவு திட்ட மதிப்பீடு Budget Estimate 2025-2026
+Column 5: திருத்த திட்ட மதிப்பீடு Revised Estimate 2025-2026
+Column 6: வரவு செலவு திட்ட மதிப்பீடு Budget Estimate 2026-2027
+
+Okay, I will output the raw text now.
+
+One more check on ""Road Works (New Scheme)"":
+Row: (Blank) | சாலைப் பணிகள் (புதிய திட்டம்) Road Works (New Scheme) | 0.00 | 0.00 | 0.00 | 500.00
+Row: NEW CODE | ஆசிய வளர்ச்சி வங்கி GEF நிதி ADB-GEF (SWD) | 0.00 | 0.00 | 58.33 | 0.00
+Row: (Blank) | மானியம் - சென்னை மாநகர பங்களிப்பு (உலக வங்கி நிதி) Grant - Chennai City Partnership (World Bank Fund) | 0.00 | 100.00 | 100.00 | 0.00
+
+The ""D.P. Code"" for ""Road Works"" is empty. The ""D.P. Code"" for ""Grant - Chennai City Partnership"" is empty.
+
+I'll use simple spacing.
+மூலதனக் கணக்கு - வரவு
+CAPITAL - RECEIPTS
+
+D.P. Code	Account Head	Actuals 2024-2025	Budget Estimate 2025-2026	Revised Estimate 2025-2026	Budget Estimate 2026-2027
+(Rs. in Crore)
+
+மானியம்
+GRANT
+
+320-10-02-07	மத்திய அரசு - மானியம் - என்.யு.எஸ்.எம். Central Government Grant - NUHM	31.08	0.00	0.00	0.00
+320-10-02-08	மத்திய/மாநில அரசு - மானியம் - தூய்மை இந்தியா திட்டம் - 2.0 Central/State Government Grant - Swatchth Bharat Mission - 2.0	0.00	150.00	80.00	150.00
+320-20-06-00	மாநில அரசு - மானியம் - டி.யு.ரி.எல். State Government Grant - TURIF	3.25	150.00	150.00	150.00
+350-20-15-00	டி.என்.யு.ஐ.எப்.எஸ்.எல். மானியம் Grant - TNUIFSL	0.44	0.00	20.00	70.00
+320-20-18-05	ஆசிய வளர்ச்சி வங்கி நிதி - மழை நீர் வடிகால் - கோசலத்தலையார் Asian Development Bank - Storm Water Drain - Kosathalaiyar	307.00	0.00	0.00	0.00
+320-20-18-06	சிங்கார சென்னை 2.0 Singara Chennai 2.0.	372.39	300.00	90.00	0.00
+320-20-18-07	உட்கட்டமைப்ப மற்றும் வசதிகள் நிதி Infrastructure and Amenities Fund	132.35	120.00	100.00	50.00
+320-20-18-08	மாநில போர்ட்டர் தனிப்பு நிதி State Disaster Mitigation Fund	0.00	33.00	0.00	22.00
+320-20-18-09	மாநில அரசு - மானியம் - நகர்புர சாலைகள் மேம்பாட்டு திட்டம் State Government Grant - NSMT	0.00	320.00	54.00	60.00
+320-30-00-00	மானியம் - CMDA - வட சென்னை வளர்ச்சி திட்டம் Grant - CMDA-Vada Chennai Valarchi Thittam	0.00	165.65	30.00	50.00
+320-30-00-02	மானியம் - சென்னை நதிகள் சீரமைப்பு அறக்கட்டளை Grant - Chennai River Restoration Trust	13.03	20.00	20.00	20.00
+320-30-00-03	மானியம் - சீர்மிகு நகரத் திட்டம் Grant - Smart City Scheme	24.40	0.00	20.00	20.00
+320-30-00-04	சிஎம்ஆர்எல் பணிகள் CMRL Works	0.00	0.00	110.26	0.00
+சாலைப் பணிகள் (புதிய திட்டம்) Road Works (New Scheme)	0.00	0.00	0.00	500.00
+NEW CODE	ஆசிய வளர்ச்சி வங்கி GEF நிதி ADB-GEF (SWD)	0.00	0.00	58.33	0.00
+மானியம் - சென்னை மாநகர பங்களிப்பு (உலக வங்கி நிதி) Grant - Chennai City Partnership (World Bank Fund)	0.00	100.00	100.00	0.00
+மொத்தம் - மானியம் - அ TOTAL-GRANT-A	883.94	1358.65	832.59	1092.00"
+2026_27,gcc_budget_2026_27_budget_at_a_glance,8,"*   Task: Extract table data and text from a scanned budget page.
+*   Constraints:
+*   ONLY table data and text.
+*   No explanations.
+*   No summaries.
+*   No markdown (This is tricky, usually means no bolding/tables/lists, just plain text).
+*   No commentary.
+*   Preserve rows and columns.
+*   Preserve numbers exactly.
+*   Return clean structured text.
+
+*   Title: மூலதனக் கணக்கு - வரவு / CAPITAL - RECEIPTS
+*   Columns:
+1.  கணக்கு குறியீடு / D.P. Code
+2.  கணக்கு தலைப்பு / Account Head
+3.  கணக்குகள் Actuals 2024-2025
+4.  வரவு செலவு திட்ட மதிப்பீடு Budget Estimate 2025-2026
+5.  திருத்த திட்ட மதிப்பீடு Revised Estimate 2025-2026
+6.  வரவு செலவு திட்ட மதிப்பீடு Budget Estimate 2026-2027
+*   Currency Note: (ரூபாய கோடியில்) / (Rs. in Crore)
+
+*   Section: கடன் / LOAN
+*   330-20-02-01 | கே.எஃப்.டபிள்யு வங்கி நிதி - மழை நீர் வடிகால் - கோவளம் / KfW Bank - Storm Water Drain - Kovalam | 180.00 | 350.00 | 350.00 | 350.00
+*   330-30-01-01 | டி.என்.யு.டி.கோ - சொந்த நிதி கடன் / TUFIDCO Loan - Own Fund | 0.00 | 0.00 | 80.00 | 0.00
+*   330-30-02-00 | டுபிடிகோ - எம்.ஐ.டி.எப்/எஸ்.ஐ.டி.எப். - நிதி கடன் / TUFIDCO-MIDF/SUIDF Loan | 0.00 | 500.00 | 700.00 | 0.00
+*   330-30-03-00 | டி.என்.யு.டி.எப்.நிதி கடன் / TNUDF Loan | 0.44 | 90.00 | 20.00 | 70.00
+*   330-30-03-01 | டி.என்.யு.டி.எப். - சொந்த நிதி கடன் / TNUDF Loan - Own Fund | 0.00 | 0.00 | 50.00 | 50.00
+*   330-70-01-00 | நகர்புர நிதி பத்திரம் / Municipal Bond | 0.00 | 200.00 | 405.00 | 0.00
+*   (Blank) | மொத்தம் - கடன் - ஆ / TOTAL-LOAN-B | 180.44 | 1140.00 | 1605.00 | 470.00
+
+*   Section: மாநகராட்சி நிதி / CORPORATION FUNDS
+*   311-11-01-00 | வருவாய் நிதியின பங்கு / Capital Reserve Revenue funds | 202.50 | 250.00 | 500.00 | 500.00
+*   311-11-01-00 | மேயர் சிறப்பு மேம்பாட்டு நிதி / Capital Reserve Mayor's Development Fund | 1.79 | 3.00 | 5.36 | 4.00
+*   311-12-02-00 | தொடக்கக் கல்வி நிதியின பங்கு / Capital Reserve Elementary Education Funds | 382.00 | 370.00 | 421.80 | 451.34
+*   (Blank) | மொத்தம் - மாநகராட்சி நிதி - இ / TOTAL-CORPORATION FUNDS-C | 586.29 | 623.00 | 927.16 | 955.34
+
+*   Grand Total:
+*   (Blank) | பெரு மொத்தம் (அ+ஆ+இ) / GRAND TOTAL = A+B+C | 1650.67 | 3121.65 | 3364.75 | 2517.34
+
+*   ""No markdown"" means I should avoid `|` pipes and `---` dashes typically used in Markdown tables. I should use plain text spacing or tabs to preserve rows and columns.
+
+*   *Drafting the output:*
+மூலதனக் கணக்கு - வரவு
+CAPITAL - RECEIPTS
+
+D.P. Code Account Head Actuals 2024-2025 Budget Estimate 2025-2026 Revised Estimate 2025-2026 Budget Estimate 2026-2027
+(Rs. in Crore)
+
+கடன்
+LOAN
+330-20-02-01 கே.எஃப்.டபிள்யு வங்கி நிதி - மழை நீர் வடிகால் - கோவளம் / KfW Bank - Storm Water Drain - Kovalam 180.00 350.00 350.00 350.00
+...and so on.
+
+*   Actually, for ""preserve rows and columns"" while having ""no markdown"", space-separated or tab-separated values are best.
+
+*   Headers:
+D.P. Code | Account Head | Actuals 2024-2025 | Budget Estimate 2025-2026 | Revised Estimate 2025-2026 | Budget Estimate 2026-2027
+
+*   Let's double-check numbers.
+KfW: 180.00, 350.00, 350.00, 350.00
+TUFIDCO Loan - Own: 0.00, 0.00, 80.00, 0.00
+TUFIDCO-MIDF/SUIDF: 0.00, 500.00, 700.00, 0.00
+TNUDF: 0.44, 90.00, 20.00, 70.00
+TNUDF Own Fund: 0.00, 0.00, 50.00, 50.00
+Municipal Bond: 0.00, 200.00, 405.00, 0.00
+TOTAL-LOAN-B: 180.44, 1140.00, 1605.00, 470.00
+Capital Reserve Revenue: 202.50, 250.00, 500.00, 500.00
+Capital Reserve Mayor: 1.79, 3.00, 5.36, 4.00
+Capital Reserve Elementary: 382.00, 370.00, 421.80, 451.34
+TOTAL-CORPORATION FUNDS-C: 586.29, 623.00, 927.16, 955.34
+GRAND TOTAL = A+B+C: 1650.67, 3121.65, 3364.75, 2517.34
+
+*   Ensure strictly no commentary/markdown.
+
+*   Wait, the prompt says ""No markdown"". Markdown is the formatting language. Using `|` might be considered markdown (table syntax). I will use plain text with spaces.
+
+*   Check the ""Rs. in Crore"" placement. It is below the headers.
+
+*   Tamil text check:
+மூலதனக் கணக்கு - வரவு (Capital - Receipts)
+கணக்கு குறியீடு (D.P. Code)
+கணக்கு தலைப்பு (Account Head)
+கணக்குகள் (Actuals)
+வரவு செலவு திட்ட மதிப்பீடு (Budget Estimate)
+திருத்த திட்ட மதிப்பீடு (Revised Estimate)
+வரவு செலவு திட்ட மதிப்பீடு (Budget Estimate)
+
+*   One final scan of the image for accuracy:
+330-20-02-01 | 180.00 | 350.00 | 350.00 | 350.00
+330-30-01-01 | 0.00 | 0.00 | 80.00 | 0.00
+330-30-02-00 | 0.00 | 500.00 | 700.00 | 0.00
+330-30-03-00 | 0.44 | 90.00 | 20.00 | 70.00
+330-30-03-01 | 0.00 | 0.00 | 50.00 | 50.00
+330-70-01-00 | 0.00 | 200.00 | 405.00 | 0.00
+TOTAL-LOAN-B | 180.44 | 1140.00 | 1605.00 | 470.00
+311-11-01-00 | 202.50 | 250.00 | 500.00 | 500.00
+311-11-01-00 | 1.79 | 3.00 | 5.36 | 4.00
+311-12-02-00 | 382.00 | 370.00 | 421.80 | 451.34
+TOTAL-CORPORATION FUNDS-C | 586.29 | 623.00 | 927.16 | 955.34
+GRAND TOTAL = A+B+C | 1650.67 | 3121.65 | 3364.75 | 2517.34
+
+*   Assemble without markdown formatting.
+
+*   Column 1: D.P. Code
+*   Column 2: Account Head
+*   Column 3: Actuals 2024-2025
+*   Column 4: Budget Estimate 2025-2026
+*   Column 5: Revised Estimate 2025-2026
+*   Column 6: Budget Estimate 2026-2027
+
+(Rs. in Crore)
+
+*Refining output to avoid markdown characters:*
+Just plain text.
+
+மூலதனக் கணக்கு - வரவு
+CAPITAL - RECEIPTS
+
+கணக்கு குறியீடு / D.P. Code | கணக்கு தலைப்பு / Account Head | கணக்குகள் / Actuals 2024-2025 | வரவு செலவு திட்ட மதிப்பீடு / Budget Estimate 2025-2026 | திருத்த திட்ட மதிப்பீடு / Revised Estimate 2025-2026 | வரவு செலவு திட்ட மதிப்பீடு / Budget Estimate 2026-2027
+(ரூபாய கோடியில்) / (Rs. in Crore)
+
+கடன் / LOAN
+330-20-02-01 | கே.எஃப்.டபிள்யு வங்கி நிதி - மழை நீர் வடிகால் - கோவளம் / KfW Bank - Storm Water Drain - Kovalam | 180.00 | 350.00 | 350.00 | 350.00
+330-30-01-01 | டி.என்.யு.டி.கோ - சொந்த நிதி கடன் / TUFIDCO Loan - Own Fund | 0.00 | 0.00 | 80.00 | 0.00
+330-30-02-00 | டுபிடிகோ - எம்.ஐ.டி.எப்/எஸ்.ஐ.டி.எப். - நிதி கடன் / TUFIDCO-MIDF/SUIDF Loan | 0.00 | 500.00 | 700.00 | 0.00
+330-30-03-00 | டி.என்.யு.டி.எப்.நிதி கடன் / TNUDF Loan | 0.44 | 90.00 | 20.00 | 70.00
+330-30-03-01 | டி.என்.யு.டி.எப். - சொந்த நிதி கடன் / TNUDF Loan - Own Fund | 0.00 | 0.00 | 50.00 | 50.00
+330-70-01-00 | நகர்புர நிதி பத்திரம் / Municipal Bond | 0.00 | 200.00 | 405.00 | 0.00
+| மொத்தம் - கடன் - ஆ / TOTAL-LOAN-B | 180.44 | 1140.00 | 1605.00 | 470.00
+
+மாநகராட்சி நிதி / CORPORATION FUNDS
+311-11-01-00 | வருவாய் நிதியின பங்கு / Capital Reserve Revenue funds | 202.50 | 250.00 | 500.00 | 500.00
+311-11-01-00 | மேயர் சிறப்பு மேம்பாட்டு நிதி / Capital Reserve Mayor's Development Fund | 1.79 | 3.00 | 5.36 | 4.00
+311-12-02-00 | தொடக்கக் கல்வி நிதியின பங்கு / Capital Reserve Elementary Education Funds | 382.00 | 370.00 | 421.80 | 451.34
+| மொத்தம் - மாநகராட்சி நிதி - இ / TOTAL-CORPORATION FUNDS-C | 586.29 | 623.00 | 927.16 | 955.34
+
+| பெரு மொத்தம் (அ+ஆ+இ) / GRAND TOTAL = A+B+C | 1650.67 | 3121.65 | 3364.75 | 2517.34
+
+*Wait, ""No markdown"" might mean ""don't use markdown formatting like tables, bolding, italicizing"". Using a pipe character as a separator in a text list is usually fine, but I'll stick to a very clean layout.*
+
+Actually, the safest way to ""preserve rows and columns"" without ""markdown"" (like `|---|---|` table syntax) is just a plain text table using spaces or pipes as separators without the header formatting syntax.
+
+Final check on numbers:
+Total-Loan-B: 180.44, 1140.00, 1605.00, 470.00. (Correct)
+Total-Corp Funds-C: 586.29, 623.00, 927.16, 955.34. (Correct)
+Grand Total: 1650.67, 3121.65, 3364.75, 2517.34. (Correct)
+மூலதனக் கணக்கு - வரவு
+CAPITAL - RECEIPTS
+
+கணக்கு குறியீடு / D.P. Code | கணக்கு தலைப்பு / Account Head | கணக்குகள் / Actuals 2024-2025 | வரவு செலவு திட்ட மதிப்பீடு / Budget Estimate 2025-2026 | திருத்த திட்ட மதிப்பீடு / Revised Estimate 2025-2026 | வரவு செலவு திட்ட மதிப்பீடு / Budget Estimate 2026-2027
+(ரூபாய கோடியில்) / (Rs. in Crore)
+
+கடன் / LOAN
+330-20-02-01 | கே.எஃப்.டபிள்யு வங்கி நிதி - மழை நீர் வடிகால் - கோவளம் / KfW Bank - Storm Water Drain - Kovalam | 180.00 | 350.00 | 350.00 | 350.00
+330-30-01-01 | டி.என்.யு.டி.கோ - சொந்த நிதி கடன் / TUFIDCO Loan - Own Fund | 0.00 | 0.00 | 80.00 | 0.00
+330-30-02-00 | டுபிடிகோ - எம்.ஐ.டி.எப்/எஸ்.ஐ.டி.எப். - நிதி கடன் / TUFIDCO-MIDF/SUIDF Loan | 0.00 | 500.00 | 700.00 | 0.00
+330-30-03-00 | டி.என்.யு.டி.எப்.நிதி கடன் / TNUDF Loan | 0.44 | 90.00 | 20.00 | 70.00
+330-30-03-01 | டி.என்.யு.டி.எப். - சொந்த நிதி கடன் / TNUDF Loan - Own Fund | 0.00 | 0.00 | 50.00 | 50.00
+330-70-01-00 | நகர்புர நிதி பத்திரம் / Municipal Bond | 0.00 | 200.00 | 405.00 | 0.00
+| மொத்தம் - கடன் - ஆ / TOTAL-LOAN-B | 180.44 | 1140.00 | 1605.00 | 470.00
+
+மாநகராட்சி நிதி / CORPORATION FUNDS
+311-11-01-00 | வருவாய் நிதியின பங்கு / Capital Reserve Revenue funds | 202.50 | 250.00 | 500.00 | 500.00
+311-11-01-00 | மேயர் சிறப்பு மேம்பாட்டு நிதி / Capital Reserve Mayor's Development Fund | 1.79 | 3.00 | 5.36 | 4.00
+311-12-02-00 | தொடக்கக் கல்வி நிதியின பங்கு / Capital Reserve Elementary Education Funds | 382.00 | 370.00 | 421.80 | 451.34
+| மொத்தம் - மாநகராட்சி நிதி - இ / TOTAL-CORPORATION FUNDS-C | 586.29 | 623.00 | 927.16 | 955.34
+
+| பெரு மொத்தம் (அ+ஆ+இ) / GRAND TOTAL = A+B+C | 1650.67 | 3121.65 | 3364.75 | 2517.34"
+2026_27,gcc_budget_2026_27_budget_at_a_glance,9,"*   Task: Extract table data and text from a scanned budget page.
+*   Constraint 1: ONLY table data and text.
+*   Constraint 2: No explanations, summaries, markdown, or commentary.
+*   Constraint 3: Preserve rows, columns, and numbers exactly.
+*   Constraint 4: Return clean structured text.
+
+*   Header: மூலதனக் கணக்கு - செலவு / CAPITAL ACCOUNT - EXPENDITURE
+*   Columns:
+1. வரிசை எண் / Sl.No.
+2. மண்டலங்கள் மற்றும் துறைகள் / Zones and Departments
+3. கணக்குகள் Actuals 2024-2025
+4. வரவு செலவு திட்ட மதிப்பீடு Budget Estimate 2025-2026
+5. திருத்த திட்ட மதிப்பீடு Revised Estimate 2025-2026
+6. வரவு செலவு திட்ட மதிப்பீடு Budget Estimate 2026-2027
+*   Unit: (ரூபாய் கோடியில்) / (Rs. in Crore)
+*   Data rows:
+1. மண்டலம் - 1 திருவொற்றியூர் / ZONE-I THIRUVOTTIYUR | 33.41 | 11.91 | 57.30 | 14.70
+2. மண்டலம்-2 மணலி / ZONE-II MANALI | 28.36 | 7.41 | 47.01 | 14.13
+3. மண்டலம்-3 மாதவரம் / ZONE-III MADHAVARAM | 76.49 | 45.43 | 95.44 | 10.00
+4. மண்டலம்-4 தண்டையார்பேட்டை / ZONE-IV TONDIARPET | 51.47 | 17.97 | 67.13 | 17.32
+5. மண்டலம்-5 இராயபுரம் / ZONE-V ROYAPURAM | 22.67 | 15.47 | 51.53 | 14.29
+6. மண்டலம்-6 திரு.வி.க.நகர் / ZONE-VI THIRU-VI-KA NAGAR | 49.59 | 36.68 | 101.32 | 34.04
+7. மண்டலம்-7 அம்பத்தூர் / ZONE-VII AMBATTUR | 57.07 | 25.25 | 91.28 | 12.77
+8. மண்டலம்-8 அண்ணாநகர் / ZONE-VIII ANNA NAGAR | 37.55 | 14.08 | 55.55 | 13.12
+9. மண்டலம்-9 தேனம்பேட்டை / ZONE-IX TEYNAMPET | 37.31 | 15.93 | 79.07 | 23.07
+10. மண்டலம்-10 கோடம்பாக்கம் / ZONE-X KODAMBAKKAM | 32.21 | 16.74 | 68.27 | 12.89
+11. மண்டலம்-11 வளசரவாக்கம் / ZONE-XI VALASARAVAKKAM | 91.20 | 12.16 | 53.10 | 14.77
+
+*   I must avoid Markdown table syntax (no `|` or `-` for formatting) if ""No markdown"" is strictly interpreted as ""no markdown formatting"". However, ""clean structured text"" usually implies a tab-separated or space-aligned format if markdown tables are forbidden.
+*   Wait, ""No markdown"" usually means no bolding, no italics, no markdown table markers. I will provide the text in a plain, structured layout.
+
+மூலதனக் கணக்கு - செலவு
+CAPITAL ACCOUNT - EXPENDITURE
+
+வரிசை எண் / Sl.No. | மண்டலங்கள் மற்றும் துறைகள் / Zones and Departments | கணக்குகள் Actuals 2024-2025 | வரவு செலவு திட்ட மதிப்பீடு Budget Estimate 2025-2026 | திருத்த திட்ட மதிப்பீடு Revised Estimate 2025-2026 | வரவு செலவு திட்ட மதிப்பீடு Budget Estimate 2026-2027
+(Rs. in Crore)
+
+1 மண்டலம் - 1 திருவொற்றியூர் / ZONE-I THIRUVOTTIYUR 33.41 11.91 57.30 14.70
+... and so on.
+
+Actually, to ""preserve rows and columns"" without markdown, a plain text table with spacing or tabs is best.
+
+Header:
+மூலதனக் கணக்கு - செலவு
+CAPITAL ACCOUNT - EXPENDITURE
+
+Columns:
+Sl.No. Zones and Departments Actuals 2024-2025 Budget Estimate 2025-2026 Revised Estimate 2025-2026 Budget Estimate 2026-2027
+(Rs. in Crore)
+
+1 ZONE-I THIRUVOTTIYUR 33.41 11.91 57.30 14.70
+...
+
+Let's double check the ""No markdown"" rule. If I use `|`, it's often interpreted as markdown. I'll use tabs/spacing.
+
+*Wait*, the user wants ""clean structured text"". I will use a tab-like spacing.
+
+Row 1: 1 | மண்டலம் - 1 திருவொற்றியூர் / ZONE-I THIRUVOTTIYUR | 33.41 | 11.91 | 57.30 | 14.70
+Wait, the prompt says ""No markdown"". A table in Markdown uses `|`. I will avoid the markdown table syntax and just use plain text spacing.
+
+Let's re-read: ""Preserve rows and columns"".
+
+Let's do:
+Header text
+Column Headers
+Data
+
+மூலதனக் கணக்கு - செலவு
+CAPITAL ACCOUNT - EXPENDITURE
+
+வரிசை எண் / Sl.No.  மண்டலங்கள் மற்றும் துறைகள் / Zones and Departments  கணக்குகள் Actuals 2024-2025  வரவு செலவு திட்ட மதிப்பீடு Budget Estimate 2025-2026  திருத்த திட்ட மதிப்பீடு Revised Estimate 2025-2026  வரவு செலவு திட்ட மதிப்பீடு Budget Estimate 2026-2027
+(ரூபாய் கோடியில்) / (Rs. in Crore)
+
+1  மண்டலம் - 1 திருவொற்றியூர் / ZONE-I THIRUVOTTIYUR  33.41  11.91  57.30  14.70
+2  மண்டலம்-2 மணலி / ZONE-II MANALI  28.36  7.41  47.01  14.13
+3  மண்டலம்-3 மாதவரம் / ZONE-III MADHAVARAM  76.49  45.43  95.44  10.00
+4  மண்டலம்-4 தண்டையார்பேட்டை / ZONE-IV TONDIARPET  51.47  17.97  67.13  17.32
+5  மண்டலம்-5 இராயபுரம் / ZONE-V ROYAPURAM  22.67  15.47  51.53  14.29
+6  மண்டலம்-6 திரு.வி.க.நகர் / ZONE-VI THIRU-VI-KA NAGAR  49.59  36.68  101.32  34.04
+7  மண்டலம்-7 அம்பத்தூர் / ZONE-VII AMBATTUR  57.07  25.25  91.28  12.77
+8  மண்டலம்-8 அண்ணாநகர் / ZONE-VIII ANNA NAGAR  37.55  14.08  55.55  13.12
+9  மண்டலம்-9 தேனம்பேட்டை / ZONE-IX TEYNAMPET  37.31  15.93  79.07  23.07
+10 மண்டலம்-10 கோடம்பாக்கம் / ZONE-X KODAMBAKKAM  32.21  16.74  68.27  12.89
+11 மண்டலம்-11 வளசரவாக்கம் / ZONE-XI VALASARAVAKKAM  91.20  12.16  53.10  14.77
+
+- No explanations? Yes.
+- No summaries? Yes.
+- No markdown? Yes (Avoiding `|---|` and `**`).
+- No commentary? Yes.
+- Preserve rows and columns? Yes.
+- Preserve numbers exactly? Yes.
+- Clean structured text? Yes.
+மூலதனக் கணக்கு - செலவு
+CAPITAL ACCOUNT - EXPENDITURE
+
+வரிசை எண் / Sl.No.	மண்டலங்கள் மற்றும் துறைகள் / Zones and Departments	கணக்குகள் Actuals 2024-2025	வரவு செலவு திட்ட மதிப்பீடு Budget Estimate 2025-2026	திருத்த திட்ட மதிப்பீடு Revised Estimate 2025-2026	வரவு செலவு திட்ட மதிப்பீடு Budget Estimate 2026-2027
+(ரூபாய் கோடியில்) / (Rs. in Crore)
+
+1	மண்டலம் - 1 திருவொற்றியூர் / ZONE-I THIRUVOTTIYUR	33.41	11.91	57.30	14.70
+2	மண்டலம்-2 மணலி / ZONE-II MANALI	28.36	7.41	47.01	14.13
+3	மண்டலம்-3 மாதவரம் / ZONE-III MADHAVARAM	76.49	45.43	95.44	10.00
+4	மண்டலம்-4 தண்டையார்பேட்டை / ZONE-IV TONDIARPET	51.47	17.97	67.13	17.32
+5	மண்டலம்-5 இராயபுரம் / ZONE-V ROYAPURAM	22.67	15.47	51.53	14.29
+6	மண்டலம்-6 திரு.வி.க.நகர் / ZONE-VI THIRU-VI-KA NAGAR	49.59	36.68	101.32	34.04
+7	மண்டலம்-7 அம்பத்தூர் / ZONE-VII AMBATTUR	57.07	25.25	91.28	12.77
+8	மண்டலம்-8 அண்ணாநகர் / ZONE-VIII ANNA NAGAR	37.55	14.08	55.55	13.12
+9	மண்டலம்-9 தேனம்பேட்டை / ZONE-IX TEYNAMPET	37.31	15.93	79.07	23.07
+10	மண்டலம்-10 கோடம்பாக்கம் / ZONE-X KODAMBAKKAM	32.21	16.74	68.27	12.89
+11	மண்டலம்-11 வளசரவாக்கம் / ZONE-XI VALASARAVAKKAM	91.20	12.16	53.10	14.77"
+2026_27,gcc_budget_2026_27_budget_at_a_glance,10,"*   Input: A scanned image of a budget page.
+*   Goal: Extract ONLY table data and text.
+*   Constraints:
+*   No explanations.
+*   No summaries.
+*   No markdown (this implies plain text or a simple tab/space-separated format, though usually ""no markdown"" in these prompts means don't use markdown formatting like `|` for tables if requested, but usually, for ""structured text"", a CSV-like or tab-separated format is expected. However, the user asks to ""Preserve rows and columns"").
+*   No commentary.
+*   Preserve rows/columns.
+*   Preserve numbers exactly.
+*   Return clean structured text.
+
+*   Headers:
+*   Col 1: வரிசை எண் / Sl.No.
+*   Col 2: மண்டலங்கள் மற்றும் துறைகள் / Zones and Departments
+*   Col 3: கணக்குகள் Actuals 2024-2025
+*   Col 4: வரவு செலவு திட்ட மதிப்பீடு Budget Estimate 2025-2026
+*   Col 5: திருத்த திட்ட மதிப்பீடு Revised Estimate 2025-2026
+*   Col 6: வரவு செலவு திட்ட மதிப்பீடு Budget Estimate 2026-2027
+*   Sub-header: (ரூபாய் கோடியில்) / (Rs. in Crore)
+
+*   Rows:
+*   12 | மண்டலம்-12 ஆலந்தூர் ZONE-XII ALANDUR | 28.94 | 13.26 | 41.93 | 22.39
+*   13 | மண்டலம்-13 அடையார் ZONE-XIII ADYAR | 58.44 | 17.86 | 58.54 | 9.58
+*   14 | மண்டலம்-14 பெருங்குடி ZONE-XIV PERUNGUDI | 46.53 | 12.12 | 64.03 | 7.88
+*   15 | மண்டலம்-15 சோழிங்கநல்லூர் ZONE-XV SHOZHINGANALLUR | 55.16 | 16.75 | 52.86 | 46.16
+*   16 | வட்டார அலுவலகம்-வடக்கு REGIONAL OFFICE - NORTH | 0.13 | 0.56 | 0.54 | 0.54
+*   17 | வட்டார அலுவலகம்-மத்திமம் REGIONAL OFFICE - CENTRE | 0.00 | 0.58 | 0.55 | 0.54
+*   18 | வட்டார அலுவலகம்-தெற்கு REGIONAL OFFICE - SOUTH | 0.04 | 0.54 | 0.57 | 0.54
+*   19 | மத்திய கணக்கு குழுமம் ACCOUNTS CENTRAL CELL | 0.00 | 0.03 | 0.03 | 0.03
+*   20 | கட்டடங்கள் BUILDINGS | 160.89 | 413.63 | 475.00 | 400.00
+*   21 | பேருந்து சாலைகள் BUS ROUTE ROADS | 202.15 | 628.35 | 311.60 | 725.06
+*   22 | மன்றத் துறை COUNCIL DEPARTMENT | 0.00 | 0.03 | 0.03 | 0.03
+*   23 | மழைநீர் வடிகால் STORM WATER DRAIN | 734.54 | 1032.25 | 1290.05 | 693.05
+
+*   The prompt says ""No markdown"". Usually, this means no ` ``` ` blocks and no `|---|---|` table syntax. I will provide a tab-separated or space-aligned format.
+*   Header section needs to be handled clearly.
+
+*   Row 1: Sl.No. | Zones and Departments | Actuals 2024-2025 | Budget Estimate 2025-2026 | Revised Estimate 2025-2026 | Budget Estimate 2026-2027
+*   Row 2: (Rs. in Crore)
+*   Data rows follows.
+
+*   Double checking numbers:
+*   12: 28.94, 13.26, 41.93, 22.39 (Correct)
+*   13: 58.44, 17.86, 58.54, 9.58 (Correct)
+*   14: 46.53, 12.12, 64.03, 7.88 (Correct)
+*   15: 55.16, 16.75, 52.86, 46.16 (Correct)
+*   16: 0.13, 0.56, 0.54, 0.54 (Correct)
+*   17: 0.00, 0.58, 0.55, 0.54 (Correct)
+*   18: 0.04, 0.54, 0.57, 0.54 (Correct)
+*   19: 0.00, 0.03, 0.03, 0.03 (Correct)
+*   20: 160.89, 413.63, 475.00, 400.00 (Correct)
+*   21: 202.15, 628.35, 311.60, 725.06 (Correct)
+*   22: 0.00, 0.03, 0.03, 0.03 (Correct)
+*   23: 734.54, 1032.25, 1290.05, 693.05 (Correct)
+
+*   Header mapping:
+*   வரிசை எண் / Sl.No.
+*   மண்டலங்கள் மற்றும் துறைகள் / Zones and Departments
+*   கணக்குகள் Actuals 2024-2025
+*   வரவு செலவு திட்ட மதிப்பீடு Budget Estimate 2025-2026
+*   திருத்த திட்ட மதிப்பீடு Revised Estimate 2025-2026
+*   வரவு செலவு திட்ட மதிப்பீடு Budget Estimate 2026-2027
+
+*   Wait, the user says ""No markdown"". In LLM terms, this often means they want raw text without formatting tags.
+
+Let's structure it clearly using tabs or spacing.
+
+Sl.No.	Zones and Departments	Actuals 2024-2025	Budget Estimate 2025-2026	Revised Estimate 2025-2026	Budget Estimate 2026-2027
+(Rs. in Crore)
+12	மண்டலம்-12 ஆலந்தூர் ZONE-XII ALANDUR	28.94	13.26	41.93	22.39
+... etc.
+
+The user says ""Preserve rows and columns"". A tabbed or plain-text alignment is best.
+
+Let's refine the Tamil text:
+12: மண்டலம்-12 ஆலந்தூர் ZONE-XII ALANDUR
+13: மண்டலம்-13 அடையார் ZONE-XIII ADYAR
+14: மண்டலம்-14 பெருங்குடி ZONE-XIV PERUNGUDI
+15: மண்டலம்-15 சோழிங்கநல்லூர் ZONE-XV SHOZHINGANALLUR
+16: வட்டார அலுவலகம்-வடக்கு REGIONAL OFFICE - NORTH
+17: வட்டார அலுவலகம்-மத்திமம் REGIONAL OFFICE - CENTRE
+18: வட்டார அலுவலகம்-தெற்கு REGIONAL OFFICE - SOUTH
+19: மத்திய கணக்கு குழுமம் ACCOUNTS CENTRAL CELL
+20: கட்டடங்கள் BUILDINGS
+21: பேருந்து சாலைகள் BUS ROUTE ROADS
+22: மன்றத் துறை COUNCIL DEPARTMENT
+23: மழைநீர் வடிகால் STORM WATER DRAIN
+
+Columns:
+Sl.No. | Zones and Departments | Actuals 2024-2025 | Budget Estimate 2025-2026 | Revised Estimate 2025-2026 | Budget Estimate 2026-2027
+
+Final check on ""No markdown"". I will provide raw text.
+
+Row 1: Sl.No.	Zones and Departments	Actuals 2024-2025	Budget Estimate 2025-2026	Revised Estimate 2025-2026	Budget Estimate 2026-2027
+Row 2: 	(Rs. in Crore)
+... data ...
+
+Wait, let me look at the image again for headers.
+Col 1: வரிசை எண் Sl.No.
+Col 2: மண்டலங்கள் மற்றும் துறைகள் Zones and Departments
+Col 3: கணக்குகள் Actuals 2024-2025
+Col 4: வரவு செலவு திட்ட மதிப்பீடு Budget Estimate 2025-2026
+Col 5: திருத்த திட்ட மதிப்பீடு Revised Estimate 2025-2026
+Col 6: வரவு செலவு திட்ட மதிப்பீடு Budget Estimate 2026-2027
+
+I will list the dual language headers as they appear.
+
+Let's start output.
+
+Sl.No.	Zones and Departments	Actuals 2024-2025	Budget Estimate 2025-2026	Revised Estimate 2025-2026	Budget Estimate 2026-2027
+(Rs. in Crore)
+12	மண்டலம்-12 ஆலந்தூர் ZONE-XII ALANDUR	28.94	13.26	41.93	22.39
+13	மண்டலம்-13 அடையார் ZONE-XIII ADYAR	58.44	17.86	58.54	9.58
+14	மண்டலம்-14 பெருங்குடி ZONE-XIV PERUNGUDI	46.53	12.12	64.03	7.88
+15	மண்டலம்-15 சோழிங்கநல்லூர் ZONE-XV SHOZHINGANALLUR	55.16	16.75	52.86	46.16
+16	வட்டார அலுவலகம்-வடக்கு REGIONAL OFFICE - NORTH	0.13	0.56	0.54	0.54
+17	வட்டார அலுவலகம்-மத்திமம் REGIONAL OFFICE - CENTRE	0.00	0.58	0.55	0.54
+18	வட்டார அலுவலகம்-தெற்கு REGIONAL OFFICE - SOUTH	0.04	0.54	0.57	0.54
+19	மத்திய கணக்கு குழுமம் ACCOUNTS CENTRAL CELL	0.00	0.03	0.03	0.03
+20	கட்டடங்கள் BUILDINGS	160.89	413.63	475.00	400.00
+21	பேருந்து சாலைகள் BUS ROUTE ROADS	202.15	628.35	311.60	725.06
+22	மன்றத் துறை COUNCIL DEPARTMENT	0.00	0.03	0.03	0.03
+23	மழைநீர் வடிகால் STORM WATER DRAIN	734.54	1032.25	1290.05	693.05
+
+One detail: The headers in the image are:
+வரிசை எண் / Sl.No.
+மண்டலங்கள் மற்றும் துறைகள் / Zones and Departments
+கணக்குகள் / Actuals 2024-2025
+வரவு செலவு திட்ட மதிப்பீடு / Budget Estimate 2025-2026
+திருத்த திட்ட மதிப்பீடு / Revised Estimate 2025-2026
+வரவு செலவு திட்ட மதிப்பீடு / Budget Estimate 2026-2027
+
+I will include both languages in the headers.
+
+Actually, I'll just keep it clean.
+
+Sl.No.	Zones and Departments	Actuals 2024-2025	Budget Estimate 2025-2026	Revised Estimate 2025-2026	Budget Estimate 2026-2027
+(Rs. in Crore)
+12	மண்டலம்-12 ஆலந்தூர் ZONE-XII ALANDUR	28.94	13.26	41.93	22.39
+13	மண்டலம்-13 அடையார் ZONE-XIII ADYAR	58.44	17.86	58.54	9.58
+...
+
+I'll use tabs.
+
+Wait, the prompt says ""No markdown"". Markdown usually includes code blocks. I will output raw text.
+
+Let's re-read: ""Preserve rows and columns"".
+If I don't use markdown (like tables), tab-separated values (TSV) are the standard ""clean structured text"" for tabular data.
+
+Sl.No.	Zones and Departments	Actuals 2024-2025	Budget Estimate 2025-2026	Revised Estimate 2025-2026	Budget Estimate 2026-2027
+(Rs. in Crore)
+12	மண்டலம்-12 ஆலந்தூர் ZONE-XII ALANDUR	28.94	13.26	41.93	22.39
+13	மண்டலம்-13 அடையார் ZONE-XIII ADYAR	58.44	17.86	58.54	9.58
+14	மண்டலம்-14 பெருங்குடி ZONE-XIV PERUNGUDI	46.53	12.12	64.03	7.88
+15	மண்டலம்-15 சோழிங்கநல்லூர் ZONE-XV SHOZHINGANALLUR	55.16	16.75	52.86	46.16
+16	வட்டார அலுவலகம்-வடக்கு REGIONAL OFFICE - NORTH	0.13	0.56	0.54	0.54
+17	வட்டார அலுவலகம்-மத்திமம் REGIONAL OFFICE - CENTRE	0.00	0.58	0.55	0.54
+18	வட்டார அலுவலகம்-தெற்கு REGIONAL OFFICE - SOUTH	0.04	0.54	0.57	0.54
+19	மத்திய கணக்கு குழுமம் ACCOUNTS CENTRAL CELL	0.00	0.03	0.03	0.03
+20	கட்டடங்கள் BUILDINGS	160.89	413.63	475.00	400.00
+21	பேருந்து சாலைகள் BUS ROUTE ROADS	202.15	628.35	311.60	725.06
+22	மன்றத் துறை COUNCIL DEPARTMENT	0.00	0.03	0.03	0.03
+23	மழைநீர் வடிகால் STORM WATER DRAIN	734.54	1032.25	1290.05	693.05
+
+Wait, one more check on numbers:
+Row 21: 202.15, 628.35, 311.60, 725.06. Correct.
+Row 23: 734.54, 1032.25, 1290.05, 693.05. Correct.
+
+TheTamil text matches exactly.
+Sl.No.	Zones and Departments	Actuals 2024-2025	Budget Estimate 2025-2026	Revised Estimate 2025-2026	Budget Estimate 2026-2027
+(Rs. in Crore)
+12	மண்டலம்-12 ஆலந்தூர் ZONE-XII ALANDUR	28.94	13.26	41.93	22.39
+13	மண்டலம்-13 அடையார் ZONE-XIII ADYAR	58.44	17.86	58.54	9.58
+14	மண்டலம்-14 பெருங்குடி ZONE-XIV PERUNGUDI	46.53	12.12	64.03	7.88
+15	மண்டலம்-15 சோழிங்கநல்லூர் ZONE-XV SHOZHINGANALLUR	55.16	16.75	52.86	46.16
+16	வட்டார அலுவலகம்-வடக்கு REGIONAL OFFICE - NORTH	0.13	0.56	0.54	0.54
+17	வட்டார அலுவலகம்-மத்திமம் REGIONAL OFFICE - CENTRE	0.00	0.58	0.55	0.54
+18	வட்டார அலுவலகம்-தெற்கு REGIONAL OFFICE - SOUTH	0.04	0.54	0.57	0.54
+19	மத்திய கணக்கு குழுமம் ACCOUNTS CENTRAL CELL	0.00	0.03	0.03	0.03
+20	கட்டடங்கள் BUILDINGS	160.89	413.63	475.00	400.00
+21	பேருந்து சாலைகள் BUS ROUTE ROADS	202.15	628.35	311.60	725.06
+22	மன்றத் துறை COUNCIL DEPARTMENT	0.00	0.03	0.03	0.03
+23	மழைநீர் வடிகால் STORM WATER DRAIN	734.54	1032.25	1290.05	693.05"
+2026_27,gcc_budget_2026_27_budget_at_a_glance,12,"*   Goal: Extract table data and text from a scanned budget page.
+*   Strict Rules: No explanations, no summaries, no markdown (this is tricky because usually ""clean structured text"" implies some formatting, but I must avoid Markdown syntax like `|` or `***` if the user says ""No markdown""), no commentary, preserve rows/columns, preserve numbers exactly, return clean structured text.
+*   Input: An image of a budget table.
+
+*   Columns:
+1.  வரிசை எண் / Sl.No.
+2.  மண்டலங்கள் மற்றும் துறைகள் / Zones and Departments
+3.  கணக்குகள் Actuals 2024-2025
+4.  வரவு செலவு திட்ட மதிப்பீடு Budget Estimate 2025-2026
+5.  திருத்த திட்ட மதிப்பீடு Revised Estimate 2025-2026
+6.  வரவு செலவு திட்ட மதிப்பீடு Budget Estimate 2026-2027
+*   Currency Note: (ரூபாய் கோடியில்) / (Rs. in Crore)
+
+*   Row 37: REVENUE DEPARTMENT | 0.00 | 0.04 | 0.04 | 0.04
+*   Row 38: SPECIAL PROJECTS | 74.68 | 179.03 | 157.53 | 85.03
+*   Row 39: TAXATION APPEALS COMMITTEE | 0.00 | 0.01 | 0.01 | 0.01
+*   Row 40: LAND AND ESTATE DEPARTMENT | 0.00 | 0.01 | 0.01 | 0.01
+*   Row 41: WORKS DEPARTMENT | 0.00 | 0.01 | 0.01 | 0.01
+*   Row 42: CHIEF ENGINEER'S OFFICE (GENERAL) | 0.00 | 0.01 | 0.01 | 0.01
+*   Row 43: LEGAL CELL | 0.00 | 0.01 | 0.01 | 0.01
+*   Total: TOTAL | 2201.24 | 3190.61 | 3915.34 | 2754.05
+
+*   The user said ""No markdown"". Markdown includes tables (`|`), bolding (`**`), etc.
+*   ""Clean structured text"" usually means tab-separated or space-separated values that look like a table.
+*   I will use a plain text layout.
+
+*   Headers:
+Sl.No. Zones and Departments Actuals 2024-2025 Budget Estimate 2025-2026 Revised Estimate 2025-2026 Budget Estimate 2026-2027
+(Rs. in Crore)
+
+*   Data:
+37 REVENUE DEPARTMENT 0.00 0.04 0.04 0.04
+38 SPECIAL PROJECTS 74.68 179.03 157.53 85.03
+39 TAXATION APPEALS COMMITTEE 0.00 0.01 0.01 0.01
+40 LAND AND ESTATE DEPARTMENT 0.00 0.01 0.01 0.01
+41 WORKS DEPARTMENT 0.00 0.01 0.01 0.01
+42 CHIEF ENGINEER'S OFFICE (GENERAL) 0.00 0.01 0.01 0.01
+43 LEGAL CELL 0.00 0.01 0.01 0.01
+TOTAL 2201.24 3190.61 3915.34 2754.05
+
+*   No explanations? Check.
+*   No summaries? Check.
+*   No markdown? Check. (I'll avoid | and **)
+*   No commentary? Check.
+*   Preserve rows and columns? Check.
+*   Preserve numbers exactly? Check.
+*   Clean structured text? Check.
+
+*Self-Correction during formatting:* To make it ""structured"" without markdown tables, I'll use alignment via spacing or tabs.
+
+Headers:
+Sl.No. | Zones and Departments | Actuals 2024-2025 | Budget Estimate 2025-2026 | Revised Estimate 2025-2026 | Budget Estimate 2026-2027
+(Wait, the user said ""No markdown"". The pipe symbol `|` is the primary character for markdown tables. I should avoid it to be safe, or use it only if it doesn't trigger markdown rendering in a way that violates ""No markdown"". Actually, the safest bet for ""no markdown"" is plain text columns.)
+
+Let's refine the Tamil and English mix as per the image.
+
+வரிசை எண் Sl.No. | மண்டலங்கள் மற்றும் துறைகள் Zones and Departments | கணக்குகள் Actuals 2024-2025 | வரவு செலவு திட்ட மதிப்பீடு Budget Estimate 2025-2026 | திருத்த திட்ட மதிப்பீடு Revised Estimate 2025-2026 | வரவு செலவு திட்ட மதிப்பீடு Budget Estimate 2026-2027
+(ரூபாய் கோடியில்) (Rs. in Crore)
+
+37 வருவாய்த் துறை REVENUE DEPARTMENT 0.00 0.04 0.04 0.04
+38 சிறப்பு திட்டங்கள் SPECIAL PROJECTS 74.68 179.03 157.53 85.03
+39 வரி முறையீட்டுக்குழு TAXATION APPEALS COMMITTEE 0.00 0.01 0.01 0.01
+40 நிலம் மற்றும் உடைமை துறை LAND AND ESTATE DEPARTMENT 0.00 0.01 0.01 0.01
+41 பணித் துறை WORKS DEPARTMENT 0.00 0.01 0.01 0.01
+42 தலைமை பொறியாளர் (பொது) அலுவலகம் CHIEF ENGINEER'S OFFICE (GENERAL) 0.00 0.01 0.01 0.01
+43 சட்டக் குழுமம் LEGAL CELL 0.00 0.01 0.01 0.01
+மொத்தம் TOTAL 2201.24 3190.61 3915.34 2754.05
+
+Wait, the user wants ""clean structured text"". I'll use spacing to align columns.
+
+Sl.No.	Zones and Departments	Actuals 2024-2025	Budget Estimate 2025-2026	Revised Estimate 2025-2026	Budget Estimate 2026-2027
+(Rs. in Crore)
+37	REVENUE DEPARTMENT	0.00	0.04	0.04	0.04
+...
+
+Actually, looking at the prompt ""No markdown"", if I use tabs/spaces, it stays plain text.
+
+Let's double check the numbers one last time.
+37: 0.00, 0.04, 0.04, 0.04
+38: 74.68, 179.03, 157.53, 85.03
+39: 0.00, 0.01, 0.01, 0.01
+40: 0.00, 0.01, 0.01, 0.01
+41: 0.00, 0.01, 0.01, 0.01
+42: 0.00, 0.01, 0.01, 0.01
+43: 0.00, 0.01, 0.01, 0.01
+TOTAL: 2201.24, 3190.61, 3915.34, 2754.05
+
+One detail: ""வரிசை எண்"" and ""Sl.No."" are in the first column header. ""மண்டலங்கள் மற்றும் துறைகள்"" and ""Zones and Departments"" in the second. ""கணக்குகள்"" ""Actuals 2024-2025"" in the third. ""வரவு செலவு திட்ட மதிப்பீடு Budget Estimate 2025-2026"" in the fourth. ""திருத்த திட்ட மதிப்பீடு Revised Estimate 2025-2026"" in the fifth. ""வரவு செலவு திட்ட மதிப்பீடு Budget Estimate 2026-2027"" in the sixth.
+
+I will output it as clean text.
+
+வரிசை எண் / Sl.No.	மண்டலங்கள் மற்றும் துறைகள் / Zones and Departments	கணக்குகள் Actuals 2024-2025	வரவு செலவு திட்ட மதிப்பீடு Budget Estimate 2025-2026	திருத்த திட்ட மதிப்பீடு Revised Estimate 2025-2026	வரவு செலவு திட்ட மதிப்பீடு Budget Estimate 2026-2027
+(ரூபாய் கோடியில்) (Rs. in Crore)
+37	வருவாய்த் துறை REVENUE DEPARTMENT	0.00	0.04	0.04	0.04
+38	சிறப்பு திட்டங்கள் SPECIAL PROJECTS	74.68	179.03	157.53	85.03
+39	வரி முறையீட்டுக்குழு TAXATION APPEALS COMMITTEE	0.00	0.01	0.01	0.01
+40	நிலம் மற்றும் உடைமை துறை LAND AND ESTATE DEPARTMENT	0.00	0.01	0.01	0.01
+41	பணித் துறை WORKS DEPARTMENT	0.00	0.01	0.01	0.01
+42	தலைமை பொறியாளர் (பொது) அலுவலகம் CHIEF ENGINEER'S OFFICE (GENERAL)	0.00	0.01	0.01	0.01
+43	சட்டக் குழுமம் LEGAL CELL	0.00	0.01	0.01	0.01
+மொத்தம் TOTAL	2201.24	3190.61	3915.34	2754.05
+
+Wait, the prompt says ""Extract ONLY the table data and text"".
+
+Let's make it look professional without using markdown markers.
+
+Header row:
+Sl.No. Zones and Departments Actuals 2024-2025 Budget Estimate 2025-2026 Revised Estimate 2025-2026 Budget Estimate 2026-2027
+(Rs. in Crore)
+
+Data rows:
+37 REVENUE DEPARTMENT 0.00 0.04 0.04 0.04
+38 SPECIAL PROJECTS 74.68 179.03 157.53 85.03
+...
+
+Wait, if I include the Tamil text, it's more accurate.
+
+Final plan:
+Column headers (Combined Tamil/English).
+Currency unit.
+Rows.
+Total.
+
+Let's ensure no markdown. No `|`, no `**`, no `#`. Just spaces/tabs.
+
+வரிசை எண் Sl.No.	மண்டலங்கள் மற்றும் துறைகள் Zones and Departments	கணக்குகள் Actuals 2024-2025	வரவு செலவு திட்ட மதிப்பீடு Budget Estimate 2025-2026	திருத்த திட்ட மதிப்பீடு Revised Estimate 2025-2026	வரவு செலவு திட்ட மதிப்பீடு Budget Estimate 2026-2027
+(ரூபாய் கோடியில்) (Rs. in Crore)
+37	வருவாய்த் துறை REVENUE DEPARTMENT	0.00	0.04	0.04	0.04
+38	சிறப்பு திட்டங்கள் SPECIAL PROJECTS	74.68	179.03	157.53	85.03
+39	வரி முறையீட்டுக்குழு TAXATION APPEALS COMMITTEE	0.00	0.01	0.01	0.01
+40	நிலம் மற்றும் உடைமை துறை LAND AND ESTATE DEPARTMENT	0.00	0.01	0.01	0.01
+41	பணித் துறை WORKS DEPARTMENT	0.00	0.01	0.01	0.01
+42	தலைமை பொறியாளர் (பொது) அலுவலகம் CHIEF ENGINEER'S OFFICE (GENERAL)	0.00	0.01	0.01	0.01
+43	சட்டக் குழுமம் LEGAL CELL	0.00	0.01	0.01	0.01
+மொத்தம் TOTAL	2201.24	3190.61	3915.34	2754.05
+வரிசை எண் Sl.No.	மண்டலங்கள் மற்றும் துறைகள் Zones and Departments	கணக்குகள் Actuals 2024-2025	வரவு செலவு திட்ட மதிப்பீடு Budget Estimate 2025-2026	திருத்த திட்ட மதிப்பீடு Revised Estimate 2025-2026	வரவு செலவு திட்ட மதிப்பீடு Budget Estimate 2026-2027
+(ரூபாய் கோடியில்) (Rs. in Crore)
+37	வருவாய்த் துறை REVENUE DEPARTMENT	0.00	0.04	0.04	0.04
+38	சிறப்பு திட்டங்கள் SPECIAL PROJECTS	74.68	179.03	157.53	85.03
+39	வரி முறையீட்டுக்குழு TAXATION APPEALS COMMITTEE	0.00	0.01	0.01	0.01
+40	நிலம் மற்றும் உடைமை துறை LAND AND ESTATE DEPARTMENT	0.00	0.01	0.01	0.01
+41	பணித் துறை WORKS DEPARTMENT	0.00	0.01	0.01	0.01
+42	தலைமை பொறியாளர் (பொது) அலுவலகம் CHIEF ENGINEER'S OFFICE (GENERAL)	0.00	0.01	0.01	0.01
+43	சட்டக் குழுமம் LEGAL CELL	0.00	0.01	0.01	0.01
+மொத்தம் TOTAL	2201.24	3190.61	3915.34	2754.05"
+2026_27,gcc_budget_2026_27_budget_at_a_glance,14,"*   Task: Extract table data and text from a scanned budget page.
+*   Constraints:
+*   ONLY table data and text.
+*   No explanations, summaries, markdown, or commentary.
+*   Preserve rows and columns.
+*   Preserve numbers exactly.
+*   Clean structured text.
+
+*   Header text:
+வருவாய் முன்பணம்
+REVENUE - ADVANCE
+
+*   Table Headers:
+Col 1: கணக்கு குறியீடு / D.P. Code
+Col 2: கணக்கு தலைப்பு / Account Head
+Col 3: கணக்குகள் Actuals 2024-2025
+Col 4: வரவு செலவு திட்ட மதிப்பீடு Budget Estimate 2025-2026
+Col 5: திருத்த திட்ட மதிப்பீடு Revised Estimate 2025-2026
+Col 6: வரவு செலவு திட்ட மதிப்பீடு Budget Estimate 2026-2027
+Currency: (ரூபாய் கோடியில்) / (Rs. in Crore)
+
+*   Rows:
+1.  (Header row for section): செலவினங்கள் / OUT - GOINGS
+2.  340-10-01-01 -- 340-80-01-00 | ஒப்பந்ததாரா் வைப்புத் தொகை Tender deposits | 95.16 | 57.00 | 80.00 | 82.00
+3.  460-10-02-00 | விழா முன்பணம் Festival Advance | 9.64 | 13.00 | 20.00 | 21.00
+4.  460-10-06-00 | மிதிஇயக்கி முன்பணம் Motor Cycle Advance | 0.01 | 0.03 | 0.03 | 0.03
+5.  460-10-09-00 | வீடு கட்ட முன்பணம் House Building Advance | 0.67 | 0.20 | 0.30 | 0.30
+6.  460-10-12-00 | கணிப்பொறி முன்பணம் Computer Advance | 0.05 | 0.01 | 0.01 | 0.01
+7.  460-40-01-02 | முன்பணம்-பொருள் வழங்குபவர் Advances to Suppliers | 117.22 | 125.00 | 93.00 | 95.00
+8.  460-50-01-19 | முன்பணம்-நேர் செய்தல் Advances recoverable expenses | 63.22 | 38.00 | 70.00 | 72.00
+9.  (Total row): மொத்தம் - செலவினங்கள் TOTAL = OUT - GOINGS | 285.97 | 233.24 | 263.34 | 270.34
+
+*   Footer text: 12
+
+*   The user asked for ""No markdown"". This usually means no markdown tables (like `|---|---|`). I will use tab-separated or spaced structured text to preserve columns.
+*   Actually, often when users say ""No markdown"" they mean they don't want the conversational formatting, but a raw text representation. Let's use plain text spacing/tabs to represent the table.
+
+*   Check numbers:
+*   95.16, 57.00, 80.00, 82.00 (Correct)
+*   9.64, 13.00, 20.00, 21.00 (Correct)
+*   0.01, 0.03, 0.03, 0.03 (Correct)
+*   0.67, 0.20, 0.30, 0.30 (Correct)
+*   0.05, 0.01, 0.01, 0.01 (Correct)
+*   117.22, 125.00, 93.00, 95.00 (Correct)
+*   63.22, 38.00, 70.00, 72.00 (Correct)
+*   285.97, 233.24, 263.34, 270.34 (Correct)
+
+*   Check text:
+*   REVENUE - ADVANCE (Correct)
+*   D.P. Code, Account Head, Actuals, Budget Estimate, Revised Estimate, Budget Estimate (Correct)
+
+*   Plan for the ""No markdown"" rule: Use a plain text layout.
+
+வருவாய் முன்பணம்
+REVENUE - ADVANCE
+
+கணக்கு குறியீடு / D.P. Code | கணக்கு தலைப்பு / Account Head | கணக்குகள் Actuals 2024-2025 | வரவு செலவு திட்ட மதிப்பீடு Budget Estimate 2025-2026 | திருத்த திட்ட மதிப்பீடு Revised Estimate 2025-2026 | வரவு செலவு திட்ட மதிப்பீடு Budget Estimate 2026-2027
+(Rs. in Crore)
+
+செலவினங்கள் OUT - GOINGS
+340-10-01-01 -- 340-80-01-00 | ஒப்பந்ததாரா் வைப்புத் தொகை Tender deposits | 95.16 | 57.00 | 80.00 | 82.00
+460-10-02-00 | விழா முன்பணம் Festival Advance | 9.64 | 13.00 | 20.00 | 21.00
+460-10-06-00 | மிதிஇயக்கி முன்பணம் Motor Cycle Advance | 0.01 | 0.03 | 0.03 | 0.03
+460-10-09-00 | வீடு கட்ட முன்பணம் House Building Advance | 0.67 | 0.20 | 0.30 | 0.30
+460-10-12-00 | கணிப்பொறி முன்பணம் Computer Advance | 0.05 | 0.01 | 0.01 | 0.01
+460-40-01-02 | முன்பணம்-பொருள் வழங்குபவர் Advances to Suppliers | 117.22 | 125.00 | 93.00 | 95.00
+460-50-01-19 | முன்பணம்-நேர் செய்தல் Advances recoverable expenses | 63.22 | 38.00 | 70.00 | 72.00
+மொத்தம் - செலவினங்கள் TOTAL = OUT - GOINGS | 285.97 | 233.24 | 263.34 | 270.34
+
+12
+
+*Self-Correction on ""No markdown""*: If I use `|`, it looks like markdown. I'll use spaces or a very simple delimiter. The prompt asks for ""clean structured text"". I will use tabs/spaces.
+
+Wait, if the user says ""No markdown"", they might mean ""don't use the bolding, italics, or the specific markdown table syntax (`|---|---|`)"". I'll provide it as a clean text table.
+
+*Final Polish of the structure:*
+வருவாய் முன்பணம்
+REVENUE - ADVANCE
+
+D.P. Code | Account Head | Actuals 2024-2025 | Budget Estimate 2025-2026 | Revised Estimate 2025-2026 | Budget Estimate 2026-2027
+(Rs. in Crore)
+
+OUT - GOINGS
+340-10-01-01 -- 340-80-01-00 | Tender deposits | 95.16 | 57.00 | 80.00 | 82.00
+460-10-02-00 | Festival Advance | 9.64 | 13.00 | 20.00 | 21.00
+460-10-06-00 | Motor Cycle Advance | 0.01 | 0.03 | 0.03 | 0.03
+460-10-09-00 | House Building Advance | 0.67 | 0.20 | 0.30 | 0.30
+460-10-12-00 | Computer Advance | 0.05 | 0.01 | 0.01 | 0.01
+460-40-01-02 | Advances to Suppliers | 117.22 | 125.00 | 93.00 | 95.00
+460-50-01-19 | Advances recoverable expenses | 63.22 | 38.00 | 70.00 | 72.00
+TOTAL = OUT - GOINGS | 285.97 | 233.24 | 263.34 | 270.34
+
+Wait, the prompt says ""Extract ONLY the table data and text"". I should include the Tamil text as well as the English text.
+
+*Revised structure:*
+வருவாய் முன்பணம்
+REVENUE - ADVANCE
+
+கணக்கு குறியீடு D.P. Code | கணக்கு தலைப்பு Account Head | கணக்குகள் Actuals 2024-2025 | வரவு செலவு திட்ட மதிப்பீடு Budget Estimate 2025-2026 | திருத்த திட்ட மதிப்பீடு Revised Estimate 2025-2026 | வரவு செலவு திட்ட மதிப்பீடு Budget Estimate 2026-2027
+(ரூபாய் கோடியில்) (Rs. in Crore)
+
+செலவினங்கள் OUT - GOINGS
+340-10-01-01 -- 340-80-01-00 | ஒப்பந்ததாரா் வைப்புத் தொகை Tender deposits | 95.16 | 57.00 | 80.00 | 82.00
+460-10-02-00 | விழா முன்பணம் Festival Advance | 9.64 | 13.00 | 20.00 | 21.00
+460-10-06-00 | மிதிஇயக்கி முன்பணம் Motor Cycle Advance | 0.01 | 0.03 | 0.03 | 0.03
+460-10-09-00 | வீடு கட்ட முன்பணம் House Building Advance | 0.67 | 0.20 | 0.30 | 0.30
+460-10-12-00 | கணிப்பொறி முன்பணம் Computer Advance | 0.05 | 0.01 | 0.01 | 0.01
+460-40-01-02 | முன்பணம்-பொருள் வழங்குபவர் Advances to Suppliers | 117.22 | 125.00 | 93.00 | 95.00
+460-50-01-19 | முன்பணம்-நேர் செய்தல் Advances recoverable expenses | 63.22 | 38.00 | 70.00 | 72.00
+மொத்தம் - செலவினங்கள் TOTAL = OUT - GOINGS | 285.97 | 233.24 | 263.34 | 270.34
+
+12
+
+Final check on constraints:
+- No explanations: Yes
+- No summaries: Yes
+- No markdown: Yes (no `###`, `**`, or `|---|` tables)
+- No commentary: Yes
+- Preserve rows and columns: Yes
+- Preserve numbers exactly: Yes
+- Return clean structured text: Yes
+
+One detail: ""No markdown"" might be interpreted as ""No markdown at all"". I'll avoid `|` if I can, but for a ""structured"" representation, columns need delimiters. I'll use a simple tab-like spacing or a simple vertical bar as a text separator, not as a markdown table. I'll use the vertical bar as it is common in raw text exports.
+
+Actually, I will just use spaces/tabs for the cleanest ""No markdown"" look.
+
+வருவாய் முன்பணம்
+REVENUE - ADVANCE
+
+கணக்கு குறியீடு D.P. Code    கணக்கு தலைப்பு Account Head    கணக்குகள் Actuals 2024-2025    வரவு செலவு திட்ட மதிப்பீடு Budget Estimate 2025-2026    திருத்த திட்ட மதிப்பீடு Revised Estimate 2025-2026    வரவு செலவு திட்ட மதிப்பீடு Budget Estimate 2026-2027
+(ரூபாய் கோடியில்) (Rs. in Crore)
+
+செலவினங்கள் OUT - GOINGS
+340-10-01-01 -- 340-80-01-00    ஒப்பந்ததாரா் வைப்புத் தொகை Tender deposits    95.16    57.00    80.00    82.00
+460-10-02-00    விழா முன்பணம் Festival Advance    9.64    13.00    20.00    21.00
+460-10-06-00    மிதிஇயக்கி முன்பணம் Motor Cycle Advance    0.01    0.03    0.03    0.03
+460-10-09-00    வீடு கட்ட முன்பணம் House Building Advance    0.67    0.20    0.30    0.30
+460-10-12-00    கணிப்பொறி முன்பணம் Computer Advance    0.05    0.01    0.01    0.01
+460-40-01-02    முன்பணம்-பொருள் வழங்குபவர் Advances to Suppliers    117.22    125.00    93.00    95.00
+460-50-01-19    முன்பணம்-நேர் செய்தல் Advances recoverable expenses    63.22    38.00    70.00    72.00
+மொத்தம் - செலவினங்கள் TOTAL = OUT - GOINGS    285.97    233.24    263.34    270.34
+
+12
+வருவாய் முன்பணம்
+REVENUE - ADVANCE
+
+கணக்கு குறியீடு D.P. Code | கணக்கு தலைப்பு Account Head | கணக்குகள் Actuals 2024-2025 | வரவு செலவு திட்ட மதிப்பீடு Budget Estimate 2025-2026 | திருத்த திட்ட மதிப்பீடு Revised Estimate 2025-2026 | வரவு செலவு திட்ட மதிப்பீடு Budget Estimate 2026-2027
+(ரூபாய் கோடியில்) (Rs. in Crore)
+
+செலவினங்கள் OUT - GOINGS
+340-10-01-01 -- 340-80-01-00 | ஒப்பந்ததாரா் வைப்புத் தொகை Tender deposits | 95.16 | 57.00 | 80.00 | 82.00
+460-10-02-00 | விழா முன்பணம் Festival Advance | 9.64 | 13.00 | 20.00 | 21.00
+460-10-06-00 | மிதிஇயக்கி முன்பணம் Motor Cycle Advance | 0.01 | 0.03 | 0.03 | 0.03
+460-10-09-00 | வீடு கட்ட முன்பணம் House Building Advance | 0.67 | 0.20 | 0.30 | 0.30
+460-10-12-00 | கணிப்பொறி முன்பணம் Computer Advance | 0.05 | 0.01 | 0.01 | 0.01
+460-40-01-02 | முன்பணம்-பொருள் வழங்குபவர் Advances to Suppliers | 117.22 | 125.00 | 93.00 | 95.00
+460-50-01-19 | முன்பணம்-நேர் செய்தல் Advances recoverable expenses | 63.22 | 38.00 | 70.00 | 72.00
+மொத்தம் - செலவினங்கள் TOTAL = OUT - GOINGS | 285.97 | 233.24 | 263.34 | 270.34
+
+12"
+2026_27,gcc_budget_2026_27_budget_at_a_glance,15,"*   Input: An image of a budget page (Capital - Advances).
+*   Goal: Extract ONLY table data and text.
+*   Strict Rules:
+*   No explanations.
+*   No summaries.
+*   No markdown (this usually means no `|` or `---` for tables, just clean text, though often ""no markdown"" in this context means avoid the *formatting language* and provide raw structured text). Let's aim for a clean tab-separated or space-aligned look without markdown syntax like `###` or `**`.
+*   No commentary.
+*   Preserve rows and columns.
+*   Preserve numbers exactly.
+*   Return clean structured text.
+
+*   Title: மூலதன முன்பணம் / CAPITAL - ADVANCES
+*   Columns:
+1.  கணக்கு குறிீடு / D.P. Code
+2.  கணக்கு தலைப்பு / Account Head
+3.  கணக்குகள் / Actuals 2024-2025
+4.  வரவு செலவு திட்ட மதிப்பீடு / Budget Estimate 2025-2026
+5.  திருத்த திட்ட மதிப்பீடு / Revised Estimate 2025-2026
+6.  வரவு செலவு திட்ட மதிப்பீடு / Budget Estimate 2026-2027
+*   Currency Note: (ரூபாய் கோடியில்) / (Rs. in Crore)
+*   Sections:
+*   பிடிதத்தங்கள் / RECOVERIES
+*   முன்பணம்-பொருள் வழங்குபவர் / Advances to Suppliers: 12.28 | 35.00 | 5.00 | 5.50 (Code: 460-40-01-01)
+*   ஒப்பந்ததாரா் முன்பணம் / Advances to Contractors: 34.96 | 90.00 | 8.00 | 9.00 (Code: 460-40-02-01)
+*   மொத்தம் - பிடிதத்தங்கள் / TOTAL = RECOVERIES: 47.24 | 125.00 | 13.00 | 14.50
+*   செலவினங்கள் / OUT - GOINGS
+*   முன்பணம்-பொருள் வழங்குபவர் / Advances to Suppliers: 18.41 | 1.00 | 4.00 | 5.00 (Code: 460-40-01-01)
+*   ஒப்பந்ததாரா் முன்பணம் / Advances to Contractors: 0.48 | 15.00 | 2.00 | 3.00 (Code: 460-40-02-01)
+*   மொத்தம் - செலவினங்கள் / TOTAL = OUT - GOINGS: 18.89 | 16.00 | 6.00 | 8.00
+
+*   I need to present this clearly. Since ""no markdown"" is requested, I will use plain text alignment.
+
+*   Title: CAPITAL - ADVANCES
+*   Header: D.P. Code | Account Head | Actuals 2024-2025 | Budget Estimate 2025-2026 | Revised Estimate 2025-2026 | Budget Estimate 2026-2027
+*   Note: (Rs. in Crore)
+*   Data rows...
+
+*Wait, the user said ""No markdown"". Usually, in LLM prompts, ""No markdown"" means don't use the `|---|` table syntax. I will use a simple text format.*
+
+*   Preserve rows/cols? Yes.
+*   Preserve numbers? Yes.
+*   No commentary? Yes.
+*   No markdown? Yes.
+
+*Let's map the Tamil and English as they appear.*
+
+மூலதன முன்பணம்
+CAPITAL - ADVANCES
+
+கணக்கு குறிீடு / D.P. Code | கணக்கு தலைப்பு / Account Head | கணக்குகள் / Actuals 2024-2025 | வரவு செலவு திட்ட மதிப்பீடு / Budget Estimate 2025-2026 | திருத்த திட்ட மதிப்பீடு / Revised Estimate 2025-2026 | வரவு செலவு திட்ட மதிப்பீடு / Budget Estimate 2026-2027
+(ரூபாய் கோடியில்) / (Rs. in Crore)
+
+பிடிதத்தங்கள் / RECOVERIES
+460-40-01-01 | முன்பணம்-பொருள் வழங்குபவர் / Advances to Suppliers | 12.28 | 35.00 | 5.00 | 5.50
+460-40-02-01 | ஒப்பந்ததாரா் முன்பணம் / Advances to Contractors | 34.96 | 90.00 | 8.00 | 9.00
+மொத்தம் - பிடிதத்தங்கள் / TOTAL = RECOVERIES | 47.24 | 125.00 | 13.00 | 14.50
+
+செலவினங்கள் / OUT - GOINGS
+460-40-01-01 | முன்பணம்-பொருள் வழங்குபவர் / Advances to Suppliers | 18.41 | 1.00 | 4.00 | 5.00
+460-40-02-01 | ஒப்பந்ததாரா் முன்பணம் / Advances to Contractors | 0.48 | 15.00 | 2.00 | 3.00
+மொத்தம் - செலவினங்கள் / TOTAL = OUT - GOINGS | 18.89 | 16.00 | 6.00 | 8.00
+
+*Refining for ""Clean structured text"":*
+I will use space-separated columns to maintain the structure without markdown characters.
+
+*Double checking values:*
+Recoveries:
+460-40-01-01 | Advances to Suppliers | 12.28 | 35.00 | 5.00 | 5.50
+460-40-02-01 | Advances to Contractors | 34.96 | 90.00 | 8.00 | 9.00
+Total | 47.24 | 125.00 | 13.00 | 14.50
+
+Out-goings:
+460-40-01-01 | Advances to Suppliers | 18.41 | 1.00 | 4.00 | 5.00
+460-40-02-01 | Advances to Contractors | 0.48 | 15.00 | 2.00 | 3.00
+Total | 18.89 | 16.00 | 6.00 | 8.00
+
+*Final check on ""No markdown"":*
+If I use `|`, is that markdown? technically it's a character. But usually, people mean the `| --- |` table format. I'll avoid the dashes.
+
+Let's output the content exactly as presented.
+
+மூலதன முன்பணம்
+CAPITAL - ADVANCES
+
+D.P. Code    Account Head    Actuals 2024-2025    Budget Estimate 2025-2026    Revised Estimate 2025-2026    Budget Estimate 2026-2027
+(Rs. in Crore)
+
+RECOVERIES
+460-40-01-01    Advances to Suppliers    12.28    35.00    5.00    5.50
+460-40-02-01    Advances to Contractors    34.96    90.00    8.00    9.00
+TOTAL = RECOVERIES    47.24    125.00    13.00    14.50
+
+OUT - GOINGS
+460-40-01-01    Advances to Suppliers    18.41    1.00    4.00    5.00
+460-40-02-01    Advances to Contractors    0.48    15.00    2.00    3.00
+TOTAL = OUT - GOINGS    18.89    16.00    6.00    8.00
+
+*Wait, the prompt says extract table data AND text. I should include the Tamil text since it's part of the document.*
+
+மூலதன முன்பணம்
+CAPITAL - ADVANCES
+
+கணக்கு குறிீடு / D.P. Code    கணக்கு தலைப்பு / Account Head    கணக்குகள் / Actuals 2024-2025    வரவு செலவு திட்ட மதிப்பீடு / Budget Estimate 2025-2026    திருத்த திட்ட மதிப்பீடு / Revised Estimate 2025-2026    வரவு செலவு திட்ட மதிப்பீடு / Budget Estimate 2026-2027
+(ரூபாய் கோடியில்) / (Rs. in Crore)
+
+பிடிதத்தங்கள் / RECOVERIES
+460-40-01-01    முன்பணம்-பொருள் வழங்குபவர் / Advances to Suppliers    12.28    35.00    5.00    5.50
+460-40-02-01    ஒப்பந்ததாரா் முன்பணம் / Advances to Contractors    34.96    90.00    8.00    9.00
+மொத்தம் - பிடிதத்தங்கள் / TOTAL = RECOVERIES    47.24    125.00    13.00    14.50
+
+செலவினங்கள் / OUT - GOINGS
+460-40-01-01    முன்பணம்-பொருள் வழங்குபவர் / Advances to Suppliers    18.41    1.00    4.00    5.00
+460-40-02-01    ஒப்பந்ததாரா் முன்பணம் / Advances to Contractors    0.48    15.00    2.00    3.00
+மொத்தம் - செலவினங்கள் / TOTAL = OUT - GOINGS    18.89    16.00    6.00    8.00
+
+*Let's verify numbers one last time.*
+Recovs:
+12.28, 35.00, 5.00, 5.50
+34.96, 90.00, 8.00, 9.00
+47.24, 125.00, 13.00, 14.50
+
+Out-goings:
+18.41, 1.00, 4.00, 5.00
+0.48, 15.00, 2.00, 3.00
+18.89, 16.00, 6.00, 8.00
+
+Matches.
+
+Final formatting: I'll use tabs or multiple spaces to align. I will avoid any markdown bolding or tables.
+
+*One detail: the header has ""கணக்கு குறிீடு"" and ""D.P. Code"" etc. I'll put them as they are.*
+
+(Self-correction): ""No markdown"" can be interpreted as ""no Markdown-formatted tables"". I'll provide a clear text-based representation.
+
+Final Polish:
+மூலதன முன்பணம்
+CAPITAL - ADVANCES
+
+கணக்கு குறிீடு / D.P. Code    கணக்கு தலைப்பு / Account Head    கணக்குகள் / Actuals 2024-2025    வரவு செலவு திட்ட மதிப்பீடு / Budget Estimate 2025-2026    திருத்த திட்ட மதிப்பீடு / Revised Estimate 2025-2026    வரவு செலவு திட்ட மதிப்பீடு / Budget Estimate 2026-2027
+(ரூபாய் கோடியில்) / (Rs. in Crore)
+
+பிடிதத்தங்கள் / RECOVERIES
+460-40-01-01    முன்பணம்-பொருள் வழங்குபவர் / Advances to Suppliers    12.28    35.00    5.00    5.50
+460-40-02-01    ஒப்பந்ததாரா் முன்பணம் / Advances to Contractors    34.96    90.00    8.00    9.00
+மொத்தம் - பிடிதத்தங்கள் / TOTAL = RECOVERIES    47.24    125.00    13.00    14.50
+
+செலவினங்கள் / OUT - GOINGS
+460-40-01-01    முன்பணம்-பொருள் வழங்குபவர் / Advances to Suppliers    18.41    1.00    4.00    5.00
+460-40-02-01    ஒப்பந்ததாரா் முன்பணம் / Advances to Contractors    0.48    15.00    2.00    3.00
+மொத்தம் - செலவினங்கள் / TOTAL = OUT - GOINGS    18.89    16.00    6.00    8.00
+
+(Page number 13 at the bottom) - The prompt asks for data and text. I'll include it if it's on the page.
+
+Actually, let's stick to the table and the title as the primary content.
+மூலதன முன்பணம்
+CAPITAL - ADVANCES
+
+கணக்கு குறிீடு / D.P. Code    கணக்கு தலைப்பு / Account Head    கணக்குகள் / Actuals 2024-2025    வரவு செலவு திட்ட மதிப்பீடு / Budget Estimate 2025-2026    திருத்த திட்ட மதிப்பீடு / Revised Estimate 2025-2026    வரவு செலவு திட்ட மதிப்பீடு / Budget Estimate 2026-2027
+(ரூபாய் கோடியில்) / (Rs. in Crore)
+
+பிடிதத்தங்கள் / RECOVERIES
+460-40-01-01    முன்பணம்-பொருள் வழங்குபவர் / Advances to Suppliers    12.28    35.00    5.00    5.50
+460-40-02-01    ஒப்பந்ததாரா் முன்பணம் / Advances to Contractors    34.96    90.00    8.00    9.00
+மொத்தம் - பிடிதத்தங்கள் / TOTAL = RECOVERIES    47.24    125.00    13.00    14.50
+
+செலவினங்கள் / OUT - GOINGS
+460-40-01-01    முன்பணம்-பொருள் வழங்குபவர் / Advances to Suppliers    18.41    1.00    4.00    5.00
+460-40-02-01    ஒப்பந்ததாரா் முன்பணம் / Advances to Contractors    0.48    15.00    2.00    3.00
+மொத்தம் - செலவினங்கள் / TOTAL = OUT - GOINGS    18.89    16.00    6.00    8.00
+
+13"
+2026_27,gcc_budget_2026_27_budget_at_a_glance,113,"*   Task: Extract table data and text from a scanned budget page.
+*   Constraints: ONLY data and text, no explanations, no summaries, no markdown (e.g., no `|` or `-` symbols for table formatting), no commentary.
+*   Requirements: Preserve rows/columns, preserve numbers exactly, clean structured text.
+
+*   Header row 1: துறை (Department), பிரிவு எண் (Function Code), கணக்கு குறியீடு (D.P. Code), கணக்கு தலைப்பு (Account Head), கணக்குகள் (Actuals 2024-2025), வரவு செலவு திட்ட மதிப்பீடு (Budget Estimate 2025-2026), திருத்த திட்ட மதிப்பீடு (Revised Estimate 2025-2026), வரவு செலவு திட்ட மதிப்பீடு (Budget Estimate 2026-2027).
+*   Unit: (ரூபாய் ஆயிரத்தஇல்) (Rs. in Thousand).
+*   Rows:
+1.  H | 30-31-01 | 410-70-03-00 | BUREAUS & RACKS | 4607 | 5000 | 5000 | 5000
+2.  (Tamil text: இதர நிலையான சொத்துக்கள்)
+3.  H | 30-31-01 | 410-80-00-00 | OTHER FIXED ASSETS | 4264 | 3000 | 3000 | 3000
+4.  (Tamil text: குளிரூட்டு சாதனம்)
+5.  H | 30-32-01 | 410-60-09-00 | AIR CONDITIONER | | 100 | 100 | 100
+6.  (Tamil text: குளிர்சாதனப்பெட்டி)
+7.  H | 30-32-01 | 410-60-10-00 | REFIGIRATOR | | 100 | 100 | 100
+8.  (Tamil text: வாகனத்தில் பொருத்தப்பட்ட புகை பரப்பு உபகரணங்கள்)
+9.  H | 30-32-02 | 410-40-07-01 | FOGGING MACHINES-VEHICLE MOUNTED | | 10000 | 20000 | 20000
+10. (Tamil text: கையில் எடுத்து செல்லத்தக்க புகை பரப்பு உபகரணங்கள்)
+11. H | 30-32-02 | 410-40-07-02 | FOGGING MACHINES-PORTABLE | | 2500 | 7500 | 3500
+12. (Tamil text: கணினிகள்)
+13. H | 30-32-02 | 410-60-02-00 | COMPUTERS | | 100 | 100 | 100
+14. (Tamil text: படிபெறுக்ர்கள்) [Note: looks like typo in image ""படிபெறுக்ர்கள்"", maybe ""பதிப்பொறிகள்"" meaning printers]
+15. H | 30-32-02 | 410-60-04-00 | PRINTERS | | 100 | 100 | 100
+16. (Tamil text: இதர நிலையான சொத்துக்கள்)
+17. H | 30-32-02 | 410-80-00-00 | OTHER FIXED ASSETS | | 500 | 100 | 100
+18. (Tamil text: இதர நிலையான சொத்துக்கள்)
+19. H | 40-43-02 | 410-80-00-00 | OTHER FIXED ASSETS | | 0 | 2100 | 600
+*   Footer: மொத்தம் (TOTAL) | 11977 | 42000 | 48500 | 43000
+*   Page Number: 111
+
+*   The prompt says ""No markdown"". Usually, this means avoid markdown table formatting (`| --- |`). I will use tab-separated or space-separated structured text.
+*   I must include both the English and Tamil text where present.
+
+Department Function Code D.P. Code Account Head Actuals 2024-2025 Budget Estimate 2025-2026 Revised Estimate 2025-2026 Budget Estimate 2026-2027
+(Rs. in Thousand)
+H 30-31-01 410-70-03-00 BUREAUS & RACKS 4607 5000 5000 5000
+இதர நிலையான சொத்துக்கள்
+H 30-31-01 410-80-00-00 OTHER FIXED ASSETS 4264 3000 3000 3000
+குளிரூட்டு சாதனம்
+H 30-32-01 410-60-09-00 AIR CONDITIONER 100 100 100
+குளிர்சாதனப்பெட்டி
+H 30-32-01 410-60-10-00 REFIGIRATOR 100 100 100
+வாகனத்தில் பொருத்தப்பட்ட புகை பரப்பு உபகரணங்கள்
+H 30-32-02 410-40-07-01 FOGGING MACHINES-VEHICLE MOUNTED 10000 20000 20000
+கையில் எடுத்து செல்லத்தக்க புகை பரப்பு உபகரணங்கள்
+H 30-32-02 410-40-07-02 FOGGING MACHINES-PORTABLE 2500 7500 3500
+கணினிகள்
+H 30-32-02 410-60-02-00 COMPUTERS 100 100 100
+படிபெறுக்ர்கள்
+H 30-32-02 410-60-04-00 PRINTERS 100 100 100
+இதர நிலையான சொத்துக்கள்
+H 30-32-02 410-80-00-00 OTHER FIXED ASSETS 500 100 100
+இதர நிலையான சொத்துக்கள்
+H 40-43-02 410-80-00-00 OTHER FIXED ASSETS 0 2100 600
+TOTAL 11977 42000 48500 43000
+111
+
+*   No explanations? Yes.
+*   No summaries? Yes.
+*   No markdown? Yes.
+*   No commentary? Yes.
+*   Preserve rows/columns? Yes.
+*   Preserve numbers exactly? Yes.
+*   Clean structured text? Yes.
+
+*Self-Correction during drafting:* Ensure the Tamil text is placed exactly as it is in the original table (between rows).
+
+Let's refine the headers to be very clean.
+
+Department Function Code D.P. Code Account Head Actuals 2024-2025 Budget Estimate 2025-2026 Revised Estimate 2025-2026 Budget Estimate 2026-2027
+(Rs. in Thousand)
+
+H 30-31-01 410-70-03-00 BUREAUS & RACKS 4607 5000 5000 5000
+இதர நிலையான சொத்துக்கள்
+H 30-31-01 410-80-00-00 OTHER FIXED ASSETS 4264 3000 3000 3000
+குளிரூட்டு சாதனம்
+H 30-32-01 410-60-09-00 AIR CONDITIONER 100 100 100
+குளிர்சாதனப்பெட்டி
+H 30-32-01 410-60-10-00 REFIGIRATOR 100 100 100
+வாகனத்தில் பொருத்தப்பட்ட புகை பரப்பு உபகரணங்கள்
+H 30-32-02 410-40-07-01 FOGGING MACHINES-VEHICLE MOUNTED 10000 20000 20000
+கையில் எடுத்து செல்லத்தக்க புகை பரப்பு உபகரணங்கள்
+H 30-32-02 410-40-07-02 FOGGING MACHINES-PORTABLE 2500 7500 3500
+கணினிகள்
+H 30-32-02 410-60-02-00 COMPUTERS 100 100 100
+படிபெறுக்ர்கள்
+H 30-32-02 410-60-04-00 PRINTERS 100 100 100
+இதர நிலையான சொத்துக்கள்
+H 30-32-02 410-80-00-00 OTHER FIXED ASSETS 500 100 100
+இதர நிலையான சொத்துக்கள்
+H 40-43-02 410-80-00-00 OTHER FIXED ASSETS 0 2100 600
+TOTAL 11977 42000 48500 43000
+111
+
+Wait, looking closer at the image:
+- Row 5 (Air Conditioner) Actuals is empty.
+- Row 7 (Refigirator) Actuals is empty.
+- Row 9 (Fogging Vehicle) Actuals is empty.
+- Row 11 (Fogging Portable) Actuals is empty.
+- Row 13 (Computers) Actuals is empty.
+- Row 15 (Printers) Actuals is empty.
+- Row 17 (Other Fixed Assets) Actuals is empty.
+- Row 19 (Other Fixed Assets) Actuals is 0.
+
+I will use spacing to indicate empty columns to preserve structure.
+
+Final Polish:
+Header: Department Function Code D.P. Code Account Head Actuals 2024-2025 Budget Estimate 2025-2026 Revised Estimate 2025-2026 Budget Estimate 2026-2027
+(Rs. in Thousand)
+
+H 30-31-01 410-70-03-00 BUREAUS & RACKS 4607 5000 5000 5000
+இதர நிலையான சொத்துக்கள்
+H 30-31-01 410-80-00-00 OTHER FIXED ASSETS 4264 3000 3000 3000
+குளிரூட்டு சாதனம்
+H 30-32-01 410-60-09-00 AIR CONDITIONER 100 100 100
+குளிர்சாதனப்பெட்டி
+H 30-32-01 410-60-10-00 REFIGIRATOR 100 100 100
+வாகனத்தில் பொருத்தப்பட்ட புகை பரப்பு உபகரணங்கள்
+H 30-32-02 410-40-07-01 FOGGING MACHINES-VEHICLE MOUNTED 10000 20000 20000
+கையில் எடுத்து செல்லத்தக்க புகை பரப்பு உபகரணங்கள்
+H 30-32-02 410-40-07-02 FOGGING MACHINES-PORTABLE 2500 7500 3500
+கணினிகள்
+H 30-32-02 410-60-02-00 COMPUTERS 100 100 100
+படிபெறுக்ர்கள்
+H 30-32-02 410-60-04-00 PRINTERS 100 100 100
+இதர நிலையான சொத்துக்கள்
+H 30-32-02 410-80-00-00 OTHER FIXED ASSETS 500 100 100
+இதர நிலையான சொத்துக்கள்
+H 40-43-02 410-80-00-00 OTHER FIXED ASSETS 0 2100 600
+TOTAL 11977 42000 48500 43000
+111
+Department Function Code D.P. Code Account Head Actuals 2024-2025 Budget Estimate 2025-2026 Revised Estimate 2025-2026 Budget Estimate 2026-2027
+(Rs. in Thousand)
+
+H 30-31-01 410-70-03-00 BUREAUS & RACKS 4607 5000 5000 5000
+இதர நிலையான சொத்துக்கள்
+H 30-31-01 410-80-00-00 OTHER FIXED ASSETS 4264 3000 3000 3000
+குளிரூட்டு சாதனம்
+H 30-32-01 410-60-09-00 AIR CONDITIONER 100 100 100
+குளிர்சாதனப்பெட்டி
+H 30-32-01 410-60-10-00 REFIGIRATOR 100 100 100
+வாகனத்தில் பொருத்தப்பட்ட புகை பரப்பு உபகரணங்கள்
+H 30-32-02 410-40-07-01 FOGGING MACHINES-VEHICLE MOUNTED 10000 20000 20000
+கையில் எடுத்து செல்லத்தக்க புகை பரப்பு உபகரணங்கள்
+H 30-32-02 410-40-07-02 FOGGING MACHINES-PORTABLE 2500 7500 3500
+கணினிகள்
+H 30-32-02 410-60-02-00 COMPUTERS 100 100 100
+படிபெறுக்ர்கள்
+H 30-32-02 410-60-04-00 PRINTERS 100 100 100
+இதர நிலையான சொத்துக்கள்
+H 30-32-02 410-80-00-00 OTHER FIXED ASSETS 500 100 100
+இதர நிலையான சொத்துக்கள்
+H 40-43-02 410-80-00-00 OTHER FIXED ASSETS 0 2100 600
+TOTAL 11977 42000 48500 43000
+
+111"
+2026_27,gcc_budget_2026_27_budget_at_a_glance,115,"*   Task: Extract table data and text from a scanned budget page.
+*   Strict Rules: No explanations, no summaries, no markdown, no commentary, preserve rows/columns, preserve numbers exactly, return clean structured text.
+
+*   Columns:
+1.  Department (துறை)
+2.  Function Code (பிரிவு எண்)
+3.  D.P. Code (கணக்கு குறியீடு)
+4.  Account Head (கணக்கு தலைப்பு)
+5.  Actuals 2024-2025 (கணக்குகள்)
+6.  Budget Estimate 2025-2026 (வரவு செலவு திட்ட மதிப்பீடு)
+7.  Revised Estimate 2025-2026 (திருத்த திட்ட மதிப்பீடு)
+8.  Budget Estimate 2026-2027 (வரவு செலவு திட்ட மதிப்பீடு)
+
+*   Data Rows:
+*   IT | 00-02-15 | 410-60-05-00 | PLOTTERS & SCANNERS (வளையமைப்பு உபகரணங்கள்) | [empty] | 0 | 0 | 1000
+*   IT | 00-02-15 | 410-60-06-00 | NETWORK EQUIPMENTS (நற்பக்கசாலி) | [empty] | 0 | 0 | 50000
+*   IT | 00-02-15 | 410-70-01-00 | CHAIR (இதர நிலையான சொத்துக்கள்) | [empty] | 0 | 0 | 100
+*   IT | 00-02-15 | 410-80-00-00 | OTHER FIXED ASSETS | [empty] | 0 | 0 | 10000
+*   TOTAL (மொத்தம்) | [empty] | [empty] | [empty] | 0 | 0 | 0 | 123100
+*   [empty] | [empty] | [empty] | BRIDGES DEPARTMENT (பாலங்கள் துறை) | [empty] | [empty] | [empty] | [empty]
+*   J | 20-22-00 | 410-70-01-00 | CHAIR (நற்பக்கசாலி) | [empty] | 100 | 100 | 100
+*   J | 20-22-00 | 410-70-02-00 | TABLE (மேசை) | [empty] | 100 | 100 | 100
+
+*   The user requested ""No markdown"". This usually means no table markdown (`|---|`) or bolding/italics. Just plain text structured in columns (e.g., tab-separated or comma-separated or simple spacing).
+*   Let's use a simple tabular text format.
+
+*   Header: Department | Function Code | D.P. Code | Account Head | Actuals 2024-2025 | Budget Estimate 2025-2026 | Revised Estimate 2025-2026 | Budget Estimate 2026-2027
+*   Row 1: IT | 00-02-15 | 410-60-05-00 | PLOTTERS & SCANNERS (வளையமைப்பு உபகரணங்கள்) | | 0 | 0 | 1000
+*   Row 2: IT | 00-02-15 | 410-60-06-00 | NETWORK EQUIPMENTS (நற்பக்கசாலி) | | 0 | 0 | 50000
+*   Row 3: IT | 00-02-15 | 410-70-01-00 | CHAIR (இதர நிலையான சொத்துக்கள்) | | 0 | 0 | 100
+*   Row 4: IT | 00-02-15 | 410-80-00-00 | OTHER FIXED ASSETS | | 0 | 0 | 10000
+*   Row 5: | | | TOTAL (மொத்தம்) | 0 | 0 | 0 | 123100
+*   Row 6: | | | BRIDGES DEPARTMENT (பாலங்கள் துறை) | | | |
+*   Row 7: J | 20-22-00 | 410-70-01-00 | CHAIR (நற்பக்கசாலி) | | 100 | 100 | 100
+*   Row 8: J | 20-22-00 | 410-70-02-00 | TABLE (மேசை) | | 100 | 100 | 100
+
+*   Rule: ""No markdown"". This means I should not use the `|` markers for a markdown table. I will use tab-like spacing or comma-separated. I'll use tabs for a ""clean structured text"" look.
+
+*Let's re-verify the tamil text:*
+- வளையமைப்பு உபகரணங்கள் (Network/Wiring equipment?) -> associated with Plotters/Scanners.
+- நற்பக்கசாலி (Actually looks like நாற்காலி - Chair) -> associated with Network Equipments? Wait, looking closer at the image.
+- ""நாற்காலி"" is under Network Equipments? No, ""நாற்காலி"" is listed under ""NETWORK EQUIPMENTS"" as a subtext, and ""இதர நிலையான சொத்துக்கள்"" under ""CHAIR"".
+- Wait, let's look at the lines.
+- Row 1: Plotters & Scanners / வளையமைப்பு உபகரணங்கள்
+- Row 2: Network Equipments / நாற்காலி (This is weird, usually chairs are under furniture). Looking closely, the Tamil text ""நாற்காலி"" (Chair) is below Network Equipments. ""இதர நிலையான சொத்துக்கள்"" (Other fixed assets) is below Chair.
+- Let's follow the visual mapping.
+
+Mapping:
+- IT | 00-02-15 | 410-60-05-00 | PLOTTERS & SCANNERS / வளையமைப்பு உபகரணங்கள்
+- IT | 00-02-15 | 410-60-06-00 | NETWORK EQUIPMENTS / நாற்காலி
+- IT | 00-02-15 | 410-70-01-00 | CHAIR / இதர நிலையான சொத்துக்கள்
+- IT | 00-02-15 | 410-80-00-00 | OTHER FIXED ASSETS
+
+Wait, look at the Bridges Department section:
+- J | 20-22-00 | 410-70-01-00 | CHAIR / நாற்காலி
+- J | 20-22-00 | 410-70-02-00 | TABLE / மேசை
+
+This suggests the Tamil text is a translation of the English header.
+- Plotters & Scanners = வளையமைப்பு உபகரணங்கள்
+- Network Equipments = நாற்காலி (Wait, that's Chair. This budget sheet has mismatched translations or odd placements). Actually, looking at the lines, the Tamil text is often in the row *below* the English text.
+
+Let's re-examine the lines carefully:
+Row 1: PLOTTERS & SCANNERS
+Sub-row: வளையமைப்பு உபகரணங்கள்
+Row 2: NETWORK EQUIPMENTS
+Sub-row: நாற்காலி
+Row 3: CHAIR
+Sub-row: இதர நிலையான சொத்துக்கள்
+Row 4: OTHER FIXED ASSETS
+
+Wait, ""நாற்காலி"" means ""Chair"". ""மேசை"" means ""Table"".
+In the bottom section:
+CHAIR / நாற்காலி
+TABLE / மேசை
+
+It seems in the first section, the Tamil labels shifted down.
+Plotters & Scanners -> (blank)
+Network Equipments -> வளையமைப்பு உபகரணங்கள்
+Chair -> நாற்காலி
+Other Fixed Assets -> இதர நிலையான சொத்துக்கள்
+
+Let's look at the image again.
+Row 1: Plotters & Scanners. Below it is ""வளையமைப்பு உபகரணங்கள்"".
+Row 2: Network Equipments. Below it is ""நாற்காலி"".
+Row 3: Chair. Below it is ""இதர நிலையான சொத்துக்கள்"".
+Row 4: Other Fixed Assets.
+
+Actually, looking at the vertical lines:
+The Tamil text is inside the ""Account Head"" column.
+Row 1: PLOTTERS & SCANNERS \n வளையமைப்பு உபகரணங்கள்
+Row 2: NETWORK EQUIPMENTS \n நாற்காலி
+Row 3: CHAIR \n இதர நிலையான சொத்துக்கள்
+Row 4: OTHER FIXED ASSETS
+
+Wait, look at the Bridges section:
+Row 1: CHAIR \n நாற்காலி
+Row 2: TABLE \n மேசை
+
+This confirms the pattern: English term, then Tamil translation below it.
+So:
+Plotters & Scanners / வளையமைப்பு உபகரணங்கள்
+Network Equipments / நாற்காலி (This is a translation error in the source document, as Chair = நாற்காலி)
+Chair / இதர நிலையான சொத்துக்கள் (Again, translation error in source)
+Other Fixed Assets / (blank)
+
+I will extract exactly what is seen.
+
+Columns:
+Department | Function Code | D.P. Code | Account Head | Actuals 2024-2025 | Budget Estimate 2025-2026 | Revised Estimate 2025-2026 | Budget Estimate 2026-2027
+
+Data:
+IT | 00-02-15 | 410-60-05-00 | PLOTTERS & SCANNERS வளையமைப்பு உபகரணங்கள் | | 0 | 0 | 1000
+IT | 00-02-15 | 410-60-06-00 | NETWORK EQUIPMENTS நாற்காலி | | 0 | 0 | 50000
+IT | 00-02-15 | 410-70-01-00 | CHAIR இதர நிலையான சொத்துக்கள் | | 0 | 0 | 100
+IT | 00-02-15 | 410-80-00-00 | OTHER FIXED ASSETS | | 0 | 0 | 10000
+| | | TOTAL மொத்தம் | 0 | 0 | 0 | 123100
+| | | BRIDGES DEPARTMENT பாலங்கள் துறை | | | |
+J | 20-22-00 | 410-70-01-00 | CHAIR நாற்காலி | | 100 | 100 | 100
+J | 20-22-00 | 410-70-02-00 | TABLE மேசை | | 100 | 100 | 100
+
+Check numbers:
+1000
+50000
+100
+10000
+Total: 123100 (Wait, 1000+50000+100+10000 = 61100. The total says 123100. I must preserve numbers exactly as written).
+Bridges:
+100 | 100 | 100
+100 | 100 | 100
+
+Wait, look at the ""Actuals"" column for Total. It has 0.
+Revised Est for Total: 0.
+Budget Est 25-26 for Total: 0.
+Budget Est 26-27 for Total: 123100.
+
+Let's re-read the totals.
+Plotters: 0, 0, 1000
+Network: 0, 0, 50000
+Chair: 0, 0, 100
+Other: 0, 0, 10000
+Total: 0, 0, 0, 123100.
+
+Wait, the numbers are:
+Plotters: Budget Estimate 25-26 = 0, Revised Estimate 25-26 = 0, Budget Estimate 26-27 = 1000.
+Network: Budget Estimate 25-26 = 0, Revised Estimate 25-26 = 0, Budget Estimate 26-27 = 50000.
+Chair: Budget Estimate 25-26 = 0, Revised Estimate 25-26 = 0, Budget Estimate 26-27 = 100.
+Other: Budget Estimate 25-26 = 0, Revised Estimate 25-26 = 0, Budget Estimate 26-27 = 10000.
+Total: Actuals = 0, Budget Est 25-26 = 0, Revised Est 25-26 = 0, Budget Est 26-27 = 123100.
+
+Let's check the Bridges section:
+Chair: Budget Est 25-26 = 100, Revised Est 25-26 = 100, Budget Est 26-27 = 100.
+Table: Budget Est 25-26 = 100, Revised Est 25-26 = 100, Budget Est 26-27 = 100.
+
+Final text structure (plain text, space/tab separated):
+
+Department Function Code D.P. Code Account Head Actuals 2024-2025 Budget Estimate 2025-2026 Revised Estimate 2025-2026 Budget Estimate 2026-2027
+IT 00-02-15 410-60-05-00 PLOTTERS & SCANNERS வளையமைப்பு உபகரணங்கள் 0 0 1000
+IT 00-02-15 410-60-06-00 NETWORK EQUIPMENTS நாற்காலி 0 0 50000
+IT 00-02-15 410-70-01-00 CHAIR இதர நிலையான சொத்துக்கள் 0 0 100
+IT 00-02-15 410-80-00-00 OTHER FIXED ASSETS 0 0 10000
+TOTAL மொத்தம் 0 0 0 123100
+BRIDGES DEPARTMENT பாலங்கள் துறை
+J 20-22-00 410-70-01-00 CHAIR நாற்காலி 100 100 100
+J 20-22-00 410-70-02-00 TABLE மேசை 100 100 100
+
+Refining columns based on the image's Actuals column:
+The Actuals column (2024-2025) is blank for the individual items but has ""0"" for the total.
+
+Wait, the column headers are:
+1. Department
+2. Function Code
+3. D.P. Code
+4. Account Head
+5. Actuals 2024-2025
+6. Budget Estimate 2025-2026
+7. Revised Estimate 2025-2026
+8. Budget Estimate 2026-2027
+
+Let's align them:
+IT | 00-02-15 | 410-60-05-00 | PLOTTERS & SCANNERS வளையமைப்பு உபகரணங்கள் | | 0 | 0 | 1000
+IT | 00-02-15 | 410-60-06-00 | NETWORK EQUIPMENTS நாற்காலி | | 0 | 0 | 50000
+IT | 00-02-15 | 410-70-01-00 | CHAIR இதர நிலையான சொத்துக்கள் | | 0 | 0 | 100
+IT | 00-02-15 | 410-80-00-00 | OTHER FIXED ASSETS | | 0 | 0 | 10000
+| | | TOTAL மொத்தம் | 0 | 0 | 0 | 123100
+| | | BRIDGES DEPARTMENT பாலங்கள் துறை | | | |
+J | 20-22-00 | 410-70-01-00 | CHAIR நாற்காலி | | 100 | 100 | 100
+J | 20-22-00 | 410-70-02-00 | TABLE மேசை | | 100 | 100 | 100
+
+Wait, looking at the Bridges section, ""100"" is in the Budget Est 25-26, Revised Est 25-26, and Budget Est 26-27 columns. The Actuals column is empty.
+
+Correct.
+
+Final verification of Tamil:
+Plotters & Scanners / வளையமைப்பு உபகரணங்கள்
+Network Equipments / நாற்காலி
+Chair / இதர நிலையான சொத்துக்கள்
+Other Fixed Assets / (blank)
+Total / மொத்தம்
+Bridges Department / பாலங்கள் துறை
+Chair / நாற்காலி
+Table / மேசை
+
+Since the user wants ""clean structured text"" and ""no markdown"", I'll use a simple tabular alignment.
+
+One detail: ""Rs. in Thousand"" is in the header. I should probably include that in the header line.
+
+Headers:
+Department | Function Code | D.P. Code | Account Head | Actuals 2024-2025 | Budget Estimate 2025-2026 | Revised Estimate 2025-2026 | Budget Estimate 2026-2027
+(Rs. in Thousand)
+
+Actually, let's just stick to the exact text.
+
+Wait, the prompt says ""No markdown"". If I use `|`, some might consider that markdown. I'll use spaces or tabs.
+
+Let's look at the total again. 123100.
+1000 + 50000 + 100 + 10000 = 61100.
+Why is total 123100? Maybe there are other items not shown or a typo in the source. I MUST preserve numbers exactly.
+
+Final Check:
+IT 00-02-15 410-60-05-00 PLOTTERS & SCANNERS வளையமைப்பு உபகரணங்கள் [blank] 0 0 1000
+IT 00-02-15 410-60-06-00 NETWORK EQUIPMENTS நாற்காலி [blank] 0 0 50000
+IT 00-02-15 410-70-01-00 CHAIR இதர நிலையான சொத்துக்கள் [blank] 0 0 100
+IT 00-02-15 410-80-00-00 OTHER FIXED ASSETS [blank] 0 0 10000
+TOTAL மொத்தம் 0 0 0 123100
+BRIDGES DEPARTMENT பாலங்கள் துறை
+J 20-22-00 410-70-01-00 CHAIR நாற்காலி [blank] 100 100 100
+J 20-22-00 410-70-02-00 TABLE மேசை [blank] 100 100 100
+
+Ready.
+Department Function Code D.P. Code Account Head Actuals 2024-2025 Budget Estimate 2025-2026 Revised Estimate 2025-2026 Budget Estimate 2026-2027
+(Rs. in Thousand)
+
+IT 00-02-15 410-60-05-00 PLOTTERS & SCANNERS வளையமைப்பு உபகரணங்கள் 0 0 1000
+IT 00-02-15 410-60-06-00 NETWORK EQUIPMENTS நாற்காலி 0 0 50000
+IT 00-02-15 410-70-01-00 CHAIR இதர நிலையான சொத்துக்கள் 0 0 100
+IT 00-02-15 410-80-00-00 OTHER FIXED ASSETS 0 0 10000
+TOTAL மொத்தம் 0 0 0 123100
+
+BRIDGES DEPARTMENT பாலங்கள் துறை
+J 20-22-00 410-70-01-00 CHAIR நாற்காலி 100 100 100
+J 20-22-00 410-70-02-00 TABLE மேசை 100 100 100"
+2026_27,gcc_budget_2026_27_budget_at_a_glance,120,"*   Input: An image of a budget page.
+*   Task: Extract table data and text.
+*   Strict Rules:
+*   No explanations.
+*   No summaries.
+*   No markdown (though usually ""no markdown"" in these prompts implies no *extra* formatting like bolding/italics, but a table structure needs some form of representation; however, the prompt asks for ""clean structured text"").
+*   No commentary.
+*   Preserve rows and columns.
+*   Preserve numbers exactly.
+*   Return clean structured text.
+
+*   Column Headers:
+1.  துறை / Department
+2.  பிரிவு எண் / Function Code
+3.  கணக்கு குறியீடு / D.P. Code
+4.  கணக்கு தலைப்பு / Account Head
+5.  கணக்குகள் / Actuals 2024-2025
+6.  வரவு செலவு திட்ட மதிப்பீடு / Budget Estimate 2025-2026
+7.  திருத்த திட்ட மதிப்பீடு / Revised Estimate 2025-2026
+8.  வரவு செலவு திட்ட மதிப்பீடு / Budget Estimate 2026-2027
+*   Unit: (ரூபாய் ஆயிரத்தில்) (Rs. in Thousand)
+
+*   Row 1: [Empty], [Empty], [Empty], ஏனைய பாகங்கள், [Empty], [Empty], [Empty], [Empty]
+*   Row 2: L, 20-24-02, 412-40-13-05, OTHER FITTINGS, 12422, 20000, 150000, 50000
+*   Row 3: [Empty], [Empty], [Empty], சீர்மிகு நகரத் திட்டம், [Empty], [Empty], [Empty], [Empty]
+*   Row 4: L, 20-26-00, 412-10-19-00, SMART CITY SCHEME, 117317, 0, 0, 0
+*   Row 5: [Empty], [Empty], [Empty], மொத்தம் / TOTAL, 298539, 504000, 817400, 413400
+*   Row 6: [Empty], [Empty], [Empty], இயந்திர பொறியியல் துறை / MECHANICAL ENGINEERING DEPARTMENT, [Empty], [Empty], [Empty], [Empty]
+*   Row 7: [Empty], [Empty], [Empty], மரம் வெட்டும் உபகரணங்கள், [Empty], [Empty], [Empty], [Empty]
+*   Row 8: M, 40-41-01, 410-40-12-00, TREE CUTTING EQUIPMENTS, 7660, 10000, 1000, 0
+*   Row 9: [Empty], [Empty], [Empty], அச்சக உபகரணங்கள், [Empty], [Empty], [Empty], [Empty]
+*   Row 10: M, 40-41-01, 410-40-16-00, PRINTING PRESS EQUIPMENTS, 2467, 5000, 5000, 5000
+*   Row 11: [Empty], [Empty], [Empty], இயந்திர பொறியியல் பணிமனை உபகரணங்கள், [Empty], [Empty], [Empty], [Empty]
+*   Row 12: M, 40-41-01, 410-40-18-00, MECHANICAL WORKSHOP EQUIPMENTS, 2101, 5000, 8000, 5000
+*   Row 13: [Empty], [Empty], [Empty], இயந்திர பொறியியல் உபகரணங்கள், [Empty], [Empty], [Empty], [Empty]
+*   Row 14: M, 40-41-01, 410-40-18-01, MACHINERY AND EQUIPMENTS, [Empty], 5000, 6000, 10000
+*   Row 15: [Empty], [Empty], [Empty], கொன்முதல் - நிர்பயா திட்டம், [Empty], [Empty], [Empty], [Empty]
+*   Row 16: M, 40-41-01, 410-40-23-05, NIRBHYA SCHEME PURCHASE, [Empty], 0, 43700, 0
+*   Row 17: [Empty], [Empty], [Empty], ஸ்வச் பாரத் மிஷன் (பொருட்கள் வாங்குதல்), [Empty], [Empty], [Empty], [Empty]
+*   Row 18: M, 40-41-01, 410-40-23-03, SBM-SWM PROJECT (PURCHASE), 238454, 150000, 74000, 0
+*   Row 19: [Empty], [Empty], [Empty], கடற்கரையை சுத்தம் செய்யும் இயந்திரம், [Empty], [Empty], [Empty], [Empty]
+*   Row 20: M, 40-41-01, 410-40-23-04, BEACH CLEANING MACHINE, [Empty], 10000, 10000, 0
+*   Row 21: [Empty], [Empty], [Empty], S.D.R.F. நிதி-பொருட்கள் வாங்குதல், [Empty], [Empty], [Empty], [Empty]
+*   Row 22: M, 40-41-01, 410-40-23-06, S.D.R.F. PURCHASE, [Empty], 0, 69000, 0
+*   Row 23: [Empty], [Empty], [Empty], ஸ்வச் பாரத் மிஷன் 2.0 (பொருட்கள் வாங்குதல்), [Empty], [Empty], [Empty], [Empty]
+*   Row 24: M, 40-41-01, 410-40-23-07, SBM 2.0-SWM PROJECT (PURCHASE), [Empty], 0, 49000, 0
+*   Row 25: [Empty], [Empty], [Empty], லாரி, [Empty], [Empty], [Empty], [Empty]
+*   Row 26: M, 40-41-01, 410-50-01-00, LORRY, 17056, 10000, 217000, 200000
+
+*   The prompt asks for ""No markdown"". This usually means avoiding the `|---|---|` style markdown tables if interpreted strictly, but ""Preserve rows and columns"" and ""clean structured text"" usually suggests a tab-separated or aligned text format. Given the conflict (markdown is the standard way to represent tables in LLM output, but the user explicitly said ""No markdown""), I will use plain text spacing/tabs.
+
+*   *Self-Correction:* ""No markdown"" might also mean ""don't use markdown code blocks"". I'll provide it as plain text.
+
+Header:
+Department | Function Code | D.P. Code | Account Head | Actuals 2024-2025 | Budget Estimate 2025-2026 | Revised Estimate 2025-2026 | Budget Estimate 2026-2027
+
+(Rs. in Thousand)
+
+[Rows...]
+
+*   Check numbers again:
+*   OTHER FITTINGS: 12422 | 20000 | 150000 | 50000
+*   SMART CITY: 117317 | 0 | 0 | 0
+*   TOTAL: 298539 | 504000 | 817400 | 413400
+*   TREE CUTTING: 7660 | 10000 | 1000 | 0
+*   PRINTING PRESS: 2467 | 5000 | 5000 | 5000
+*   MECHANICAL WORKSHOP: 2101 | 5000 | 8000 | 5000
+*   MACHINERY AND EQUIP: [blank] | 5000 | 6000 | 10000
+*   NIRBHYA: [blank] | 0 | 43700 | 0
+*   SBM-SWM: 238454 | 150000 | 74000 | 0
+*   BEACH CLEANING: [blank] | 10000 | 10000 | 0
+*   S.D.R.F.: [blank] | 0 | 69000 | 0
+*   SBM 2.0-SWM: [blank] | 0 | 49000 | 0
+*   LORRY: 17056 | 10000 | 217000 | 200000
+
+*   Including the Tamil text as it is part of the page.
+
+*   No explanations? Check.
+*   No summaries? Check.
+*   No markdown? Check (will avoid `|` syntax if strictly interpreted, but usually, a plain text table is expected. I will use a tab-like space layout).
+*   No commentary? Check.
+*   Preserve rows/cols? Check.
+*   Preserve numbers? Check.
+
+(Wait, ""No markdown"" often means ""don't put it in a markdown table block"". I'll provide a clean, tab-separated-like plain text output).
+
+*Structure:*
+Department | Function Code | D.P. Code | Account Head | Actuals 2024-2025 | Budget Estimate 2025-2026 | Revised Estimate 2025-2026 | Budget Estimate 2026-2027
+(Rs. in Thousand)
+...
+...
+
+Actually, many users who say ""No markdown"" just want the raw text without the `###` or `**` or `|---|`. I will output it as text with consistent separators.
+
+Let's verify Tamil labels:
+துறை - Department
+பிரிவு எண் - Function Code
+கணக்கு குறியீடு - D.P. Code
+கணக்கு தலைப்பு - Account Head
+கணக்குகள் - Actuals
+வரவு செலவு திட்ட மதிப்பீடு - Budget Estimate
+திருத்த திட்ட மதிப்பீடு - Revised Estimate
+
+(Rs. in Thousand) = (ரூபாய் ஆயிரத்தில்)
+
+*Final review of the rows again:*
+- Row 1: ஏனைய பாகங்கள்
+- Row 2: L 20-24-02 412-40-13-05 OTHER FITTINGS 12422 20000 150000 50000
+- Row 3: சீர்மிகு நகரத் திட்டம்
+- Row 4: L 20-26-00 412-10-19-00 SMART CITY SCHEME 117317 0 0 0
+- Row 5: மொத்தம் TOTAL 298539 504000 817400 413400
+- Row 6: இயந்திர பொறியியல் துறை MECHANICAL ENGINEERING DEPARTMENT
+- Row 7: மரம் வெட்டும் உபகரணங்கள்
+- Row 8: M 40-41-01 410-40-12-00 TREE CUTTING EQUIPMENTS 7660 10000 1000 0
+- Row 9: அச்சக உபகரணங்கள்
+- Row 10: M 40-41-01 410-40-16-00 PRINTING PRESS EQUIPMENTS 2467 5000 5000 5000
+- Row 11: இயந்திர பொறியியல் பணிமனை உபகரணங்கள்
+- Row 12: M 40-41-01 410-40-18-00 MECHANICAL WORKSHOP EQUIPMENTS 2101 5000 8000 5000
+- Row 13: இயந்திர பொறியியல் உபகரணங்கள்
+- Row 14: M 40-41-01 410-40-18-01 MACHINERY AND EQUIPMENTS 5000 6000 10000
+- Row 15: கொன்முதல் - நிர்பயா திட்டம்
+- Row 16: M 40-41-01 410-40-23-05 NIRBHYA SCHEME PURCHASE 0 43700 0
+- Row 17: ஸ்வச் பாரத் மிஷன் (பொருட்கள் வாங்குதல்)
+- Row 18: M 40-41-01 410-40-23-03 SBM-SWM PROJECT (PURCHASE) 238454 150000 74000 0
+- Row 19: கடற்கரையை சுத்தம் செய்யும் இயந்திரம்
+- Row 20: M 40-41-01 410-40-23-04 BEACH CLEANING MACHINE 10000 10000 0
+- Row 21: S.D.R.F. நிதி-பொருட்கள் வாங்குதல்
+- Row 22: M 40-41-01 410-40-23-06 S.D.R.F. PURCHASE 0 69000 0
+- Row 23: ஸ்வச் பாரத் மிஷன் 2.0 (பொருட்கள் வாங்குதல்)
+- Row 24: M 40-41-01 410-40-23-07 SBM 2.0-SWM PROJECT (PURCHASE) 0 49000 0
+- Row 25: லாரி
+- Row 26: M 40-41-01 410-50-01-00 LORRY 17056 10000 217000 200000
+
+*Wait*, I need to be careful with the numbering alignment.
+Row 14 (Machinery) is empty in Actuals.
+Row 16 (Nirbhya) is empty in Actuals.
+Row 20 (Beach) is empty in Actuals.
+Row 22 (SDRF) is empty in Actuals.
+Row 24 (SBM 2.0) is empty in Actuals.
+
+Let's format with plain text spacing.
+துறை Department	பிரிவு எண் Function Code	கணக்கு குறியீடு D.P. Code	கணக்கு தலைப்பு Account Head	கணக்குகள் Actuals 2024-2025	வரவு செலவு திட்ட மதிப்பீடு Budget Estimate 2025-2026	திருத்த திட்ட மதிப்பீடு Revised Estimate 2025-2026	வரவு செலவு திட்ட மதிப்பீடு Budget Estimate 2026-2027
+(ரூபாய் ஆயிரத்தில்) (Rs. in Thousand)
+
+ஏனைய பாகங்கள்
+L	20-24-02	412-40-13-05	OTHER FITTINGS	12422	20000	150000	50000
+சீர்மிகு நகரத் திட்டம்
+L	20-26-00	412-10-19-00	SMART CITY SCHEME	117317	0	0	0
+மொத்தம் TOTAL	298539	504000	817400	413400
+இயந்திர பொறியியல் துறை MECHANICAL ENGINEERING DEPARTMENT
+மரம் வெட்டும் உபகரணங்கள்
+M	40-41-01	410-40-12-00	TREE CUTTING EQUIPMENTS	7660	10000	1000	0
+அச்சக உபகரணங்கள்
+M	40-41-01	410-40-16-00	PRINTING PRESS EQUIPMENTS	2467	5000	5000	5000
+இயந்திர பொறியியல் பணிமனை உபகரணங்கள்
+M	40-41-01	410-40-18-00	MECHANICAL WORKSHOP EQUIPMENTS	2101	5000	8000	5000
+இயந்திர பொறியியல் உபகரணங்கள்
+M	40-41-01	410-40-18-01	MACHINERY AND EQUIPMENTS		5000	6000	10000
+கொன்முதல் - நிர்பயா திட்டம்
+M	40-41-01	410-40-23-05	NIRBHYA SCHEME PURCHASE		0	43700	0
+ஸ்வச் பாரத் மிஷன் (பொருட்கள் வாங்குதல்)
+M	40-41-01	410-40-23-03	SBM-SWM PROJECT (PURCHASE)	238454	150000	74000	0
+கடற்கரையை சுத்தம் செய்யும் இயந்திரம்
+M	40-41-01	410-40-23-04	BEACH CLEANING MACHINE		10000	10000	0
+S.D.R.F. நிதி-பொருட்கள் வாங்குதல்
+M	40-41-01	410-40-23-06	S.D.R.F. PURCHASE		0	69000	0
+ஸ்வச் பாரத் மிஷன் 2.0 (பொருட்கள் வாங்குதல்)
+M	40-41-01	410-40-23-07	SBM 2.0-SWM PROJECT (PURCHASE)		0	49000	0
+லாரி
+M	40-41-01	410-50-01-00	LORRY	17056	10000	217000	200000"
+2026_27,gcc_budget_2026_27_budget_at_a_glance,122,"*   Goal: Extract table data and text from a scanned budget page.
+*   Constraint 1: ONLY table data and text.
+*   Constraint 2: No explanations, no summaries, no markdown (this means no `|` or `-` typical of markdown tables, but ""structured text"" is requested. Usually, this means tab-separated or space-aligned text, but ""no markdown"" specifically forbids the markdown table syntax). Wait, ""no markdown"" is quite strict. If I can't use markdown, I should probably use plain text formatting.
+*   Constraint 3: No commentary.
+*   Constraint 4: Preserve rows and columns.
+*   Constraint 5: Preserve numbers exactly.
+*   Constraint 6: Return clean structured text.
+
+*   Headers:
+*   துறை / Department
+*   பிரிவு எண் / Function Code
+*   கணக்கு குறியீடு / D.P. Code
+*   கணக்கு தலைப்பு / Account Head
+*   கணக்குகள் / Actuals 2024-2025
+*   வரவு செலவு திட்ட மதிப்பீடு / Budget Estimate 2025-2026
+*   திருத்த திட்ட மதிப்பீடு / Revised Estimate 2025-2026
+*   வரவு செலவு திட்ட மதிப்பீடு / Budget Estimate 2026-2027
+*   Currency: (ரூபாய் ஆயிரத்தில்) / (Rs. in Thousand)
+
+*   Rows:
+1.  Header sub-row: (Rs. in Thousand)
+2.  Label: வட சென்னை வளர்ச்சி திட்டம்
+3.  P | 60-61-00 | 412-10-23-08 | VADA CHENNAI VALARCHI THITTAM | [empty] | 86600 | 0 | 0
+4.  Label: பூங்காக்கள் மற்றும் தோட்டங்கள்
+5.  P | 60-61-00 | 412-40-02-00 | PARKS AND GARDENS | 47756 | 100000 | 118000 | 100000
+6.  Label: சென்னை நதிகள் சீரமைப்பு பணி
+7.  P | 60-61-00 | 412-40-12-00 | CHENNAI RIVER RESTORATION WORK | 1891 | 2000 | 0 | 0
+8.  Label: உடற்பயிற்சி கருவிகள்
+9.  P | 60-62-00 | 410-40-13-00 | GYM EQUIPMENTS | [empty] | 10000 | 10000 | 10000
+10. Label: வட சென்னை வளர்ச்சி திட்டம்
+11. P | 60-62-00 | 412-10-23-08 | VADA CHENNAI VALARCHI THITTAM | [empty] | 0 | 32000 | 0
+12. Label: மேயர் சிறப்பு மேம்பாட்டு நிதி - பணிகள்
+13. P | 60-62-00 | 412-20-03-00 | MAYOR SPECIAL DEVELOPMENT FUND WORKS | [empty] | 0 | 9300 | 0
+14. Label: விளையாட்டு திட்டங்கள்
+15. P | 60-62-00 | 412-40-01-00 | PLAY GROUNDS | [empty] | 140000 | 70000 | 100000
+16. Label: உடற்பயிற்சி நிலைய கட்டடம்
+17. P | 60-62-00 | 412-40-06-08 | GYM BUILDING | 3054 | 50000 | 60000 | 70000
+18. Total row: மொத்தம் TOTAL | 285191 | 393000 | 543600 | 282400
+
+Since ""no markdown"" is specified, I will use a plain text tabular format (fixed-width or tab-like).
+
+*   Header:
+Department Function Code D.P. Code Account Head Actuals 2024-2025 Budget Estimate 2025-2026 Revised Estimate 2025-2026 Budget Estimate 2026-2027
+
+*   Row 1: P 60-61-00 412-10-23-08 VADA CHENNAI VALARCHI THITTAM 86600 0 0
+*   ... and so on.
+
+Wait, looking at the image, there are Tamil labels *above* the rows. I must include those as text.
+
+*Let's refine the structure:*
+Department Function Code D.P. Code Account Head Actuals 2024-2025 Budget Estimate 2025-2026 Revised Estimate 2025-2026 Budget Estimate 2026-2027
+(Rs. in Thousand)
+வட சென்னை வளர்ச்சி திட்டம்
+P 60-61-00 412-10-23-08 VADA CHENNAI VALARCHI THITTAM 86600 0 0
+பூங்காக்கள் மற்றும் தோட்டங்கள்
+P 60-61-00 412-40-02-00 PARKS AND GARDENS 47756 100000 118000 100000
+சென்னை நதிகள் சீரமைப்பு பணி
+P 60-61-00 412-40-12-00 CHENNAI RIVER RESTORATION WORK 1891 2000 0 0
+உடற்பயிற்சி கருவிகள்
+P 60-62-00 410-40-13-00 GYM EQUIPMENTS 10000 10000 10000
+வட சென்னை வளர்ச்சி திட்டம்
+P 60-62-00 412-10-23-08 VADA CHENNAI VALARCHI THITTAM 0 32000 0
+மேயர் சிறப்பு மேம்பாட்டு நிதி - பணிகள்
+P 60-62-00 412-20-03-00 MAYOR SPECIAL DEVELOPMENT FUND WORKS 0 9300 0
+விளையாட்டு திட்டங்கள்
+P 60-62-00 412-40-01-00 PLAY GROUNDS 140000 70000 100000
+உடற்பயிற்சி நிலைய கட்டடம்
+P 60-62-00 412-40-06-08 GYM BUILDING 3054 50000 60000 70000
+மொத்தம் TOTAL 285191 393000 543600 282400
+
+*Self-Correction:* The prompt says ""No markdown"". Markdown includes tables (`|---|`). I will use plain text with spacing to preserve columns.
+
+Header Row 1:
+துறை | பிரிவு எண் | கணக்கு குறியீடு | கணக்கு தலைப்பு | கணக்குகள் | வரவு செலவு திட்ட மதிப்பீடு | திருத்த திட்ட மதிப்பீடு | வரவு செலவு திட்ட மதிப்பீடு
+Department | Function Code | D.P. Code | Account Head | Actuals | Budget Estimate | Revised Estimate | Budget Estimate
+| | | | | 2024-2025 | 2025-2026 | 2025-2026 | 2026-2027
+(Rs. in Thousand)
+
+*Wait, the ""no markdown"" might mean avoid the specific formatting, but I still need to present it as a table. I'll use spaces/tabs.*
+
+*Checking values again:*
+Row 1 (Vada Chennai): 86600 (Budget Est 25-26), 0 (Revised Est 25-26), 0 (Budget Est 26-27). Actuals empty.
+Row 2 (Parks): 47756 (Actuals), 100000 (BE 25-26), 118000 (RE 25-26), 100000 (BE 26-27).
+Row 3 (River): 1891 (Actuals), 2000 (BE 25-26), 0 (RE 25-26), 0 (BE 26-27).
+Row 4 (Gym Equip): empty (Actuals), 10000 (BE 25-26), 10000 (RE 25-26), 10000 (BE 26-27).
+Row 5 (Vada Chennai): empty (Actuals), 0 (BE 25-26), 32000 (RE 25-26), 0 (BE 26-27).
+Row 6 (Mayor): empty (Actuals), 0 (BE 25-26), 9300 (RE 25-26), 0 (BE 26-27).
+Row 7 (Playgrounds): empty (Actuals), 140000 (BE 25-26), 70000 (RE 25-26), 100000 (BE 26-27).
+Row 8 (Gym Building): 3054 (Actuals), 50000 (BE 25-26), 60000 (RE 25-26), 70000 (BE 26-27).
+Total: 285191 (Actuals), 393000 (BE 25-26), 543600 (RE 25-26), 282400 (BE 26-27).
+
+I will use spaces to align columns as a clean text output.
+
+*Columns:*
+Col 1: Dept
+Col 2: Function Code
+Col 3: DP Code
+Col 4: Account Head
+Col 5: Actuals 24-25
+Col 6: BE 25-26
+Col 7: RE 25-26
+Col 8: BE 26-27
+
+Header layout:
+Department  Function Code  D.P. Code  Account Head  Actuals 2024-2025  Budget Estimate 2025-2026  Revised Estimate 2025-2026  Budget Estimate 2026-2027
+(Rs. in Thousand)
+
+Rows:
+வட சென்னை வளர்ச்சி திட்டம்
+P  60-61-00  412-10-23-08  VADA CHENNAI VALARCHI THITTAM  (blank)  86600  0  0
+பூங்காக்கள் மற்றும் தோட்டங்கள்
+P  60-61-00  412-40-02-00  PARKS AND GARDENS  47756  100000  118000  100000
+... and so on.
+
+Let's make sure all Tamil text is captured.
+- வட சென்னை வளர்ச்சி திட்டம்
+- பூங்காக்கள் மற்றும் தோட்டங்கள்
+- சென்னை நதிகள் சீரமைப்பு பணி
+- உடற்பயிற்சி கருவிகள்
+- வட சென்னை வளர்ச்சி திட்டம் (repeats)
+- மேயர் சிறப்பு மேம்பாட்டு நிதி - பணிகள்
+- விளையாட்டு திட்டங்கள்
+- உடற்பயிற்சி நிலைய கட்டடம்
+- மொத்தம் TOTAL
+
+Final check on numbers:
+Vada Chennai 1: 86600 | 0 | 0
+Parks: 47756 | 100000 | 118000 | 100000
+River: 1891 | 2000 | 0 | 0
+Gym Equip: (blank) | 10000 | 10000 | 10000
+Vada Chennai 2: (blank) | 0 | 32000 | 0
+Mayor: (blank) | 0 | 9300 | 0
+Playgrounds: (blank) | 140000 | 70000 | 100000
+Gym Building: 3054 | 50000 | 60000 | 70000
+Total: 285191 | 393000 | 543600 | 282400
+
+One detail: ""Budget Estimate 2025-2026"" appears twice in the header (one for Budget, one for Revised). No, it's ""Budget Estimate 2025-2026"", ""Revised Estimate 2025-2026"", ""Budget Estimate 2026-2027"".
+
+Wait, the first header for ""Actuals"" is ""கணக்குகள்"".
+The second is ""வரவு செலவு திட்ட மதிப்பீடு"".
+The third is ""திருத்த திட்ட மதிப்பீடு"".
+The fourth is ""வரவு செலவு திட்ட மதிப்பீடு"".
+
+Let's construct the plain text.
+
+Column mapping:
+Dept | Function | DP Code | Head | Act 24-25 | BE 25-26 | RE 25-26 | BE 26-27
+
+Text:
+துறை Department | பிரிவு எண் Function Code | கணக்கு குறியீடு D.P. Code | கணக்கு தலைப்பு Account Head | கணக்குகள் Actuals 2024-2025 | வரவு செலவு திட்ட மதிப்பீடு Budget Estimate 2025-2026 | திருத்த திட்ட மதிப்பீடு Revised Estimate 2025-2026 | வரவு செலவு திட்ட மதிப்பீடு Budget Estimate 2026-2027
+(ரூபாய் ஆயிரத்தில்) (Rs. in Thousand)
+
+வட சென்னை வளர்ச்சி திட்டம்
+P 60-61-00 412-10-23-08 VADA CHENNAI VALARCHI THITTAM 86600 0 0
+பூங்காக்கள் மற்றும் தோட்டங்கள்
+P 60-61-00 412-40-02-00 PARKS AND GARDENS 47756 100000 118000 100000
+சென்னை நதிகள் சீரமைப்பு பணி
+P 60-61-00 412-40-12-00 CHENNAI RIVER RESTORATION WORK 1891 2000 0 0
+உடற்பயிற்சி கருவிகள்
+P 60-62-00 410-40-13-00 GYM EQUIPMENTS 10000 10000 10000
+வட சென்னை வளர்ச்சி திட்டம்
+P 60-62-00 412-10-23-08 VADA CHENNAI VALARCHI THITTAM 0 32000 0
+மேயர் சிறப்பு மேம்பாட்டு நிதி - பணிகள்
+P 60-62-00 412-20-03-00 MAYOR SPECIAL DEVELOPMENT FUND WORKS 0 9300 0
+விளையாட்டு திட்டங்கள்
+P 60-62-00 412-40-01-00 PLAY GROUNDS 140000 70000 100000
+உடற்பயிற்சி நிலைய கட்டடம்
+P 60-62-00 412-40-06-08 GYM BUILDING 3054 50000 60000 70000
+மொத்தம் TOTAL 285191 393000 543600 282400
+
+Wait, I should check the ""Actuals"" column for the first Vada Chennai entry. It's empty.
+Actuals col values:
+Vada 1: [empty]
+Parks: 47756
+River: 1891
+Gym Equip: [empty]
+Vada 2: [empty]
+Mayor: [empty]
+Playgrounds: [empty]
+Gym Bldg: 3054
+Total: 285191
+
+Budget Est 25-26 col values:
+Vada 1: 86600
+Parks: 100000
+River: 2000
+Gym Equip: 10000
+Vada 2: 0
+Mayor: 0
+Playgrounds: 140000
+Gym Bldg: 50000
+Total: 393000
+
+Revised Est 25-26 col values:
+Vada 1: 0
+Parks: 118000
+River: 0
+Gym Equip: 10000
+Vada 2: 32000
+Mayor: 9300
+Playgrounds: 70000
+Gym Bldg: 60000
+Total: 543600
+
+Budget Est 26-27 col values:
+Vada 1: 0
+Parks: 100000
+River: 0
+Gym Equip: 10000
+Vada 2: 0
+Mayor: 0
+Playgrounds: 100000
+Gym Bldg: 70000
+Total: 282400
+
+Final sanity check: ""No markdown"". If I use a table using spaces, it's plain text. I'll avoid any `|` characters just to be safe, or use them if they are part of the data (which they aren't). I'll use tab-like spacing.
+
+*Wait, looking at the provided ""Return clean structured text"" instruction, usually a plain table layout is best.*
+
+Header:
+Department | Function Code | D.P. Code | Account Head | Actuals 2024-2025 | Budget Estimate 2025-2026 | Revised Estimate 2025-2026 | Budget Estimate 2026-2027
+(Rs. in Thousand)
+
+Row 1:
+வட சென்னை வளர்ச்சி திட்டம்
+P | 60-61-00 | 412-10-23-08 | VADA CHENNAI VALARCHI THITTAM | | 86600 | 0 | 0
+
+And so on.
+துறை Department | பிரிவு எண் Function Code | கணக்கு குறியீடு D.P. Code | கணக்கு தலைப்பு Account Head | கணக்குகள் Actuals 2024-2025 | வரவு செலவு திட்ட மதிப்பீடு Budget Estimate 2025-2026 | திருத்த திட்ட மதிப்பீடு Revised Estimate 2025-2026 | வரவு செலவு திட்ட மதிப்பீடு Budget Estimate 2026-2027
+(ரூபாய் ஆயிரத்தில்) (Rs. in Thousand)
+
+வட சென்னை வளர்ச்சி திட்டம்
+P | 60-61-00 | 412-10-23-08 | VADA CHENNAI VALARCHI THITTAM | | 86600 | 0 | 0
+
+பூங்காக்கள் மற்றும் தோட்டங்கள்
+P | 60-61-00 | 412-40-02-00 | PARKS AND GARDENS | 47756 | 100000 | 118000 | 100000
+
+சென்னை நதிகள் சீரமைப்பு பணி
+P | 60-61-00 | 412-40-12-00 | CHENNAI RIVER RESTORATION WORK | 1891 | 2000 | 0 | 0
+
+உடற்பயிற்சி கருவிகள்
+P | 60-62-00 | 410-40-13-00 | GYM EQUIPMENTS | | 10000 | 10000 | 10000
+
+வட சென்னை வளர்ச்சி திட்டம்
+P | 60-62-00 | 412-10-23-08 | VADA CHENNAI VALARCHI THITTAM | | 0 | 32000 | 0
+
+மேயர் சிறப்பு மேம்பாட்டு நிதி - பணிகள்
+P | 60-62-00 | 412-20-03-00 | MAYOR SPECIAL DEVELOPMENT FUND WORKS | | 0 | 9300 | 0
+
+விளையாட்டு திட்டங்கள்
+P | 60-62-00 | 412-40-01-00 | PLAY GROUNDS | | 140000 | 70000 | 100000
+
+உடற்பயிற்சி நிலைய கட்டடம்
+P | 60-62-00 | 412-40-06-08 | GYM BUILDING | 3054 | 50000 | 60000 | 70000
+
+மொத்தம் TOTAL | | | | 285191 | 393000 | 543600 | 282400"
+2026_27,gcc_budget_2026_27_budget_at_a_glance,124,"*   Input: A scanned image of a budget page.
+*   Task: Extract ONLY table data and text.
+*   Constraints: No explanations, no summaries, no markdown, no commentary, preserve rows/columns, preserve numbers exactly, clean structured text.
+
+*   Header Row 1: துறை (Department), பிரிவு எண் (Function Code), கணக்கு குறியீடு (D.P. Code), கணக்கு தலைப்பு (Account Head), கணக்குகள் (Actuals 2024-2025), வரவு செலவு திட்ட மதிப்பீடு (Budget Estimate 2025-2026), திருத்த திட்ட மதிப்பீடு (Revised Estimate 2025-2026), வரவு செலவு திட்ட மதிப்பீடு (Budget Estimate 2026-2027).
+*   Sub-header: (ரூபாய் ஆயிரத்தில்) (Rs. in Thousand).
+
+*   Section 1: திடக்கழிவு மேலாண்மை துறை / SOLID WASTE MANAGEMENT DEPARTMENT
+*   Row: குப்பை தொட்டிகள் / COMPOST BINS | Q | 40-41-02 | 410-40-08-00 | 8809 | 0 | 75000 | 30000
+*   Row: ஸ்வச் பாரத் மிஷன் (பொருட்கள் வாங்குதல்) / SBM-SWM PROJECT (PURCHASE) | Q | 40-41-02 | 410-40-23-03 | 12730 | 0 | 0 | 0
+*   Row: நாற்காலி / CHAIR | Q | 40-41-02 | 410-70-01-00 | [empty] | 0 | 200 | 0
+*   Row: ஸ்வச் பாரத் மிஷன் (உள் கட்டமைப்பு) / SBM-SWM INFRASTRUCTURE | Q | 40-41-02 | 412-10-17-01 | 450520 | 500000 | 500000 | 50000
+*   Row: ஸ்வச் பாரத் மிஷன் 2.0 (உள் கட்டமைப்பு) / SBM 2.0-SWM INFRASTRUCTURE | Q | 40-41-02 | 412-10-17-02 | 220834 | 3000000 | 2000000 | 3000000
+*   Row: திடக்கழிவு மேலாண்மை துறை - கட்டடங்கள் / S.W.M. DEPARTMENT - BUILDINGS | Q | 40-41-02 | 412-40-05-08 | 16891 | 20000 | 150000 | 150000
+*   Total Row: மொத்தம் TOTAL | [empty] | [empty] | [empty] | 709784 | 3520000 | 2725200 | 3230000
+
+*   Section 2: வருவாய் துறை / REVENUE DEPARTMENT
+*   Row: குளிரூட்டும் சாதனம் / AIR CONDITIONER | R | 90-91-01 | 410-60-09-00 | [empty] | 100 | 100 | 100
+*   Row: நாற்காலி / CHAIR | R | 90-91-01 | 410-70-01-00 | [empty] | 100 | 100 | 100
+*   Row: மேசை / TABLE | R | 90-91-01 | 410-70-02-00 | [empty] | 100 | 100 | 100
+*   Row: இரும்பு அலமாரி மற்றும் நிலை அடுக்குகள் / BUREAUS & RACKS | R | 90-91-01 | 410-70-03-00 | [empty] | 100 | 100 | 100
+*   Total Row: மொத்தம் TOTAL | [empty] | [empty] | [empty] | 0 | 400 | 400 | 400
+
+*   Footer: 122
+
+*   The user asked for ""clean structured text"" and ""No markdown"". Usually, this means tab-separated or space-separated plain text that looks like a table.
+*   Columns: Department, Function Code, D.P. Code, Account Head, Actuals 2024-2025, Budget Estimate 2025-2026, Revised Estimate 2025-2026, Budget Estimate 2026-2027.
+
+*   Header:
+துறை Department | பிரிவு எண் Function Code | கணக்கு குறியீடு D.P. Code | கணக்கு தலைப்பு Account Head | கணக்குகள் Actuals 2024-2025 | வரவு செலவு திட்ட மதிப்பீடு Budget Estimate 2025-2026 | திருத்த திட்ட மதிப்பீடு Revised Estimate 2025-2026 | வரவு செலவு திட்ட மதிப்பீடு Budget Estimate 2026-2027
+
+*   Data Rows:
+(Rs. in Thousand)
+திடக்கழிவு மேலாண்மை துறை SOLID WASTE MANAGEMENT DEPARTMENT
+Q | 40-41-02 | 410-40-08-00 | குப்பை தொட்டிகள் COMPOST BINS | 8809 | 0 | 75000 | 30000
+Q | 40-41-02 | 410-40-23-03 | ஸ்வச் பாரத் மிஷன் (பொருட்கள் வாங்குதல்) SBM-SWM PROJECT (PURCHASE) | 12730 | 0 | 0 | 0
+Q | 40-41-02 | 410-70-01-00 | நாற்காலி CHAIR | | 0 | 200 | 0
+Q | 40-41-02 | 412-10-17-01 | ஸ்வச் பாரத் மிஷன் (உள் கட்டமைப்பு) SBM-SWM INFRASTRUCTURE | 450520 | 500000 | 500000 | 50000
+Q | 40-41-02 | 412-10-17-02 | ஸ்வச் பாரத் மிஷன் 2.0 (உள் கட்டமைப்பு) SBM 2.0-SWM INFRASTRUCTURE | 220834 | 3000000 | 2000000 | 3000000
+Q | 40-41-02 | 412-40-05-08 | திடக்கழிவு மேலாண்மை துறை - கட்டடங்கள் S.W.M. DEPARTMENT - BUILDINGS | 16891 | 20000 | 150000 | 150000
+TOTAL | | | மொத்தம் | 709784 | 3520000 | 2725200 | 3230000
+வருவாய் துறை REVENUE DEPARTMENT
+R | 90-91-01 | 410-60-09-00 | குளிரூட்டும் சாதனம் AIR CONDITIONER | | 100 | 100 | 100
+R | 90-91-01 | 410-70-01-00 | நாற்காலி CHAIR | | 100 | 100 | 100
+R | 90-91-01 | 410-70-02-00 | மேசை TABLE | | 100 | 100 | 100
+R | 90-91-01 | 410-70-03-00 | இரும்பு அலமாரி மற்றும் நிலை அடுக்குகள் BUREAUS & RACKS | | 100 | 100 | 100
+TOTAL | | | மொத்தம் | 0 | 400 | 400 | 400
+
+*   122 (page number)
+
+*   No explanations? Yes.
+*   No summaries? Yes.
+*   No markdown? (Avoid |---| or **bold**).
+*   No commentary? Yes.
+*   Preserve rows and columns? Yes.
+*   Preserve numbers exactly? Yes.
+*   Return clean structured text? Yes.
+
+I will use a simple tab-like alignment or spacing to ensure it's structured. Since markdown is forbidden, I won't use tables or bolding.
+
+*Wait*, the request says ""No markdown"". Markdown includes the syntax for tables (`| --- |`). I must use plain text.
+
+Columns:
+Department | Function Code | D.P. Code | Account Head | Actuals 2024-2025 | Budget Est 2025-2026 | Revised Est 2025-2026 | Budget Est 2026-2027
+
+*Double check data*:
+SWM:
+COMPOST BINS: 8809, 0, 75000, 30000
+SBM-SWM PROJECT (PURCHASE): 12730, 0, 0, 0
+CHAIR: [empty], 0, 200, 0
+SBM-SWM INFRASTRUCTURE: 450520, 500000, 500000, 50000
+SBM 2.0-SWM INFRASTRUCTURE: 220834, 3000000, 2000000, 3000000
+S.W.M. DEPARTMENT - BUILDINGS: 16891, 20000, 150000, 150000
+TOTAL: 709784, 3520000, 2725200, 3230000
+
+Revenue:
+AIR CONDITIONER: [empty], 100, 100, 100
+CHAIR: [empty], 100, 100, 100
+TABLE: [empty], 100, 100, 100
+BUREAUS & RACKS: [empty], 100, 100, 100
+TOTAL: 0, 400, 400, 400
+
+Header Row Mapping:
+துறை Department | பிரிவு எண் Function Code | கணக்கு குறியீடு D.P. Code | கணக்கு தலைப்பு Account Head | கணக்குகள் Actuals 2024-2025 | வரவு செலவு திட்ட மதிப்பீடு Budget Estimate 2025-2026 | திருத்த திட்ட மதிப்பீடு Revised Estimate 2025-2026 | வரவு செலவு திட்ட மதிப்பீடு Budget Estimate 2026-2027
+(ரூபாய் ஆயிரத்தில்) (Rs. in Thousand)
+
+The layout in the image is:
+Dept | Function Code | DP Code | Account Head | Actuals | Budget Est 25-26 | Revised Est 25-26 | Budget Est 26-27
+
+Wait, looking closer at the headers:
+Col 1: துறை Department
+Col 2: பிரிவு எண் Function Code
+Col 3: கணக்கு குறியீடு D.P. Code
+Col 4: கணக்கு தலைப்பு Account Head
+Col 5: கணக்குகள் Actuals 2024-2025
+Col 6: வரவு செலவு திட்ட மதிப்பீடு Budget Estimate 2025-2026
+Col 7: திருத்த திட்ட மதிப்பீடு Revised Estimate 2025-2026
+Col 8: வரவு செலவு திட்ட மதிப்பீடு Budget Estimate 2026-2027
+
+Let's refine the output.
+
+(Plain text representation)
+
+துறை Department    பிரிவு எண் Function Code    கணக்கு குறியீடு D.P. Code    கணக்கு தலைப்பு Account Head    கணக்குகள் Actuals 2024-2025    வரவு செலவு திட்ட மதிப்பீடு Budget Estimate 2025-2026    திருத்த திட்ட மதிப்பீடு Revised Estimate 2025-2026    வரவு செலவு திட்ட மதிப்பீடு Budget Estimate 2026-2027
+(ரூபாய் ஆயிரத்தில்) (Rs. in Thousand)
+
+திடக்கழிவு மேலாண்மை துறை SOLID WASTE MANAGEMENT DEPARTMENT
+Q    40-41-02    410-40-08-00    குப்பை தொட்டிகள் COMPOST BINS    8809    0    75000    30000
+Q    40-41-02    410-40-23-03    ஸ்வச் பாரத் மிஷன் (பொருட்கள் வாங்குதல்) SBM-SWM PROJECT (PURCHASE)    12730    0    0    0
+Q    40-41-02    410-70-01-00    நாற்காலி CHAIR    (empty)    0    200    0
+Q    40-41-02    412-10-17-01    ஸ்வச் பாரத் மிஷன் (உள் கட்டமைப்பு) SBM-SWM INFRASTRUCTURE    450520    500000    500000    50000
+Q    40-41-02    412-10-17-02    ஸ்வச் பாரத் மிஷன் 2.0 (உள் கட்டமைப்பு) SBM 2.0-SWM INFRASTRUCTURE    220834    3000000    2000000    3000000
+Q    40-41-02    412-40-05-08    திடக்கழிவு மேலாண்மை துறை - கட்டடங்கள் S.W.M. DEPARTMENT - BUILDINGS    16891    20000    150000    150000
+மொத்தம் TOTAL    (empty)    (empty)    (empty)    709784    3520000    2725200    3230000
+
+வருவாய் துறை REVENUE DEPARTMENT
+R    90-91-01    410-60-09-00    குளிரூட்டும் சாதனம் AIR CONDITIONER    (empty)    100    100    100
+R    90-91-01    410-70-01-00    நாற்காலி CHAIR    (empty)    100    100    100
+R    90-91-01    410-70-02-00    மேசை TABLE    (empty)    100    100    100
+R    90-91-01    410-70-03-00    இரும்பு அலமாரி மற்றும் நிலை அடுக்குகள் BUREAUS & RACKS    (empty)    100    100    100
+மொத்தம் TOTAL    (empty)    (empty)    (empty)    0    400    400    400
+
+122
+
+*Self-correction on ""No markdown""*: I should avoid any bolding, italics, or table formatting. Just plain text. I'll use spacing or tabs to keep it ""structured"".
+
+Wait, ""Preserve rows and columns"" usually implies a tabular layout. I'll use space-delimited columns.
+
+Checking numbers again:
+SWM Total: 709784 | 3520000 | 2725200 | 3230000. Correct.
+Revenue Total: 0 | 400 | 400 | 400. Correct.
+SWM Bins: 8809 | 0 | 75000 | 30000. Correct.
+SWM Project: 12730 | 0 | 0 | 0. Correct.
+SWM Chair: [blank] | 0 | 200 | 0. Correct.
+SWM Infra 1: 450520 | 500000 | 500000 | 50000. Correct.
+SWM Infra 2.0: 220834 | 3000000 | 2000000 | 3000000. Correct.
+SWM Buildings: 16891 | 20000 | 150000 | 150000. Correct.
+Rev AC: [blank] | 100 | 100 | 100. Correct.
+Rev Chair: [blank] | 100 | 100 | 100. Correct.
+Rev Table: [blank] | 100 | 100 | 100. Correct.
+Rev Bureaus: [blank] | 100 | 100 | 100. Correct.
+துறை Department    பிரிவு எண் Function Code    கணக்கு குறியீடு D.P. Code    கணக்கு தலைப்பு Account Head    கணக்குகள் Actuals 2024-2025    வரவு செலவு திட்ட மதிப்பீடு Budget Estimate 2025-2026    திருத்த திட்ட மதிப்பீடு Revised Estimate 2025-2026    வரவு செலவு திட்ட மதிப்பீடு Budget Estimate 2026-2027
+(ரூபாய் ஆயிரத்தில்) (Rs. in Thousand)
+
+திடக்கழிவு மேலாண்மை துறை SOLID WASTE MANAGEMENT DEPARTMENT
+Q    40-41-02    410-40-08-00    குப்பை தொட்டிகள் COMPOST BINS    8809    0    75000    30000
+Q    40-41-02    410-40-23-03    ஸ்வச் பாரத் மிஷன் (பொருட்கள் வாங்குதல்) SBM-SWM PROJECT (PURCHASE)    12730    0    0    0
+Q    40-41-02    410-70-01-00    நாற்காலி CHAIR    -    0    200    0
+Q    40-41-02    412-10-17-01    ஸ்வச் பாரத் மிஷன் (உள் கட்டமைப்பு) SBM-SWM INFRASTRUCTURE    450520    500000    500000    50000
+Q    40-41-02    412-10-17-02    ஸ்வச் பாரத் மிஷன் 2.0 (உள் கட்டமைப்பு) SBM 2.0-SWM INFRASTRUCTURE    220834    3000000    2000000    3000000
+Q    40-41-02    412-40-05-08    திடக்கழிவு மேலாண்மை துறை - கட்டடங்கள் S.W.M. DEPARTMENT - BUILDINGS    16891    20000    150000    150000
+மொத்தம் TOTAL    -    -    -    709784    3520000    2725200    3230000
+
+வருவாய் துறை REVENUE DEPARTMENT
+R    90-91-01    410-60-09-00    குளிரூட்டும் சாதனம் AIR CONDITIONER    -    100    100    100
+R    90-91-01    410-70-01-00    நாற்காலி CHAIR    -    100    100    100
+R    90-91-01    410-70-02-00    மேசை TABLE    -    100    100    100
+R    90-91-01    410-70-03-00    இரும்பு அலமாரி மற்றும் நிலை அடுக்குகள் BUREAUS & RACKS    -    100    100    100
+மொத்தம் TOTAL    -    -    -    0    400    400    400
+
+122"
+2026_27,gcc_budget_2026_27_budget_at_a_glance,128,"*   Input: An image of a scanned budget page in Tamil and English.
+*   Task: Extract table data and text.
+*   Strict Rules: No explanations, no summaries, no markdown, no commentary, preserve rows/cols, preserve numbers exactly, return clean structured text.
+
+*   Header Row 1 (Tamil): துறை | பிரிவு எண் | கணக்கு குறியீடு | கணக்கு தலைப்பு | கணக்குகள் | வரவு செலவு திட்ட மதிப்பீடு | திருத்த திட்ட மதிப்பீடு | வரவு செலவு திட்ட மதிப்பீடு
+*   Header Row 2 (English): Department | Function Code | D.P. Code | Account Head | Actuals 2024-2025 | Budget Estimate 2025-2026 | Revised Estimate 2025-2026 | Budget Estimate 2026-2027
+*   Sub-header: (ரூபாய் ஆயிரத்தில்) (Rs. in Thousand)
+
+*   Section 1:
+*   Text: பணித் துறை / WORKS DEPARTMENT
+*   Text: நாற்காலி
+*   Row: W | 20-21-01 | 410-70-01-00 | CHAIR | [empty] | 25 | 25 | 25
+*   Text: மேசை
+*   Row: W | 20-21-01 | 410-70-02-00 | TABLE | [empty] | 25 | 25 | 25
+*   Text: இரும்பு அலமாரி மற்றும் நிலை அடுக்குகள்
+*   Row: W | 20-21-01 | 410-70-03-00 | BUREAUS & RACKS | [empty] | 50 | 50 | 50
+*   Text: மொத்தம் / TOTAL | [empty] | 0 | 100 | 100 | 100
+
+*   Section 2:
+*   Text: தலைமை பொறியாளர் (பொது) அலுவலகம் / CHIEF ENGINEER'S OFFICE (GENERAL)
+*   Text: நாற்காலி
+*   Row: X | 00-02-08 | 410-70-01-00 | CHAIR | [empty] | 25 | 25 | 25
+*   Text: மேசை
+*   Row: X | 00-02-08 | 410-70-02-00 | TABLE | [empty] | 25 | 25 | 25
+*   Text: இரும்பு அலமாரி மற்றும் நிலை அடுக்குகள்
+*   Row: X | 00-02-08 | 410-70-03-00 | BUREAUS & RACKS | [empty] | 50 | 50 | 50
+*   Text: மொத்தம் / TOTAL | [empty] | 0 | 100 | 100 | 100
+
+*   Bottom page number: 126
+
+*   Must be ""clean structured text"".
+*   No markdown (meaning no `|` for markdown tables, no `**` for bold, etc. Usually means tab-separated or plain text columns). Let's use tabs or a consistent spacing.
+
+*   *Correction on ""No markdown""*: This often means don't use the Markdown table syntax (the pipes and dashes). I will use a plain text layout.
+
+Department	Function Code	D.P. Code	Account Head	Actuals 2024-2025	Budget Estimate 2025-2026	Revised Estimate 2025-2026	Budget Estimate 2026-2027
+(Rs. in Thousand)
+
+பணித் துறை
+WORKS DEPARTMENT
+
+நாற்காலி
+W	20-21-01	410-70-01-00	CHAIR	 	25	25	25
+மேசை
+W	20-21-01	410-70-02-00	TABLE	 	25	25	25
+இரும்பு அலமாரி மற்றும் நிலை அடுக்குகள்
+W	20-21-01	410-70-03-00	BUREAUS & RACKS	 	50	50	50
+மொத்தம்
+TOTAL		0	100	100	100
+
+தலைமை பொறியாளர் (பொது) அலுவலகம்
+CHIEF ENGINEER'S OFFICE (GENERAL)
+
+நாற்காலி
+X	00-02-08	410-70-01-00	CHAIR	 	25	25	25
+மேசை
+X	00-02-08	410-70-02-00	TABLE	 	25	25	25
+இரும்பு அலமாரி மற்றும் நிலை அடுக்குகள்
+X	00-02-08	410-70-03-00	BUREAUS & RACKS	 	50	50	50
+மொத்தம்
+TOTAL		0	100	100	100
+
+126
+
+Wait, the prompt says ""No markdown"". Markdown tables use `|`. I will use spacing/tabs.
+
+Let's double check the numbers:
+W section: Chair 25,25,25; Table 25,25,25; Bureaus 50,50,50. Total 0, 100, 100, 100.
+X section: Chair 25,25,25; Table 25,25,25; Bureaus 50,50,50. Total 0, 100, 100, 100.
+Correct.
+
+Headers:
+துறை	பிரிவு எண்	கணக்கு குறியீடு	கணக்கு தலைப்பு	கணக்குகள்	வரவு செலவு திட்ட மதிப்பீடு	திருத்த திட்ட மதிப்பீடு	வரவு செலவு திட்ட மதிப்பீடு
+Department	Function Code	D.P. Code	Account Head	Actuals 2024-2025	Budget Estimate 2025-2026	Revised Estimate 2025-2026	Budget Estimate 2026-2027
+(Rs. in Thousand)
+
+Row mapping:
+W	20-21-01	410-70-01-00	CHAIR	 	25	25	25
+W	20-21-01	410-70-02-00	TABLE	 	25	25	25
+W	20-21-01	410-70-03-00	BUREAUS & RACKS	 	50	50	50
+TOTAL	0	100	100	100
+
+X	00-02-08	410-70-01-00	CHAIR	 	25	25	25
+X	00-02-08	410-70-02-00	TABLE	 	25	25	25
+X	00-02-08	410-70-03-00	BUREAUS & RACKS	 	50	50	50
+TOTAL	0	100	100	100
+
+Page: 126
+
+One final check: No explanations, summaries, markdown, or commentary. Return clean structured text.
+
+*Self-Correction on Markdown*: ""No markdown"" usually specifically means avoiding the `|---|---|` formatting of tables. I'll use tabbed columns.
+
+Let's refine the Tamil text extraction.
+பணித் துறை (WORKS DEPARTMENT)
+நாற்காலி (CHAIR)
+மேசை (TABLE)
+இரும்பு அலமாரி மற்றும் நிலை அடுக்குகள் (BUREAUS & RACKS)
+மொத்தம் (TOTAL)
+தலைமை பொறியாளர் (பொது) அலுவலகம் (CHIEF ENGINEER'S OFFICE (GENERAL))
+
+Let's execute.
+துறை	பிரிவு எண்	கணக்கு குறியீடு	கணக்கு தலைப்பு	கணக்குகள்	வரவு செலவு திட்ட மதிப்பீடு	திருத்த திட்ட மதிப்பீடு	வரவு செலவு திட்ட மதிப்பீடு
+Department	Function Code	D.P. Code	Account Head	Actuals 2024-2025	Budget Estimate 2025-2026	Revised Estimate 2025-2026	Budget Estimate 2026-2027
+(ரூபாய் ஆயிரத்தில்) (Rs. in Thousand)
+
+பணித் துறை
+WORKS DEPARTMENT
+
+நாற்காலி
+W	20-21-01	410-70-01-00	CHAIR		25	25	25
+
+மேசை
+W	20-21-01	410-70-02-00	TABLE		25	25	25
+
+இரும்பு அலமாரி மற்றும் நிலை அடுக்குகள்
+W	20-21-01	410-70-03-00	BUREAUS & RACKS		50	50	50
+
+மொத்தம்
+TOTAL		0	100	100	100
+
+தலைமை பொறியாளர் (பொது) அலுவலகம்
+CHIEF ENGINEER'S OFFICE (GENERAL)
+
+நாற்காலி
+X	00-02-08	410-70-01-00	CHAIR		25	25	25
+
+மேசை
+X	00-02-08	410-70-02-00	TABLE		25	25	25
+
+இரும்பு அலமாரி மற்றும் நிலை அடுக்குகள்
+X	00-02-08	410-70-03-00	BUREAUS & RACKS		50	50	50
+
+மொத்தம்
+TOTAL		0	100	100	100
+
+126"
+2026_27,gcc_budget_2026_27_budget_at_a_glance,129,"*   Input: An image of a budget document page.
+*   Task: Extract table data and text.
+*   Strict Rules: No explanations, no summaries, no markdown, no commentary, preserve rows/columns, preserve numbers exactly, return clean structured text.
+
+*   Columns:
+1.  Department (துறை)
+2.  Function Code (பிரிவு எண்)
+3.  D.P. Code (கணக்கு குறியீடு)
+4.  Account Head (கணக்கு தலைப்பு)
+5.  Actuals 2024-2025 (கணக்குகள்)
+6.  Budget Estimate 2025-2026 (வரவு செலவு திட்ட மதிப்பீடு)
+7.  Revised Estimate 2025-2026 (திருத்த திட்ட மதிப்பீடு)
+8.  Budget Estimate 2026-2027 (வரவு செலவு திட்ட மதிப்பீடு)
+*   Unit: Rs. in Thousand (ரூபாய் ஆயிரத்தில்)
+
+*   Row 1 (Headers): Department, Function Code, D.P. Code, Account Head, Actuals 2024-2025, Budget Estimate 2025-2026, Revised Estimate 2025-2026, Budget Estimate 2026-2027
+*   Row 2: [empty], [empty], [empty], சட்டக் குழுமம் LEGAL CELL, [empty], [empty], [empty], [empty]
+*   Row 3: [empty], [empty], [empty], நாற்காலி CHAIR, [empty], [empty], [empty], [empty] -> Wait, looking closer at the image.
+*   Actual Row 3: Y, 00-02-04, 410-70-01-00, நாற்காலி CHAIR, [empty], 25, 25, 25
+*   Row 4: [empty], [empty], [empty], மேசை TABLE, [empty], [empty], [empty], [empty] -> Wait, let me re-read.
+*   Actual Row 4: Y, 00-02-04, 410-70-02-00, மேசை TABLE, [empty], 25, 25, 25
+*   Row 5: [empty], [empty], [empty], இரும்பு அலமாரி மற்றும் நிலை அடுக்குகள் BUREAUS & RACKS, [empty], [empty], [empty], [empty] -> No, looking at the row logic.
+*   Actual Row 5: Y, 00-02-04, 410-70-03-00, இரும்பு அலமாரி மற்றும் நிலை அடுக்குகள் BUREAUS & RACKS, [empty], 50, 50, 50
+*   Row 6 (TOTAL): [empty], [empty], [empty], மொத்தம் TOTAL, 0, 100, 100, 100
+*   Row 7 (GRANT TOTAL DEPARTMENTS): [empty], [empty], [empty], பெரு மொத்தம்- துறைகள் GRANT TOTAL (DEPARTMENTS), 15192730, 29099200, 29293260, 24853200
+*   Row 8 (GRANT TOTAL ZONES...): [empty], [empty], [empty], பெரு மொத்தம் ( மண்டலங்கள்+வட்டார அலுவலகங்கள்+துறைகள்) GRANT TOTAL (ZONES+REGIONAL OFFICES +DEPARTMENTS), 22012426, 31906100, 39153388, 27540500
+
+*   ""No markdown"" means I should not use `|` or `-` for a table. I should use tabs or a plain text structured format. Usually, tab-separated or space-aligned is ""clean structured text"". Given the instruction ""Preserve rows and columns"", I will use a simple tab/columnar format.
+
+*   Headers:
+Department | Function Code | D.P. Code | Account Head | Actuals 2024-2025 | Budget Estimate 2025-2026 | Revised Estimate 2025-2026 | Budget Estimate 2026-2027
+*   Row 1: [Empty] | [Empty] | [Empty] | சட்டக் குழுமம் LEGAL CELL | [Empty] | [Empty] | [Empty] | [Empty]
+*   Row 2: Y | 00-02-04 | 410-70-01-00 | நாற்காலி CHAIR | [Empty] | 25 | 25 | 25
+*   Row 3: Y | 00-02-04 | 410-70-02-00 | மேசை TABLE | [Empty] | 25 | 25 | 25
+*   Row 4: Y | 00-02-04 | 410-70-03-00 | இரும்பு அலமாரி மற்றும் நிலை அடுக்குகள் BUREAUS & RACKS | [Empty] | 50 | 50 | 50
+*   Row 5: [Empty] | [Empty] | [Empty] | மொத்தம் TOTAL | 0 | 100 | 100 | 100
+*   Row 6: [Empty] | [Empty] | [Empty] | பெரு மொத்தம்- துறைகள் GRANT TOTAL (DEPARTMENTS) | 15192730 | 29099200 | 29293260 | 24853200
+*   Row 7: [Empty] | [Empty] | [Empty] | பெரு மொத்தம் ( மண்டலங்கள்+வட்டார அலுவலகங்கள்+துறைகள்) GRANT TOTAL (ZONES+REGIONAL OFFICES +DEPARTMENTS) | 22012426 | 31906100 | 39153388 | 27540500
+
+*   Check for ""No markdown"". (No `|`, no `#`, no `**`).
+*   Check for ""No explanations"".
+*   Check numbers:
+*   25, 25, 25
+*   25, 25, 25
+*   50, 50, 50
+*   0, 100, 100, 100
+*   15192730, 29099200, 29293260, 24853200
+*   22012426, 31906100, 39153388, 27540500
+*   All match.
+
+Department Function Code D.P. Code Account Head Actuals 2024-2025 Budget Estimate 2025-2026 Revised Estimate 2025-2026 Budget Estimate 2026-2027
+(Rs. in Thousand)
+LEGAL CELL சட்டக் குழுமம்
+Y 00-02-04 410-70-01-00 நாற்காலி CHAIR 25 25 25
+Y 00-02-04 410-70-02-00 மேசை TABLE 25 25 25
+Y 00-02-04 410-70-03-00 இரும்பு அலமாரி மற்றும் நிலை அடுக்குகள் BUREAUS & RACKS 50 50 50
+மொத்தம் TOTAL 0 100 100 100
+பெரு மொத்தம்- துறைகள் GRANT TOTAL (DEPARTMENTS) 15192730 29099200 29293260 24853200
+பெரு மொத்தம் ( மண்டலங்கள்+வட்டார அலுவலகங்கள்+துறைகள்) GRANT TOTAL (ZONES+REGIONAL OFFICES +DEPARTMENTS) 22012426 31906100 39153388 27540500
+
+*Self-Correction on ""No Markdown"":* Standard tables in LLM outputs are usually markdown. I will provide plain text with aligned columns.
+
+*Checking the header row text exactly:*
+துறை Department
+பிரிவு எண் Function Code
+கணக்கு குறியீடு D.P. Code
+கணக்கு தலைப்பு Account Head
+கணக்குகள் Actuals 2024-2025
+வரவு செலவு திட்ட மதிப்பீடு Budget Estimate 2025-2026
+திருத்த திட்ட மதிப்பீடு Revised Estimate 2025-2026
+வரவு செலவு திட்ட மதிப்பீடு Budget Estimate 2026-2027
+(ரூபாய் ஆயிரத்தில்) (Rs. in Thousand)
+
+*Row Data:*
+- [empty] [empty] [empty] சட்டக் குழுமம் LEGAL CELL
+- Y 00-02-04 410-70-01-00 நாற்காலி CHAIR [empty] 25 25 25
+- Y 00-02-04 410-70-02-00 மேசை TABLE [empty] 25 25 25
+- Y 00-02-04 410-70-03-00 இரும்பு அலமாரி மற்றும் நிலை அடுக்குகள் BUREAUS & RACKS [empty] 50 50 50
+- [empty] [empty] [empty] மொத்தம் TOTAL 0 100 100 100
+- [empty] [empty] [empty] பெரு மொத்தம்- துறைகள் GRANT TOTAL (DEPARTMENTS) 15192730 29099200 29293260 24853200
+- [empty] [empty] [empty] பெரு மொத்தம் ( மண்டலங்கள்+வட்டார அலுவலகங்கள்+துறைகள்) GRANT TOTAL (ZONES+REGIONAL OFFICES +DEPARTMENTS) 22012426 31906100 39153388 27540500
+
+I will use a tab-like spacing.
+
+*Final check of ""No markdown"":* This is very strict. I will avoid all bolding, italics, or table symbols. Just text.
+
+Header:
+Department Function Code D.P. Code Account Head Actuals 2024-2025 Budget Estimate 2025-2026 Revised Estimate 2025-2026 Budget Estimate 2026-2027
+(Rs. in Thousand)
+
+Row 1:
+LEGAL CELL சட்டக் குழுமம்
+
+Row 2:
+Y 00-02-04 410-70-01-00 நாற்காலி CHAIR 25 25 25
+
+Row 3:
+Y 00-02-04 410-70-02-00 மேசை TABLE 25 25 25
+
+Row 4:
+Y 00-02-04 410-70-03-00 இரும்பு அலமாரி மற்றும் நிலை அடுக்குகள் BUREAUS & RACKS 50 50 50
+
+Row 5:
+TOTAL மொத்தம் 0 100 100 100
+
+Row 6:
+GRANT TOTAL (DEPARTMENTS) பெரு மொத்தம்- துறைகள் 15192730 29099200 29293260 24853200
+
+Row 7:
+GRANT TOTAL (ZONES+REGIONAL OFFICES +DEPARTMENTS) பெரு மொத்தம் ( மண்டலங்கள்+வட்டார அலுவலகங்கள்+துறைகள்) 22012426 31906100 39153388 27540500
+
+*Refining the structure for ""Preserve rows and columns"":*
+I will use a space-separated format that looks like a table.
+
+Department Function Code D.P. Code Account Head Actuals 2024-2025 Budget Estimate 2025-2026 Revised Estimate 2025-2026 Budget Estimate 2026-2027
+(Rs. in Thousand)
+LEGAL CELL சட்டக் குழுமம்
+Y 00-02-04 410-70-01-00 நாற்காலி CHAIR 25 25 25
+Y 00-02-04 410-70-02-00 மேசை TABLE 25 25 25
+Y 00-02-04 410-70-03-00 இரும்பு அலமாரி மற்றும் நிலை அடுக்குகள் BUREAUS & RACKS 50 50 50
+TOTAL மொத்தம் 0 100 100 100
+GRANT TOTAL (DEPARTMENTS) பெரு மொத்தம்- துறைகள் 15192730 29099200 29293260 24853200
+GRANT TOTAL (ZONES+REGIONAL OFFICES +DEPARTMENTS) பெரு மொத்தம் ( மண்டலங்கள்+வட்டார அலுவலகங்கள்+துறைகள்) 22012426 31906100 39153388 27540500
+
+Wait, the ""LEGAL CELL"" line is in the ""Account Head"" column.
+The ""TOTAL"" line is in the ""Account Head"" column.
+The ""GRANT TOTAL"" lines are in the ""Account Head"" column.
+
+I will ensure the columns align as best as possible using spaces.
+
+Header:
+Department | Function Code | D.P. Code | Account Head | Actuals 2024-2025 | Budget Estimate 2025-2026 | Revised Estimate 2025-2026 | Budget Estimate 2026-2027
+
+Let me check if ""|"" counts as markdown. Markdown tables use ""|"" as separators. To be safe, I will use multiple spaces.
+
+Final check of numbers:
+25, 25, 25
+25, 25, 25
+50, 50, 50
+0, 100, 100, 100
+15192730, 29099200, 29293260, 24853200
+22012426, 31906100, 39153388, 27540500
+
+Text extraction:
+- சட்டக் குழுமம் LEGAL CELL
+- நாற்காலி CHAIR
+- மேசை TABLE
+- இரும்பு அலமாரி மற்றும் நிலை அடுக்குகள் BUREAUS & RACKS
+- மொத்தம் TOTAL
+- பெரு மொத்தம்- துறைகள் GRANT TOTAL (DEPARTMENTS)
+- பெரு மொத்தம் ( மண்டலங்கள்+வட்டார அலுவலகங்கள்+துறைகள்) GRANT TOTAL (ZONES+REGIONAL OFFICES +DEPARTMENTS)
+
+Correct.
+
+*Final Layout Decision:*
+Column 1: Department
+Column 2: Function Code
+Column 3: D.P. Code
+Column 4: Account Head
+Column 5: Actuals 2024-2025
+Column 6: Budget Estimate 2025-2026
+Column 7: Revised Estimate 2025-2026
+Column 8: Budget Estimate 2026-2027
+
+Row 1: [Empty] [Empty] [Empty] சட்டக் குழுமம் LEGAL CELL [Empty] [Empty] [Empty] [Empty]
+Row 2: Y 00-02-04 410-70-01-00 நாற்காலி CHAIR [Empty] 25 25 25
+Row 3: Y 00-02-04 410-70-02-00 மேசை TABLE [Empty] 25 25 25
+Row 4: Y 00-02-04 410-70-03-00 இரும்பு அலமாரி மற்றும் நிலை அடுக்குகள் BUREAUS & RACKS [Empty] 50 50 50
+Row 5: [Empty] [Empty] [Empty] மொத்தம் TOTAL 0 100 100 100
+Row 6: [Empty] [Empty] [Empty] பெரு மொத்தம்- துறைகள் GRANT TOTAL (DEPARTMENTS) 15192730 29099200 29293260 24853200
+Row 7: [Empty] [Empty] [Empty] பெரு மொத்தம் ( மண்டலங்கள்+வட்டார அலுவலகங்கள்+துறைகள்) GRANT TOTAL (ZONES+REGIONAL OFFICES +DEPARTMENTS) 22012426 31906100 39153388 27540500
+
+I will omit the [Empty] indicators and just use spaces.
+Department Function Code D.P. Code Account Head Actuals 2024-2025 Budget Estimate 2025-2026 Revised Estimate 2025-2026 Budget Estimate 2026-2027
+(Rs. in Thousand)
+
+LEGAL CELL சட்டக் குழுமம்
+
+Y 00-02-04 410-70-01-00 நாற்காலி CHAIR 25 25 25
+Y 00-02-04 410-70-02-00 மேசை TABLE 25 25 25
+Y 00-02-04 410-70-03-00 இரும்பு அலமாரி மற்றும் நிலை அடுக்குகள் BUREAUS & RACKS 50 50 50
+
+மொத்தம் TOTAL 0 100 100 100
+
+பெரு மொத்தம்- துறைகள் GRANT TOTAL (DEPARTMENTS) 15192730 29099200 29293260 24853200
+
+பெரு மொத்தம் ( மண்டலங்கள்+வட்டார அலுவலகங்கள்+துறைகள்) GRANT TOTAL (ZONES+REGIONAL OFFICES +DEPARTMENTS) 22012426 31906100 39153388 27540500"
+2026_27,gcc_budget_2026_27_budget_at_a_glance,130,"*   Task: Extract table data and text from a scanned budget page.
+*   Constraints: NO explanations, NO summaries, NO markdown, NO commentary, preserve rows/columns, preserve numbers exactly, return clean structured text.
+*   Input: Image of a budget page ""REVENUE - ADVANCE"".
+
+*   Header:
+*   வருவாய் முன்பணம்
+*   REVENUE - ADVANCE
+*   Table Columns:
+1.  கணக்கு குறியீடு / D.P. Code
+2.  கணக்கு தலைப்பு / Account Head
+3.  கணக்குகள் Actuals 2024-2025
+4.  வரவு செலவு திட்ட மதிப்பீடு Budget Estimate 2025-2026
+5.  திருத்த திட்ட மதிப்பீடு Revised Estimate 2025-2026
+6.  வரவு செலவு திட்ட மதிப்பீடு Budget Estimate 2026-2027
+*   Unit: (ரூபாய் ஆயிரத்தில்) / (Rs. in Thousand)
+*   Rows:
+*   பிடிதத்தங்கள் / RECOVERIES (Header row within table)
+*   340-10-01-01 -- 340-80-01-00 | ஒப்பந்ததாரர் வைப்புத் தொகை Tender deposits | 1223670 | 620000 | 1000000 | 1200000
+*   460-10-02-00 | விழா முன்பணம் Festival Advance | 102319 | 130000 | 100000 | 110000
+*   460-10-06-00 | மிதி இயக்கி முன்பணம் Motor Cycle Advance | 67 | 1000 | 100 | 100
+*   460-10-09-00 | வீடு கட்ட முன்பணம் House Building Advance | 1437 | 3000 | 3000 | 3000
+*   460-10-12-00 | கணினிப்பொறி முன்பணம் Computer Advance | 159 | 500 | 200 | 200
+*   460-40-01-02 | முன்பணம்-பொருள் வழங்குபவர் Advances to Suppliers | 1229200 | 1500000 | 1200000 | 1300000
+*   460-50-01-19 | முன்பணம்-நேர் செய்தல் Advances recoverable expenses | 402013 | 450000 | 500000 | 530000
+*   (Empty) | மொத்தம் - பிடிதத்தங்கள் TOTAL = RECOVERIES | 2958865 | 2704500 | 2803300 | 3143300
+
+*   The user requested ""NO markdown"". This usually means avoiding `|` and `-` for markdown tables, but since they asked to ""preserve rows and columns"", I should use tabs or spacing to create a structured text format. However, usually, in these prompts, a simple tab-separated or space-aligned text list is preferred over markdown tables if markdown is forbidden.
+
+*   Header:
+வருவாய் முன்பணம்
+REVENUE - ADVANCE
+
+*   Columns:
+D.P. Code	Account Head	Actuals 2024-2025	Budget Estimate 2025-2026	Revised Estimate 2025-2026	Budget Estimate 2026-2027
+(Rs. in Thousand)
+
+*   Rows:
+RECOVERIES
+340-10-01-01 -- 340-80-01-00	Tender deposits	1223670	620000	1000000	1200000
+460-10-02-00	Festival Advance	102319	130000	100000	110000
+460-10-06-00	Motor Cycle Advance	67	1000	100	100
+460-10-09-00	House Building Advance	1437	3000	3000	3000
+460-10-12-00	Computer Advance	159	500	200	200
+460-40-01-02	Advances to Suppliers	1229200	1500000	1200000	1300000
+460-50-01-19	Advances recoverable expenses	402013	450000	500000	530000
+TOTAL = RECOVERIES	2958865	2704500	2803300	3143300
+
+*   Check: Did I include Tamil? Yes, ""Extract ONLY the table data and text"". The image has both. I should include both to be accurate.
+*   Wait, ""No markdown"" usually excludes the `|` characters used for tables. I will use plain text spacing.
+
+*   Let's format it clearly.
+
+வருவாய் முன்பணம்
+REVENUE - ADVANCE
+
+கணக்கு குறியீடு D.P. Code | கணக்கு தலைப்பு Account Head | கணக்குகள் Actuals 2024-2025 | வரவு செலவு திட்ட மதிப்பீடு Budget Estimate 2025-2026 | திருத்த திட்ட மதிப்பீடு Revised Estimate 2025-2026 | வரவு செலவு திட்ட மதிப்பீடு Budget Estimate 2026-2027
+(ரூபாய் ஆயிரத்தில்) (Rs. in Thousand)
+
+பிடிதத்தங்கள் RECOVERIES
+340-10-01-01 -- 340-80-01-00 | ஒப்பந்ததாரர் வைப்புத் தொகை Tender deposits | 1223670 | 620000 | 1000000 | 1200000
+460-10-02-00 | விழா முன்பணம் Festival Advance | 102319 | 130000 | 100000 | 110000
+460-10-06-00 | மிதி இயக்கி முன்பணம் Motor Cycle Advance | 67 | 1000 | 100 | 100
+460-10-09-00 | வீடு கட்ட முன்பணம் House Building Advance | 1437 | 3000 | 3000 | 3000
+460-10-12-00 | கணினிப்பொறி முன்பணம் Computer Advance | 159 | 500 | 200 | 200
+460-40-01-02 | முன்பணம்-பொருள் வழங்குபவர் Advances to Suppliers | 1229200 | 1500000 | 1200000 | 1300000
+460-50-01-19 | முன்பணம்-நேர் செய்தல் Advances recoverable expenses | 402013 | 450000 | 500000 | 530000
+மொத்தம் - பிடிதத்தங்கள் TOTAL = RECOVERIES | 2958865 | 2704500 | 2803300 | 3143300
+
+*Re-reading constraint*: ""No markdown"". Markdown tables use `|` and `---`. If I use `|` as a separator in plain text, it might be seen as markdown. I will use Tabs or multiple spaces.
+
+Let's refine the structure for ""Clean structured text"".
+
+வருவாய் முன்பணம்
+REVENUE - ADVANCE
+
+கணக்கு குறியீடு D.P. Code    கணக்கு தலைப்பு Account Head    கணக்குகள் Actuals 2024-2025    வரவு செலவு திட்ட மதிப்பீடு Budget Estimate 2025-2026    திருத்த திட்ட மதிப்பீடு Revised Estimate 2025-2026    வரவு செலவு திட்ட மதிப்பீடு Budget Estimate 2026-2027
+(ரூபாய் ஆயிரத்தில்) (Rs. in Thousand)
+
+பிடிதத்தங்கள் RECOVERIES
+340-10-01-01 -- 340-80-01-00    ஒப்பந்ததாரர் வைப்புத் தொகை Tender deposits    1223670    620000    1000000    1200000
+460-10-02-00    விழா முன்பணம் Festival Advance    102319    130000    100000    110000
+460-10-06-00    மிதி இயக்கி முன்பணம் Motor Cycle Advance    67    1000    100    100
+460-10-09-00    வீடு கட்ட முன்பணம் House Building Advance    1437    3000    3000    3000
+460-10-12-00    கணினிப்பொறி முன்பணம் Computer Advance    159    500    200    200
+460-40-01-02    முன்பணம்-பொருள் வழங்குபவர் Advances to Suppliers    1229200    1500000    1200000    1300000
+460-50-01-19    முன்பணம்-நேர் செய்தல் Advances recoverable expenses    402013    450000    500000    530000
+மொத்தம் - பிடிதத்தங்கள் TOTAL = RECOVERIES    2958865    2704500    2803300    3143300
+
+Wait, looking at the image again:
+The first header is ""வருவாய் முன்பணம்"" then ""REVENUE - ADVANCE"".
+Columns:
+1. கணக்கு குறியீடு D.P. Code
+2. கணக்கு தலைப்பு Account Head
+3. கணக்குகள் Actuals 2024-2025
+4. வரவு செலவு திட்ட மதிப்பீடு Budget Estimate 2025-2026
+5. திருத்த திட்ட மதிப்பீடு Revised Estimate 2025-2026
+6. வரவு செலவு திட்ட மதிப்பீடு Budget Estimate 2026-2027
+Unit: (ரூபாய் ஆயிரத்தில்) (Rs. in Thousand)
+
+Let's ensure the Tamil text is copied correctly.
+பிடிதத்தங்கள் -> This looks like ""பிடித்ததங்கள்"" but the scan says ""பிடிதத்தங்கள்"". I will stick to exactly what is written. Actually, looking closer, it is ""பிடித்ததங்கள்"" (Recoveries). The ""க"" is a bit faint. No, it's ""பிடிதத்தங்கள்"" in the first instance, and ""பிடித்ததங்கள்"" in the total. Wait, looking at the image, both seem to be ""பிடித்ததங்கள்"".
+
+Check numbers:
+1223670, 620000, 1000000, 1200000
+102319, 130000, 100000, 110000
+67, 1000, 100, 100
+1437, 3000, 3000, 3000
+159, 500, 200, 200
+1229200, 1500000, 1200000, 1300000
+402013, 450000, 500000, 530000
+2958865, 2704500, 2803300, 3143300
+
+Final check on constraints:
+- No explanations: Checked.
+- No summaries: Checked.
+- No markdown: I will use plain spacing.
+- No commentary: Checked.
+- Preserve rows/columns: Checked.
+- Preserve numbers: Checked.
+
+Final text assembly:
+
+வருவாய் முன்பணம்
+REVENUE - ADVANCE
+
+கணக்கு குறியீடு D.P. Code    கணக்கு தலைப்பு Account Head    கணக்குகள் Actuals 2024-2025    வரவு செலவு திட்ட மதிப்பீடு Budget Estimate 2025-2026    திருத்த திட்ட மதிப்பீடு Revised Estimate 2025-2026    வரவு செலவு திட்ட மதிப்பீடு Budget Estimate 2026-2027
+(ரூபாய் ஆயிரத்தில்) (Rs. in Thousand)
+
+பிடித்ததங்கள் RECOVERIES
+340-10-01-01 -- 340-80-01-00    ஒப்பந்ததாரர் வைப்புத் தொகை Tender deposits    1223670    620000    1000000    1200000
+460-10-02-00    விழா முன்பணம் Festival Advance    102319    130000    100000    110000
+460-10-06-00    மிதி இயக்கி முன்பணம் Motor Cycle Advance    67    1000    100    100
+460-10-09-00    வீடு கட்ட முன்பணம் House Building Advance    1437    3000    3000    3000
+460-10-12-00    கணினிப்பொறி முன்பணம் Computer Advance    159    500    200    200
+460-40-01-02    முன்பணம்-பொருள் வழங்குபவர் Advances to Suppliers    1229200    1500000    1200000    1300000
+460-50-01-19    முன்பணம்-நேர் செய்தல் Advances recoverable expenses    402013    450000    500000    530000
+மொத்தம் - பிடித்ததங்கள் TOTAL = RECOVERIES    2958865    2704500    2803300    3143300
+வருவாய் முன்பணம்
+REVENUE - ADVANCE
+
+கணக்கு குறியீடு D.P. Code    கணக்கு தலைப்பு Account Head    கணக்குகள் Actuals 2024-2025    வரவு செலவு திட்ட மதிப்பீடு Budget Estimate 2025-2026    திருத்த திட்ட மதிப்பீடு Revised Estimate 2025-2026    வரவு செலவு திட்ட மதிப்பீடு Budget Estimate 2026-2027
+(ரூபாய் ஆயிரத்தில்) (Rs. in Thousand)
+
+பிடித்ததங்கள் RECOVERIES
+340-10-01-01 -- 340-80-01-00    ஒப்பந்ததாரர் வைப்புத் தொகை Tender deposits    1223670    620000    1000000    1200000
+460-10-02-00    விழா முன்பணம் Festival Advance    102319    130000    100000    110000
+460-10-06-00    மிதி இயக்கி முன்பணம் Motor Cycle Advance    67    1000    100    100
+460-10-09-00    வீடு கட்ட முன்பணம் House Building Advance    1437    3000    3000    3000
+460-10-12-00    கணினிப்பொறி முன்பணம் Computer Advance    159    500    200    200
+460-40-01-02    முன்பணம்-பொருள் வழங்குபவர் Advances to Suppliers    1229200    1500000    1200000    1300000
+460-50-01-19    முன்பணம்-நேர் செய்தல் Advances recoverable expenses    402013    450000    500000    530000
+மொத்தம் - பிடித்ததங்கள் TOTAL = RECOVERIES    2958865    2704500    2803300    3143300"
+2026_27,gcc_budget_2026_27_budget_at_a_glance,131,"*   Task: Extract table data and text from a scanned budget page.
+*   Constraints:
+*   ONLY table data and text.
+*   No explanations.
+*   No summaries.
+*   No markdown (no `|` tables or `**` bolding).
+*   No commentary.
+*   Preserve rows and columns.
+*   Preserve numbers exactly.
+*   Return clean structured text.
+
+*   Header: வருவாய் முன்பணம் / REVENUE - ADVANCE
+*   Columns:
+1.  கணக்கு குறிீடு / D.P. Code
+2.  கணக்கு தலைப்பு / Account Head
+3.  கணக்குகள் / Actuals 2024-2025
+4.  வரவு செலவு திட்ட மதிப்பீடு / Budget Estimate 2025-2026
+5.  திருத்த திட்ட மதிப்பீடு / Revised Estimate 2025-2026
+6.  வரவு செலவு திட்ட மதிப்பீடு / Budget Estimate 2026-2027
+*   Currency Note: (ரூபாய் ஆயிரத்தில்) / (Rs. in Thousand)
+*   Rows:
+*   Section Header: செலவினங்கள் / OUT - GOINGS
+*   Row 1: 340-10-01-01 -- 340-80-01-00 | ஒப்பந்ததாரர் வைப்புத் தொகை Tender deposits | 951548 | 570000 | 800000 | 820000
+*   Row 2: 460-10-02-00 | விழா முன்பணம் Festival Advance | 96413 | 130000 | 200000 | 210000
+*   Row 3: 460-10-06-00 | மிதி இயக்கி முன்பணம் Motor Cycle Advance | 65 | 300 | 300 | 300
+*   Row 4: 460-10-09-00 | வீடு கட்ட முன்பணம் House Building Advance | 6713 | 2000 | 3000 | 3000
+*   Row 5: 460-10-12-00 | கணினிப்பொறி முன்பணம் Computer Advance | 559 | 100 | 100 | 100
+*   Row 6: 460-40-01-02 | முன்பணம்-பொருள் வழங்குபவர் Advances to Suppliers | 1172218 | 1250000 | 930000 | 950000
+*   Row 7: 460-50-01-19 | முன்பணம்-நேர் செய்தல் Advances recoverable expenses | 632179 | 380000 | 700000 | 720000
+*   Row 8: [Empty] | மொத்தம் - செலவினங்கள் TOTAL = OUT - GOINGS | 2859695 | 2332400 | 2633400 | 2703400
+
+*   Since markdown is forbidden, I will use a tab-separated or space-aligned plain text format to preserve structure.
+
+*   No explanations? Check.
+*   No summaries? Check.
+*   No markdown? Check.
+*   No commentary? Check.
+*   Preserve rows/columns? Check.
+*   Preserve numbers? Check.
+
+வருவாய் முன்பணம்
+REVENUE - ADVANCE
+
+கணக்கு குறிீடு    கணக்கு தலைப்பு    கணக்குகள்    வரவு செலவு திட்ட மதிப்பீடு    திருத்த திட்ட மதிப்பீடு    வரவு செலவு திட்ட மதிப்பீடு
+D.P. Code    Account Head    Actuals 2024-2025    Budget Estimate 2025-2026    Revised Estimate 2025-2026    Budget Estimate 2026-2027
+(ரூபாய் ஆயிரத்தில்)
+(Rs. in Thousand)
+
+செலவினங்கள்
+OUT - GOINGS
+
+340-10-01-01 -- 340-80-01-00    ஒப்பந்ததாரர் வைப்புத் தொகை Tender deposits    951548    570000    800000    820000
+460-10-02-00    விழா முன்பணம் Festival Advance    96413    130000    200000    210000
+460-10-06-00    மிதி இயக்கி முன்பணம் Motor Cycle Advance    65    300    300    300
+460-10-09-00    வீடு கட்ட முன்பணம் House Building Advance    6713    2000    3000    3000
+460-10-12-00    கணினிப்பொறி முன்பணம் Computer Advance    559    100    100    100
+460-40-01-02    முன்பணம்-பொருள் வழங்குபவர் Advances to Suppliers    1172218    1250000    930000    950000
+460-50-01-19    முன்பணம்-நேர் செய்தல் Advances recoverable expenses    632179    380000    700000    720000
+மொத்தம் - செலவினங்கள் TOTAL = OUT - GOINGS    2859695    2332400    2633400    2703400
+
+129 (Page number)
+
+Actually, looking at the ""no markdown"" rule, I should ensure I don't use any table syntax like `|` or bolding. Plain text spacing is best.
+
+Wait, the prompt says ""Preserve rows and columns"". Tabs or spaces are the only way to do that without markdown.
+
+*Self-Correction:*
+Headers:
+D.P. Code | Account Head | Actuals 2024-2025 | Budget Estimate 2025-2026 | Revised Estimate 2025-2026 | Budget Estimate 2026-2027
+
+Row 1: 340-10-01-01 -- 340-80-01-00 | Tender deposits | 951548 | 570000 | 800000 | 820000
+
+Let's format it cleanly.
+
+வருவாய் முன்பணம்
+REVENUE - ADVANCE
+
+கணக்கு குறிீடு / D.P. Code | கணக்கு தலைப்பு / Account Head | கணக்குகள் Actuals 2024-2025 | வரவு செலவு திட்ட மதிப்பீடு Budget Estimate 2025-2026 | திருத்த திட்ட மதிப்பீடு Revised Estimate 2025-2026 | வரவு செலவு திட்ட மதிப்பீடு Budget Estimate 2026-2027
+(ரூபாய் ஆயிரத்தில்) / (Rs. in Thousand)
+
+செலவினங்கள் / OUT - GOINGS
+
+340-10-01-01 -- 340-80-01-00 | ஒப்பந்ததாரர் வைப்புத் தொகை Tender deposits | 951548 | 570000 | 800000 | 820000
+460-10-02-00 | விழா முன்பணம் Festival Advance | 96413 | 130000 | 200000 | 210000
+460-10-06-00 | மிதி இயக்கி முன்பணம் Motor Cycle Advance | 65 | 300 | 300 | 300
+460-10-09-00 | வீடு கட்ட முன்பணம் House Building Advance | 6713 | 2000 | 3000 | 3000
+460-10-12-00 | கணினிப்பொறி முன்பணம் Computer Advance | 559 | 100 | 100 | 100
+460-40-01-02 | முன்பணம்-பொருள் வழங்குபவர் Advances to Suppliers | 1172218 | 1250000 | 930000 | 950000
+460-50-01-19 | முன்பணம்-நேர் செய்தல் Advances recoverable expenses | 632179 | 380000 | 700000 | 720000
+TOTAL = OUT - GOINGS | மொத்தம் - செலவினங்கள் | 2859695 | 2332400 | 2633400 | 2703400
+
+Wait, the total row has ""மொத்தம் - செலவினங்கள் TOTAL = OUT - GOINGS"" in the Account Head column.
+
+Let's finalize the layout.
+வருவாய் முன்பணம்
+REVENUE - ADVANCE
+
+கணக்கு குறிீடு D.P. Code | கணக்கு தலைப்பு Account Head | கணக்குகள் Actuals 2024-2025 | வரவு செலவு திட்ட மதிப்பீடு Budget Estimate 2025-2026 | திருத்த திட்ட மதிப்பீடு Revised Estimate 2025-2026 | வரவு செலவு திட்ட மதிப்பீடு Budget Estimate 2026-2027
+(ரூபாய் ஆயிரத்தில்) (Rs. in Thousand)
+
+செலவினங்கள்
+OUT - GOINGS
+
+340-10-01-01 -- 340-80-01-00 | ஒப்பந்ததாரர் வைப்புத் தொகை Tender deposits | 951548 | 570000 | 800000 | 820000
+460-10-02-00 | விழா முன்பணம் Festival Advance | 96413 | 130000 | 200000 | 210000
+460-10-06-00 | மிதி இயக்கி முன்பணம் Motor Cycle Advance | 65 | 300 | 300 | 300
+460-10-09-00 | வீடு கட்ட முன்பணம் House Building Advance | 6713 | 2000 | 3000 | 3000
+460-10-12-00 | கணினிப்பொறி முன்பணம் Computer Advance | 559 | 100 | 100 | 100
+460-40-01-02 | முன்பணம்-பொருள் வழங்குபவர் Advances to Suppliers | 1172218 | 1250000 | 930000 | 950000
+460-50-01-19 | முன்பணம்-நேர் செய்தல் Advances recoverable expenses | 632179 | 380000 | 700000 | 720000
+| மொத்தம் - செலவினங்கள் TOTAL = OUT - GOINGS | 2859695 | 2332400 | 2633400 | 2703400
+
+129"
+2026_27,gcc_budget_2026_27_budget_at_a_glance,132,"*   Input: A scanned budget page image.
+*   Goal: Extract ONLY table data and text.
+*   Strict Rules: No explanations, no summaries, no markdown, no commentary, preserve rows/columns, preserve numbers exactly, return clean structured text.
+
+*   Header:
+*   மூலதன முன்பணம்
+*   CAPITAL - ADVANCE
+*   Table Columns:
+*   Column 1: கணக்கு குறியீடு / D.P. Code
+*   Column 2: கணக்கு தலைப்பு / Account Head
+*   Column 3: கணக்குகள் / Actuals 2024-2025
+*   Column 4: வரவு செலவு திட்ட மதிப்பீடு / Budget Estimate 2025-2026
+*   Column 5: திருத்த திட்ட மதிப்பீடு / Revised Estimate 2025-2026
+*   Column 6: வரவு செலவு திட்ட மதிப்பீடு / Budget Estimate 2026-2027
+*   Sub-header for numbers: (ரூபாய் ஆயிரத்தில்) / (Rs. in Thousand)
+
+*   Table Rows:
+1.  (Header row - processed above)
+2.  பிடித்தங்கள் / RECOVERIES (Span across most columns)
+3.  460-40-01-01 | முன்பணம்-பொருள் வழங்குபவர் / Advances to Suppliers | 122812 | 350000 | 50000 | 55000
+4.  460-40-02-01 | முன்பணம்-ஒப்பந்ததார் / Advances to Contractors | 349594 | 900000 | 80000 | 90000
+5.  | மொத்தம் - பிடித்தங்கள் / TOTAL = RECOVERIES | 472406 | 1250000 | 130000 | 145000
+6.  செலவினங்கள் / OUT - GOINGS (Span across most columns)
+7.  460-40-01-01 | முன்பணம்-பொருள் வழங்குபவர் / Advances to Suppliers | 184093 | 10000 | 40000 | 50000
+8.  460-40-02-01 | முன்பணம்-ஒப்பந்ததார் / Advances to Contractors | 4832 | 150000 | 20000 | 30000
+9.  | மொத்தம் - செலவினங்கள் / TOTAL = OUT - GOINGS | 188925 | 160000 | 60000 | 80000
+
+*   Footer: 130
+
+*   The user requested ""No markdown"". This usually means avoid `|---|` syntax or bolding. I will use tabs or a simple text-based column alignment.
+*   Wait, ""Return clean structured text"" often implies a plain text table format. I'll use tabs/spaces to maintain the grid without markdown symbols.
+
+மூலதன முன்பணம்
+CAPITAL - ADVANCE
+
+கணக்கு குறியீடு	கணக்கு தலைப்பு	கணக்குகள்	வரவு செலவு திட்ட மதிப்பீடு	திருத்த திட்ட மதிப்பீடு	வரவு செலவு திட்ட மதிப்பீடு
+D.P. Code	Account Head	Actuals 2024-2025	Budget Estimate 2025-2026	Revised Estimate 2025-2026	Budget Estimate 2026-2027
+(ரூபாய் ஆயிரத்தில்) (Rs. in Thousand)
+
+பிடித்தங்கள் RECOVERIES
+460-40-01-01	முன்பணம்-பொருள் வழங்குபவர் Advances to Suppliers	122812	350000	50000	55000
+460-40-02-01	முன்பணம்-ஒப்பந்ததார் Advances to Contractors	349594	900000	80000	90000
+மொத்தம் - பிடித்தங்கள் TOTAL = RECOVERIES	472406	1250000	130000	145000
+செலவினங்கள் OUT - GOINGS
+460-40-01-01	முன்பணம்-பொருள் வழங்குபவர் Advances to Suppliers	184093	10000	40000	50000
+460-40-02-01	முன்பணம்-ஒப்பந்ததார் Advances to Contractors	4832	150000	20000	30000
+மொத்தம் - செலவினங்கள் TOTAL = OUT - GOINGS	188925	160000	60000	80000
+
+130
+
+*   No explanations? Yes.
+*   No summaries? Yes.
+*   No markdown? Yes.
+*   No commentary? Yes.
+*   Preserve rows/columns? Yes.
+*   Preserve numbers? Yes.
+*   Clean structured text? Yes.
+
+*Self-correction*: Ensure the Tamil text is exactly as written.
+- மூலதன முன்பணம் (Correct)
+- CAPITAL - ADVANCE (Correct)
+- கணக்கு குறியீடு / D.P. Code (Correct)
+- கணக்கு தலைப்பு / Account Head (Correct)
+- கணக்குகள் Actuals 2024-2025 (Correct)
+- வரவு செலவு திட்ட மதிப்பீடு Budget Estimate 2025-2026 (Correct)
+- திருத்த திட்ட மதிப்பீடு Revised Estimate 2025-2026 (Correct)
+- வரவு செலவு திட்ட மதிப்பீடு Budget Estimate 2026-2027 (Correct)
+- (ரூபாய் ஆயிரத்தில்) (Rs. in Thousand) (Correct)
+- பிடித்தங்கள் RECOVERIES (Correct)
+- முன்பணம்-பொருள் வழங்குபவர் Advances to Suppliers (Correct)
+- முன்பணம்-ஒப்பந்ததார் Advances to Contractors (Correct)
+- மொத்தம் - பிடித்தங்கள் TOTAL = RECOVERIES (Correct)
+- செலவினங்கள் OUT - GOINGS (Correct)
+- மொத்தம் - செலவினங்கள் TOTAL = OUT - GOINGS (Correct)
+
+Numbers check:
+122812, 350000, 50000, 55000
+349594, 900000, 80000, 90000
+472406, 1250000, 130000, 145000
+184093, 10000, 40000, 50000
+4832, 150000, 20000, 30000
+188925, 160000, 60000, 80000
+
+Footer: 130.
+
+I will use spaces/tabs to separate columns. Since Markdown is forbidden, I will not use `|` symbols if interpreted as markdown tables. I'll just provide plain text lines.
+
+Final check on the ""No markdown"" rule: If I use a table-like structure with spaces, it's plain text. I will avoid any formatting like bolding or headers.
+
+Let's finalize the layout.
+
+மூலதன முன்பணம்
+CAPITAL - ADVANCE
+
+கணக்கு குறியீடு    கணக்கு தலைப்பு    கணக்குகள் Actuals 2024-2025    வரவு செலவு திட்ட மதிப்பீடு Budget Estimate 2025-2026    திருத்த திட்ட மதிப்பீடு Revised Estimate 2025-2026    வரவு செலவு திட்ட மதிப்பீடு Budget Estimate 2026-2027
+D.P. Code    Account Head    Actuals 2024-2025    Budget Estimate 2025-2026    Revised Estimate 2025-2026    Budget Estimate 2026-2027
+(ரூபாய் ஆயிரத்தில்) (Rs. in Thousand)
+
+பிடித்தங்கள் RECOVERIES
+460-40-01-01    முன்பணம்-பொருள் வழங்குபவர் Advances to Suppliers    122812    350000    50000    55000
+460-40-02-01    முன்பணம்-ஒப்பந்ததார் Advances to Contractors    349594    900000    80000    90000
+மொத்தம் - பிடித்தங்கள் TOTAL = RECOVERIES    472406    1250000    130000    145000
+
+செலவினங்கள் OUT - GOINGS
+460-40-01-01    முன்பணம்-பொருள் வழங்குபவர் Advances to Suppliers    184093    10000    40000    50000
+460-40-02-01    முன்பணம்-ஒப்பந்ததார் Advances to Contractors    4832    150000    20000    30000
+மொத்தம் - செலவினங்கள் TOTAL = OUT - GOINGS    188925    160000    60000    80000
+
+130
+மூலதன முன்பணம்
+CAPITAL - ADVANCE
+
+கணக்கு குறியீடு    கணக்கு தலைப்பு    கணக்குகள் Actuals 2024-2025    வரவு செலவு திட்ட மதிப்பீடு Budget Estimate 2025-2026    திருத்த திட்ட மதிப்பீடு Revised Estimate 2025-2026    வரவு செலவு திட்ட மதிப்பீடு Budget Estimate 2026-2027
+D.P. Code    Account Head    Actuals 2024-2025    Budget Estimate 2025-2026    Revised Estimate 2025-2026    Budget Estimate 2026-2027
+(ரூபாய் ஆயிரத்தில்) (Rs. in Thousand)
+
+பிடித்தங்கள் RECOVERIES
+460-40-01-01    முன்பணம்-பொருள் வழங்குபவர் Advances to Suppliers    122812    350000    50000    55000
+460-40-02-01    முன்பணம்-ஒப்பந்ததார் Advances to Contractors    349594    900000    80000    90000
+மொத்தம் - பிடித்தங்கள் TOTAL = RECOVERIES    472406    1250000    130000    145000
+
+செலவினங்கள் OUT - GOINGS
+460-40-01-01    முன்பணம்-பொருள் வழங்குபவர் Advances to Suppliers    184093    10000    40000    50000
+460-40-02-01    முன்பணம்-ஒப்பந்ததார் Advances to Contractors    4832    150000    20000    30000
+மொத்தம் - செலவினங்கள் TOTAL = OUT - GOINGS    188925    160000    60000    80000
+
+130"
+2026_27,gcc_budget_2026_27_budget_at_a_glance,133,"*   Input: A scanned budget page image.
+*   Task: Extract ONLY table data and text.
+*   Constraints: No explanations, no summaries, no markdown, no commentary, preserve rows/columns, preserve numbers exactly, return clean structured text.
+
+*   Header:
+*   மூலதன வைப்புத் தொகை
+*   CAPITAL - DEPOSIT
+*   Table Headers:
+*   Column 1: கணக்கு குறியீடு / D.P. Code
+*   Column 2: கணக்கு தலைப்பு / Account Head
+*   Column 3: கணக்குகள் Actuals 2024-2025
+*   Column 4: வரவு செலவு திட்ட மதிப்பீடு Budget Estimate 2025-2026
+*   Column 5: திருத்த திட்ட மதிப்பீடு Revised Estimate 2025-2026
+*   Column 6: வரவு செலவு திட்ட மதிப்பீடு Budget Estimate 2026-2027
+*   Sub-header: (ரூபாய் ஆயிரத்தில்) / (Rs. in Thousand)
+*   Row 1 (Recoveries):
+*   Account Head: பிடித்தங்கள் RECOVERIES / வைப்புத் தொகை Deposits
+*   DP Code: 341-10-04-01 to 341-20-01-02
+*   Actuals 24-25: 4119717
+*   BE 25-26: 2200000
+*   RE 25-26: 4500000
+*   BE 26-27: 5000000
+*   Row 2 (Total Recoveries):
+*   Account Head: மொத்தம் - பிடித்தங்கள் TOTAL = RECOVERIES
+*   Actuals 24-25: 4119717
+*   BE 25-26: 2200000
+*   RE 25-26: 4500000
+*   BE 26-27: 5000000
+*   Row 3 (Outgoings):
+*   Account Head: செலவினங்கள் OUT - GOINGS / வைப்புத் தொகை Deposits
+*   DP Code: 341-10-04-01 to 341-20-01-02
+*   Actuals 24-25: 1087954
+*   BE 25-26: 300000
+*   RE 25-26: 250000
+*   BE 26-27: 300000
+*   Row 4 (Total Outgoings):
+*   Account Head: மொத்தம் - செலவினங்கள் TOTAL = OUT - GOINGS
+*   Actuals 24-25: 1087954
+*   BE 25-26: 300000
+*   RE 25-26: 250000
+*   BE 26-27: 300000
+*   Footer: 131
+
+*   Need a clean structure. Tab-separated or space-aligned.
+*   Strictly no markdown (no `|` or `-` table formatting if it counts as markdown, although often ""markdown"" in these prompts means ""don't put it in a markdown table block""). However, usually, ""clean structured text"" implies a table-like layout.
+*   Actually, ""no markdown"" means I shouldn't use ` ``` ` blocks or `|` pipes. I will use plain text alignment.
+
+మూலதன வைப்புத் தொகை
+CAPITAL - DEPOSIT
+
+D.P. Code | Account Head | Actuals 2024-2025 | Budget Estimate 2025-2026 | Revised Estimate 2025-2026 | Budget Estimate 2026-2027
+(Rs. in Thousand)
+
+341-10-04-01 to 341-20-01-02 | பிடித்தங்கள் RECOVERIES வைப்புத் தொகை Deposits | 4119717 | 2200000 | 4500000 | 5000000
+| மொத்தம் - பிடித்தங்கள் TOTAL = RECOVERIES | 4119717 | 2200000 | 4500000 | 5000000
+341-10-04-01 to 341-20-01-02 | செலவினங்கள் OUT - GOINGS வைப்புத் தொகை Deposits | 1087954 | 300000 | 250000 | 300000
+| மொத்தம் - செலவினங்கள் TOTAL = OUT - GOINGS | 1087954 | 300000 | 250000 | 300000
+
+131
+
+Wait, ""no markdown"" usually means avoid the triple backticks and the specific markdown table syntax `|---|`. I'll use a tab-like or spaced layout.
+
+Let's re-read: ""No markdown"". If I use a markdown table, it violates that. If I use triple backticks, it violates that. I will provide plain text.
+
+మూலதன வைப்புத் தொகை
+CAPITAL - DEPOSIT
+
+கணக்கு குறியீடு / D.P. Code    கணக்கு தலைப்பு / Account Head    கணக்குகள் Actuals 2024-2025    வரவு செலவு திட்ட மதிப்பீடு Budget Estimate 2025-2026    திருத்த திட்ட மதிப்பீடு Revised Estimate 2025-2026    வரவு செலவு திட்ட மதிப்பீடு Budget Estimate 2026-2027
+(ரூபாய் ஆயிரத்தில்) / (Rs. in Thousand)
+
+341-10-04-01 to 341-20-01-02    பிடித்தங்கள் RECOVERIES வைப்புத் தொகை Deposits    4119717    2200000    4500000    5000000
+-    மொத்தமும் - பிடித்தங்கள் TOTAL = RECOVERIES    4119717    2200000    4500000    5000000
+341-10-04-01 to 341-20-01-02    செலவினங்கள் OUT - GOINGS வைப்புத் தொகை Deposits    1087954    300000    250000    300000
+-    மொத்தமும் - செலவினங்கள் TOTAL = OUT - GOINGS    1087954    300000    250000    300000
+
+131
+
+Check Tamil text again.
+""மொத்தம் - பிடித்தங்கள்""
+""மொத்தம் - செலவினங்கள்""
+
+Final check on numbers:
+4119717, 2200000, 4500000, 5000000
+1087954, 300000, 250000, 300000
+
+Let's refine layout for ""clean structured text"".
+
+மூலதன வைப்புத் தொகை
+CAPITAL - DEPOSIT
+
+D.P. Code    Account Head    Actuals 2024-2025    Budget Estimate 2025-2026    Revised Estimate 2025-2026    Budget Estimate 2026-2027
+(Rs. in Thousand)
+
+341-10-04-01 to 341-20-01-02    பிடித்தங்கள் RECOVERIES வைப்புத் தொகை Deposits    4119717    2200000    4500000    5000000
+-    மொத்தம் - பிடித்தங்கள் TOTAL = RECOVERIES    4119717    2200000    4500000    5000000
+341-10-04-01 to 341-20-01-02    செலவினங்கள் OUT - GOINGS வைப்புத் தொகை Deposits    1087954    300000    250000    300000
+-    மொத்தம் - செலவினங்கள் TOTAL = OUT - GOINGS    1087954    300000    250000    300000
+
+131
+
+Wait, I should include the Tamil headers since the prompt says ""Extract ONLY the table data and text"".
+
+Header:
+கணக்கு குறியீடு / D.P. Code
+கணக்கு தலைப்பு / Account Head
+கணக்குகள் Actuals 2024-2025
+வரவு செலவு திட்ட மதிப்பீடு Budget Estimate 2025-2026
+திருத்த திட்ட மதிப்பீடு Revised Estimate 2025-2026
+வரவு செலவு திட்ட மதிப்பீடு Budget Estimate 2026-2027
+
+Let's format it as space-separated values for maximum cleanliness without markdown characters.
+
+మూலதன வைப்புத் தொகை
+CAPITAL - DEPOSIT
+
+கணக்கு குறியீடு D.P. Code    கணக்கு தலைப்பு Account Head    கணக்குகள் Actuals 2024-2025    வரவு செலவு திட்ட மதிப்பீடு Budget Estimate 2025-2026    திருத்த திட்ட மதிப்பீடு Revised Estimate 2025-2026    வரவு செலவு திட்ட மதிப்பீடு Budget Estimate 2026-2027
+(ரூபாய் ஆயிரத்தில்) (Rs. in Thousand)
+
+341-10-04-01 to 341-20-01-02    பிடித்தங்கள் RECOVERIES வைப்புத் தொகை Deposits    4119717    2200000    4500000    5000000
+-    மொத்தம் - பிடித்தங்கள் TOTAL = RECOVERIES    4119717    2200000    4500000    5000000
+341-10-04-01 to 341-20-01-02    செலவினங்கள் OUT - GOINGS வைப்புத் தொகை Deposits    1087954    300000    250000    300000
+-    மொத்தம் - செலவினங்கள் TOTAL = OUT - GOINGS    1087954    300000    250000    300000
+
+131
+மூலதன வைப்புத் தொகை
+CAPITAL - DEPOSIT
+
+கணக்கு குறியீடு D.P. Code    கணக்கு தலைப்பு Account Head    கணக்குகள் Actuals 2024-2025    வரவு செலவு திட்ட மதிப்பீடு Budget Estimate 2025-2026    திருத்த திட்ட மதிப்பீடு Revised Estimate 2025-2026    வரவு செலவு திட்ட மதிப்பீடு Budget Estimate 2026-2027
+(ரூபாய் ஆயிரத்தில்) (Rs. in Thousand)
+
+341-10-04-01 to 341-20-01-02    பிடித்தங்கள் RECOVERIES வைப்புத் தொகை Deposits    4119717    2200000    4500000    5000000
+-    மொத்தம் - பிடித்தங்கள் TOTAL = RECOVERIES    4119717    2200000    4500000    5000000
+341-10-04-01 to 341-20-01-02    செலவினங்கள் OUT - GOINGS வைப்புத் தொகை Deposits    1087954    300000    250000    300000
+-    மொத்தம் - செலவினங்கள் TOTAL = OUT - GOINGS    1087954    300000    250000    300000
+
+131"
+2026_27,gcc_budget_2026_27_budget_at_a_glance,136,"*   Task: Extract table data and text from a scanned budget page.
+*   Strict Rules: No explanations, no summaries, no markdown, no commentary, preserve rows/columns, preserve numbers exactly, return clean structured text.
+
+*   Header 1: கணக்கு எண் ACCOUNT NUMBER (II)
+*   Header 2: கணக்கு தலைப்பு Account Head
+*   Header 3: கணக்குகள் Actuals 2024-2025
+*   Header 4: வரவு செலவு திட்ட மதிப்பீடு Budget Estimate 2025-2026
+*   Header 5: திருத்த திட்ட மதிப்பீடு Revised Estimate 2025-2026
+*   Header 6: வரவு செலவு திட்ட மதிப்பீடு Budget Estimate 2026-2027
+
+*   Section Title: வருவாய் கணக்கு - செலவு REVENUE - EXPENDITURE
+
+*   Row 1:
+*   Col 1: 210-10-01-01 to 210-40-08-00
+*   Col 2: பணியாளர் செலவினம் ESTABLISHMENT EXPENSES
+*   Col 3: 18448570
+*   Col 4: 22322137
+*   Col 5: 22582186
+*   Col 6: 24374008
+
+*   Row 2:
+*   Col 1: 220-10-01-00 to 220-80-04-00
+*   Col 2: அலுவலக செலவுகள் ADMINISTRATIVE EXPENSES
+*   Col 3: 2823637
+*   Col 4: 2970157
+*   Col 5: 3297313
+*   Col 6: 3282100
+
+*   Row 3:
+*   Col 1: 230-10-00-00 to 230-80-07-00
+*   Col 2: இயக்குதல் மற்றும் பராமரிப்பு செலவினங்கள் OPERATION AND MAINTENANCE EXPENSES
+*   Col 3: 17987408
+*   Col 4: 18644372
+*   Col 5: 25037210
+*   Col 6: 22326963
+
+*   Row 4:
+*   Col 1: 240-10-11-00 to 240-80-02-00
+*   Col 2: வட்டி மற்றும் இதர நிதி செலவினங்கள் INTEREST AND FINANCE CHARGES
+*   Col 3: 810642
+*   Col 4: 676500
+*   Col 5: 741100
+*   Col 6: 952000
+
+*   Row 5:
+*   Col 1: 250-10-01-00 to 250-30-03-00
+*   Col 2: திட்டச் செலவினங்கள் PROGRAMME EXPENSES
+*   Col 3: 31385
+*   Col 4: 75174
+*   Col 5: 306399
+*   Col 6: 298277
+
+*   Row 6:
+*   Col 1: 271-50-00-00 to 271-90-04-00
+*   Col 2: ஏனைய செலவினங்கள் MISCELLANEOUS EXPENSES
+*   Col 3: 781467
+*   Col 4: 250019
+*   Col 5: 776347
+*   Col 6: 250024
+
+*   Row 7:
+*   Col 1: 272-20-00-00 to 272-90-00-00
+*   Col 2: தேய்மானம் DEPRECIATION
+*   Col 3: 11711975
+*   Col 4: 12624114
+*   Col 5: 12190375
+*   Col 6: 12620995
+
+*   Row 8 (Total):
+*   Col 1: [blank]
+*   Col 2: மொத்த செலவு TOTAL EXPENDITURE
+*   Col 3: 52595084
+*   Col 4: 57562473
+*   Col 5: 64930930
+*   Col 6: 64104367
+
+*   Row 9 (Closing):
+*   Col 1: [blank]
+*   Col 2: முடிவு இருப்பு - பற்றாக்குறை CLOSING BALANCE - DEFICIT
+*   Col 3: -11479972
+*   Col 4: -11645918
+*   Col 5: -14900295
+*   Col 6: -8834216
+
+*   Page Number: 134
+
+*   No markdown (no `|`, no `-`, no `**`).
+*   Preserve structure using tabs or spaces.
+*   No commentary.
+
+*   *Self-Correction during formatting:* The user said ""no markdown"", ""preserve rows and columns"". I will use a tab-separated or plain-text column layout.
+
+Drafting the output:
+கணக்கு எண் ACCOUNT NUMBER (II)	கணக்கு தலைப்பு Account Head	கணக்குகள் Actuals 2024-2025	வரவு செலவு திட்ட மதிப்பீடு Budget Estimate 2025-2026	திருத்த திட்ட மதிப்பீடு Revised Estimate 2025-2026	வரவு செலவு திட்ட மதிப்பீடு Budget Estimate 2026-2027
+
+வருவாய் கணக்கு - செலவு REVENUE - EXPENDITURE
+
+210-10-01-01 to 210-40-08-00	பணியாளர் செலவினம் ESTABLISHMENT EXPENSES	18448570	22322137	22582186	24374008
+220-10-01-00 to 220-80-04-00	அலுவலக செலவுகள் ADMINISTRATIVE EXPENSES	2823637	2970157	3297313	3282100
+230-10-00-00 to 230-80-07-00	இயக்குதல் மற்றும் பராமரிப்பு செலவினங்கள் OPERATION AND MAINTENANCE EXPENSES	17987408	18644372	25037210	22326963
+240-10-11-00 to 240-80-02-00	வட்டி மற்றும் இதர நிதி செலவினங்கள் INTEREST AND FINANCE CHARGES	810642	676500	741100	952000
+250-10-01-00 to 250-30-03-00	திட்டச் செலவினங்கள் PROGRAMME EXPENSES	31385	75174	306399	298277
+271-50-00-00 to 271-90-04-00	ஏனைய செலவினங்கள் MISCELLANEOUS EXPENSES	781467	250019	776347	250024
+272-20-00-00 to 272-90-00-00	தேய்மானம் DEPRECIATION	11711975	12624114	12190375	12620995
+
+மொத்த செலவு TOTAL EXPENDITURE	52595084	57562473	64930930	64104367
+முடிவு இருப்பு - பற்றாக்குறை CLOSING BALANCE - DEFICIT	-11479972	-11645918	-14900295	-8834216
+
+134
+
+*Check Constraints:*
+- No explanations? Yes.
+- No summaries? Yes.
+- No markdown? Yes.
+- No commentary? Yes.
+- Preserve rows and columns? Yes.
+- Preserve numbers exactly? Yes.
+- Clean structured text? Yes.
+கணக்கு எண் ACCOUNT NUMBER (II)	கணக்கு தலைப்பு Account Head	கணக்குகள் Actuals 2024-2025	வரவு செலவு திட்ட மதிப்பீடு Budget Estimate 2025-2026	திருத்த திட்ட மதிப்பீடு Revised Estimate 2025-2026	வரவு செலவு திட்ட மதிப்பீடு Budget Estimate 2026-2027
+
+வருவாய் கணக்கு - செலவு REVENUE - EXPENDITURE
+
+210-10-01-01 to 210-40-08-00	பணியாளர் செலவினம் ESTABLISHMENT EXPENSES	18448570	22322137	22582186	24374008
+220-10-01-00 to 220-80-04-00	அலுவலக செலவுகள் ADMINISTRATIVE EXPENSES	2823637	2970157	3297313	3282100
+230-10-00-00 to 230-80-07-00	இயக்குதல் மற்றும் பராமரிப்பு செலவினங்கள் OPERATION AND MAINTENANCE EXPENSES	17987408	18644372	25037210	22326963
+240-10-11-00 to 240-80-02-00	வட்டி மற்றும் இதர நிதி செலவினங்கள் INTEREST AND FINANCE CHARGES	810642	676500	741100	952000
+250-10-01-00 to 250-30-03-00	திட்டச் செலவினங்கள் PROGRAMME EXPENSES	31385	75174	306399	298277
+271-50-00-00 to 271-90-04-00	ஏனைய செலவினங்கள் MISCELLANEOUS EXPENSES	781467	250019	776347	250024
+272-20-00-00 to 272-90-00-00	தேய்மானம் DEPRECIATION	11711975	12624114	12190375	12620995
+
+மொத்த செலவு TOTAL EXPENDITURE		52595084	57562473	64930930	64104367
+முடிவு இருப்பு - பற்றாக்குறை CLOSING BALANCE - DEFICIT		-11479972	-11645918	-14900295	-8834216
+
+134"

@@ -1,0 +1,39 @@
+gov_level,fiscal_year,sector,amount_crore,row_text,source_file,description
+corporation,2021-22,other,1402.717,ESTABLISHMENT EXPENSES I-10,chennai_budget_all_csvs/chennai_budget_2026_27_department_wise_expenditure.csv,ESTABLISHMENT EXPENSES I-10
+corporation,2021-22,other,47.3407,ADMINISTRATIVE EXPENSES I-11,chennai_budget_all_csvs/chennai_budget_2026_27_department_wise_expenditure.csv,ADMINISTRATIVE EXPENSES I-11
+corporation,2021-22,infrastructure,1228.4373,OPERATION AND MAINTENANCE EXPENSES I-12,chennai_budget_all_csvs/chennai_budget_2026_27_department_wise_expenditure.csv,OPERATION AND MAINTENANCE EXPENSES I-12
+corporation,2021-22,other,151.9882,INTEREST AND FINANCE CHARGES I-13,chennai_budget_all_csvs/chennai_budget_2026_27_department_wise_expenditure.csv,INTEREST AND FINANCE CHARGES I-13
+corporation,2021-22,other,9.547,PROGRAMME EXPENSES I-14,chennai_budget_all_csvs/chennai_budget_2026_27_department_wise_expenditure.csv,PROGRAMME EXPENSES I-14
+corporation,2021-22,other,4.0627,MISCELLANEOUS EXPENSES I-15,chennai_budget_all_csvs/chennai_budget_2026_27_department_wise_expenditure.csv,MISCELLANEOUS EXPENSES I-15
+corporation,2021-22,other,995.5174,DEPRECIATION I-16,chennai_budget_all_csvs/chennai_budget_2026_27_department_wise_expenditure.csv,DEPRECIATION I-16
+corporation,2021-22,other,0.3073,OTHER EXPENSES I-17,chennai_budget_all_csvs/chennai_budget_2026_27_department_wise_expenditure.csv,OTHER EXPENSES I-17
+corporation,2022-23,other,1562.2128,ESTABLISHMENT EXPENSES I-10,chennai_budget_all_csvs/chennai_budget_2026_27_department_wise_expenditure.csv,ESTABLISHMENT EXPENSES I-10
+corporation,2022-23,other,125.941,ADMINISTRATIVE EXPENSES I-11,chennai_budget_all_csvs/chennai_budget_2026_27_department_wise_expenditure.csv,ADMINISTRATIVE EXPENSES I-11
+corporation,2022-23,infrastructure,1333.5873,OPERATION AND MAINTENANCE EXPENSES I-12,chennai_budget_all_csvs/chennai_budget_2026_27_department_wise_expenditure.csv,OPERATION AND MAINTENANCE EXPENSES I-12
+corporation,2022-23,other,145.2211,INTEREST AND FINANCE CHARGES I-13,chennai_budget_all_csvs/chennai_budget_2026_27_department_wise_expenditure.csv,INTEREST AND FINANCE CHARGES I-13
+corporation,2022-23,other,21.2707,PROGRAMME EXPENSES I-14,chennai_budget_all_csvs/chennai_budget_2026_27_department_wise_expenditure.csv,PROGRAMME EXPENSES I-14
+corporation,2022-23,other,42.8644,MISCELLANEOUS EXPENSES I-15,chennai_budget_all_csvs/chennai_budget_2026_27_department_wise_expenditure.csv,MISCELLANEOUS EXPENSES I-15
+corporation,2022-23,other,1086.4266,DEPRECIATION I-16,chennai_budget_all_csvs/chennai_budget_2026_27_department_wise_expenditure.csv,DEPRECIATION I-16
+corporation,2022-23,other,0.3331,OTHER EXPENSES I-17,chennai_budget_all_csvs/chennai_budget_2026_27_department_wise_expenditure.csv,OTHER EXPENSES I-17
+corporation,2023-24,other,1705.5269,ESTABLISHMENT EXPENSES I-10,chennai_budget_all_csvs/chennai_budget_2026_27_department_wise_expenditure.csv,ESTABLISHMENT EXPENSES I-10
+corporation,2023-24,other,223.5914,ADMINISTRATIVE EXPENSES I-11,chennai_budget_all_csvs/chennai_budget_2026_27_department_wise_expenditure.csv,ADMINISTRATIVE EXPENSES I-11
+corporation,2023-24,infrastructure,1342.6809,OPERATION AND MAINTENANCE EXPENSES I-12,chennai_budget_all_csvs/chennai_budget_2026_27_department_wise_expenditure.csv,OPERATION AND MAINTENANCE EXPENSES I-12
+corporation,2023-24,other,110.0108,INTEREST AND FINANCE CHARGES I-13,chennai_budget_all_csvs/chennai_budget_2026_27_department_wise_expenditure.csv,INTEREST AND FINANCE CHARGES I-13
+corporation,2023-24,other,3.3478,PROGRAMME EXPENSES I-14,chennai_budget_all_csvs/chennai_budget_2026_27_department_wise_expenditure.csv,PROGRAMME EXPENSES I-14
+corporation,2023-24,other,21.6412,MISCELLANEOUS EXPENSES I-15,chennai_budget_all_csvs/chennai_budget_2026_27_department_wise_expenditure.csv,MISCELLANEOUS EXPENSES I-15
+corporation,2023-24,other,1155.7049,DEPRECIATION I-16,chennai_budget_all_csvs/chennai_budget_2026_27_department_wise_expenditure.csv,DEPRECIATION I-16
+corporation,2023-24,other,0.0,OTHER EXPENSES I-17,chennai_budget_all_csvs/chennai_budget_2026_27_department_wise_expenditure.csv,OTHER EXPENSES I-17
+corporation,2024-25,other,4727.12,Revenue Expenditure,chennai_budget_all_csvs/chennai_budget_2026_27_department_wise_expenditure.csv,Revenue Expenditure
+corporation,2024-25,infrastructure,3140.58,Capital Expenditure,chennai_budget_all_csvs/chennai_budget_2026_27_department_wise_expenditure.csv,Capital Expenditure
+corporation,2024-25,other,217.24,Revenue Advances Out-Goings,chennai_budget_all_csvs/chennai_budget_2026_27_department_wise_expenditure.csv,Revenue Advances Out-Goings
+corporation,2024-25,infrastructure,28.0,Capital Advances Out-Goings,chennai_budget_all_csvs/chennai_budget_2026_27_department_wise_expenditure.csv,Capital Advances Out-Goings
+corporation,2024-25,infrastructure,25.0,Capital Advances Out-Goings,chennai_budget_all_csvs/chennai_budget_2026_27_department_wise_expenditure.csv,Capital Advances Out-Goings
+corporation,2025-26,other,233.24,Revenue Advances Out-Goings,chennai_budget_all_csvs/chennai_budget_2026_27_department_wise_expenditure.csv,Revenue Advances Out-Goings
+corporation,2025-26,infrastructure,16.0,Capital Advances Out-Goings,chennai_budget_all_csvs/chennai_budget_2026_27_department_wise_expenditure.csv,Capital Advances Out-Goings
+corporation,2025-26,other,5214.09,Revenue Expenditure,chennai_budget_all_csvs/chennai_budget_2026_27_department_wise_expenditure.csv,Revenue Expenditure
+corporation,2026-27,other,6146.29,Revenue Expenditure,chennai_budget_all_csvs/chennai_budget_2026_27_department_wise_expenditure.csv,Revenue Expenditure
+corporation,2026-27,infrastructure,2754.05,Capital Expenditure,chennai_budget_all_csvs/chennai_budget_2026_27_department_wise_expenditure.csv,Capital Expenditure
+corporation,2026-27,other,270.34,Revenue Advances Out-Goings,chennai_budget_all_csvs/chennai_budget_2026_27_department_wise_expenditure.csv,Revenue Advances Out-Goings
+corporation,2026-27,infrastructure,8.0,Capital Advances Out-Goings,chennai_budget_all_csvs/chennai_budget_2026_27_department_wise_expenditure.csv,Capital Advances Out-Goings
+corporation,2026-27,infrastructure,30.0,Capital Advances Out-Goings,chennai_budget_all_csvs/chennai_budget_2026_27_department_wise_expenditure.csv,Capital Advances Out-Goings
+corporation,2025-26,infrastructure,3190.61,Capital Expenditure,chennai_budget_all_csvs/chennai_budget_2026_27_department_wise_expenditure.csv,Capital Expenditure

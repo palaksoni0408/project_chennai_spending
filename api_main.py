@@ -153,20 +153,10 @@ def apply_filters(
 
 def aggregate_timeseries(df: pd.DataFrame) -> pd.DataFrame:
     """
-    Build yearly timeseries with a robust aggregation for corporation rows.
-
-    Corporation extracts contain many OCR/account-code artifacts that can flatten
-    or distort trends. We remove rows with long numeric account identifiers and
-    trim the top 1% within each year before summing.
+    Build yearly timeseries by summing amount_crore_viz per fiscal_year and gov_level.
     """
     rows: list[dict] = []
-    for (fiscal_year, gov_level), grp in df.groupby(["fiscal_year", "gov_level"], sort=False):
-        g = grp.copy()
-        if str(gov_level).lower() == "corporation":
-            g = g[~g["row_text"].str.contains(r"\d{9,}", regex=True, na=False)]
-            if not g.empty:
-                cap = float(g["amount_crore_viz"].quantile(0.99))
-                g = g[g["amount_crore_viz"] <= cap]
+    for (fiscal_year, gov_level), g in df.groupby(["fiscal_year", "gov_level"]):
         rows.append(
             {
                 "fiscal_year": fiscal_year,

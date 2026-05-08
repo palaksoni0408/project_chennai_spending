@@ -7,11 +7,7 @@
 
 ## Tools used
 
-### Data extraction and OCR
-- `camelot` - table extraction from text-based PDFs
-- `pdfplumber` - fallback table extraction for difficult layouts
-- `pytesseract` + Tesseract OCR engine - OCR for scanned/image-based pages
-- `PyMuPDF (fitz)` - PDF rendering and page-level processing
+c
 
 ### Data processing and analysis
 - `pandas` - cleaning, transformations, aggregation, CSV outputs
